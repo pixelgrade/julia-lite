@@ -1,0 +1,65 @@
+$sidebar-width: 300px !default;
+
+.entry-content,
+.entry-footer,
+.entry-aside,
+.comments-area {
+
+  @include above(lap) {
+
+    .entry-image--portrait.has-sidebar & {
+      padding-right: 4rem;
+    }
+
+    .entry-image--portrait.has-sidebar.u-widget-title-sideways & {
+      padding-right: 6.5rem;
+    }
+  }
+}
+
+.single.has-sidebar {
+
+  @include above(lap) {
+
+    &.entry-image--landscape {
+
+      .entry-thumbnail,
+      .entry-content,
+      .entry-footer,
+      .entry-aside,
+      .comments-area {
+        overflow: hidden;
+      }
+    }
+
+    &.entry-image--portrait {
+
+      .entry-content,
+      .entry-footer,
+      .entry-aside,
+      .comments-area {
+        margin-right: $sidebar-width;
+      }
+    }
+  }
+
+  @media not screen and (min-width: 1124px) {
+    .entry-aside,
+    .entry-footer,
+    .comments-area {
+      padding-right: 0;
+    }
+  }
+}
+
+// Sidebar
+.widget-area--post {
+  @include above(lap) {
+    width: $sidebar-width;
+  }
+
+  @include below(lap) {
+    position: static !important;
+    float: none !important;
+  }
+}

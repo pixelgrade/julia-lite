@@ -1,0 +1,27 @@
+
+@media screen and (min-width: 900px) {
+    .u-hidden-desk {
+        display: none;
+    }
+}
+
+@media not screen and (min-width: 900px) {
+    .u-visible-desk {
+        display: none;
+    }
+}
+
+@each $name, $value in $breakpoints {
+
+	@include below( $name ) {
+		.u-mq-above-#{$name} {
+			display: none;
+		}
+	}
+
+	@include above( $name ) {
+		.u-mq-below-#{$name} {
+			display: none;
+		}
+	}
+}

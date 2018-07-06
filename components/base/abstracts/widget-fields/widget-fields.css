@@ -1,0 +1,38 @@
+.pixelgrade_image_field input.button {
+	height: 34px;
+	line-height: 1;
+	margin-top: 15px;
+	width: 100%;
+}
+
+.pixelgrade_image_preview .aligncenter {
+	display: block;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+.pixelgrade_image_preview {
+	max-height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+
+.pixelgrade_image_preview img {
+	height: auto;
+	margin: 10px 0;
+	max-width: 100%;
+}
+
+.pixelgrade_image_preview .clear-image {
+	position: absolute;
+	right: 5px;
+	top: 15px;
+}
+
+.pixelgrade_image_preview.no-image .clear-image {
+	display: none;
+}
+
+.pixelgrade_image_preview .clear-image:hover {
+	cursor: pointer;
+}

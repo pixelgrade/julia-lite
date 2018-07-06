@@ -1,0 +1,99 @@
+// Instagram Widget
+
+#sb_instagram {
+    display: flex;
+    flex-wrap: wrap;
+
+    #sbi_images {
+        @include spacing(margin-left, -0.5rem);
+        @include spacing(margin-right, -0.5rem);
+        @include spacing(margin-bottom, 0.5rem);
+
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1 1 100%;
+
+        padding: 0 !important;
+
+        .sbi_item {
+            padding: 7px !important;
+        }
+    }
+
+    #sbi_load {
+        flex: 1 1 100%;
+
+        .sbi_load_btn,
+        .sbi_follow_btn, .sbi_follow_btn a {
+            display: block;
+            max-width: 300px;
+
+            margin: auto;
+        }
+
+        .sbi_load_btn,
+        .sbi_follow_btn a {
+            @include button;
+
+            margin-bottom: 14px !important;
+            border-radius: 0;
+        }
+    }
+}
+
+.widget--full {
+    #sb_instagram {
+        #sbi_images {
+            @include spacing(margin-bottom, 2rem);
+        }
+    }
+}
+
+// Pinterest Widget
+.pw-widget {
+    > span {
+        box-shadow: none !important;
+        background: none !important;
+
+        > span[class$="ft"] {
+            > span[class$="button"] {
+                @include button;
+
+                display: block;
+                max-width: 300px;
+                height: 45px !important;
+                margin: auto;
+                padding: 12px 28px !important;
+
+                border-radius: 0 !important;
+                background: #000 !important;
+
+                > span[class$="label"] {
+                    height: 100%;
+                }
+
+                span[class$="string"],
+                span[class$="logo"] {
+                    height: 43px !important;
+                    line-height: 43px !important;
+                    color: #fff !important;
+                    font-size: 16px !important;
+                }
+            }
+        }
+    }
+}
+
+.pw-board-widget,
+.pw-profile-widget {
+    > span {
+        max-width: none !important;
+        width: 100% !important;
+    }
+}
+
+.pw-pin-widget {
+    > span {
+        max-width: 300px !important;
+    }
+}

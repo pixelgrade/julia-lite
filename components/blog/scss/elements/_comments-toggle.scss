@@ -1,0 +1,46 @@
+.c-comments-toggle__checkbox {
+	display: none;
+
+	&:not(:checked) {
+
+		~ .comment-list,
+		~ .comment-respond,
+		~ .no-comments {
+			display: none;
+		}
+
+		~ .c-comments-toggle__label .c-comments-toggle__text:after {
+			transform: scaleY(-1) translateY(-3px);
+		}
+	}
+}
+
+.c-comments-toggle__label {
+	display: block;
+}
+
+.c-comments-toggle__icon {
+	display: inline-block;
+	vertical-align: middle;
+
+	margin-right: 10px;
+
+	svg {
+		display: block;
+	}
+}
+
+.c-comments-toggle__text {
+
+	&:after {
+		content: "";
+
+		display: inline-block;
+		border: 5px solid transparent;
+		border-bottom-color: currentColor;
+		margin-left: 10px;
+
+		transform: translateY(-3px);
+		backface-visibility: hidden;
+	}
+}

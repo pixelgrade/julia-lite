@@ -1,0 +1,28 @@
+blockquote {
+  position: relative;
+  @include spacing(padding, 4rem);
+  background: $header-background-color;
+
+  &:not(:first-child) {
+    @include spacing(margin-top, 3rem);
+  }
+
+  &:not(:last-child) {
+    @include spacing(margin-bottom, 3rem);
+  }
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    content: '\201C';
+    font-size: 200px;
+    line-height: 200px;
+    color: $content-background-color;
+    font-weight: 700;
+  }
+
+  > * {
+    position: relative;
+  }
+}

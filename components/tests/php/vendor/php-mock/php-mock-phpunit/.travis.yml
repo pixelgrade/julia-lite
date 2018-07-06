@@ -1,0 +1,48 @@
+language: php
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+env:
+  - PHPUNIT_VERSION=dev-master
+  - PHPUNIT_VERSION=~6.0.0
+  - PHPUNIT_VERSION=~6.1.0
+  - PHPUNIT_VERSION=~6.2.0
+  - PHPUNIT_VERSION=~6.3.0
+  - PHPUNIT_VERSION=~6.4.0
+  - PHPUNIT_VERSION=~6.5.0
+  - PHPUNIT_VERSION=~7.0.0
+  - PHPUNIT_VERSION=~7.1.0
+
+php:
+  - 7.2
+  - 7.1
+  - 7
+  - hhvm
+
+matrix:
+  fast_finish: true
+  exclude:
+    - php: 7
+      env: PHPUNIT_VERSION=dev-master
+    - php: 7
+      env: PHPUNIT_VERSION=~7.1.0
+    - php: 7
+      env: PHPUNIT_VERSION=~7.0.0
+  allow_failures:
+    - php: hhvm
+    - env: PHPUNIT_VERSION=dev-master
+
+install:
+  - composer require phpunit/phpunit:${PHPUNIT_VERSION}
+  - composer require squizlabs/php_codesniffer
+  - composer require phpmd/phpmd
+
+script:
+  - vendor/bin/phpunit
+  - vendor/bin/phpcs --standard=PSR2 classes/ tests/
+  - vendor/bin/phpmd classes/ text cleancode,codesize,controversial,design,naming,unusedcode
+

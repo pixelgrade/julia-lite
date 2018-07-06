@@ -1,0 +1,50 @@
+.site-title {
+  // @include fontsize(140px);
+  // Temporary Overwrite Typeline Config
+  // FitText plugin might work well in this case
+  font-size: 100px;
+
+  @include above(small) {
+    font-size: 140px;
+  }
+
+  &:before,
+  &:after {
+    content: none;
+  }
+}
+
+// This is controlled through Site Title font option in Customify
+.site-title.h1,
+h1.site-title {
+  // @include leading-map($logo-font);
+
+  // color: $theme-text-color;
+  // text-transform: none;
+  // letter-spacing: 0;
+}
+
+.site-description {
+  position: relative;
+  top: -1px;
+
+  margin-left: auto;
+  margin-right: auto;
+  @include spacing(margin-top, 1rem);
+  padding: 0 10px;
+  border-radius: 10px;
+
+  @include fontsize(14px);
+  line-height: 1;
+  font-family: $theme-body-font-family-alt;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  background: $header-background-color;
+  mix-blend-mode: difference;
+
+  @include below( 'lap' ) {
+    display: none;
+  }
+}

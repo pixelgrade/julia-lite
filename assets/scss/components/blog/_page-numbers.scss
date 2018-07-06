@@ -1,0 +1,58 @@
+ul.page-numbers {
+  list-style: none;
+  padding-left: 0;
+
+  @include spacing(margin-top, 5.5rem);
+  @include spacing(margin-left, -1rem);
+
+  // @todo add "h5" class to the element for better consistency
+  //@extend .h5 !optional;
+
+  display: flex;
+  align-items: center;
+  color: inherit;
+
+  & > * {
+    @include spacing(padding-left, 1rem);
+  }
+
+  &.page-numbers li {
+    margin-bottom: 0;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:before,
+    &:after {
+      content: none;
+    }
+  }
+
+  .prev {
+    @include spacing(padding-right, 3rem);
+  }
+
+  .next {
+    @include spacing(padding-left, 3rem);
+  }
+
+  .next,
+  .prev {
+    // @todo add "h3" class to the element for better consistency
+    @extend .h3 !optional;
+
+    text-transform: none;
+
+    &:after {
+      padding: 0;
+    }
+  }
+}
+
+ul.page-numbers.page-numbers a {
+  &:before,
+  &:after {
+    content: none;
+  }
+}

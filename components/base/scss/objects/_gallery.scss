@@ -1,0 +1,408 @@
+// Mosaic Gallery
+// ------------------------------------------------------------
+@mixin gallery-mosaic {
+
+	@each $name, $value in $breakpoints {
+
+		@include above($name) {
+
+			&.o-grid--2col-\@#{$name} > .c-gallery__item:nth-of-type(n) {
+				width: percentage(1/2);
+			}
+
+			&.o-grid--2col-\@#{$name} > .c-gallery__item:nth-of-type(3n+1) {
+				width: 100%;
+			}
+
+			&.o-grid--3col-\@#{$name} > .c-gallery__item:nth-of-type(n) {
+				width: percentage(1/3);
+			}
+
+			&.o-grid--3col-\@#{$name} > .c-gallery__item:nth-of-type(5n+1),
+			&.o-grid--3col-\@#{$name} > .c-gallery__item:nth-of-type(5n+2) {
+				width: percentage(1/2);
+			}
+
+			&.o-grid--4col-\@#{$name} > .c-gallery__item:nth-of-type(n) {
+				width: percentage(1/4);
+			}
+
+			&.o-grid--4col-\@#{$name} > .c-gallery__item:nth-of-type(7n+1),
+			&.o-grid--4col-\@#{$name} > .c-gallery__item:nth-of-type(7n+2),
+			&.o-grid--4col-\@#{$name} > .c-gallery__item:nth-of-type(7n+3) {
+				width: percentage(1/3);
+			}
+
+			&.o-grid--5col-\@#{$name} > .c-gallery__item:nth-of-type(n) {
+				width: percentage(1/5);
+			}
+
+			&.o-grid--5col-\@#{$name} > .c-gallery__item:nth-of-type(9n+1),
+			&.o-grid--5col-\@#{$name} > .c-gallery__item:nth-of-type(9n+2),
+			&.o-grid--5col-\@#{$name} > .c-gallery__item:nth-of-type(9n+3),
+			&.o-grid--5col-\@#{$name} > .c-gallery__item:nth-of-type(9n+4) {
+				width: percentage(1/4);
+			}
+
+			&.o-grid--6col-\@#{$name} > .c-gallery__item:nth-of-type(n) {
+				width: percentage(1/6);
+			}
+
+			&.o-grid--6col-\@#{$name} > .c-gallery__item:nth-of-type(11n+1),
+			&.o-grid--6col-\@#{$name} > .c-gallery__item:nth-of-type(11n+2),
+			&.o-grid--6col-\@#{$name} > .c-gallery__item:nth-of-type(11n+3),
+			&.o-grid--6col-\@#{$name} > .c-gallery__item:nth-of-type(11n+4),
+			&.o-grid--6col-\@#{$name} > .c-gallery__item:nth-of-type(11n+5) {
+				width: percentage(1/5);
+			}
+		}
+	}
+}
+
+
+
+// Cropped Gallery
+// ------------------------------------------------------------
+// galleries with hard cropped images (regular, packed, mosaic)
+
+@mixin gallery-cropped {
+
+	.c-card__frame img {
+		@include image-fill;
+	}
+}
+
+@mixin gallery-masonry {
+
+  .c-card__frame {
+    padding-top: 0;
+  }
+
+  :not(.has-post-thumbnail) > .c-card .c-card__content {
+    margin-top: 0;
+  }
+}
+
+
+
+// Packed Gallery
+// ------------------------------------------------------------
+
+@mixin gallery-packed {
+	// Firefox cannot handle padding-top properly for flex children
+	display: block;
+
+	@include above(small) {
+
+		.c-card {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		.c-gallery__item {
+			position: relative;
+		}
+
+		.c-card__frame,
+		.c-card__aside {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+    .c-card__frame {
+      padding-top: 0;
+    }
+
+		.c-card__content {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+      z-index: 10; // create a stacking context for the card content to be either above or below other elements
+		}
+	}
+
+	@include below(small) {
+
+		.c-card {
+			position: relative !important;
+			left: 0 !important;
+		}
+
+		.c-gallery__item {
+			padding-top: 0 !important;
+		}
+
+		.c-card__frame {
+
+			img {
+				position: static;
+			}
+		}
+	}
+
+	@each $name, $value in $breakpoints {
+
+		@include above($name) {
+
+			&.o-grid--1col-\@#{$name} {
+				display: block;
+
+				.c-gallery__item {
+					padding-top: 0 !important;
+				}
+
+				.c-card__frame,
+				.c-card__frame img {
+					position: static;
+					height: auto;
+				}
+			}
+
+			@for $i from 2 through 9 {
+
+				&.o-grid--#{$i}col-\@#{$name} > .c-gallery__item--landscape,
+				&.o-grid--#{$i}col-\@#{$name} > .c-gallery__item--portrait.jetpack-portfolio-tag-featured {
+					width: percentage(2/$i);
+				}
+
+				&.o-grid--#{$i}col-\@#{$name} > .c-gallery__item--landscape.jetpack-portfolio-tag-featured {
+					width: percentage(min(4, $i)/$i);
+				}
+			}
+		}
+	}
+}
+
+@mixin gallery-stacked {
+	flex-direction: column;
+	align-items: center;
+	margin-right: 0;
+	text-align: center;
+
+	.c-gallery__item {
+		width: auto;
+		padding-right: 0;
+	}
+
+  @include below(lap) {
+    margin-left: 0;
+
+    .c-gallery__item {
+      width: 100%;
+    }
+  }
+}
+
+@each $name, $value in $breakpoints {
+
+	@include above($name) {
+
+		.o-grid--1col-\@#{$name} .c-gallery__item {
+			position: relative !important;
+			top: 0 !important;
+			left: 0 !important;
+		}
+	}
+}
+
+
+
+// Title Alignment
+// ------------------------------------------------------------
+
+.c-gallery--title-left {
+	text-align: left;
+}
+
+.c-gallery--title-center {
+	text-align: center;
+}
+
+.c-gallery--title-right {
+	text-align: right;
+}
+
+
+
+// Item Title Position
+// ------------------------------------------------------------
+
+@mixin gallery-title-above {
+
+	.c-card {
+		flex-direction: column-reverse;
+	}
+
+	.c-card__content {
+		top: auto;
+		bottom: 100%;
+
+		padding-top: 0;
+		@include spacing(padding-bottom, 2rem);
+	}
+}
+
+
+
+// Title Overlay Positioning
+// ------------------------------------------------------------
+
+@mixin gallery-title-overlay {
+
+	.c-card__content {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+
+		@include spacing(padding, 2rem);
+    overflow: hidden;
+
+		justify-content: center;
+		align-content: center;
+		align-items: center;
+		text-align: center;
+
+		transition: opacity $transition--macro $easeInOutCirc;
+		opacity: 0;
+
+    > * {
+      flex-shrink: 0;
+    }
+	}
+
+  article:not(.has-post-thumbnail) > .c-card .c-card__content {
+    opacity: 1;
+  }
+
+  .c-card__letter {
+    display: none;
+  }
+
+  // hotfix for julia#319
+  // remove hover animation on small devices
+  @include above(lap) {
+    .c-card:hover .c-card__content {
+      opacity: 1;
+    }
+  }
+}
+
+.c-gallery {
+	pointer-events: none;
+
+  > *,
+  .related-posts-container & {
+    pointer-events: auto;
+  }
+}
+
+.c-gallery--packed {
+	@include gallery-packed;
+}
+
+.c-gallery--cropped {
+	@include gallery-cropped;
+}
+
+.c-gallery--masonry {
+	@include gallery-masonry;
+}
+
+.c-gallery--mosaic {
+	@include gallery-mosaic;
+}
+
+.c-gallery--title-above {
+	@include gallery-title-above;
+}
+
+.c-gallery--title-overlay {
+	@include gallery-title-overlay;
+}
+
+[class*="c-gallery--title-top"] .c-card__content {
+  justify-content: flex-start;
+}
+
+[class*="c-gallery--title-bottom"] .c-card__content {
+  justify-content: flex-end;
+}
+
+[class*="c-gallery--title-middle"] .c-card__content {
+  justify-content: center;
+}
+
+[class*="c-gallery--title"][class*="-left"] {
+  .c-card__content {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .c-meta {
+    justify-content: flex-start;
+  }
+}
+
+[class*="c-gallery--title"][class*="-right"] {
+  .c-card__content {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .c-meta {
+    justify-content: flex-end;
+  }
+}
+
+[class*="c-gallery--title"][class*="-center"] {
+  .c-card__content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .c-meta {
+    justify-content: center;
+  }
+}
+
+@include below(small) {
+
+	.c-gallery__item {
+		width: 100%;
+	}
+
+	.c-gallery--packed {
+		height: auto !important;
+
+		.c-gallery__item,
+		.c-card__frame img {
+			position: static !important;
+		}
+	}
+}
+
+// Gallery Portfolio
+// ------------------------------------------------------------
+
+// @todo .c-card--portfolio
+.c-gallery--portfolio {
+
+	.c-card__title {
+		padding-top: 0;
+		order: -1;
+	}
+
+	.c-card__meta {
+		@include spacing(padding-top, .5rem)
+	}
+
+}

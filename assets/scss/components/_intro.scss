@@ -1,0 +1,11 @@
+.intro {
+  @include leading-map((
+    $typography-intro-font
+  ));
+}
+
+.intro.large {
+  @include leading-map((
+    $typography-intro-large-font
+  ));
+}

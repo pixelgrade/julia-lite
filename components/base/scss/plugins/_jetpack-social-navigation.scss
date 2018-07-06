@@ -1,0 +1,17 @@
+$jetpack-social-icons-size: 20px !default;
+$jetpack-social-icons-spacing: 2rem !default;
+
+[class].jetpack-social-navigation {
+
+  ul {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    @include fontsize($jetpack-social-icons-size);
+    @include spacing(margin-left, -$jetpack-social-icons-spacing);
+  }
+
+  li {
+    @include spacing(margin-left, $jetpack-social-icons-spacing);
+  }
+}

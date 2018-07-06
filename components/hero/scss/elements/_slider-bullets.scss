@@ -1,0 +1,35 @@
+.c-slider__bullets {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3000;
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+
+    list-style: none;
+    text-align: center;
+}
+
+.c-slider__bullet {
+    display: block;
+    height: 1em;
+    width: 1em;
+    margin: 0 0.5em;
+    padding: 0;
+    overflow: hidden;
+
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    background: transparent;
+
+    text-indent: 10em;
+
+    cursor: pointer;
+}
+
+.c-slider__bullet--active {
+    background-color: currentColor;
+}

@@ -1,0 +1,8 @@
+$typography-column-gap: 2rem !default;
+
+@include above(small) {
+	.twocolumn {
+		@include spacing(column-gap, $typography-column-gap);
+		column-count: 2;
+	}
+}

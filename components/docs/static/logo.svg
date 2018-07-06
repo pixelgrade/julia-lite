@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="480px" height="480px" viewBox="0 0 480 480" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="203.483167 140.112661 203.088115 195.652075 116.903729 240.710692 33.9117319 152.921697 36.1836179 97.6633325 108.329271 70.7473963"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <g id="Group" transform="translate(0.000000, 19.000000)">
+                <path d="M477.373389,298.369393 L477.480453,293.861794 L157.107138,82.3899323 L2.2761996,149.814914 L2.70009394,153.243458 L245.347497,438.837277 L477.373389,298.369393 Z" id="Combined-Shape" stroke="#FFFFFF" stroke-width="4"></path>
+                <polygon id="Combined-Shape" fill="#FFFFFF" points="359.317676 321.662644 251.574673 385.984187 250.955932 386.35357 134.42533 259.726045 134.42533 240.251795 223.161469 193.796574 359.166223 300.543451 359.317676 321.662644 359.166223 300.543451"></polygon>
+                <path d="M203.290914,167.141004 L203.483167,140.112661 L167.341586,113.766179 L168.029264,62.7500126 L197.008827,51 L259.589469,85.2021443 L260.949249,166.356538 L225.736097,184.47942 L203.290914,167.141004 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Combined-Shape" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <path d="M477.506177,163.712785 L477.506177,158.229958 L160.128428,2.86511036 L2.2920988,56.94351 L2.67819482,60.0663333 L248.559483,270.11183 L477.506177,163.712785 Z" id="Combined-Shape" stroke="#FFFFFF" stroke-width="4"></path>
+            </g>
+        </g>
+    </g>
+</svg>

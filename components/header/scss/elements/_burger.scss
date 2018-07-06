@@ -1,0 +1,78 @@
+$burger-width:                  19px                                           !default;
+$burger-height:                 16px                                           !default;
+$burger-line-width:             $burger-width                                  !default;
+$burger-line-height:            3px                                            !default;
+
+$burger-color:                  currentColor                                   !default;
+
+$burger-rotation:               45deg                                          !default;
+$burger-translateX:             0                                              !default;
+$burger-translateY:             ($burger-height - $burger-line-height) * 1em / ( 2 * $burger-width )     !default;
+
+$burger-transition-duration:    0.4s                                           !default;
+$burger-transition-function:    ease-in-out                                    !default;
+
+.c-burger {
+    position: relative;
+
+    display: block;
+
+    width: $burger-line-width * 1em / $burger-width;
+    margin-top: $burger-translateY;
+    margin-bottom: $burger-translateY;
+
+    font-size: $burger-width;
+}
+
+.c-burger__slice {
+    display: block;
+    width: $burger-line-width * 1em / $burger-width;
+    height: to-fixed($burger-line-height * 1em / $burger-width, 3);
+    background: $burger-color;
+}
+
+.c-burger__slice--top,
+.c-burger__slice--bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.c-burger__slice--top {
+    transform: translateY(-$burger-translateY);
+}
+
+.c-burger__slice--middle {
+
+}
+
+.c-burger__slice--bottom {
+    transform: translateY($burger-translateY);
+}
+
+/*
+Provides a simple transition where the slice in the middle fades out
+and the top and bottom ones rotate to form an X
+ */
+.c-burger--fade {
+
+    .c-burger__slice {
+        transition: all $burger-transition-duration $burger-transition-function;
+    }
+}
+
+.c-burger--close {
+    .c-burger__slice--top       { transform: rotate($burger-rotation); }
+    .c-burger__slice--middle    { opacity: 0; }
+    .c-burger__slice--bottom    { transform: rotate($burger-rotation * -1); }
+}
+
+.c-navbar__checkbox:checked ~ * .c-burger--fade {
+    @extend .c-burger--close;
+}
+
+@include above(small) {
+    .c-burger {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,313 @@
+// MAIN CONTENT
+// ========================================
+
+// Layout
+// ----------------------------------------
+$content-container-width: 1300px !default;
+$content-sides-spacing: 70px !default;
+$content-vertical-spacing: 60px !default;
+$content-width: 720px !default;
+$content-border-width: 0 !default;
+$content-border-color: transparent !default;
+
+// Colors
+// ----------------------------------------
+$page-title-color: #000000 !default;
+$body-text-color: #000000 !default;
+// @todo $body-underlined-links
+$h1-color: #000000 !default;
+$h2-color: #000000 !default;
+$h3-color: #000000 !default;
+$h4-color: #000000 !default;
+$h5-color: #000000 !default;
+$h6-color: #000000 !default;
+$content-background-color: #FFFFFF !default;
+
+// Fonts
+// ----------------------------------------
+$body-font: () !default;
+$page-title-font: () !default;
+$blockquote-font: () !default;
+
+$h1: () !default;
+$h2: () !default;
+$h3: () !default;
+$h4: () !default;
+$h5: () !default;
+$h6: () !default;
+
+
+
+.u-container-width {
+  max-width: $content-container-width;
+}
+
+.u-container-sides-spacing {
+  @include spacing(padding-left, $content-sides-spacing);
+  @include spacing(padding-right, $content-sides-spacing);
+}
+
+.mce-content-body {
+  @include spacing(margin-left, $content-sides-spacing);
+  @include spacing(margin-right, $content-sides-spacing);
+}
+
+.u-content-top-spacing {
+  @include spacing(padding-top, $content-vertical-spacing);
+}
+
+.u-content-bottom-spacing {
+  @include spacing(padding-bottom, $content-vertical-spacing);
+}
+
+.u-content-bottom-spacing + .u-content-top-spacing {
+  padding-top: 0;
+}
+
+.u-content-background {
+  background-color: $content-background-color;
+}
+
+#{$content-selector} {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: $content-width;
+
+  .full-width & {
+    max-width: none;
+  }
+}
+
+.site {
+  border: 0 solid transparent;
+}
+
+@if ( $content-border-width != 0 ) {
+  .site {
+    border-width: $content-border-width;
+    border-color: $content-border-color;
+  }
+}
+
+// just set the desired baseline unit here
+// so we can use rem units to multiply it
+html {
+  font-size: percentage($baseline-unit/16px);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  @include leading-map($body-font);
+  color: $body-text-color;
+}
+
+.h0 { @include leading-map($page-title-font) }
+.h1, h1 { @include leading-map($h1) }
+.h2, h2 { @include leading-map($h2) }
+.h3, h3 { @include leading-map($h3) }
+.h4, h4 { @include leading-map($h4) }
+.h5, h5 { @include leading-map($h5) }
+.h6, h6 { @include leading-map($h6) }
+
+.blockquote { @include leading-map($blockquote-font) }
+
+
+
+// BLOG GRID
+// ========================================
+
+// Layout
+// ----------------------------------------
+
+$blog-grid-width: 1300px !default;
+$blog-sides-spacing: 70px !default;
+
+// Items Grid
+$blog-grid-valid-layouts: regular mosaic packed masonry !default;
+$blog-grid-layout: packed !default;
+$blog-grid-packed-ratio: 2.275 !default;
+$blog-grid-aspect-ratio: 3/4 !default;
+$blog-grid-columns: 4 !default;
+$blog-grid-vertical-spacing: 150px !default;
+$blog-grid-horizontal-spacing: 40px !default;
+
+// Title
+$blog-content-position: below !default;
+$blog-content-alignment: top left !default;
+$blog-title-visibility: true !default;
+
+// Excerpt
+$blog-excerpt-visibility: true !default;
+
+// Colors
+// ----------------------------------------
+
+$blog-card-title-color: #000000 !default;
+$blog-primary-meta-color: #3B3B3B !default;
+$blog-secondary-meta-color: #828282 !default;
+$blog-thumbnail-background: #EEEEEE !default;
+
+// Thumbnail hover
+$blog-thumbnail-background-opacity: 0.5 !default;
+
+// Fonts
+// ----------------------------------------
+$blog-card-title-font: () !default;
+$blog-card-excerpt-font: () !default;
+$blog-card-meta-primary-font: () !default;
+$blog-card-meta-secondary-font: () !default;
+
+// ========================================
+
+
+
+
+.u-blog-grid-width {
+  max-width: $blog-grid-width;
+}
+
+.u-blog-sides-spacing {
+  @include spacing(padding-left, $blog-sides-spacing);
+  @include spacing(padding-right, $blog-sides-spacing);
+}
+
+@if ( null == index( $blog-grid-valid-layouts, $blog-grid-layout ) ) {
+  @warn "$blog-grid-layout should be one of: #{$blog-grid-valid-layouts}";
+  $blog-grid-layout: regular;
+}
+
+.c-gallery--blog {
+  @include spacing(margin-top, -$blog-grid-vertical-spacing);
+  @include spacing(margin-left, -$blog-grid-horizontal-spacing);
+
+  > * {
+    @include spacing(margin-top, $blog-grid-vertical-spacing);
+    @include spacing(padding-left, $blog-grid-horizontal-spacing);
+  }
+}
+
+.c-card__title {
+  color: $blog-card-title-color;
+  @include leading-map($blog-card-title-font);
+}
+
+.c-card__excerpt {
+  @include leading-map($blog-card-excerpt-font);
+}
+
+.c-meta__primary {
+  color: $blog-primary-meta-color;
+  @include leading-map($blog-card-meta-primary-font);
+}
+
+.c-meta__secondary {
+  color: $blog-secondary-meta-color;
+  @include leading-map($blog-card-meta-secondary-font);
+}
+
+.c-meta__separator {
+  color: $blog-secondary-meta-color;
+}
+
+.c-card__thumbnail-background {
+  background-color: $blog-thumbnail-background;
+}
+
+.no-customify .c-gallery--blog {
+  $blog-grid-columns-at-lap: if($blog-grid-columns >= 5, $blog-grid-columns - 1, $blog-grid-columns);
+  $blog-grid-columns-at-small: if($blog-grid-columns-at-lap >= 4, $blog-grid-columns-at-lap - 1, $blog-grid-columns-at-lap);
+
+  @if ($blog-title-visibility != true) {
+    .c-card__title {
+      display: none;
+    }
+  }
+
+  @if ($blog-excerpt-visibility != true) {
+    .c-card__excerpt {
+      display: none;
+    }
+  }
+
+  @if ($blog-content-position == above) {
+    @include gallery-title-above;
+  }
+
+  @if ($blog-content-position == overlay) {
+    @include gallery-title-overlay;
+  }
+
+  @if ( packed == $blog-grid-layout ) {
+    $typeline-points: map-get(map-get($typeline-config, spacings), points);
+
+    $normal: calc( #{percentage($blog-grid-packed-ratio / $blog-grid-columns)} - #{$blog-grid-vertical-spacing * $blog-grid-packed-ratio} );
+    $featured: calc( #{percentage(2 * $blog-grid-packed-ratio / $blog-grid-columns)} - #{$blog-grid-vertical-spacing * (2 * $blog-grid-packed-ratio - 1)} );
+
+    $factor-at-lap: ( getY( nth($typeline-points, 1), nth($typeline-points, 2), nth($typeline-points, 3), $blog-grid-vertical-spacing ) - 1 ) * 1 / 3 + 1;
+    $value-at-lap: round( $blog-grid-vertical-spacing / $factor-at-lap);
+    $normal-at-lap: calc( #{percentage($blog-grid-packed-ratio / $blog-grid-columns-at-lap)} - #{$value-at-lap * $blog-grid-packed-ratio} );
+    $featured-at-lap: calc( #{percentage(2 * $blog-grid-packed-ratio / $blog-grid-columns-at-lap)} - #{$value-at-lap * (2 * $blog-grid-packed-ratio - 1)} );
+
+    $factor-at-small: ( getY( nth($typeline-points, 1), nth($typeline-points, 2), nth($typeline-points, 3), $blog-grid-vertical-spacing ) - 1 ) * 2 / 3 + 1;
+    $value-at-small: round( $blog-grid-vertical-spacing / $factor-at-small );
+    $normal-at-small: calc( #{percentage($blog-grid-packed-ratio / $blog-grid-columns-at-small)} - #{$value-at-small * $blog-grid-packed-ratio} );
+    $featured-at-small: calc( #{percentage(2 * $blog-grid-packed-ratio / $blog-grid-columns-at-small)} - #{$value-at-small * (2 * $blog-grid-packed-ratio - 1)} );
+
+    @include gallery-cropped;
+    @include gallery-packed;
+
+    .c-gallery__item {
+
+      @include above(small) {
+        padding-top: $normal-at-small;
+      }
+
+      @include above(lap) {
+        padding-top: $normal-at-lap;
+      }
+
+      @include above(desk) {
+        padding-top: $normal;
+      }
+    }
+
+    .c-card {
+      @include spacing(left, $blog-grid-horizontal-spacing);
+    }
+  }
+
+  @if ( regular == $blog-grid-layout ) {
+    @include gallery-cropped;
+
+    .c-card__frame {
+      padding-top: percentage(1/$blog-grid-aspect-ratio);
+    }
+  }
+
+  @if ( mosaic == $blog-grid-layout ) {
+    @include gallery-cropped;
+    @include gallery-mosaic;
+
+    .c-card__frame {
+      padding-top: percentage(1/$blog-grid-aspect-ratio);
+    }
+  }
+}
+
+
+
+// Extras
+// ----------------------------------------
+$text-selection-color: #FFFFFF !default;
+$text-selection-background-color: #000000 !default;
+
+::selection {
+  background: $text-selection-background-color;
+  color: $text-selection-color;
+}
+
+::-moz-selection {
+  background: $text-selection-background-color;
+  color: $text-selection-color;
+}

@@ -1,0 +1,38 @@
+.search-form {
+  display: flex;
+  align-items: stretch;
+
+  > .search-submit {
+    @include button;
+    @include button-directional;
+    @include button-directional--right;
+    @include button-directional--submit;
+    flex-shrink: 0;
+
+    &[class] {
+      margin-bottom: 0;
+    }
+  }
+
+  :not(.widget--side) > & {
+
+    > .search-submit {
+      @include spacing(margin-left, 2rem);
+
+      &[class] {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .widget--side > & {
+    flex-wrap: wrap;
+
+    > .search-submit {
+      @include spacing(margin-top, 1rem);
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
+}

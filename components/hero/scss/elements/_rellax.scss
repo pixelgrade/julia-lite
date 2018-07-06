@@ -1,0 +1,27 @@
+[data-rellax] {
+    will-change: transform;
+}
+
+[data-rellax-container] {
+    overflow: hidden;
+
+    [data-rellax] {
+        opacity: 0;
+
+        &.rellax-active {
+            animation: fade-in .2s bezier(easeOutQuad) forwards;
+        }
+    }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.rellax-element.rellax-hidden {
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: none;
+}

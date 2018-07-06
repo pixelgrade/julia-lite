@@ -1,0 +1,70 @@
+// Category widget
+.widget_categories {
+
+	ul {
+		max-width: 100%;
+		margin: 0;
+    padding-left: 0;
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  li {
+    margin-bottom: 0;
+  }
+
+  .widget__title {
+    
+  }
+
+  // Full Width Area
+  // Main Area (Left from the Sidebar)
+	&.widget--full,
+	&.widget--content {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+    align-items: center;
+
+		@include spacing(padding-top, 1rem);
+		@include spacing(padding-bottom, 1rem);
+		border: solid currentColor;
+		border-width: 2px 0;
+
+		font-size: (18em/16);
+
+		.widget__title {
+      font-size: 100%; // Make it H4 size from H3
+      margin-bottom: 0;
+			@include spacing(padding, 1rem 2rem);
+		}
+
+    .children {
+      display: inline;
+    }
+
+		li {
+      display: inline;
+			@include spacing(padding, 0.5rem 1.5rem);
+    }
+
+    a {
+      color: inherit;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    form {
+			@include spacing(padding-left, 4rem);
+    }
+	}
+
+  &.dark {
+    border-top: 0;
+    border-bottom: 0;
+  }
+}

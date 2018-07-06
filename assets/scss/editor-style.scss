@@ -1,0 +1,27 @@
+@import "../../components/base/scss/defaults";
+
+@import "../../variations/julia/scss/settings";
+
+@import "typeline-config-editor";
+
+$editor-style: true;
+$content-wrapper-selector: 'html';
+$content-selector: '.mce-content-body > :not(.mceTemp)';
+
+@import "../../components/base/scss/editor-style";
+@import "../../components/featured-image/scss/editor-style";
+@import "../../components/footer/scss/editor-style";
+@import "../../components/gallery-settings/scss/editor-style";
+@import "../../components/header/scss/editor-style";
+@import "../../components/hero/scss/editor-style";
+@import "../../components/multipage/scss/editor-style";
+
+@import 'components/dropcap';
+@import 'components/intro';
+@import 'components/hr';
+@import 'components/link-arrow';
+
+._hero_content_description {
+    color: white;
+    padding-top: 50px;
+}

@@ -1,0 +1,139 @@
+$wp-align-image-vertical-padding: 4rem !default;
+$wp-align-image-horizontal-padding: 4rem !default;
+
+$wp-align-wrapped-image-vertical-padding: 3rem !default;
+$wp-align-wrapped-image-horizontal-padding: 3rem !default;
+
+$wp-align-image-size: 50% !default;
+
+$wp-align-caption-font: (
+  font-size: 14px,
+  spacing-top: 1rem
+) !default;
+
+p {
+	.alignleft {
+		margin-left: 0 !important;
+		@include spacing(margin-top, $wp-align-wrapped-image-vertical-padding);
+		@include spacing(margin-bottom, $wp-align-wrapped-image-vertical-padding);
+		@include spacing(margin-right, $wp-align-wrapped-image-horizontal-padding);
+	}
+
+	.alignright {
+		margin-right: 0 !important;
+		@include spacing(margin-top, $wp-align-wrapped-image-vertical-padding);
+		@include spacing(margin-bottom, $wp-align-wrapped-image-vertical-padding);
+		@include spacing(margin-left, $wp-align-wrapped-image-horizontal-padding);
+	}
+
+	.aligncenter,
+	.alignnone {
+
+	}
+
+	.alignleft,
+	.alignright,
+	.aligncenter,
+	.alignnone {
+		clear: none;
+	}
+
+	.alignnone {
+		display: inline-block;
+	}
+}
+
+// Images at the same level with paragraphs
+// <p>..</p>
+// <img>
+// <p>..</p>
+.alignleft,
+.alignright,
+.aligncenter,
+.alignnone {
+	@include spacing(margin-top, $wp-align-image-vertical-padding);
+	@include spacing(margin-bottom, $wp-align-image-vertical-padding);
+	max-width: 100%;
+
+	&, img {
+		display: block;
+	}
+}
+
+.alignnone,
+.aligncenter {
+    display: block;
+}
+
+.aligncenter {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.aligncenter,
+.alignnone {
+
+  // @todo test universal selector (* instead of p)
+	.entry-content & + p {
+		@include spacing(margin-top, $wp-align-image-vertical-padding);
+	}
+}
+
+.alignleft.alignleft,
+.alignright.alignright {
+	max-width: $wp-align-image-size;
+}
+
+.alignleft {
+	@include spacing(margin-right, $wp-align-image-horizontal-padding);
+	float: left;
+	clear: left;
+}
+
+.alignright {
+	@include spacing(margin-left, $wp-align-image-horizontal-padding);
+	float: right;
+	clear: right;
+}
+
+.aligncenter {
+	&, img {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
+figure {
+  // avoids overflow caused by inline max-width
+  width: 100%;
+  // alternative:
+  // max-width: 100% !important;
+
+	&.alignleft,
+	&.alignright,
+	&.aligncenter,
+	&.alignnone {
+		@include spacing(margin-top, $wp-align-image-vertical-padding);
+	}
+}
+
+.wp-caption-text {
+  @include leading-map($wp-align-caption-font);
+}
+
+
+// Image Only Child Inside Paragraphs (no text)
+// <p>
+//      <img>
+// </p>
+// ...
+
+.alignleft,
+.alignright,
+.aligncenter,
+.alignnone {
+  p > &:first-child:last-child {
+    // will be moved to the same level through JavaScript by the Helper.unwrapImages method
+  }
+}

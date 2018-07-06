@@ -1,0 +1,97 @@
+// ARCHIVE NAVIGATION
+.posts-navigation {
+	@include spacing(padding-top, 3rem);
+	@include spacing(padding-bottom, 3rem);
+
+	.nav-links {
+		@include grid;
+		@include grid-spacing(3rem);
+
+		> :first-child { margin-right: auto; }
+		> :last-child { margin-left: auto; }
+
+		a {
+			@include button;
+			//@include button-directional;
+		}
+
+		.nav-previous a {
+			//@include button-directional--left;
+		}
+
+		.nav-next a {
+			//@include button-directional--right;
+		}
+	}
+
+}
+
+$post-navigation-spacing: 4rem !default;
+
+
+// SINGLE NAVIGATION
+.post-navigation {
+
+	.nav-links {
+		@include spacing(margin-left, -$post-navigation-spacing);
+
+		display: flex;
+		flex-wrap: wrap;
+
+		> * {
+			@include spacing(margin-left, $post-navigation-spacing);
+
+			position: relative;
+			flex: 1 1 18em;
+			width: 10em;
+		}
+
+		a:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		[class*="title"] a {
+			text-decoration: none;
+			color: inherit;
+		}
+	}
+
+	.nav-title {
+		display: block;
+
+		// Why do we need to truncate the titles? (George cc Alexandra)
+		// word-break: break-word;
+		// white-space: nowrap;
+		// overflow: hidden;
+		// text-overflow: ellipsis;
+
+		transition: transform .5s cubic-bezier(.18,.61,.43,.99);
+		will-change: transform;
+	}
+
+	.nav-links__label {
+		@include leading-map(map-merge($h5, (
+      spacing-top: 0,
+      spacing-bottom: 0,
+    )));
+	}
+
+	.nav-next {
+		text-align: right;
+	}
+
+	@include below(xsmall) {
+
+		.nav-next,
+		.nav-previous { text-align: center; }
+
+		.nav-links__label { margin-bottom: 0; }
+
+		.nav-title { padding-top: 0; }
+	}
+}

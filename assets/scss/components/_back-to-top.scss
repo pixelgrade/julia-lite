@@ -1,0 +1,31 @@
+.back-to-top {
+  position: fixed;
+  right: 25px;
+  top: 50%;
+  z-index: 100;
+
+  width: 0;
+  height: 0;
+  margin-top: -7px;
+
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 15px solid rgba(0, 0, 0, 0.12);
+
+  font-size: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $transition--micro ease-in-out;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
+  @include below(lap) {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  &.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

@@ -1,0 +1,19 @@
+```
+/theme_directory
+	/assets
+	...
+	/components
+		/component1
+		/component2
+		...
+		/componentN
+		components-autoload.php
+	/inc
+	...
+	/template-parts
+		/component1
+		/component2
+	functions.php
+	index.php
+	style.css
+```

@@ -1,0 +1,51 @@
+@mixin inline {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+
+	> :last-child {
+		margin-right: 0; // ??
+	}
+}
+
+@mixin inline-spacing($gutter) {
+	@include spacing(margin-top, -$gutter);
+	@include spacing(margin-left, -$gutter);
+
+	> * {
+		@include spacing(margin-top, $gutter);
+		@include spacing(margin-left, $gutter);
+	}
+}
+
+@mixin inline-spacing-xs {
+	@include inline-spacing(.5rem);
+}
+
+@mixin inline-spacing-s {
+	@include inline-spacing(1rem);
+}
+
+@mixin inline-spacing-m {
+	@include inline-spacing(3rem);
+}
+
+@mixin inline-spacing-l {
+	@include inline-spacing(4rem);
+}
+
+@mixin inline-spacing-xl {
+	@include inline-spacing(8rem);
+}
+
+[class*="o-inline"] {
+	@include inline;
+}
+
+.o-inline-s {
+	@include inline-spacing-s;
+}
+
+.o-inline-xs {
+	@include inline-spacing-xs;
+}

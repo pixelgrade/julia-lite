@@ -1,0 +1,36 @@
+// Footer
+// =========================================================
+
+$footer-top-spacing: 0 !default;
+$footer-bottom-spacing: 0 !default;
+
+$footer-text-color: #757575 !default;
+$footer-links-color: #000000 !default;
+$footer-background-color: #FFFFFF !default;
+
+$footer-top-spacing: 0 !default;
+$footer-bottom-spacing: 0 !default;
+
+.c-footer {
+	color: $footer-text-color;
+
+	a {
+		color: $footer-links-color;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		color: inherit;
+	}
+}
+
+.u-footer-top-spacing {
+  @include spacing(padding-top, $footer-top-spacing);
+}
+
+.u-footer-bottom-spacing {
+  @include spacing(padding-bottom, $footer-top-spacing);
+}
+
+.u-footer-background {
+	background-color: $footer-background-color;
+}

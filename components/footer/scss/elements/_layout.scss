@@ -1,0 +1,58 @@
+$footer-zone-spacing: 80px !default;
+$footer-zone-items-spacing: 1rem !default;
+
+.entry-footer__wrapper {
+  @include below(lap) {
+    @include spacing(padding-bottom, 3em);
+  }
+}
+
+.c-footer__widget {
+
+  &:first-child:nth-last-child(3) {
+    &, & ~ .widget {
+      flex-basis: percentage(1/3);
+    }
+  }
+
+  &:first-child:nth-last-child(2) {
+    &, & ~ .widget {
+      flex-basis: 50%;
+    }
+  }
+}
+
+.c-footer__zone {
+
+  &:empty {
+    display: none;
+  }
+}
+
+.c-footer__zone--bottom {
+  text-align: center;
+
+  .menu > * {
+      display: inline-block;
+  }
+
+  * + .c-footer__copyright-text {
+    @include spacing(margin-top, $footer-zone-items-spacing);
+  }
+}
+
+// applies to body and forces
+.u-footer-layout-stacked {
+
+  .c-footer__gallery {
+    @include gallery-stacked;
+  }
+
+  .c-footer__widget {
+    text-align: center;
+
+    .menu {
+      justify-content: center;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.widget-area--post {
+  float: right;
+  clear: right;
+
+  @include below(lap) {
+    order: 2;
+  }
+}

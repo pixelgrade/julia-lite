@@ -1,0 +1,22 @@
+.dropcap {
+  @include leading-map(map-merge($page-title-font, (
+    spacing-bottom: false
+  )));
+  float: left;
+  padding-right: 0.1em;
+  margin-top: -0.05em;
+  margin-left: -0.05em;
+  margin-bottom: -.1em;
+  text-shadow: 3px 3px 0 rgba(56, 60, 80, 0.22);
+
+  &[class]:before,
+  &[class]:after {
+    content: none;
+  }
+}
+
+.dropcap[class] {
+  font-size: 83px;
+  line-height: 0.9;
+  margin-top: 0;
+}

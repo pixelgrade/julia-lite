@@ -1,0 +1,38 @@
+@import "defaults";
+
+@import "tools/all";
+
+@import "generic/normalize";
+@import "generic/reset";
+
+@import "utility/mq";
+@import "utility/wrap-text";
+@import "utility/misc";
+
+$content-class: '.entry-content' !default;
+
+a {
+  color: $body-link-color;
+
+  img {
+    transition: opacity $transition--macro ease-out;
+  }
+
+  &:hover,
+  &:active {
+    color: $body-link-active-color;
+
+    img {
+      opacity: 0.8;
+    }
+  }
+}
+
+@import "typography";
+@import "elements/wp-align";
+
+@import "objects/all";
+
+@import "elements/screen-reader-text";
+@import "elements/two-column";
+@import "elements/carousel";

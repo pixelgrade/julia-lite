@@ -1,0 +1,5 @@
+{
+  "require-dev": {
+    "johnpbloch/wordpress": "^4.9"
+  }
+}

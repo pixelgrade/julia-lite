@@ -1,0 +1,27 @@
+.site-header {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 9000;
+
+	transform: translateZ(0);
+
+	@include wp-offset(top, 0, true);
+
+	@include above(lap) {
+
+		body:not(.u-site-header-sticky) & {
+			position: absolute;
+		}
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+
+		.u-underline-header-links &:not([rel="home"]) {
+			text-decoration: underline;
+		}
+	}
+}

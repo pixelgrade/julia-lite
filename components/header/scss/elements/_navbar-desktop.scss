@@ -1,0 +1,57 @@
+// The desktop navbar layout
+%flex-center-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.u-header-height {
+  height: $header-height;
+}
+
+.c-navbar {
+  @extend %flex-center-all;
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    display: block;
+  }
+}
+
+.c-navbar__content {
+  @extend %flex-center-all;
+  width: 100%;
+}
+
+.c-navbar__zone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:first-child:not(:last-child),
+  &:last-child:not(:first-child) {
+    flex: 1 1 0;
+  }
+
+  .c-navbar > & {
+    display: none;
+  }
+}
+
+.c-navbar__zone--push-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.c-navbar__zone--push-right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.c-navbar__checkbox,
+.c-navbar__label {
+  display: none;
+}

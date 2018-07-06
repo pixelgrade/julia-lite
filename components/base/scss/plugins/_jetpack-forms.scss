@@ -1,0 +1,15 @@
+// Jetpack Forms
+.entry-content {
+    .contact-form {
+        label,
+        label.checkbox,
+        label.radio  {
+             font-weight: map-get($input-font, font-weight);
+        }
+
+        label.radio,
+        label.checkbox-multiple {
+            margin-bottom: $input-vertical-spacing;
+        }
+    }
+}

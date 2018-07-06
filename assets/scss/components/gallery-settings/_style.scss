@@ -1,0 +1,46 @@
+@import "../../../../components/footer/scss/customify";
+
+.gallery {
+  @include grid-spacing(3rem);
+
+  justify-content: center;
+  align-items: flex-start;
+
+  a,
+  img {
+    display: block;
+  }
+
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+
+@include below(lap) {
+  [class*="gallery-columns"] {
+    display: block;
+
+    > :nth-child(2n+1) {
+      float: left;
+      clear: left;
+    }
+
+    > :nth-child(2n) {
+      overflow: hidden;
+    }
+  }
+}
+
+.gallery-item {
+  text-align: center;
+
+  img {
+    margin: 0 auto;
+  }
+
+  .entry-content & a {
+    @include link--reset;
+  }
+}

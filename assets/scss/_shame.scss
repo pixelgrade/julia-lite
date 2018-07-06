@@ -1,0 +1,436 @@
+.screen-reader-text {
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+  word-wrap: normal !important; /* many screen reader and browser combinations announce broken words as they would appear visually */
+}
+
+.site-main {
+  overflow: hidden;
+
+  .error404 & {
+    overflow: initial;
+  }
+}
+
+.widget--full .widget__title {
+  text-align: center;
+}
+
+p:empty {
+  display: none;
+}
+
+// This only applies to Single Post
+// Everywhere else is overwritten by the .o-layout rules
+.widget-area--side.widget-area--post {
+  padding-bottom: 0;
+}
+
+.widget-area {
+
+  > .widget:not(.highlighted):not(.widget_promo_box):not(.widget_categories) {
+    padding-top: 4rem;
+
+    .u-widget-title-sideways & .widget__title {
+      margin-bottom: 4rem;
+    }
+  }
+
+  .sticky-sidebar {
+    &:not(:first-child) {
+      margin-top: 4rem;
+    }
+    
+    // Make sure the inner single widget not have any margins
+    > * > * {
+      margin-top: 0;
+    }
+  }
+
+  > .widget.highlighted,
+  > .widget.dark {
+    border-top: 4rem solid transparent;
+    background-clip: padding-box;
+  }
+
+  // Widgets with background
+  > .widget.highlighted,
+  > .widget_promo_box,
+  > .widget_categories {
+    margin-top: 4rem;
+  }
+
+  @include below(lap) {
+    > .widget-area:first-child > .widget:first-child {
+      padding-top: 2rem;
+    }
+  }
+}
+
+.widget-area--post {
+  > .widget:not(.highlighted):not(.widget_promo_box):not(.widget_categories):first-child {
+    padding-top: 0;
+  }
+
+  > .widget.highlighted:first-child,
+  > .widget_promo_box:first-child,
+  > .widget_categories:first-child {
+    margin-top: 0;
+  }
+}
+
+.widget-area--below-post {
+    > .widget.jetpack_subscription_widget {
+      margin-top: 4rem;
+    }
+}
+
+.widget-area--archive-index {
+  margin-top: 4rem;
+}
+
+body.nav--is-open {
+  overflow: hidden;
+}
+
+.c-border {
+  display: none; // Hide it temporary and use the body { margin: 10px }
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: map_get($zindex, modal) + 100;
+
+  border-width: 10px;
+  border-style: solid;
+  border-color: $color-gray-90;
+
+  pointer-events: none;
+
+  .admin-bar & {
+    top: 32px;
+  }
+}
+
+.entry-content figure img {
+  max-width: 100%;
+}
+
+@include below(xsmall) {
+  .c-gallery--blog .c-gallery__item {
+    width: 100%;
+  }
+}
+
+// set proper space between archive header and search widget
+.entry-header + .widget_search {
+  margin-top: 0;
+}
+
+.entry-header {
+
+  + .c-gallery {
+    margin-top: 0;
+
+    .search & {
+      @include spacing(margin-top, 1rem);
+    }
+  }
+}
+
+.single.entry-image--portrait .entry-header:after {
+  content: none;
+}
+
+.search .entry-header .search-form {
+  @include spacing(margin-top, 1rem);
+}
+
+// remove default links styling from jetpack slideshow
+.slideshow-controls a {
+  box-shadow: none !important;
+}
+
+.widget--stripe {
+  position: relative;
+  @include spacing(padding-bottom, 4rem);
+  @include spacing(margin-top, 4rem);
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 100%;
+    width: calc(50vw - 50%);
+    height: 100%;
+    background-color: inherit;
+    z-index: 1;
+  }
+
+  &:after {
+    left: 100%;
+  }
+
+  &:before {
+    right: 100%;
+  }
+}
+
+.o-layout__main,
+.o-layout__side,
+.o-layout__full {
+
+  &:not(.widget-area) {
+    @include spacing(padding-top, 4rem);
+  }
+}
+
+.single-post.entry-image--landscape .o-layout--blog > .o-layout__main {
+  padding-top: 0;
+}
+
+//.o-layout {
+//  @include spacing(padding-bottom, 4rem);
+//
+//  &:not(.o-layout--blog) .o-layout__full {
+//    &:first-child .widget:nth-child(2n):last-child,
+//    &:not(:first-child) .widget:nth-child(2n+1):last-child {
+//      @include spacing(margin-bottom, -4rem);
+//    }
+//  }
+//}
+
+// Helper Classes for Widgets
+// .dark: swith the colors to dark
+.widget.dark {
+  @extend .widget--stripe;
+  background-color: $footer-background-color;
+  color: $footer-text-color;
+
+  .widget__title,
+  h1, h2, h3, h4, h5, h6 {
+    color: inherit;
+  }
+
+}
+
+// Spacings
+.highlighted,
+.dark {
+  @include spacing(padding, 3rem);
+  
+  .o-layout--blog .o-layout__side & {
+    @include spacing(padding, 2rem);
+  }
+
+
+  @include above(lap) {
+
+    &.widget--full {
+      padding: 4rem;
+    }
+  }
+}
+
+.widget_promo_box--dark,
+.dark,
+.highlighted {
+  & + &.widget {
+    margin-top: 0 !important; //it's overwritten by .o-layout__full selectors below
+    border-top: 0;
+  }
+}
+
+.o-layout__full:last-child {
+  &:first-child .widget:nth-child(2n),
+  &:not(:first-child) .widget:nth-child(2n+1) {
+    margin-bottom: 0;
+  }
+}
+
+.o-layout__full:first-child .widget:nth-child(2n),
+.o-layout__full:not(:first-child) .widget:nth-child(2n+1) {
+  @extend .widget--stripe;
+  position: relative;
+
+  &:not(.widget_promo_box--dark):not(.dark) {
+    background-color: $header-background-color;
+
+    .slick-list:after {
+      background-color: $header-background-color;
+    }
+  }
+
+  a {
+    box-shadow: none;
+  }
+
+  &.widget_categories {
+    @include spacing(padding-top, 2rem);
+    @include spacing(padding-bottom, 2rem);
+    border: 0;
+  }
+}
+
+.widget_categories_image_grid,
+.c-card__frame,
+.entry-thumbnail {
+
+  img {
+    transition: opacity .15s ease-out;
+
+    &:not(.is-loaded) {
+      opacity: 0;
+    }
+  }
+}
+
+@media only screen {
+  html:not(.is-ready) {
+    opacity: 0;
+  }
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.is-customizer-preview .entry-header {
+
+  .posted-on,
+  .cats {
+    overflow: initial !important;
+  }
+}
+
+// hides the edges of the background for odd widgets that were overlapping the site's border
+.site {
+  overflow: hidden;
+}
+
+// overwrite components default value for position
+@include below(lap) {
+
+  .c-navbar__content {
+    position: fixed;
+  }
+
+  .site {
+    background-color: inherit;
+    border-width: 0 !important;
+  }
+}
+
+#wpadminbar {
+  transform: translateZ(0);
+}
+
+.entry-thumbnail {
+  position: relative;
+  z-index: 20;
+}
+
+// margin-bottom coming from default jetpack styling
+.tiled-gallery[class] {
+  margin-bottom: 0;
+}
+
+$header-meta-separator: '\2022' !default;
+
+.header-meta > :not(:last-child):after {
+  content: $header-meta-separator;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.entry-aside,
+.entry-footer,
+.widget-area,
+.comments-area,
+.related-posts-container {
+  @include fontsize(16px);
+}
+
+.related-posts-container {
+  clear: both;
+  @include spacing(margin-top, 4rem);
+}
+
+// select2 gets offset wrong on html because of the admin bar margin
+// by setting position: relative to body we force select2 to use it as reference for positioning the dropdown
+body {
+  position: relative;
+}
+
+// Firefox slick 'official' fix
+* {
+  min-height: 0;
+  min-width: 0;
+}
+
+.related-posts-title:not(:last-child) {
+  text-align: center;
+  @include spacing(margin-bottom, 3rem);
+}
+
+.entry-header > :not(.header-dropcap) {
+  position: relative;
+  z-index: 20;
+}
+
+// #356
+.page-template-archive-index {
+  #content .page-title + .widget {
+    padding-top: 0;
+  }
+}
+
+// #355
+// Added .entry-content to not overwrite the reading-bar hover effect (George)
+#content .entry-content .sharedaddy[class] .sd-button {
+  transition: $transition--default;
+  // transition-property: color, border-color, background-color;
+  transition-property: all;
+
+  &:hover {
+    color: $theme-background-color !important;
+    border-color: $theme-text-color;
+    background-color: $theme-text-color;
+  }
+}
+
+// #346
+.hide-on-mobile {
+  @include below(lap) {
+    display: none;
+  }
+}
+
+// #350
+.c-hero[class] {
+
+  .slick-arrow {
+    z-index: 8000;
+    width: 70px;
+  }
+
+  .slick-prev[class] { left: 0; }
+  .slick-prev:before { left: 30px; }
+  .slick-prev:after { left: 25px; }
+
+  .slick-next[class] { right: 0; }
+  .slick-next:before { right: 30px; }
+  .slick-next:after { right: 25px; }
+}
+
+.widget-area--side {
+  z-index: 100;
+}

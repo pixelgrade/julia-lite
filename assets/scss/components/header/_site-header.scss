@@ -1,0 +1,391 @@
+.site-header {
+  position: relative;
+  width: 100%;
+
+  // make all descendants (especially links) inherit color
+  // in order to easily customize it`
+  a,
+  .navigation-toggle:hover {
+    color: inherit;
+  }
+
+  &:after {
+    content: '';
+
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    display: block;
+    margin-bottom: 0;
+    background-color: inherit;
+    transition: transform 0.3s ease-out;
+    transform-origin: 50% 0;
+    transform: scale(1, 0);
+
+    @include spacing(height, 170px);
+  }
+}
+
+.site-header,
+.site-header-sticky {
+
+  a {
+    transition: color 0.2s ease-out;
+  }
+
+}
+
+[class].site-header-sticky .c-navbar {
+  margin-top: 0;
+}
+
+
+.has-extended-header-background {
+
+  .site-main {
+    position: relative;
+    z-index: 20;
+  }
+
+  .site-header:after {
+    transform: scale(1, 1);
+  }
+}
+
+a[rel='home'] {
+  text-decoration: none;
+}
+
+.custom-logo-link + a {
+  @include spacing(margin-top, 2rem);
+}
+
+.c-navbar__content[class] {
+  flex-flow: column wrap;
+  padding-left: 0;
+  padding-right: 0;
+
+  @include above(lap) {
+    .is-IE & {
+      display: block;
+    }
+  }
+}
+
+.c-navbar__zone {
+  width: 100%;
+  flex-basis: 100%;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.c-navbar__zone--left {
+  @include spacing(margin-top, 1rem);
+  @include spacing(margin-bottom, 1.5rem);
+
+  min-height: 52px;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  @include below(lap) {
+    order: 3;
+    padding-bottom: 2em;
+
+    .search-trigger {
+      display: none;
+    }
+  }
+
+  > * {
+    flex: 1 1 auto;
+  }
+
+  > .search-trigger {
+    @include spacing(padding-left, 1rem);
+    margin-left: auto;
+    flex-grow: 0;
+  }
+}
+
+.c-navbar__zone--middle {
+  @include spacing(margin-top, 2.5rem);
+  @include spacing(margin-bottom, 3rem);
+}
+
+.c-navbar__zone--right {
+  position: relative;
+  z-index: map_get($zindex, header);
+  @include below(lap) {
+    order: 1;
+  }
+
+  @include above(lap) {
+
+    &[class].c-navbar__zone--right {
+      flex: initial;
+    }
+  }
+}
+
+// Sticky header
+
+.site-header-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: map_get($zindex, modal) + 150;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: auto;
+  min-height: 53px;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity $transition--micro ease-in;
+  transform: translateZ(0);
+
+  // Safari z-index related glitch
+  .show-search-overlay & {
+    transform: none;
+  }
+
+  &:after {
+    content: '';
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  }
+
+  &--show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  & > * {
+    flex-basis: 100%;
+  }
+
+  .search-trigger {
+    position: absolute;
+    @include spacing(right, 30px);
+    top: 50%;
+
+    transform: translateY(-50%);
+  }
+
+  .menu--primary {
+
+    & > li > a {
+      border: 0;
+    }
+  }
+
+  .c-reading-bar ~ .search-trigger,
+  .c-reading-bar ~ .menu--primary {
+    transform: translateY(100%);
+    pointer-events: none;
+    transition: 350ms transform ease;
+  }
+
+  .sub-menu.sub-menu {
+    right: 0;
+    width: auto;
+  }
+
+  &--show.reading-bar--hide {
+
+    .menu--primary {
+      transform: none;
+      pointer-events: auto;
+    }
+
+    .search-trigger {
+      transform: translateY(-50%);
+      pointer-events: auto;
+    }
+  }
+}
+
+.home {
+  .c-reading-bar {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .c-reading-progress {
+    display: none;
+  }
+}
+
+// Small screens styles
+.site-header-mobile {
+  padding-top: 100px;
+  padding-bottom: 20px;
+
+  @include above(lap) {
+    display: none;
+  }
+}
+
+.c-branding--mobile {
+  @include above(lap) {
+    display: none;
+  }
+}
+
+@include below(lap) {
+
+  .site-header-sticky {
+    display: none;
+  }
+
+  .site-header-mobile[class] {
+    position: relative;
+    z-index: 10;
+    max-width: 30px;
+    padding: 0;
+
+    [class].jetpack-social-navigation {
+      margin-left: 0;
+
+      li {
+        @include spacing('margin-left', 0);
+      }
+    }
+  }
+
+  .c-branding {
+    text-align: center;
+  }
+
+  .c-navbar__content {
+    z-index: map_get($zindex, modal) + 100;
+
+    width: 300px;
+    flex-flow: column-reverse nowrap;
+    justify-content: space-between;
+
+    padding-top: 80px;
+
+    background-color: #F7F6F5;
+
+    transition: left $transition--macro ease-in-out;
+
+    .c-navbar__zone--middle,
+    .jetpack-social-navigation {
+      display: none;
+    }
+
+    .jetpack-social-navigation {
+      @include below('lap') {
+        display: block;
+      }
+    }
+  }
+
+  .c-navbar:after {
+    content: '';
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: map_get($zindex, modal);
+
+    height: 100vh;
+    width: 100vw;
+
+    background-color: $theme-text-color;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity $transition--macro ease-in-out;
+
+    .nav--is-open & {
+      opacity: .3;
+      pointer-events: auto;
+    }
+  }
+
+  .c-navbar__zone {
+    flex-basis: initial;
+  }
+
+  .c-navbar__label {
+    position: absolute;
+    z-index: map_get($zindex, modal) + 200;
+    left: 0;
+
+    padding-left: 28px;
+    min-height: 70px;
+  }
+
+  .c-burger {
+    font-size: 17px;
+  }
+
+  .c-navbar__label-text {
+    margin-left: 10px;
+    margin-top: 2px;
+
+    font-family: $theme-body-font-family-alt;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+
+    text-transform: uppercase;
+
+    opacity: 1;
+
+    transition: opacity $transition--macro ease-in-out;
+
+    .nav--is-open & {
+      opacity: 0;
+    }
+  }
+
+  .jetpack-social-navigation {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &.jetpack-social-navigation a {
+      &:before {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .search-trigger {
+    padding: 0;
+  }
+}
+
+// Clearing the admin bar
+.admin-bar .c-navbar__content {
+  @media screen and (max-width: 1000px) {
+    border-top: 32px solid transparent;
+  }
+
+  @media screen and (max-width: 782px) {
+    border-top-width: 16px;
+  }
+}
+
+@include above(lap) {
+  .site-header-mobile {
+    display: none;
+  }
+}

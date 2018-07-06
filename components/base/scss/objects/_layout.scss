@@ -1,0 +1,41 @@
+$layout-spacing: 4rem !default;
+$layout-side-width: percentage(1/3) !default;
+
+@include above(lap) {
+
+	.o-layout {
+    width: 100%;
+		display: flex;
+
+		justify-content: center;
+		align-items: stretch;
+		flex-wrap: wrap;
+	}
+
+	.o-layout__full {
+		width: 100%;
+		flex: 0 0 100%;
+	}
+
+	.o-layout__main {
+		width: calc(100% - #{$layout-side-width} - #{$layout-spacing});
+		flex: 1 1 auto;
+	}
+
+	.o-layout__side {
+		width: $layout-side-width;
+		@include spacing(margin-left, $layout-spacing);
+		flex: 0 0 auto;
+	}
+
+  .o-layout--blog {
+
+    .o-layout__main {
+      width: calc(100% - #{$sidebar-width} - #{$layout-spacing});
+    }
+
+    .o-layout__side {
+      width: $sidebar-width;
+    }
+  }
+}

@@ -1,0 +1,344 @@
+// TYPOGRAPHY SETTINGS
+$sidebar-width: 300px;
+$layout-side-width: 300px;
+$layout-spacing: 4rem;
+$baseline-unit: 14px;
+$fa-font-path: 'assets/fonts/fontawesome';
+$typography-spacing: 1.5rem;
+
+// Variation Variables
+$theme-accent-color: #000;
+$theme-accent-light-color: #E7F2F8;
+$theme-text-color: #383C50;
+$theme-border-color: $color-gray-90;
+$theme-background-color: #F7F6F5;
+
+$theme-body-font-family: 'PT Serif', serif;
+$theme-body-font-family-alt: 'Montserrat', sans-serif;
+$theme-headings-font-family: 'Lora', serif;
+$theme-logo-font-family: 'Playfair Display', serif;
+
+$content-selector: '.u-content-width > :not([class*="align"]):not([class*="gallery"]):not(.jetpack-recipe)';
+
+// Transitions
+$transition--default: all 0.2s ease;
+
+// Forms General Options
+$input-border-color: rgba(0, 0, 0, 0.2);
+$input-focus-border-color: rgba(0, 0, 0, 0.3);
+
+// ----------------------------------------
+// IMAGES
+// ========================================
+$wp-align-image-vertical-padding: 3rem;
+$wp-align-image-horizontal-padding: 3rem;
+
+$wp-align-wrapped-image-vertical-padding: 3rem;
+$wp-align-wrapped-image-horizontal-padding: 3rem;
+
+$wp-align-image-size: 30%;
+
+// ----------------------------------------
+// PLUGINS
+// ========================================
+$jetpack-sharing-padding: 8px 15px 8px 17px;
+$gridable-column-gutter: 40px;
+
+// ----------------------------------------
+// BUTTONS
+// ========================================
+$btn-padding: 1.1em 1.75em;
+$btn-font: (
+  font-family: $theme-headings-font-family,
+  font-size: 16px,
+  line-heigh: 1.2
+);
+// ----------------------------------------
+// HEADER
+// ========================================
+// Layout
+// ----------------------------------------
+$logo-height: 140px;
+$logo-mobile-height: 30px;
+$header-height: 53px;
+$header-mobile-height: 60px;
+$header-links-spacing: 56px;
+$header-sides-spacing: 30px;
+$branding-horizontal: false;
+// ----------------------------------------
+// Colors
+// ----------------------------------------
+$header-links-color: $theme-text-color;
+$header-links-active-color: $theme-text-color;
+$header-background-color: $theme-accent-light-color;
+
+$header-sticky-links-color: $theme-text-color;
+$header-sticky-links-active-color: $theme-text-color;
+$header-sticky-background-color: $theme-background-color;
+// ----------------------------------------
+// Fonts
+// ----------------------------------------
+$logo-font: (
+  font-family: $theme-logo-font-family,
+  font-size: 140px,
+  line-height: 1,
+  font-weight: 700,
+  text-transform: none,
+  cap-height: 0.74
+);
+
+$header-font: (
+  font-family: $theme-body-font-family-alt,
+  font-size: 16px,
+  font-weight: normal,
+  line-height: 1,
+  letter-spacing: 0.06em,
+  text-transform: uppercase
+);
+// ----------------------------------------
+
+
+
+// ----------------------------------------
+// CONTENT
+// ========================================
+// Layout
+// ----------------------------------------
+$content-container-width: 1300px;
+$content-sides-spacing: 70px;
+$content-vertical-spacing: 0;
+$content-width: 720px;
+$content-border-width: 10px;
+$content-border-color: transparent;
+// ----------------------------------------
+// Colors
+// ----------------------------------------
+$page-title-color: #383C50;
+$body-text-color: #383C50;
+$body-link-color: #383C50;
+$body-link-active-color: #000;
+$body-link-highlight-color: $theme-accent-light-color;
+$h1-color: #000;
+$h2-color: #000;
+$h3-color: #000;
+$h4-color: #000;
+$h5-color: #000;
+$h6-color: #000;
+$content-background-color: $theme-background-color;
+// ----------------------------------------
+// Fonts
+// ----------------------------------------
+$page-title-font: (
+  font-family: $theme-headings-font-family,
+  font-size: 72px,
+  line-height: 1.2,
+  font-weight: 700,
+  cap-height: 0.75,
+  spacing-top: 1rem,
+  spacing-bottom: 1rem
+);
+
+$body-font: (
+  font-family: $theme-body-font-family,
+  font-size: 17px,
+  line-height: 1.6,
+);
+
+$blockquote-font: (
+  font-family: $theme-headings-font-family,
+  font-size: 28px,
+  line-height: 1.2,
+  font-weight: 700,
+  spacing-top: 0
+);
+
+$cite-font: (
+  font-family: $theme-body-font-family,
+  font-size: 14px,
+  line-height: 1.2,
+  font-weight: normal,
+  letter-spacing: 0.15em,
+  text-transform: uppercase
+);
+
+$typography-intro-font: (
+  font-size: 20px,
+  line-height: 1.5
+);
+
+$typography-intro-large-font: (
+  font-size: 24px,
+  line-height: 1.5
+);
+
+$meta-title-font: (
+  font-family: map-get($header-font, font-family),
+  font-size: 14px,
+  line-height: (17/14),
+  font-weight: 700,
+  text-transform: uppercase,
+  letter-spacing: 0.07em
+);
+
+$meta-category-items-font: (
+  font-family: map-get($header-font, font-family),
+  font-size: 12px,
+  line-height: 1.25,
+  font-weight: 600,
+  text-transform: uppercase,
+  letter-spacing: 0.083em,
+);
+
+$meta-tags-items-font: ();
+/* stylelint-disable */
+$h1: (
+  font-family: $theme-headings-font-family,
+  font-size: 44px,
+  line-height: 1.1,
+  font-weight: 700,
+  spacing-top: 1.5rem,
+  spacing-bottom: 1.5rem,
+  cap-height: 0.75
+);
+
+$h2: (
+  font-family: $theme-headings-font-family,
+  font-size: 32px,
+  line-height: 1.3,
+  font-weight: 700,
+  spacing-top: 1.5rem,
+  spacing-bottom: 1.25rem,
+  cap-height: 0.75
+);
+
+$h3: (
+  font-family: $theme-headings-font-family,
+  font-size: 24px,
+  line-height: 1.3,
+  font-weight: 700,
+  spacing-top: 3,
+  spacing-bottom: 1rem,
+  cap-height: 0.7
+);
+
+$h4: (
+  font-family: $theme-body-font-family,
+  font-size: 18px,
+  line-height: 1.2,
+  font-weight: 700,
+  spacing-top: 1.5rem * 2,
+  spacing-bottom: 1.5rem,
+  cap-height: 0.7
+);
+
+$h5: (
+  font-family: $theme-body-font-family-alt,
+  font-size: 14px,
+  line-height: 1.2,
+  font-weight: normal,
+  letter-spacing: 0.15em,
+  text-transform: uppercase,
+  spacing-top: 1.5rem,
+  spacing-bottom: 1rem,
+  cap-height: 0.65
+);
+
+$h6: (
+  font-family: $theme-body-font-family-alt,
+  font-size: 12px,
+  line-height: 1.2,
+  font-weight: normal,
+  letter-spacing: 0.15em,
+  text-transform: uppercase,
+  spacing-top: 1.5rem,
+  cap-height: 0.55
+);
+/* stylelint-enable */
+
+
+// ----------------------------------------
+// CARD SETTINGS
+// ========================================
+$card-letter-color: #000;
+$card-letter-hover-color: #FFF;
+$card-letter-hover-opacity: 0.7;
+$card-letter-font: (
+  font-size: 250px,
+  line-height: 1.735,
+  font-weight: 300,
+  text-transform: uppercase
+);
+// ----------------------------------------
+
+
+
+// ----------------------------------------
+// BLOG
+// ========================================
+// Layout
+// ----------------------------------------
+$blog-grid-width: 1300px;
+$blog-sides-spacing: 70px;
+$blog-grid-layout: packed;
+$blog-grid-packed-ratio: 2.275;
+$blog-grid-aspect-ratio: 3/4;
+$blog-grid-columns: 4;
+$blog-grid-vertical-spacing: 150px;
+$blog-grid-horizontal-spacing: 40px;
+$blog-content-position: below;
+$blog-content-alignment: top left;
+$blog-title-visibility: true;
+$blog-excerpt-visibility: true;
+// ----------------------------------------
+// Colors
+// ----------------------------------------
+$blog-card-title-color: #000;
+$blog-primary-meta-color: #3B3B3B;
+$blog-secondary-meta-color: #828282;
+$blog-thumbnail-background: $theme-accent-light-color;
+$blog-thumbnail-background-opacity: 0.5;
+// ----------------------------------------
+// Fonts
+// ----------------------------------------
+$blog-card-title-font: (
+  font-family: $theme-headings-font-family,
+  font-size: 24px,
+  line-height: 1.25,
+  font-weight: 700
+);
+
+$blog-card-meta-primary-font: (
+  font-family: $theme-body-font-family-alt,
+  font-size: 14px,
+  line-height: 1.1,
+  font-weight: normal,
+  letter-spacing: 0.07em,
+  text-transform: uppercase
+);
+
+$blog-card-meta-secondary-font: $blog-card-meta-primary-font;
+// ----------------------------------------
+
+
+
+// ----------------------------------------
+// FOOTER
+// ========================================
+// Layout
+// ----------------------------------------
+$footer-top-spacing: 8rem;
+$footer-bottom-spacing: 8rem;
+// ----------------------------------------
+// Colors
+// ----------------------------------------
+$footer-text-color: #757575;
+$footer-links-color: #000;
+$footer-background-color: #FFF;
+// ----------------------------------------
+
+$arrow-caret-svg: 'assets/images/arrow-caret.svg';
+$select-arrow-svg: 'assets/images/select-arrow.svg';
+$checkbox-svg: 'assets/images/checkbox.svg';
+$search-svg: 'assets/images/icon-search.svg';
+
+$jetpack-sharing-icon-bg: $theme-accent-color;

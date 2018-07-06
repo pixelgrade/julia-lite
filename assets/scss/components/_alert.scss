@@ -1,0 +1,28 @@
+$alert-placeholder-background:   #E03A3A   !default;
+$alert-placeholder-color:        #FFF      !default;
+
+.c-alert {
+  @include spacing(padding, 2.5rem 3rem);
+  color: $alert-placeholder-color;
+  background-color: $alert-placeholder-background;
+}
+
+.c-alert__title {
+
+  @include leading-map((
+    font-family: $theme-headings-font-family,
+    font-size: 21px,
+    font-weight: 700,
+    line-height: (30/21),
+    spacing-bottom: 1rem,
+  ));
+
+  color: inherit;
+}
+
+.c-alert__body {
+  @include leading-map((
+    font-size: 16px,
+    line-height: 1.5,
+  ));
+}

@@ -1,0 +1,41 @@
+/*
+
+WIDTHS
+
+generate utility classes that forces a certain width to the element the classes are applied to
+
+*/
+@mixin widths( $suffix: null ) {
+
+    @if $suffix != null {
+        $suffix: "-" + $suffix;
+    }
+
+    .u-one-whole#{$suffix} {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .u-one-half#{$suffix} {
+        width: 50%;
+        flex-basis: 50%;
+    }
+
+    .u-one-third#{$suffix} {
+        width: 33.333%;
+        flex-basis: 33.333%;
+    }
+
+    .u-two-thirds#{$suffix} {
+        width: 66.666%;
+        flex-basis: 66.666%;
+    }
+}
+
+@include widths();
+
+@each $breakpoint, $value in $breakpoints {
+    @media only screen and (min-width: $value) {
+        @include widths( \@#{$breakpoint} );
+    }
+}

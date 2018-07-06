@@ -1,0 +1,230 @@
+//------------------------------------*\
+//    VARIABLES (via Customify)
+//------------------------------------*/
+$accent: #3677bd;
+$dark: #484848;
+$gray: #303235;
+$light: #cbcfd4;
+$lighter: #3b3f45;
+$descriptions: #4d7b90;
+
+$borders: #e0e8ef;
+
+$unit: 24px;
+$popup: 275px;
+$container-spacing: 17px;
+
+$blue-dark: #484848;
+
+$fields_height: 44px;
+$fields_spacing: 24px;
+$fields_border-radius: 4px;
+$fields_border-color: #DDDDDD;
+
+$background-hover: #f5fcff;
+
+//------------------------------------*\
+//    $INPUT FIELDS
+//------------------------------------*/
+
+%input {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  height: $fields_height;
+  padding: 10px 14px;
+  margin-left: 0;
+
+  background: #FFFFFF;
+  border: 1px solid $fields_border-color;
+  border-radius: 4px;
+  box-shadow: none;
+
+  font-size: 14px;
+  line-height: 1.5;
+  color: $dark;
+  outline: 0;
+
+  &:focus, &:hover {
+    border-color: #CBCBCB;
+    box-shadow: none;
+    // box-shadow: 0 0 0 2px #73C5EE;
+  }
+}
+
+%select {
+  width: 100%;
+  -webkit-appearance: button; // hide default arrow in WebKit/Blink
+  -moz-appearance: none; // hide default arrow in Gecko
+
+  font-weight: 600;
+
+  background: white url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAJCAMAAADaUYZlAAAAKlBMVEUAAADK3OXH19/J2ODL2uHF2+LG1d/E1ODF1d/F1d/E1d/E1N/F1ODE1N9w9KLBAAAADXRSTlMAHSAhIiNIv8Dg4eLj3HsXlQAAAEFJREFUeAE9yFkCgDAIA9F0wdIl97+uqMT5e4PiHap7weC2pG0OtMVjHw9Xg4YYYz4jOF8CNcYVrMA/KOYQNTx5A6aAAh0WzNimAAAAAElFTkSuQmCC) no-repeat;
+  background-position: right 16px top 16px;
+
+  &[multiple] {
+    background: white;
+  }
+}
+
+.media-sidebar .gallery-settings {
+
+  input,
+  select,
+  textarea {
+    @extend %input;
+  }
+
+  input[type=text],
+  textarea {
+    font-size: 13px;
+  }
+
+  input[type=text] {
+
+  }
+
+  // Textarea
+  textarea {
+    height: auto;
+  }
+
+  // Checkbox
+  input[type=checkbox],
+  input[type=radio] {
+    width: $fields_height/2;
+    height: $fields_height/2;
+    margin-top: 0;
+
+    &:checked {
+      background: #73C5EE;
+      border-color: #5AB9E8;
+
+      &:before {
+        color: white;
+        margin: -1px 0 0 -2px;
+      }
+    }
+  }
+
+  &.customize-control-checkbox,
+  &.customize-control-radio {
+
+    // Split into two columns only when
+    // there is more than one label
+    label:not(:only-of-type) {
+      margin-left: 30px;
+      padding-top: 0;
+      padding-bottom: 0;
+      display: inline-block;
+
+      width: calc(49% - 30px);
+
+      text-indent: -6px;
+
+    }
+
+    label {
+      color: $blue-dark;
+
+    }
+
+    // Select HTML Labels followed by a Checkbox or Radio field
+    .customize-control-html + & {
+      margin-top: -24px;
+    }
+
+    // Except de dividers titles
+    [id*="divider"] + & {
+      margin-top: 0;
+    }
+  }
+
+  // Radios
+  input[type=radio] {
+    border-radius: 50%;
+
+    &:checked:before {
+      content: none;
+    }
+  }
+
+  &.customize-control-radio {
+    label {
+      margin-top: $fields-spacing/2;
+    }
+  }
+
+  // Select
+  select {
+    @extend %select;
+    margin-top: 6px;
+  }
+
+  // Range Field
+  input[type="range"] {
+    width: 65%;
+  }
+
+}
+
+//------------------------------------*\
+//    $GALLERY MODAL
+//------------------------------------*/
+
+.media-sidebar {
+
+}
+
+.gallery-settings {
+  display: flex;
+  flex-direction: column;
+
+  label.setting {
+    margin-bottom: 20px;
+
+    span {
+      float: none;
+      width: 100%;
+
+      color: #23282D;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: left;
+    }
+
+    // Reordering items
+
+    // Link to
+    &:nth-of-type(1) {
+      order: 5;
+    }
+
+    // Columns
+    &:nth-of-type(2) {
+      order: 2;
+    }
+
+    // Random Order
+    &:nth-of-type(3) {
+      order: 4;
+    }
+
+    // Size
+    &:nth-of-type(4) {
+      order: 6;
+    }
+
+    // Type / Layout
+    &:nth-of-type(5) {
+      order: 1;
+    }
+
+    // Spacing
+    &:nth-of-type(6) {
+      order: 3;
+    }
+  }
+
+}

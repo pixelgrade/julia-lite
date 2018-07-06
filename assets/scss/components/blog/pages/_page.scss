@@ -1,0 +1,45 @@
+.c-page-header__title {
+  @include spacing(margin-top, 4rem);
+  @include spacing(margin-bottom, 2rem);
+}
+
+.page-template[class*="page-template-full-width"] {
+  .u-content-width > :not(figure) {
+    max-width: none !important;
+  }
+}
+
+.page-template[class*="no-title"] {
+  .entry-header {
+    display: none;
+  }
+}
+
+.c-page .entry-header {
+  @include spacing(margin-bottom, 2rem);
+}
+
+.c-page__content {
+  flex-grow: 1;
+
+  body:not(.has-sidebar) & {
+    padding-left: 0;
+  }
+}
+
+.c-page__aside[class] {
+  flex-shrink: 0;
+  padding-right: 0;
+}
+
+.error-404 {
+  text-align: center;
+
+  .page-header {
+    @include spacing(margin-bottom, 4rem);
+  }
+
+  .search-form {
+    @include spacing(margin-top, 1rem);
+  }
+}

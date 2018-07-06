@@ -1,0 +1,13 @@
+@import "../../components/blog/scss/admin";
+@import "../../components/featured-image/scss/admin";
+@import "../../components/footer/scss/admin";
+@import "../../components/gallery-settings/scss/admin";
+@import "../../components/header/scss/admin";
+@import "../../components/hero/scss/admin";
+@import "../../components/multipage/scss/admin";
+
+// Make the Pixelgrade Care Install menu item in Appearance not occupy any space
+#menu-appearance a[href='pixelgrade_care-install'] {
+  padding: 0 !important;
+  line-height: 0 !important;
+}

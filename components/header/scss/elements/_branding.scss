@@ -1,0 +1,87 @@
+// Set if the Logo + Title + Description are laying out horizontally (eg. Vasco) or vertically (eg. Julia)
+$branding-horizontal: true !default; 
+
+.c-branding {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @if $branding-horizontal {
+
+    // Horizontal Branding Layout
+      @include above(lap) {
+        .site-description {
+          flex: 1 1 80px; // Fixed Header Height
+        }
+      }
+
+  } @else {
+
+    // Vertical Branding Layout
+    > [rel="home"] {
+      flex: 0 0 100%;
+    }
+    
+  }
+
+  @include below(lap) {
+    flex-direction: column;
+  }
+
+  a,
+  img {
+    display: block;
+  }
+
+  img {
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    transition: filter $transition--macro ease-in-out, opacity $transition--micro ease-out;
+  }
+}
+
+@include above(lap) {
+
+  .c-navbar__zone--branding + .c-navbar__zone--middle {
+    max-width: 60%;
+  }
+
+  .c-navbar__zone--branding.c-navbar__zone--middle {
+    max-width: 30%;
+  }
+}
+
+.c-navbar__zone--middle {
+
+  .c-branding {
+    text-align: center;
+
+    img {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.c-navbar__zone--right {
+  .c-branding {
+    text-align: right;
+
+    img {
+      margin-left: auto;
+    }
+  }
+}
+
+.site-title,
+.site-description {
+  font: inherit;
+  color: inherit;
+}
+
+.site-description:empty {
+  display: none !important;
+}

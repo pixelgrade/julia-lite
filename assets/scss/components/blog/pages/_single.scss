@@ -1,0 +1,182 @@
+.single,
+.page {
+
+  .site-main {
+    overflow: initial;
+  }
+
+  .edit-link {
+    @include spacing(margin-bottom, 4rem);
+
+    display: block;
+    text-align: right;
+  }
+
+  .entry-content {
+    word-break: break-word;
+  }
+
+  .entry-footer {
+    @include spacing(margin-top, 4rem);
+    @include spacing(margin-bottom, 4rem);
+  }
+
+  .entry-aside:empty {
+    display: none;
+  }
+}
+
+.single {
+  .entry-header {
+    @include spacing(padding-top, 2.5rem);
+    @include spacing(padding-bottom, 3rem);
+  }
+
+  .entry-title {
+    @include leading-map($page-title-font);
+  }
+}
+
+.single,
+.page {
+
+  .entry-header {
+    position: relative;
+
+    .cats {
+      margin-top: 0;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      @include spacing(padding-top, 8rem);
+    }
+  }
+
+  .o-layout__main .entry-header {
+    padding-top: 0;
+  }
+
+  .entry-aside {
+    @include spacing(margin-bottom, 3rem);
+  }
+
+  .cat-links {
+    display: block
+  }
+
+  .entry-title {
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    @include wrap-text;
+  }
+
+  .entry-thumbnail {
+    @include spacing(padding-bottom, 4rem);
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.entry-image--portrait .entry-header {
+  margin-bottom: 0;
+}
+
+.post-password-form {
+  input[type="submit"] {
+    @include spacing(margin-top, 1rem);
+    width: 100%;
+  }
+}
+
+.page-links {
+  @include spacing(margin-top, 2rem);
+  @include spacing(margin-bottom, 2rem);
+  @extend .h5 !optional;
+
+  &:before, &:after {
+    content: none;
+  }
+}
+
+.entry-image--none {
+
+  .widget-area--post {
+    @include spacing(margin-top, -8rem);
+  }
+
+  .single-main {
+    position: relative;
+  }
+
+}
+
+
+
+@include below(lap) {
+
+  .single {
+
+    .single-header .entry-thumbnail {
+      float: none;
+      max-width: 100%;
+    }
+
+    &.entry-image--landscape.has-sidebar .entry-thumbnail {
+      margin-right: 0;
+      padding-right: 0;
+    }
+
+    .widget-area--post.widget-area--post {
+      padding: 40px 0;
+    }
+  }
+}
+
+body.page-template[class*="no-title"] .entry-content {
+  padding-top: 0;
+}
+
+// custom handling of entry-header background on singular pages
+.single {
+  .entry-header,
+  .header-spacer {
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -100vw;
+      bottom: 0;
+      left: -100vw;
+      display: block;
+      background-color: inherit;
+      pointer-events: none;
+    }
+  }
+}
+
+.entry-header:after {
+
+  .single & {
+    top: 100%;
+    height: 112px;
+  }
+
+  .entry-image--none & {
+    content: none;
+  }
+}
+
+.single-main {
+  position: relative;
+}

@@ -1,0 +1,129 @@
+.comment {
+  position: relative;
+
+  & + & {
+    @include spacing(margin-top, 2rem);
+  }
+
+  .edit-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    opacity: 0;
+    transition: all .5s ease;
+  }
+
+  .children {
+    @include spacing(margin-left, 3rem);
+    @include spacing(margin-top, 2rem);
+
+    @include below(lap) {
+      margin-left: 0;
+    }
+  }
+}
+
+.comment-list {
+
+  &, ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+}
+
+.comment-list,
+.comment-respond {
+  @include spacing(margin-top, 3rem);
+}
+
+.comment-list + .comment-respond {
+  @include spacing(margin-top, 4rem);
+}
+
+.comment__wrapper {
+  display: flex;
+  align-items: flex-start;
+
+  &:hover {
+      .edit-link {
+        opacity: 1;
+      }
+  }
+}
+
+.comment__body {
+
+  > * + * {
+    @include spacing(padding-top, 1rem);
+  }
+}
+
+.comment__avatar {
+  flex: 0 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+
+  .avatar {
+    display: block;
+    margin: 0;
+  }
+}
+
+.comment__metadata {
+  display: inline-block;
+  margin-left: 5px;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.reply a {
+  @include spacing(margin-bottom, 1rem);
+  display: block;
+}
+
+
+// Fade out the H6 Style
+.comment__metadata a,
+.reply.reply a {
+    opacity: 0.5;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    transition: all .2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+}
+
+.pingback,
+.trackback {
+}
+
+.comment__author {
+}
+
+.bypostauthor {
+  color: inherit;
+}
+
+.says {
+  display: none;
+}
+
+@include below(lap) {
+
+  .c-author {
+    text-align: center;
+  }
+
+  .c-author__avatar {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

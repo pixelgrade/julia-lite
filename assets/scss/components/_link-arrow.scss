@@ -1,0 +1,63 @@
+// Link with Arrow
+.link--arrow {
+  position: relative;
+  transition: all 0.2s ease;
+  border-bottom: none;
+  text-decoration: none;
+
+  &:after,
+  &:before {
+    display: none;
+    content: " ";
+    width: 13px;
+    height: 11px;
+    margin-left: 10px;
+
+    background: url('/assets/images/directional-arrow.svg') 100% center no-repeat;
+
+    speak: none;
+    user-select: none;
+
+    transition: all 0.2s ease;
+  }
+
+  &:after {
+    display: inline-block;
+  }
+
+  &:hover {
+    transform: translateX(5px); // see display: block
+
+    text-decoration: none;
+
+    &:before,
+    &:after {
+      opacity: 0.4;
+    }
+  }
+
+  // Left Side Arrow Modifier
+  &.left {
+    &:after {
+      display: none;
+    }
+
+    &:before {
+      display: inline-block;
+      transform: rotate(180deg);
+      margin-left: 0;
+      margin-right: 10px;
+    }
+
+    &:hover {
+      transform: translateX(-5px); // see display: block
+    }
+  }
+
+  // White Arrow
+  &.light {
+    &:after {
+      background: url('/assets/images/directional-arrow-white.svg') 100% center no-repeat;
+    }
+  }
+}

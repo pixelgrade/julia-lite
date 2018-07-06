@@ -1,0 +1,62 @@
+sudo: false
+language: php
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+  slack:
+    rooms:
+      secure: cE9joGSDpg1Cd7v2aGp1Bg/ttfbEBJb+70KjygcAyLeuApANBvBJZa9VCdRmYZRuQCMkkSBS7DbUqFcvLCKcB+lr2ITwf9JaYSb7XV8GcWTbaPHNqMvyY5i/Ts09Q74aJU7iLHO6brGhXAJ5MWswiMc3DQQPO7euiFbtpMAsAq47LAqbjn6vBHLZQqH8ElIs437diCR3QCO2XtAFqbuqXVupwKsd76e4rla5tsORR7c0IytD6MF8Apdn54kt/fQCbEmDhZMoIHcdIxJAs/X94ovLsLeNpnlB9Rhys1TC9aIeIBVFIve9Dofj6eZ9Cvht3RZsVvAsHSE57JXgQSFxi0zabNpo+uRlQscvwwXf8U3UCretJV3SeoO9OVsJ4tWyaFhgcxm50qeB0uOWHJxs1KAa09YjAIZEZZZQ0VtToHCLYNgOFEuDBzETfiMBj/+aEnEXtATvucv0DamiWfaH5EG1o11lIPD1A960tfy6huTGTvWdESGfjVNbIR0+Ui6NZsWUK0W4/QeBmX2pVsvrnUateo1d0tgfgjxwqP2sxrTow5EhG5WvMRD+J5zUHtJtvudrLf5y3XExH7meL2DVTY5BgTpn66evAGxqTugBZ2iqdELLELyq66xnkM4tCgrHpdpZ3JMshSu4hXmTJmGTdIOyM9Msk2qqDuEcRNCSFNs=
+    on_success: always
+    on_failure: always
+branches:
+  only:
+  - master
+cache:
+  directories:
+  - vendor
+  - "$HOME/.composer/cache"
+matrix:
+  include:
+  - php: 7.1
+    env: WP_VERSION=latest
+  - php: 7.0
+    env: WP_VERSION=latest
+#  - php: 5.6
+#    env: WP_VERSION=latest
+#  - php: 5.6
+#    env: WP_VERSION=trunk
+#  - php: 5.6
+#    env: WP_TRAVISCI=phpcs
+before_script:
+- export PATH="$HOME/.composer/vendor/bin:$PATH"
+- |
+  if [ -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]; then
+    phpenv config-rm xdebug.ini
+  else
+    echo "xdebug.ini does not exist"
+  fi
+- |
+  if [[ ! -z "$WP_VERSION" ]] ; then
+    bash .bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+    if [[ ${TRAVIS_PHP_VERSION:0:2} == "5." ]]; then
+      composer global require "phpunit/phpunit=4.8.*"
+    else
+      composer global require "phpunit/phpunit=6.5.*"
+    fi
+  fi
+- |
+  if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
+    composer global require wp-coding-standards/wpcs
+    phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+  fi
+script:
+- |
+  if [[ ! -z "$WP_VERSION" ]] ; then
+    phpunit
+    WP_MULTISITE=1 phpunit
+  fi
+- |
+  if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
+    phpcs
+  fi

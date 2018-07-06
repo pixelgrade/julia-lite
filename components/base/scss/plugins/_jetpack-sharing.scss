@@ -1,0 +1,108 @@
+$jetpack-sharing-colors: (
+  facebook: #3461a1,
+  twitter: #28aae1,
+  pinterest: #cd2026,
+  linkedin: #0077b5,
+  reddit: #ff4500,
+  google: #dd4b39,
+  tumblr: #35465c,
+  skype: #00aff0,
+  pocket: #ef4056,
+  whatsapp: #25d366,
+  telegram: #0088cc,
+) !default;
+
+$jetpack-sharing-border-width: 1px !default;
+$jetpack-sharing-border-color: rgba(0,0,0,0.1) !default;
+$jetpack-sharing-border-radius: 0 !default;
+$jetpack-sharing-button-color: inherit !default;
+$jetpack-sharing-padding: 12px 15px 12px 17px !default;
+$jetpack-sharing-spacing: 10px !default;
+
+$jetpack-sharing-icon-bg: #222 !default;
+
+$jetpack-sharing-font: (
+  font-size: 14px,
+  line-height: (18/14),
+  font-weight: 500,
+  letter-spacing: (1em/14),
+  text-transform: uppercase
+) !default;
+
+#content .sharedaddy[class] {
+  clear: none;
+
+  .sd-title,
+  .sd-title:before {
+    display: none;
+  }
+
+  @each $brand, $colors in $jetpack-sharing-colors {
+    .share-#{$brand} > a:before {
+      color: $colors;
+    }
+  }
+
+  .sd-content ul {
+    margin: 0 !important;
+    margin-top: -$jetpack-sharing-spacing !important;
+    margin-left: -$jetpack-sharing-spacing !important;;
+  }
+
+  .sd-content li {
+    margin: 0;
+    padding-top: $jetpack-sharing-spacing;
+    padding-left: $jetpack-sharing-spacing;
+
+    a {
+      transition: all 0.2s ease;
+    }
+  }
+
+  .sd-button {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    font: inherit;
+    margin: 0;
+    padding: $jetpack-sharing-padding;
+    border: $jetpack-sharing-border-width solid $jetpack-sharing-border-color;
+    border-radius: $jetpack-sharing-border-radius;
+
+    box-shadow: none;
+    background: none;
+
+    @include leading-map($jetpack-sharing-font);
+    color: $jetpack-sharing-button-color !important;
+  }
+
+  .sd-button > span {
+    // font: inherit;
+  }
+
+  // Variations
+  // Button style: Icon only
+  .sd-social-icon {
+   .sd-content.sd-content {
+     ul li[class*='share-'] {
+       a.sd-button {
+         border: none;
+         border-radius: 50%;
+         background: $jetpack-sharing-icon-bg;
+
+         &:before {
+           color: #fff;
+           width: 18px;
+           height: 18px;
+           background-color: transparent;
+         }
+       }
+
+       a, a:hover, div.option a {
+         padding: 9px;
+       }
+     }
+   }
+  }
+}
+

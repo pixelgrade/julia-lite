@@ -1,0 +1,115 @@
+// HEADER
+// ========================================
+
+// Layout
+// ----------------------------------------
+$logo-height: 23px !default;
+$header-height: 100px !default;
+$header-links-spacing: 40px !default;
+// @todo $header-position
+// @todo $header-width
+$header-sides-spacing: 50px !default;
+
+// Colors
+// ----------------------------------------
+$header-links-color: #000 !default;
+$header-links-active-color: #000 !default;
+// @todo $header-links-active-style
+$header-background-color: #FFF !default;
+
+$header-sticky-links-color: $header-links-color !default;
+$header-sticky-links-active-color: $header-links-active-color !default;
+$header-sticky-background-color: $header-background-color !default;
+
+// Fonts
+// ----------------------------------------
+$logo-font: () !default;
+$header-font: () !default;
+
+.site-logo img,
+.custom-logo-link img {
+  max-height: $logo-height;
+}
+
+.site-title {
+  @include leading-map($logo-font);
+}
+
+.u-header-background {
+  background-color: $header-background-color;
+}
+
+.site-header-sticky {
+  background-color: $header-sticky-background-color;
+
+  &,
+  .c-navbar,
+  .c-navbar li {
+    color: $header-sticky-links-color;
+  }
+
+  .c-navbar li:hover,
+  .c-navbar [class*='current-menu'] {
+    color: $header-sticky-links-active-color;
+  }
+}
+
+.c-navbar {
+  @include leading-map($header-font);
+
+  transition: $transition--default;
+  transition-property: color;
+}
+
+.c-navbar ul {
+  @include spacing(margin-left, -$header-links-spacing);
+}
+
+.c-navbar li {
+  @include spacing(margin-left, $header-links-spacing);
+}
+
+.c-navbar {
+
+  a, a:hover, a:active {
+    color: inherit;
+  }
+
+  &,
+  li {
+    color: $header-links-color;
+  }
+
+  li:hover,
+  [class*='current-menu'] {
+    color: $header-links-active-color;
+
+    .u-underlined-header-links & {
+      text-decoration: underline;
+    }
+  }
+}
+
+.u-header-sides-spacing {
+  @include spacing(padding-left, $header-sides-spacing);
+  @include spacing(padding-right, $header-sides-spacing);
+}
+
+.u-site-header-full-width {
+  .site-header .u-container-width {
+    max-width: none;
+  }
+}
+
+.u-site-header-sticky--top {
+  @include above(lap) {
+    .site-header {
+      background: transparent;
+    }
+
+    .c-navbar,
+    .c-navbar li {
+      color: #FFF;
+    }
+  }
+}

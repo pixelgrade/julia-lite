@@ -1,0 +1,90 @@
+$meta-title-font: () !default;
+$meta-category-items-font: () !default;
+$meta-tags-items-font: () !default;
+
+.meta {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.meta__title {
+  @include spacing(margin-right, 1rem);
+  @include leading-map($meta-title-font);
+}
+
+.meta__title:after {
+  content: ": ";
+}
+
+.meta__title--above {
+  @include spacing(margin-bottom, 0.5rem);
+  flex-basis: 100%;
+}
+
+.meta__item--button {
+}
+
+.meta__item--text:not(:last-child):after {
+  content: ",";
+}
+
+.entry-content {
+
+  .cats,
+  .tags {
+    @extend .meta;
+  }
+
+  .cats {
+    align-items: center;
+
+    &__title {
+      @extend .meta__title;
+      margin-top: 5px;
+    }
+
+    &[class] > a {
+      @extend .meta__item--button !optional;
+
+      // add spaciing between category items
+      padding: 0.5em 1.25em;
+
+      // cleanup possible properties inherited by the anchor tag
+      text-decoration: none;
+      box-shadow: none;
+    }
+  }
+
+  .tags {
+
+    @include spacing(margin-top, 3rem);
+
+    &__title {
+      @extend .meta__title;
+      margin-top: 5px;
+    }
+
+    > a {
+      @extend .meta__item--text;
+      padding: 0;
+      margin-top: 5px;
+      margin-right: 5px;
+      font-style: italic;
+      line-height: 1.2;
+      background: none;
+      box-shadow: none;
+      @include leading-map($meta-tags-items-font);
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+.entry-header .cats {
+  @extend .meta;
+}

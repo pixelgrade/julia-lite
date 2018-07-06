@@ -1,0 +1,20 @@
+@mixin baseline($baseline-line-height: 1.5, $cap-height-ratio: 0.68) {
+
+    $baseline-distance: ($baseline-line-height - $cap-height-ratio) / 2;
+
+    //line-height: $baseline-line-height;
+
+    &:before,
+    &:after {
+        content: "";
+        display: block;
+    }
+
+    &:before {
+        margin-bottom: -$baseline-distance * 1em;
+    }
+
+    &:after {
+        margin-top: -$baseline-distance * 1em;
+    }
+}

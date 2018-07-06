@@ -1,0 +1,90 @@
+$baseline-unit:         16px        !default;
+
+$typeline-config: (
+	typography: (
+		points: (15 1, 30 1.5, 140 2.5),
+		breakpoints: (1360px, 1024px, 768px, 320px)
+	),
+	spacings: (
+		points: (0 1, 20 2, 100 2.5),
+		breakpoints: (1360px, 1024px, 768px, 320px)
+	)
+) !default;
+
+// returns Y value for a given property value for the
+// first breakpoint according to the given variable values
+@function getY($A, $B, $C, $computedValue) {
+    $computedValue: strip-unit($computedValue);
+    @if $computedValue < nth($B, 1) {
+        // if given computedValue is smaller then B.x
+        // use an exponential function to determine Y value [ ie. y = ab^(x^3) ]
+        $a: nth($A, 2);
+        $b: (nth($B, 2) - nth($A, 2)) / pow(nth($B, 1), 3);
+        @return $a + $b * pow($computedValue, 3);
+    } @else {
+        // otherwise use a basic linear equation solving method
+        @return nth($B, 2) + (nth($C, 2) - nth($B, 2)) * ($computedValue - nth($B, 1)) / (nth($C, 1) - nth($B, 1));
+    }
+}
+
+// used to get the actual property value for a given breakpoint
+@function getComputedValue($typeline-points, $typeline-breakpoints, $computedValue, $breakpoint: false) {
+
+    $A: nth($typeline-points, 1);
+    $B: nth($typeline-points, 2);
+    $C: nth($typeline-points, 3);
+    $sign: 1;
+
+    @if $computedValue < 0 {
+        $computedValue: -$computedValue;
+        $sign: -1;
+    }
+
+    $index: index($typeline-breakpoints, $breakpoint);
+    @if $index == null {
+        @return $computedValue;
+    }
+
+    // we need to find values that are equally spread across the interval [1, getY($computedValue)] for each breakpoint we have
+    $y: getY($A, $B, $C, $computedValue);
+    $ratio: ($y - 1) * $index / length($typeline-breakpoints) + 1;
+    @return $computedValue * $sign / $ratio;
+}
+
+@mixin typeline($property, $values, $config) {
+	$points: map-get($config, points);
+	$breakpoints: map-get($config, breakpoints);
+
+  $newValues: ();
+
+  @each $value in $values {
+    @if unitless($value / 1rem) {
+      $value: $value * $baseline-unit / 1rem;
+    }
+    $newValues: append( $newValues, $value, space );
+  }
+
+	#{$property}: $newValues;
+
+	@each $breakpoint in $breakpoints {
+		@media only screen and (max-width: $breakpoint) {
+      $newValues: ();
+      @each $value in $values {
+        @if unitless($value / 1rem) {
+          $value: $value * $baseline-unit / 1rem;
+        }
+        $newVal: getComputedValue($points, $breakpoints, $value, $breakpoint);
+        $newValues: append( $newValues, $newVal, space );
+      }
+      #{$property}: $newValues;
+		}
+	}
+}
+
+@mixin spacing($property, $value, $offset: false) {
+	@include typeline($property, $value, map-get($typeline-config, spacings));
+}
+
+@mixin fontsize($value) {
+	@include typeline(font-size, $value, map-get($typeline-config, typography));
+}

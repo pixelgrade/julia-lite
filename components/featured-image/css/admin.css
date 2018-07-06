@@ -1,0 +1,9 @@
+.piximage_field.thumbnail-hover {
+    background-color: #f9f8f8;
+}
+.piximage_field.thumbnail-hover, .piximage_field.thumbnail-hover.no-items > ul{
+    min-height: 60px;
+}
+.piximage_field.thumbnail-hover .open_piximage i.icon {
+    display: none;
+}

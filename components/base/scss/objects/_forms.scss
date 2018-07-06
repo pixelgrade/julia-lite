@@ -1,0 +1,281 @@
+// Forms General Options
+
+// @todo more semantic for these variables
+$color-dark: #3B3B3B !default;
+$color-white: #FFFFFF !default;
+
+$input-font: () !default;
+$input-color: #3B3B3B !default;
+$input-border-color: #E0E0E0 !default;
+$input-background-color: #FFFFFF !default;
+$input-padding: 13px 19px 15px !default;
+$input-focus-border-color: #383838 !default;
+$input-focus-background-color: #FFFFFF !default;
+$input-border-radius: 0 !default;
+$input-disabled-color: #3B3B3B !default;
+$input-disabled-background-color: #EBEBEB !default;
+$input-disabled-border-color: #EBEBEB !default;
+
+$placeholder-color: #3B3B3B !default;
+
+$label-font: () !default;
+$label-color: #3B3B3B !default;
+
+$legend-font: () !default;
+$legend-color: #3B3B3B !default;
+
+$button-color: #FFFFFF !default;
+$button-background-color: #3B3B3B !default;
+
+$checkbox-color: #3B3B3B !default;
+$checkbox-background-color: #FFFFFF !default;
+$checkbox-width: 1.5rem !default;
+$checkbox-height: 1.5rem !default;
+
+// Spacing
+$input-vertical-spacing: 1rem !default;
+$input-horizontal-spacing: 1rem !default; // Checkboxes and Radios
+
+
+$label-font: (
+  font-size: 14px,
+  line-height: 1.5,
+  font-weight: 500,
+  letter-spacing: 1px,
+  text-transform: uppercase,
+);
+
+$input-font: (
+  font-size: 17px,
+  line-height: 1.5,
+  font-weight: 400,
+);
+
+
+$legend-font: (
+  font-size: 12px,
+  text-transform: uppercase,
+  font-weight: 500,
+);
+
+@mixin field {
+  width: 100%;
+  max-width: 100%;
+  @include spacing(padding, $input-padding);
+  border: 1px solid $input-border-color;
+
+  @include leading-map($input-font);
+
+  color: $input-color;
+  border-radius: $input-border-radius;
+
+  font-family: inherit;
+  -webkit-font-smoothing: initial;
+
+  &:focus,
+  &:active {
+    outline: 0;
+    box-shadow: none;
+    border-color: $input-focus-border-color;
+  }
+
+  &[disabled] {
+    border-color: $input-disabled-border-color;
+    background-color: $input-disabled-background-color;
+  }
+}
+
+
+@mixin input {
+  @include field;
+}
+
+$textarea-font: () !default;
+
+@mixin textarea {
+  @include field;
+
+  min-height: 120px;
+  resize: vertical;
+}
+
+@mixin select {
+  @include field;
+
+  padding-right: 50px;
+
+  background: $input-background-color url('#{$arrow-caret-svg}') calc(100% - 17px) center no-repeat;
+  background-size: 9px 5px;
+
+  -webkit-appearance: none;
+}
+
+@mixin taxonomy-select {
+  width: auto;
+  background: url('#{$select-arrow-svg}') 100% center no-repeat;
+  background-size: 8px 11px;
+  padding: 0 10px 0 0;
+  border: none;
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+@mixin label {
+  @include leading-map($label-font);
+  color: $label-color;
+  @include spacing(padding-bottom, $input-vertical-spacing);
+  margin: 0;
+}
+
+@mixin checkbox {
+  position: relative;
+  left: 0;
+
+  border: 1px solid $input-border-color;
+  border-radius: $input-border-radius;
+
+  width: $checkbox-width !important;
+  height: $checkbox-height !important;
+  margin-right: $input-horizontal-spacing;
+  margin-bottom: $input-vertical-spacing;
+
+  background-color: $color-white;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+}
+
+@include placeholder() {
+  color: $placeholder-color;
+  opacity: .6;
+  font-weight: map-get($input-font, font-weight);
+  font-style: italic;
+}
+
+input {
+  &[type="text"],
+  &[type="tel"],
+  &[type="number"],
+  &[type="date"],
+  &[type="email"],
+  &[type="password"],
+  &[type="url"],
+  &[type="search"] {
+    @include input;
+  }
+}
+
+input[type="checkbox"] {
+  @include checkbox;
+
+  &:checked {
+    border-color: $checkbox-color;
+    background: $checkbox-background-color url('#{$checkbox-svg}') center center no-repeat;
+    background-size: 100% 100%;
+    outline: 0;
+  }
+}
+
+input[type="radio"] {
+  @include checkbox;
+  border-radius: 50%;
+
+  &:checked {
+    border: 7px solid $checkbox-color;
+    outline: 0;
+  }
+}
+
+input[type="submit"],
+input[type="button"],
+button[type="submit"],
+button[type="button"],
+button[type="reset"] {
+  @include btn;
+}
+
+input[type="file"] {
+  width: 100%;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  display: block;
+  margin-bottom: 0 !important;
+  padding: 12px 28px;
+  border: 0 solid transparent;
+  border-right-width: 1em;
+  background-clip: padding-box;
+  overflow: visible;
+
+  font-weight: 600;
+  text-align: center;
+
+  color: $button-color;
+  background-color: $button-background-color;
+
+  transition: $transition--default;
+  vertical-align: middle;
+  cursor: pointer;
+
+  &:focus, &:active {
+    outline: 0;
+    box-shadow: none;
+    background-color: $button-background-color;
+  }
+
+  &:hover {
+    background-color: $color-dark;
+  }
+}
+
+input.disabled,
+input[disabled="disabled"],
+input[disabled] {
+  background: $input-disabled-background-color;
+  border-color: $input-disabled-border-color;
+}
+
+textarea {
+  @include textarea;
+}
+
+select {
+  @include select;
+
+  &[multiple] {
+    background: none;
+    padding-right: 13px;
+  }
+}
+
+fieldset {
+  border: 0;
+
+  legend {
+    @include leading-map($legend-font);
+    color: $legend-color;
+    padding: 0 !important;
+  }
+
+  > div {
+    @include spacing(margin-top, $input-vertical-spacing);
+  }
+}
+
+// Helper Classes for Humans & Nature
+// <div class="form-inline">  <input> <input type="submit">  </div>
+.form-inline {
+  display: flex;
+
+  input[type="submit"],
+  input[type="button"],
+  button[type="submit"],
+  button[type="button"],
+  button[type="reset"] {
+    flex-shrink: 0;
+    margin-top: 0;
+  }
+}
+

@@ -1,0 +1,222 @@
+$typography-spacing: 2rem !default;
+
+$body-link-color: #3B3B3B !default;
+$body-link-active-color: #DFA671 !default;
+
+$h1-color: #333 !default;
+$h2-color: #333 !default;
+$h3-color: #333 !default;
+$h4-color: #333 !default;
+$h5-color: #333 !default;
+$h6-color: #333 !default;
+
+p,
+ul, ol, dl,
+hr,
+table,
+.twocolumn {
+
+  &:not(:last-child) {
+    @include spacing(margin-bottom, $typography-spacing);
+  }
+}
+
+blockquote {
+  @include leading-map($blockquote-font);
+
+  &:not(:last-child) {
+    @include spacing(margin-bottom, $typography-spacing);
+  }
+
+  footer, cite {
+    display: block;
+    @include spacing(margin-top, $typography-spacing);
+
+    font-style: normal;
+    @include leading-map($cite-font);
+
+    a {
+      border-bottom: 0 !important;
+      text-decoration: none !important;
+    }
+  }
+}
+
+h1 {
+  @include leading-map($h1);
+  color: $h1-color;
+}
+
+h2 {
+  @include leading-map($h2);
+  color: $h2-color;
+}
+
+h3 {
+  @include leading-map($h3);
+  color: $h3-color;
+}
+
+h4 {
+  @include leading-map($h4);
+  color: $h4-color;
+}
+
+h5 {
+  @include leading-map($h5);
+  color: $h5-color;
+}
+
+h6 {
+  @include leading-map($h6);
+  color: $h6-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  & + &:not(:first-child) {
+    margin-top: 0;
+  }
+}
+
+// LISTS
+$typography-unordered-list-style: disc !default;
+$typography-ordered-list-style: decimal !default;
+$typography-list-padding: 2rem !default;
+$typography-list-item-spacing: 0.5rem !default;
+
+li {
+  ul, ol, dl {
+    @include spacing(margin-top, $typography-list-item-spacing);
+  }
+}
+
+// UNORDERED LISTS
+ul {
+  @include spacing(padding-left, $typography-list-padding);
+  list-style: $typography-unordered-list-style;
+}
+
+// ORDERED LISTS
+ol {
+  @include spacing(padding-left, $typography-list-padding);
+  list-style: $typography-ordered-list-style;
+}
+
+li:not(:last-child),
+dl > dl:not(:last-of-type),
+dl > dd:not(:last-of-type) {
+  @include spacing(margin-bottom, $typography-list-item-spacing);
+}
+
+// DEFINITION LISTS
+dl:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+dt {
+  width: 33%;
+  float: left;
+  clear: both;
+  font-weight: bold;
+}
+
+dd {
+  width: 66%;
+  float: right;
+  clear: right;
+}
+
+
+// PREFORMATTED CODE
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+
+  @include spacing(padding, 1rem);
+  border: 1px solid;
+
+  &:not(:last-child) {
+    @include spacing(margin-bottom, 2rem);
+  }
+}
+
+
+
+// TABLES
+$typography-table-cell-padding: 0.5rem !default;
+$typography-table-border-width: 1px !default;
+$typography-table-border-style: solid !default;
+$typography-table-border-color: rgba(0,0,0,0.1) !default;
+
+table {
+  width: 100%;
+  float: none;
+  border-collapse: collapse;
+
+  &:not(:last-child) {
+    @include spacing(margin-bottom, $typography-spacing);
+  }
+
+  th {
+    text-align: left;
+  }
+
+  th,
+  td {
+    vertical-align: middle;
+  }
+
+  tr,
+  thead,
+  tbody,
+  tfoot {
+    border-bottom: $typography-table-border-width $typography-table-border-style $typography-table-border-color;
+  }
+
+  th,
+  td {
+    @include spacing(padding, $typography-table-cell-padding);
+  }
+
+  caption {
+    @include spacing(padding, $typography-table-cell-padding 0);
+  }
+
+  th,
+  td {
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+
+// HR
+$typography-hr-width: 100% !default;
+
+hr {
+  width: $typography-hr-width;
+  border: 0;
+  border-top: 1px solid;
+  margin: 0 auto;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+em,
+i,
+small {
+	font-style: italic;
+}

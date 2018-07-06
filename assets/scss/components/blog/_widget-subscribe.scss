@@ -1,0 +1,103 @@
+.jetpack_subscription_widget,
+.widget_blog_subscription {
+
+	form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+
+		> * {
+			flex: 0 0 100%;
+		}
+	}
+
+	input {
+		height: 100%;
+	}
+
+	[id="subscribe-text"] p {
+		@include spacing(margin-bottom, 2rem);
+	}
+
+	[id="subscribe-email"] {
+		flex: 1 0 50%;
+	}
+
+	[id="subscribe-submit"] {
+		@include button;
+		@include button-directional;
+		@include button-directional--right;
+		flex: 0 0 auto;
+    padding-right: 0;
+    background: none;
+
+		[type="submit"] {
+      @include button-directional;
+      @include button-directional--right;
+			margin: 0;
+		}
+	}
+
+	@include above(small) {
+
+		&.widget--full,
+		&.widget--content {
+			text-align: center;
+		}
+	}
+
+	&.widget--side {
+
+		form {
+			display: block;
+		}
+	}
+
+	&.widget--content {
+		@include spacing(padding, 4rem);
+		background: $theme-background-color;
+		text-align: left;
+	}
+}
+
+.widget #subscribe-email input {
+	width: 100%;
+}
+
+.widget--full,
+.widget--content {
+
+	[id="subscribe-submit"] {
+		@include spacing(margin-left, 1rem);
+	}
+
+	@include below(small) {
+
+		form:not([class]) {
+			display: block;
+		}
+
+		[id="subscribe-submit"] {
+			margin-left: 0;
+		}
+
+		[id="subscribe-submit"] {
+			width: 100%;
+		}
+	}
+
+	@include above(small) {
+
+		[id="subscribe-email"] {
+			margin-bottom: 0;
+		}
+
+		[id="subscribe-submit"] {
+			width: auto;
+		}
+	}
+}

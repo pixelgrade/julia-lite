@@ -1,0 +1,48 @@
+/* Toggler like on getting started */
+
+.toggler {
+  text-align: left;
+}
+
+.toggler a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 2px;
+  border: 1px solid $litho-dark !important;
+  border-radius: 3px;
+  text-decoration: none !important;
+  color: $litho-dark !important;
+  font-weight: 900;
+  &:hover {
+    background: $litho-dark !important;
+    color: #fff !important;
+  }
+}
+
+.toggler table {
+  border-collapse: collapse;
+  margin-top: 50px;
+}
+.toggler table, td, th {
+  border: 0;
+}
+
+.toggler strong {
+  font-size: 24px;
+  color: $litho-dark;
+}
+
+.display-configuration-gradle .toggler .button-gradle,
+.display-configuration-gradle-kt .toggler .button-gradle-kt,
+.display-configuration-buck .toggler .button-buck {
+  background: darken($litho-dark, 10%) !important;
+  color: #fff !important;
+}
+block {
+  display: none;
+}
+.display-configuration-gradle .gradle,
+.display-configuration-gradle-kt .gradle-kt,
+.display-configuration-buck .buck {
+  display: block;
+}

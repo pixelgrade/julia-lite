@@ -1,0 +1,6 @@
+{
+  "theme_name": "julia",
+  "main_branch": "julia",
+  "text_domain": "julia",
+  "baseurl": "demos.dev/julia"
+}

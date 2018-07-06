@@ -1,0 +1,32 @@
+// A very simple reset that sits on top of Normalize.css.
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+* {
+  text-decoration-skip: ink;
+}
+
+body,
+h1, h2, h3, h4, h5, h6,
+blockquote, p, pre,
+dl, dd, ol, ul,
+figure,
+hr,
+fieldset, legend {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+li {
+  list-style: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}

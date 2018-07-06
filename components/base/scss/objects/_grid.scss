@@ -1,0 +1,44 @@
+@mixin grid {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
+
+	> * {
+		border: 0 solid transparent;
+	}
+}
+
+@mixin grid-spacing( $gutter ) {
+	@include spacing(margin-top, -$gutter);
+	@include spacing(margin-left, -$gutter);
+
+	> * {
+		@include spacing(margin-top, $gutter);
+		@include spacing(padding-left, $gutter);
+	}
+}
+
+.o-grid {
+	@include grid;
+	@include grid-spacing( 3rem );
+}
+
+.o-grid--center {
+	justify-content: center;
+}
+
+@for $i from 1 through 9 {
+	.o-grid--#{$i}col > * {
+		width: percentage(1/$i);
+	}
+}
+
+@each $name, $value in $breakpoints {
+	@include above($name) {
+		@for $i from 1 through 9 {
+			.o-grid--#{$i}col-\@#{$name} > * {
+				width: percentage(1/$i);
+			}
+		}
+	}
+}

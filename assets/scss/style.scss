@@ -1,0 +1,172 @@
+
+// CONFIGURATION
+// ----------------------------------------
+
+@import 'typeline-config';
+
+// theme mixins and functions
+@import 'tools/mixins';
+
+// styling for 3rd party plugins used in the theme
+@import '../../node_modules/slick-carousel/slick/slick.scss';
+@import '../../node_modules/select2/src/scss/core';
+
+$content-class: '.entry-content';
+
+// COMPONENTS
+// ----------------------------------------
+
+// BASE - default
+@import '../../components/base/scss/style';
+
+#{$content-class} {
+  @import 'typography';
+}
+
+// BLOG - custom
+//@import '../../components/blog/scss/style';
+@import 'components/blog/style';
+
+// GALLERY - default
+@import '../../components/gallery-settings/scss/style';
+
+// HERO - default
+
+
+// HEADER - custom
+//@import '../../components/header/scss/style';
+@import 'components/header/style';
+
+// FOOTER - custom
+//@import '../../components/footer/scss/style';
+@import 'components/footer/style';
+
+
+
+
+// THEME
+// ----------------------------------------
+
+@import 'components/alert';
+@import 'components/back-to-top';
+@import 'components/dropcap';
+@import 'components/intro';
+@import 'components/hr';
+@import 'components/link-arrow';
+@import 'components/promo';
+@import 'components/search-form';
+@import 'components/search-overlay';
+
+// styles for recommended WordPress plugins
+@import 'plugins/jetpack-recipe';
+@import 'plugins/tasty-recipes';
+@import 'plugins/customify';
+
+@import '../../components/base/scss/plugins/gridable';
+@import '../../components/base/scss/plugins/cf7';
+@import '../../components/base/scss/plugins/ninja-forms';
+@import '../../components/base/scss/plugins/wpforms';
+@import '../../components/base/scss/plugins/jetpack-forms';
+
+@import '../../components/base/scss/plugins/jetpack-infinite-scroll';
+@import '../../components/base/scss/plugins/jetpack-sharing';
+@import '../../components/base/scss/plugins/jetpack-related-posts';
+@import '../../components/base/scss/plugins/jetpack-social-navigation';
+
+@import 'components/select2';
+
+// jetpack-social-navigation theme overwrites
+[class].jetpack-social-navigation {
+  margin-left: auto;
+  flex-grow: 0;
+
+  @include below(lap) {
+    min-height: 30px;
+  }
+}
+
+.c-btn--search {
+  svg {
+    display: block;
+  }
+}
+
+
+.cats,
+.tags,
+.sharedaddy {
+  @include spacing(margin-top, 1rem);
+
+  &+& { @include spacing(margin-top, 2.5rem); }
+  &:not(:last-child) { @include spacing(margin-bottom, 2.5rem); }
+}
+
+.entry-date + .entry-title {
+  @include spacing(padding-top, 3rem);
+}
+
+.entry-title:last-child {
+  padding-bottom: 0;
+}
+
+.meta__item--button {
+  @include btn;
+  padding: 1em 1.5em 0.9em 1.6em;
+}
+
+.site[class] {
+  padding-top: 0;
+}
+
+// Carousel on  Mobile
+@include below(lap) {
+
+  .widget {
+
+    .slick-slider {
+
+      .c-card__meta {
+        justify-content: center;
+      }
+
+      .c-card__content {
+        text-align: center;
+        align-items: stretch;
+      }
+
+      .c-card__excerpt {
+        display: none;
+      }
+
+      .c-card__frame {
+        
+      }
+    }
+
+    // // Always Hide "Read More" button on Mobile
+    // &.widget .c-card__footer {
+    //   display: none;
+    // }
+
+    .widget__title {
+      text-align: center;
+
+      &[class][class] span {
+        font-size: inherit;
+      }
+    }
+
+    .slick-slide {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+
+  .slick-dots[class] button {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+// dirty overwrites - should be cleaned regularly
+@import 'shame';

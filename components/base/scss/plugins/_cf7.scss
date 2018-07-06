@@ -1,0 +1,80 @@
+// Contact Form 7
+div.wpcf7 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wpcf7-form-control-wrap {
+    display: block;
+}
+
+span.wpcf7-list-item {
+    @include spacing(margin-bottom, 1rem);
+    display: flex;
+    margin-left: 0;
+
+    &.last {
+        margin-bottom: 0;
+    }
+}
+
+.wpcf7-list-item-label,
+.wpcf7-form label {
+    @include label;
+    line-height: 1.5 !important;
+
+    &:before {
+        margin-bottom: 0 !important;
+    }
+}
+.wpcf7-form p {
+    @include spacing(margin-bottom, 2.5rem);
+    padding: 0;
+
+    &:before,
+    &:after {
+        margin: 0;
+    }
+}
+
+.div.wpcf7-response-output {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.contact-form {
+    display: flex;
+    flex-wrap: wrap;
+
+    > * {
+        flex-basis: 100%;
+    }
+
+    > div {
+        @include spacing(margin-bottom, 2.5rem);
+
+        input[type='text'],
+        input[type='email'],
+        textarea {
+            width: 100%;
+            max-width: none;
+            margin-bottom: 0;
+            float: none;
+        }
+
+        > .grunion-field-label:not(.checkbox):not(.radio) {
+            @include label;
+        }
+
+        > label, > label.checkbox, > label.radio {
+            display: flex;
+            align-items: center;
+        }
+
+        > label > input[type="checkbox"],
+        > label > input[type="radio"] {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+hr {
+    width: 4px;
+    height: 4px;
+    border-top: 0;
+    margin: 100px auto;
+    border-radius: 50%;
+    box-shadow: currentColor -8px 0, currentColor -24px 0, currentColor 8px 0, currentColor 24px 0;
+
+    &:not(:first-child) {
+        @include spacing(margin-top, 3.25rem);
+    }
+
+    &:not(:last-child) {
+        padding-bottom: 0;
+        @include spacing(margin-bottom, 3.75rem);
+    }
+}

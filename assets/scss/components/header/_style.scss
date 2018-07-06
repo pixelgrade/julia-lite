@@ -1,0 +1,22 @@
+@import "../../../../components/header/scss/elements/burger";
+@import "../../../../components/header/scss/elements/branding";
+@import "../../../../components/header/scss/elements/logo";
+
+@include below(lap) {
+  @import "../../../../components/header/scss/elements/navbar-mobile";
+}
+
+@include above(lap) {
+  @import "../../../../components/header/scss/elements/navbar-desktop";
+  @import "../../../../components/header/scss/elements/navbar-dropdown";
+}
+
+@import "../../../../components/header/scss/customify";
+
+@import "site-header";
+@import "site-title";
+@import "navigation";
+
+.has-border:not(.u-static-header) .c-navbar {
+  margin-top: 0;
+}

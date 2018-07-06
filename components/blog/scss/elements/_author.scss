@@ -1,0 +1,82 @@
+/**
+ * Style Author Box displayed below post
+ */
+
+.c-author {
+	display: flex;
+  align-items: flex-start;
+
+	&.has-description {
+		@include below(small) {
+			flex-wrap: wrap;
+
+			.c-author__avatar + .c-author__details {
+				padding-left: 0;
+			}
+		}
+	}
+
+	&:not(.has-description) {
+		align-items: center;
+	}
+}
+
+.c-author__name {
+	display: block;
+}
+
+.c-author__avatar {
+	flex-shrink: 0;
+	max-width: 22%;
+	@include spacing(margin-bottom, 1rem);
+
+	@include above(small) {
+		margin-bottom: 0;
+	}
+
+	@include below(small) {
+		flex-basis: 100%;
+	}
+
+	img {
+		display: block;
+	}
+
+	+ .c-author__details {
+		@include spacing(padding-left, 3rem);
+	}
+}
+
+.c-author__label {
+	display: block;
+
+	&:after {
+		@include spacing(padding-bottom, .5rem);
+	}
+}
+
+.c-author__links > :not(:last-child):after,
+.c-author__link-website:not(:last-child):after {
+	content: "\2022";
+	padding-left: .75em;
+	padding-right: .6em;
+	text-decoration: none;
+}
+
+.c-author__links {
+	margin-top: 0;
+	margin-right: 0;
+
+	&:after {
+		padding-bottom: 0;
+	}
+
+	a:hover {
+    text-decoration: none;
+	}
+}
+
+// Hide weird gravatar image on hover on author avatar
+[class*="grav-clone"] {
+	display: none !important;
+}

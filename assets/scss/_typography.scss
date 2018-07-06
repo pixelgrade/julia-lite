@@ -1,0 +1,42 @@
+$body-link-highlight-color: #E9F2F7 !default;
+
+a:not([class]) {
+  position: relative;
+
+  padding-left: 2px;
+  padding-right: 2px;
+  border-bottom: 0;
+
+  box-shadow: $theme-background-color 0 1.5em inset;
+  background-color: $body-link-highlight-color;
+
+  transition: all 0.15s ease-out;
+  transition-property: box-shadow, color, opacity;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: $theme-background-color 0 0 inset;
+    text-decoration: none;
+  }
+
+  .u-underlined-links & {
+    text-decoration: none;
+    border-bottom: 0.07em solid;
+  }
+}
+
+.link-reset {
+  padding-left: 0;
+  padding-right: 0;
+  background: none;
+  box-shadow: none;
+  transition: none;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.intro:not(:last-child) {
+  @include spacing(margin-bottom, $typography-spacing*2);
+}

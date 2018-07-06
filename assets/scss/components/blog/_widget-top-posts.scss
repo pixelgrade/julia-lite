@@ -1,0 +1,111 @@
+.widget_top-posts {
+
+    ul {
+        @include spacing(margin-left, -2rem);
+        @include spacing(margin-right, -2rem);
+
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            @include spacing(padding-left, 2rem);
+            @include spacing(padding-right, 2rem);
+
+            flex: 1 1 33.333%;
+
+            .bum-view {
+                float: none;
+                display: block;
+            }
+
+            img {
+                display: block;
+                float: none;
+                width: 100%;
+                max-width: none;
+            }
+
+            a {
+                font-family: $theme-body-font-family;
+                @include fontsize(18px);
+                font-weight: 600;
+            }
+
+            .widgets-list-layout-links {
+                @include spacing(margin-top, 2rem);
+
+                float: none;
+                width: 100%;
+            }
+
+            @include below(small) {
+                flex: 1 1 100%;
+            }
+        }
+    }
+
+    .widgets-list-layout {
+
+        .widgets-list-layout-blavatar {
+            float: none;
+            width: 100%;
+            max-width: none;
+
+            @include below(small) {
+                float: left;
+                width: 70px;
+                margin-right: 14px;
+            }
+        }
+
+        @include below(small) {
+
+            .widgets-list-layout-links {
+                margin-top: 14px;
+                padding-left: 84px;
+            }
+        }
+    }
+
+    .widgets-grid-layout {
+        @include spacing(margin-left, -2rem);
+        @include spacing(margin-right, -2rem);
+
+        display: flex;
+        flex-wrap: wrap;
+
+        .widget-grid-view-image {
+            @include spacing(padding-left, 2rem);
+            @include spacing(padding-right, 2rem);
+
+            flex: 1 1 33.333%;
+            max-width: none;
+
+            @include below(small) {
+                flex: 1 1 100%;
+            }
+        }
+    }
+}
+
+.widget--side.widget_top-posts {
+
+    ul li,
+    .widgets-grid-layout .widget-grid-view-image {
+        flex: 1 1 100%;
+    }
+
+    .widgets-list-layout {
+        .widgets-list-layout-blavatar {
+            float: left;
+            width: 70px;
+            margin-right: 14px;
+        }
+
+        .widgets-list-layout-links {
+            @include spacing(margin-top, 1rem);
+            padding-left: 84px;
+        }
+    }
+
+}

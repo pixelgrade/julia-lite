@@ -1,0 +1,177 @@
+$promo-spacing:       8.5%  !default;
+$promo-column-width:  auto  !default;
+$promo-media-width:   32%   !default;
+
+.widget_promo_box {
+  @extend .widget--stripe;
+
+  @include above(lap) {
+    &:not(.widget--full):before,
+    &:not(.widget--full):after {
+      content: none;
+    }
+  }
+}
+
+.widget_promo_box {
+  @include spacing(padding, 5rem 0);
+
+  .widget__title {
+    display: none;
+  }
+
+  > * {
+    position: relative;
+  }
+}
+
+.widget_promo_box--light {
+  background: $header-background-color;
+}
+
+.widget_promo_box--dark {
+  background-color: #2C2B2B;
+  color: $color-white;
+
+  .c-promo__title,
+  .c-promo__subtitle {
+    color: inherit;
+  }
+
+  .c-promo__btn[class] {
+    background-color: #FFF;
+    color: #353535;
+
+    .u-buttons-outline & {
+      background: none;
+      color: #fff;
+    }
+  }
+}
+
+.c-promo__subtitle {
+  // @include leading-map($h6); // not needed anymore → added .h6 class
+}
+
+.c-promo__title {
+  @include leading-map($h1);
+}
+
+.c-promo__media {
+  @include leading-map((
+    spacing-top: 2.5rem,
+    spacing-bottom: 2.5rem
+  ));
+
+  img {
+    display: block;
+  }
+}
+
+.c-promo__btn {
+
+  @include below(lap) {
+    display: block;
+  }
+}
+
+.widget--full,
+.widget--content {
+
+  @include above(lap) {
+
+    .c-promo {
+      display: grid;
+      align-items: center;
+      grid-template-columns: $promo-column-width $promo-media-width;
+      grid-column-gap: $promo-spacing;
+    }
+
+    .c-promo--reversed {
+      grid-template-columns: $promo-media-width $promo-column-width;
+      grid-column-gap: $promo-spacing;
+
+      .c-promo__media {
+        order: -1;
+      }
+    }
+  }
+
+  @include below(lap) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.widget--side,
+.widget--content {
+
+  .c-promo {
+    @include spacing(grid-column-gap, 40px);
+  }
+
+  .c-promo__description {
+    @include leading-map((spacing-bottom: 2.5rem));
+  }
+
+  @include above(lap) {
+
+    .c-promo__title > * {
+      font-size: (26em/36);
+    }
+
+    &.widget_promo_box {
+      padding: 40px;
+    }
+
+    &:before,
+    &:after {
+      content: none;
+    }
+
+    .c-promo__media {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.widget--full {
+
+  @include above(lap) {
+
+    .c-promo__media {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .c-promo__description > * {
+      font-size: (18em/16);
+    }
+  }
+
+  .c-promo__description {
+    @include leading-map((spacing-bottom: 2rem));
+  }
+}
+
+.widget--side {
+
+  .c-promo__btn {
+    display: block;
+
+    // "Remove" the Arrow Style
+    padding-right: 0;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .c-promo__media {
+    @include leading-map((
+      spacing-top: 2.5rem,
+      spacing-bottom: 2.5rem
+    ));
+  }
+}

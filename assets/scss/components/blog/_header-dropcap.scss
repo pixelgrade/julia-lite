@@ -1,0 +1,36 @@
+.header-dropcap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  @include leading-map($page-title-font);
+
+  color: $theme-background-color;
+
+  opacity: 0;
+  transition: opacity .15s ease-in-out;
+  pointer-events: none;
+
+  @include below(small) {
+    display: none;
+  }
+
+  &[class] {
+    line-height: 0.66;
+  }
+
+  #content & {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &[class]:before,
+  &[class]:after {
+    content: none;
+  }
+
+  .entry-image--landscape &,
+  .entry-image--none & {
+    z-index: 10;
+  }
+}

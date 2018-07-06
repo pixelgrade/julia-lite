@@ -1,0 +1,96 @@
+// Ninja Form
+.nf-form-cont {
+
+    .list-radio-wrap .nf-field-element li,
+    .list-checkbox-wrap .nf-field-element li {
+        display: flex;
+        margin-bottom: $input-vertical-spacing !important;
+
+        &:last-child {
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .list-radio-wrap .nf-field-element li input,
+    .list-checkbox-wrap .nf-field-element li input,
+    .nf-field-element input[type="checkbox"] {
+        width: $checkbox-width !important;
+        margin-right: $input-horizontal-spacing !important;
+        margin-top: 0;
+    }
+
+    .list-radio-wrap .nf-field-element li label,
+    .list-checkbox-wrap .nf-field-element li label {
+        padding-bottom: 0;
+        line-height: 1.5;
+        font-weight: map-get($input-font, font-weight);
+        margin-left: 0;
+
+        &:before {
+            margin-bottom: 0;
+        }
+    }
+
+    .label-right .checkbox-wrap .nf-field-element {
+        width: auto;
+    }
+
+    .label-right .nf-field-label {
+        padding: 0;
+        line-height: 1.5;
+    }
+
+    .nf-field-container {
+        @include spacing(margin-bottom, 2.5rem);
+        line-height: 1;
+    }
+
+    .nf-field-label label {
+        font-weight: map-get($input-font, font-weight);
+    }
+
+    .label-above .nf-field-label label {
+        @include label;
+        margin-bottom: 0;
+    }
+
+    .nf-before-form-content {
+        @include spacing(margin-bottom, $input-vertical-spacing);
+    }
+}
+
+// Ninja Form Datepicker
+.pika-single {
+
+    .pika-lendar {
+
+        .pika-button,
+        .pika-next,
+        .pika-prev {
+            font-size: 12px;
+
+            display: block;
+
+            margin: 0;
+            padding: 5px;
+
+            border: 0;
+
+            background-color: $color-gray-90;
+            color: #666;
+
+            overflow: hidden;
+        }
+
+        .pika-next,
+        .pika-prev {
+            background-color: transparent;
+        }
+
+        .pika-button:hover {
+            background: $color-gray-10;
+            color: $color-white;
+        }
+    }
+
+}

@@ -1,0 +1,396 @@
+/* ==========================================================================
+   #FRONTEND + EDITOR STYLES VARS
+   ========================================================================== */
+
+$editor-style: false !default;
+
+// Default Options
+$gridable-row-highlighted-color: #FFFFFF !default;
+$gridable-row-strip-bg: #D7F4FF !default;
+$gridable-column-background: #23252d !default;
+$gridable-column-gutter: 4rem !default;
+
+// Row Selectors
+$gridable-row: '.row' !default;
+$gridable-row-simple: '.row-style--simple' !default;
+$gridable-row-strip: '.row-style--strip' !default;
+$gridable-row-stretch: '.row-style--stretch' !default;
+$gridable-row-wrapper: '.row__wrapper' !default;
+
+// Column Selectors
+$gridable-column: '.column' !default;
+$gridable-column-prefix: '.column' !default;
+$gridable-column-wrapper: '.column__wrapper' !default;
+$gridable-column-stretch: '.column--stretch' !default;
+$gridable-column-simple: '.column-style--simple' !default;
+$gridable-column-highlighted: '.column-style--highlighted' !default;
+$gridable-column-boxed: '.column-style--boxed' !default;
+
+// Set Editor Style Data Attributes Alternatives
+@if $editor-style == true {
+
+  $gridable-row: '.row';
+  $gridable-row-wrapper: '.row';
+  $gridable-row-simple: '[data-sh-row-attr-row_style=simple]';
+  $gridable-row-strip: '[data-sh-row-attr-row_style=strip]';
+  $gridable-row-stretch: '[data-sh-row-attr-stretch=true]';
+
+  $gridable-column: '.grid__item';
+  $gridable-column-prefix: 'data-sh-column-attr-size';
+  $gridable-column-simple: '.row .grid__item[data-sh-column-attr-column_style=simple]';
+  $gridable-column-highlighted: '.row .grid__item[data-sh-column-attr-column_style=highlighted]';
+  $gridable-column-boxed: '.row .grid__item[data-sh-column-attr-column_style=boxed]';
+
+  // @todo: Target only columns with images or galleries
+  // $gridable-column-stretch: '&[data-sh-row-attr-stretch=true] .grid__item';
+}
+
+/* ==========================================================================
+#THE GRID
+========================================================================== */
+
+// 	<div class="row__wrapper row-style--strip row-style--stretch">
+//  	<div class="row">
+//      	<div class="column_wrapper col-style--highlighted">
+//          	<div class="column"></div>
+//      	</div>
+//  	</div>
+// 	</div>
+
+/**
+ * Grid Row
+ */
+
+#{$gridable-row-wrapper} {
+  position: relative;
+  @include spacing(margin-bottom, $gridable-column-gutter);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+#{$gridable-row} {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  @include spacing(margin-left, -$gridable-column-gutter);
+
+  // Overwrite Gridable defaults
+  padding-left: 0;
+  padding-right: 0;
+
+  // Better Align Rows with Standard Content
+  @if $editor-style == true {
+    .mce-content-body & {
+      margin-left: 0;
+    }
+  }
+
+  .entry-content > &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include above(lap) {
+    align-items: flex-start;
+  }
+}
+
+/**
+ * Grid Columns
+ */
+
+%gridable-column {
+  flex: 0 0 100%;
+  max-width: 100%;
+  //overflow: hidden;
+  box-sizing: border-box;
+}
+
+@include above(lap) {
+  @for $i from 1 through 12 {
+    @if $editor-style == false {
+      // Front End: .col-2 style classes
+      #{$gridable-column-prefix}-#{$i} {
+        flex-basis: calc(#{percentage($i/12)});
+        width: percentage($i/12);
+      }
+    } @else {
+      // Editor Style: [data-sh-column-attr-size=2] selectors
+      [#{$gridable-column-prefix}='#{$i}'] {
+        flex-basis: calc(#{percentage($i/12)} - #{$gridable-column-gutter/2});
+        width: percentage($i/12);
+      }
+    }
+  }
+}
+
+/**
+ * Grid Columns / Row Items
+ */
+
+#{$gridable-column-wrapper} {
+  @include spacing(padding-bottom, $gridable-column-gutter);
+  @include spacing(padding-left, $gridable-column-gutter);
+
+  @include above(lap) {
+    padding-bottom: 0;
+  }
+}
+
+#{$gridable-column} {
+  @extend %gridable-column;
+
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: initial;
+  justify-content: center;
+  flex-direction: column;
+
+  .debug-row & {
+    background-color: #383c50;
+  }
+
+  .gallery,
+  .tiled-gallery {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+// Remove gutter on mobile
+@include below(lap) {
+  #{$gridable-row}#{$gridable-row} {
+    margin-left: 0;
+  }
+
+  #{$gridable-column-wrapper}#{$gridable-column-wrapper} {
+    padding-left: 0;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+}
+
+/* Row Spacing Variants.
+   ========================================================================== */
+
+#{$gridable-row-strip} {
+  @include spacing(padding-top, $gridable-column-gutter);
+  @include spacing(padding-bottom, $gridable-column-gutter);
+
+  .entry-content > &:first-child {
+    @include spacing(margin-top, -$gridable-column-gutter);
+  }
+
+  .entry-content > &#{$gridable-row-wrapper}:last-child {
+    @include spacing(margin-bottom, -$gridable-column-gutter);
+  }
+
+  & + & {
+    @include spacing(margin-top, -$gridable-column-gutter);
+    padding-top: 0;
+  }
+}
+
+/* Rows/Columns Style Variants.
+   ========================================================================== */
+
+// Rows Styling Rules
+#{$gridable-row-simple} {
+
+}
+
+// Full Width Light Background
+#{$gridable-row-strip} {
+  background-color: $gridable-row-strip-bg;
+
+  &:before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    width: 9999vw;
+    left: -100vw;
+
+    background-color: inherit;
+  }
+}
+
+// Columns Styling Rules
+// Default
+#{$gridable-column-simple} {
+
+}
+
+// White Background
+// Padding
+#{$gridable-column-highlighted} {
+  @include spacing(padding, $gridable-column-gutter);
+  background-color: $gridable-row-highlighted-color;
+}
+
+// Dark Background
+// White Text
+// Padding
+#{$gridable-column-boxed} {
+  @include spacing(padding, $gridable-column-gutter);
+  background-color: $gridable-column-background;
+
+  // @extend .dark;
+  * {
+    color: white;
+  }
+}
+
+// Stretched Row Option
+#{$gridable-row-stretch} {
+  @include above(lap) {
+    #{$gridable-row} {
+      align-items: stretch;
+    }
+
+    #{$gridable-column} {
+      height: 100%;
+      justify-content: space-between;
+    }
+
+    // Remove .column padding for images and galleries
+    #{$gridable-column-stretch} {
+      padding: 0;
+    }
+
+    #{$gridable-column-wrapper} {
+      &.hide-images img {
+        display: none;
+      }
+
+      * {
+        height: 100%;
+      }
+
+      .gallery {
+        align-items: stretch;
+        height: calc(100% + 4rem);
+        width: calc(100% + 3rem);
+      }
+
+      .gallery-item {
+        height: auto;
+      }
+
+      .gallery-icon {
+        position: relative;
+        height: 100%;
+        width: 100%;
+
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* Gridable UI Adjustments
+   ========================================================================== */
+
+@if $editor-style == true {
+  // Increase resizable handle area
+  // due to the columns bigger gutter
+  #{$gridable-column}:not(:first-of-type):before {
+    left: -$gridable-column-gutter;
+    width: $gridable-column-gutter;
+  }
+
+  // Because images are wrapped under a <p> tag in Editor
+  // we cannot target them the same as in the Front End.
+  #{$gridable-row} > #{$gridable-column} {
+    p img, & > img {
+      margin: 0;
+    }
+  }
+}
+
+/* @todo
+// Remove if necessary - only used for debugging
+   ========================================================================== */
+
+.debug-row.debug-row.debug-row {
+  .c-row:nth-child(2n) {
+    background-color: #33d2da;
+  }
+
+  .c-row:nth-child(2n+1) {
+    background-color: #2196f3;
+  }
+
+  .c-row__item {
+    background-color: orange;
+  }
+
+  .c-island {
+    color: white;
+    background-color: #4f5678;
+  }
+
+  @include above(lap) {
+    .c-row,
+    .c-island {
+      position: relative;
+
+      &:after {
+        content: attr(class);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        padding: 3px 5px;
+
+        font-size: 10px;
+        font-family: sans-serif;
+
+        border-bottom-right-radius: 3px;
+
+        color: black;
+        background: rgba(white, .5);
+      }
+    }
+  }
+}
+
+// @todo styles for gridable I found in Julia's _shame.scss - is this needed here?
+.gridable {
+  &:not(:last-child) {
+    @include spacing(padding-bottom, 2.5rem);
+  }
+}
+
+.gridable--col {
+  & + & {
+    @include spacing(padding-top, 2.5rem);
+
+    @include above(lap) {
+      padding-top: 0;
+    }
+  }
+}
+
+.gridable--row,
+.gridable--col {
+  overflow: visible;
+}

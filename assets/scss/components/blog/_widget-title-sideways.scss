@@ -1,0 +1,60 @@
+.u-widget-title-sideways {
+
+  @include above(lap) {
+    .o-layout__main {
+      width: calc(100% - #{$layout-side-width} - 6.5rem);
+    }
+
+    .o-layout__side {
+      margin-left: 6.5rem;
+    }
+
+    &.entry-image--portrait {
+      .entry-content:not(.comment__content),
+      .entry-footer,
+      .entry-aside,
+      .comments-area {
+        padding-right: 6.5rem;
+      }
+    }
+
+    // avoid selecting slideshow widget inside header
+    .widget-area {
+
+      // Categories widget has specific styling and should be avoided
+      // Widgets inside footer should always have classic titles
+      .widget:not(.widget_categories):not(.widget--footer) {
+        position: relative;
+
+        // @todo contain margins to properly position absolute children
+
+        .widget__title {
+          position: absolute;
+          bottom: 100%;
+          right: 100%;
+          z-index: 1;
+
+          padding-top: 0;
+          padding-bottom: 0;
+          margin-right: 1.5rem;
+
+          @include leading-map((
+            font-size: 16px,
+            line-height: (19/16),
+            font-weight: normal,
+            letter-spacing: normal
+          ));
+
+          transform-origin: 100% 100%;
+          transform: rotate(-90deg);
+
+          white-space: nowrap;
+
+          span {
+            font-size: inherit;
+          }
+        }
+      }
+    }
+  }
+}

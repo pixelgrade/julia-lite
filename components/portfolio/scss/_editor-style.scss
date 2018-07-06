@@ -1,0 +1,54 @@
+/* 
+ * Component: Portfolio
+ * Placement: Editor Style
+ */
+
+// Style the Placeholder Gallery added by default on empty Projects
+// [gallery size="pxgbogus"]
+div[data-wpview-text="%5Bgallery%20size%3D%22pxgbogus%22%5D"] {
+	margin-top: 24px;
+
+	 .wpview-error {
+		padding: 70px 14px;
+
+		background: #f8f9f9;
+		border: 1px solid #DDDDDD;
+		box-shadow: inset 0 0 0 12px #FFFFFF;
+
+		.dashicons {
+			width: auto;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+
+			&:after {
+				content: "Gallery";
+				display: inline-block;
+				margin-left: 12px;
+
+				font-size: 16px;
+				font-weight: bold;
+				font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+			}
+		}
+
+		p {
+			margin-top: -8px;
+			text-align: center;
+			visibility:hidden;
+			
+			// Add Instruction Text
+			&:after {
+				display: block;
+				content: "Click here and select “Edit” to add your first images.";
+				visibility: visible;
+			}
+		}
+
+	 }
+	
+	// Default Cursor
+	+ .mce-visual-caret {
+		opacity: 0; // Hide it by default
+	}
+}

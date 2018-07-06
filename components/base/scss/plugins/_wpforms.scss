@@ -1,0 +1,98 @@
+// WPForms
+div.wpforms-container[class] {
+
+    margin-left: auto;
+    margin-right: auto;
+
+    .wpforms-form ul {
+
+        &:before {
+            margin: 0 !important;
+        }
+    }
+
+    .wpforms-form .wpforms-field-label {
+        @include label;
+        margin-bottom: 0;
+
+        &:after {
+            margin-top: 0;
+        }
+    }
+
+    .wpforms-form .wpforms-field-label-inline {
+        display: inline-block;
+        line-height: 23px;
+    }
+
+    .wpforms-form input,
+    .wpforms-form select,
+    .wpforms-form textarea {
+        @include input;
+        height: auto;
+        line-height: 1.15;
+    }
+
+    .wpforms-form select {
+        @include select;
+    }
+
+    .wpforms-form input[type="checkbox"] {
+        @include checkbox;
+        padding: 0;
+
+        &:checked {
+            border-color: $color-dark;
+            background: url('#{$checkbox-svg}') center center no-repeat;
+            background-size: 100% 100%;
+            outline: 0;
+        }
+    }
+
+    .wpforms-form input[type="radio"] {
+        @include checkbox;
+        padding: 0;
+        border-radius: 50%;
+
+        &:checked {
+            border: 7px solid $color-dark;
+            outline: 0;
+        }
+    }
+
+    .wpforms-field {
+        @include spacing(margin-bottom, 2rem);
+        flex-basis: 100%;
+        padding: 0;
+
+        .wpforms-field-row.wpforms-field-row {
+            max-width: none;
+        }
+    }
+
+    .wpforms-form .wpforms-submit {
+        @include button;
+    }
+
+    .wpforms-field-radio li,
+    .wpforms-field-checkbox li {
+        display: flex;
+        align-items: center;
+        margin-bottom: $input-vertical-spacing !important;
+
+        input {
+            margin-bottom: 0 !important;
+        }
+    }
+}
+
+.wpforms-container.half {
+
+    .wpforms-field {
+        flex-basis: 50%;
+    }
+
+    .wpforms-field-textarea {
+        flex-basis: 100%;
+    }
+}

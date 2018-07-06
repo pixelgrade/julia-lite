@@ -1,0 +1,12 @@
+@mixin button-directional--submit {
+  @include spacing(padding-right, 150px);
+  text-align: left;
+
+  &:before {
+    @include spacing(right, 33px);
+  }
+
+  &:after {
+    @include spacing(right, 28px);
+  }
+}

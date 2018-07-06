@@ -1,0 +1,41 @@
+// Mobile first means we need min-width media queries
+$breakpoints: (
+  xsmall: 30em, // ~ 480px
+  small: 42.5em, // ~ 680px
+  pad: 50em, // ~ 800px
+  lap: 62.5em, // ~ 1000px
+  desk: 80em // ~ 1280px
+) !default;
+
+// https://css-tricks.com/handling-z-index/
+$zindex: (
+  modal: 9000,
+  dropdown: 8000,
+  header: 7000,
+  overlay: 6000,
+  footer: 5000
+) !default;
+
+// Variables
+$transition--default: all 0.3s ease-in-out !default;
+$transition--micro: 0.15s !default;
+$transition--macro: 0.3s !default;
+
+$content-selector: '.u-content-width > :not([class*="align"]):not([class*="gallery"]):not(blockquote)' !default;
+$content-wrapper-selector: '.entry-content' !default;
+
+$color-white:   #FFFFFF !default;
+$color-gray-90: #e5e5e5 !default;
+$color-gray-80: #cccccc !default;
+$color-gray-70: #b2b2b2 !default;
+$color-gray-60: #999999 !default;
+$color-gray-50: #7f7f7f !default;
+$color-gray-40: #666666 !default;
+$color-gray-30: #4c4c4c !default;
+$color-gray-20: #333333 !default;
+$color-gray-10: #191919 !default;
+$color-black:   #000000 !default;
+
+// ???
+$featured-posts-vertical-spacing: 2.5rem !default;
+$featured-posts-horizontal-spacing: 3rem !default;

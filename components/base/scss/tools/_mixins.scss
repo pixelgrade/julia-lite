@@ -1,0 +1,166 @@
+// shorthand media queries for defined breakpoints
+@mixin above($bpname) {
+  $breakpoint: map-get($breakpoints, $bpname);
+  @if $breakpoint == null {
+    $breakpoint: $bpname;
+  }
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin below($bpname) {
+  $breakpoint: map-get($breakpoints, $bpname);
+  @if $breakpoint == null {
+    $breakpoint: $bpname;
+  }
+  @media not screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin font-face($name, $filename, $weight: null) {
+  @font-face {
+    font-family: $name;
+
+    @if $weight != null {
+      font-weight: $weight;
+    }
+
+    src: url(unquote($filename) + '.woff2') format('woff2'), /* Super Modern Browsers */
+    url(unquote($filename) + '.woff') format('woff'); /* Pretty Modern Browsers */
+  }
+}
+
+@mixin image-fill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+
+  transform: translate(-50%, -50%);
+
+  @supports (object-fit: cover) {
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    transform: none;
+  }
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {
+    @content;
+  }
+  ::-moz-placeholder {
+    @content;
+  }
+  :-ms-input-placeholder {
+    @content;
+  }
+  :-moz-placeholder {
+    @content;
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin leading($font-size, $line-height: false, $font-family: false, $font-weight: false, $letter-spacing: false, $text-transform: false, $spacing-top: 0, $spacing-bottom: 0) {
+
+  @if $font-family != false {
+    font-family: $font-family;
+  }
+
+  @if $font-size != false {
+    @if $font-size != inherit and ( unitless($font-size/1px) or unitless($font-size/1rem) ) {
+      @include fontsize($font-size);
+    } @else {
+      font-size: $font-size;
+    }
+  }
+
+  @if $line-height != false {
+    line-height: $line-height;
+  }
+
+  @if $font-weight != false {
+    font-weight: $font-weight;
+  }
+
+  @if $letter-spacing != false {
+    letter-spacing: $letter-spacing;
+  }
+
+  @if $text-transform != false {
+    text-transform: $text-transform;
+  }
+
+  @if $spacing-top != false {
+    @if $spacing-top == 0 {
+      margin-top: 0;
+    } @else {
+      &:not(:first-child) {
+        @include spacing(margin-top, $spacing-top);
+      }
+    }
+  }
+
+  @if $spacing-bottom != false {
+    @if $spacing-bottom == 0 {
+      margin-bottom: 0;
+    } @else {
+      &:not(:last-child) {
+        @include spacing(margin-bottom, $spacing-bottom);
+      }
+    }
+  }
+}
+
+@mixin leading-map( $options ) {
+
+  $defaults: (
+    font-family: false,
+    font-size: false,
+    line-height: false,
+    font-weight: false,
+    letter-spacing: false,
+    text-transform: false,
+    spacing-top: false,
+    spacing-bottom: false,
+  );
+
+  $config: map-merge($defaults, $options);
+
+  $font-family: map_get($config, font-family);
+  $font-size: map_get($config, font-size);
+  $line-height: map_get($config, line-height);
+  $font-weight: map_get($config, font-weight);
+  $letter-spacing: map_get($config, letter-spacing);
+  $text-transform: map_get($config, text-transform);
+  $spacing-top: map_get($config, spacing-top);
+  $spacing-bottom: map_get($config, spacing-bottom);
+
+  @include leading($font-size, $line-height, $font-family, $font-weight, $letter-spacing, $text-transform, $spacing-top, $spacing-bottom);
+}
+
+@mixin vertical-spacing( $spacing ) {
+  > :not(:first-child) {
+    @include spacing(margin-top, $spacing);
+  }
+}

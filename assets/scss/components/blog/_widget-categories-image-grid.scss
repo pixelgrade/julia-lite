@@ -1,0 +1,84 @@
+
+// Category with image widget
+.widget_categories_image_grid {
+	@include widget-side-list;
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		@include spacing(margin-left, -1rem);
+		margin-bottom: 0;
+
+		li {
+			flex: 0 0 50%;
+			@include spacing(margin-bottom, 1rem);
+			@include spacing(padding-left, 1rem);
+		}
+	}
+
+	&.widget--side ul li {
+		flex: 1 0 $sidebar-width;
+    max-width: 100%;
+	}
+
+	.cat-item {
+
+		.widget-area--side & {
+			flex-basis: 100%;
+		}
+
+		a {
+		    display: block;
+		    width: 100%;
+		    position: relative;
+		    padding-top: 40%;
+
+			@include fontsize(32px);
+			font-family: $theme-headings-font-family;
+			font-weight: 700;
+			text-decoration: none;
+
+			min-height: 112px;
+			overflow: hidden;
+			z-index: 1;
+
+			color: $color-white;
+			background-color: black;
+			box-shadow: none;
+
+			.is-IE & {
+				height: 112px;
+			}
+
+			span {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 10;
+			}
+
+			img {
+        		@include image-fill;
+        		opacity: 0.8;
+			}
+
+			&:hover {
+				img {
+					opacity: 0.5;
+				}
+			}
+		}
+	}
+}
+
+@include below(pad) {
+	.widget_categories_image_grid .cat-item {
+		flex: 0 0 100%;
+	}
+}

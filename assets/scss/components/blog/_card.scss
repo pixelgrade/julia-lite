@@ -1,0 +1,148 @@
+.c-card__meta[class][class] {
+
+  a {
+    text-decoration: none;
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
+
+  a:hover {
+    opacity: .6;
+  }
+}
+
+.c-card__frame {
+
+  .aspect-ratio-portrait & {
+    padding-top: percentage(4/3);
+  }
+
+  .aspect-ratio-square & {
+    padding-top: 100%;
+  }
+
+  .aspect-ratio-landscape & {
+    padding-top: percentage(3/4);
+  }
+
+  .aspect-ratio-original & {
+    padding-top: 0;
+
+    img.is-loaded {
+      position: relative;
+    }
+  }
+
+  // Always Make it Square on Mobile
+  @include below(lap) {
+    .aspect-ratio-portrait & {
+      padding-top: 100%;
+    }
+  }
+}
+
+.c-card__link,
+.c-card__frame img {
+  display: block;
+}
+
+.c-card__content {
+
+  .c-gallery--title-overlay & {
+    margin-top: 0;
+    background-color: rgba(#000000, .2);
+
+    & > * {
+      width: 100%;
+    }
+
+    .c-card__excerpt {
+      overflow: hidden;
+    }
+  }
+
+  .c-card__footer {
+    @include below(lap) {
+      // Always Hide "Read More" button on Mobile
+      .c-card__action {
+        display: none;
+      }
+    }
+  }
+}
+
+.c-card__excerpt {
+
+  &:empty {
+    display: none;
+  }
+}
+
+.c-meta__separator {
+  flex: 1 1 14px;
+  width: 14px;
+  max-width: 56px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  box-sizing: content-box;
+
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+  }
+
+  @include below(lap) {
+    max-width: 25px;
+  }
+}
+
+.c-gallery--blog {
+  .c-card__frame {
+    color: white;
+  }
+}
+
+.c-card__letter[class] {
+  line-height: 1.7;
+}
+
+.has-post-thumbnail > .c-card {
+
+  .c-card__letter {
+    color: $color-white;
+  }
+
+  &:hover img {
+    @include above(lap) {
+      opacity: .6;
+    }
+  }
+}
+
+.sticky .c-card {
+
+  .c-card__frame,
+  .c-gallery--title-overlay & .c-card__content {
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      @include spacing(border-width, 1rem);
+      border-style: solid;
+      border-color: currentColor;
+    }
+  }
+
+  .c-gallery--title-overlay & .c-card__content {
+    @include spacing(padding, 2rem);
+  }
+}

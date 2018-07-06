@@ -1,0 +1,259 @@
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+
+/**
+ * A simple button object.
+ */
+
+// Predefine the variables below in order to alter and enable specific features.
+$btn-padding: 0.75em 1.75em !default;
+$btn-background: #222 !default;
+$btn-hover-background: #000 !default;
+$btn-color: #FFF !default;
+$btn-default-background: #111 !default;
+$btn-hover-background: #000 !default;
+$btn-default-color: #FFF !default;
+
+$btn-border-width: 0 !default;
+$btn-border-style: solid !default;
+$btn-border-color: #222222 !default;
+
+$btn-transition: all .2s cubic-bezier(0, 0, 0.58, 1) !default;
+
+$btn-font: () !default;
+
+/**
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ */
+
+@mixin button-reset {
+  border: 0;
+  padding: 0;
+  background: none;
+  appearance: none;
+}
+
+@mixin button {
+  display: inline-block; /* [1] */
+  vertical-align: middle; /* [2] */
+  //font: inherit; /* [3] */
+  text-align: center; /* [4] */
+  //margin: 0; /* [4] */
+  cursor: pointer; /* [5] */
+}
+
+@mixin button-box {
+  padding: $btn-padding;
+  border: $btn-border-width $btn-border-style $btn-border-color;
+  margin: 0;
+}
+
+@mixin btn {
+  @include button;
+  @include button-box;
+  @include leading-map($btn-font);
+
+  color: $btn-color;
+  background-color: $btn-background;
+
+  transition: $btn-transition;
+
+  // -webkit-font-smoothing: initial;
+  // Removed as it makes the font weight too thick
+
+  .u-buttons-rounded & {
+    border-radius: 0.3em;
+  }
+
+  .u-buttons-pill & {
+    border-radius: 999em;
+  }
+
+  .u-underlined-links & {
+    text-decoration: none;
+  }
+
+  .u-buttons-outline & {
+    background: none;
+    border: 2px solid currentColor;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: none;
+    }
+  }
+}
+
+@mixin button-directional {
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+
+    color: inherit;
+    margin-top: -1px;
+    transition: $btn-transition;
+    transition-property: transform;
+  }
+
+  // The stick
+  &:before {
+
+    @include spacing(width, 35px);
+    height: 1px;
+
+    background-color: currentColor;
+  }
+
+  // The arrow
+  &:after {
+    display: block;
+    width: 0;
+    height: 0;
+
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    transform: translate(0, calc(0.5px - 50%));
+  }
+}
+
+@mixin directional--left {
+  @include spacing(padding-left, 55px);
+
+  &:before {
+    left: 5px;
+  }
+
+  &:after {
+    left: 0;
+    border-right: 5px solid currentColor;
+  }
+}
+
+@mixin button-directional--left {
+  @include spacing(padding-left, 100px);
+
+  &:before {
+    @include spacing(left, 35px);
+  }
+
+  &:after {
+    @include spacing(left, 30px);
+    border-right: 5px solid currentColor;
+  }
+
+  &:hover:before {
+    transform: translate3d(-5px,0,0);
+  }
+
+  &:hover:after {
+    transform: translate3d(-5px,calc(0.5px - 50%),0);
+  }
+}
+
+@mixin directional--right {
+  @include spacing(padding-right, 55px);
+
+  &:before {
+    right: 5px;
+  }
+
+  &:after {
+    right: 0;
+    border-left: 5px solid currentColor;
+  }
+}
+
+@mixin button-directional--right {
+  padding-right: 6.5em;
+  text-align: left;
+
+  &:before {
+    right: (7em/3);
+  }
+
+  &:after {
+    right: calc(#{7em/3} - 5px);
+    border-left: 5px solid currentColor;
+  }
+
+  &:hover:before {
+    transform: translate3d(5px,0,0);
+  }
+
+  &:hover:after {
+    transform: translate3d(5px,calc(0.5px - 50%),0);
+  }
+}
+
+@mixin btn--default {
+  background-color: $btn-default-background;
+  color: $btn-default-color;
+
+  &:hover {
+    color: $btn-default-color;
+  }
+
+  .u-buttons-outline & {
+    background: none;
+  }
+}
+
+.c-btn {
+  @include btn;
+
+  &--default {
+    @include btn--default;
+  }
+}
+
+.c-btn-directional {
+  @include button-directional;
+}
+
+.c-btn-directional--left {
+  @include button-directional--left;
+}
+
+.c-btn-directional--right {
+  @include button-directional--right;
+}
+
+.c-btn-text {
+  @include button-reset;
+}
+
+// Helper Classes for Humans & Nature
+// <a class="button">		        Regular Button 		            </a>
+// <a class="button arrow">	    Button with Arrow 	          </a>
+// <a class="button default">	  Button with Default Styling 	</a>
+
+.button {
+  @include btn;
+  text-decoration: none;
+
+  &.default {
+    @include btn--default;
+  }
+
+  &.full {
+    width: 100%;
+  }
+
+  &.arrow {
+    @include button-directional;
+    @include button-directional--right;
+  }
+}

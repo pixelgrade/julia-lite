@@ -1,0 +1,64 @@
+@import "tools/all";
+@import "generic/normalize";
+@import "generic/reset";
+
+.mce-item-table {
+
+  &, td, th, caption {
+    border: 0;
+  }
+}
+
+@import "typography";
+
+@import "elements/two-column";
+
+@import "objects/btn";
+
+@import "plugins/gridable";
+
+html {
+  border: $content-sides-spacing solid transparent;
+  // background: $content-background-color;
+
+  .gallery {
+    padding: 10px;
+    margin: 0;
+  }
+
+  p {
+
+    .alignleft,
+    .alignright {
+      max-width: 40%;
+    }
+  }
+
+  dl {
+    display: block;
+  }
+}
+
+body {
+  padding: 0;
+  background: none;
+}
+
+#{$content-selector} {
+  max-width: $content-width;
+  margin-left: auto;
+  margin-right: auto;
+  
+  // Buttons: Edit State
+  .button[data-mce-selected] {
+    padding-top: 1.1em;
+    padding-bottom: 1.1em;
+    padding-left: 1.75em;
+    padding-right: 1.75em;
+
+    &.arrow {
+      padding-right: 6.5em;
+    }
+  }
+}
+

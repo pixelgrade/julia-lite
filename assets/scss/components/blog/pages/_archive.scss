@@ -1,0 +1,18 @@
+.blog {
+    .site-main {
+        position: relative;
+	      z-index: 11;
+        overflow: hidden;
+    }
+}
+
+.home {
+
+    .site-main {
+        position: relative;
+
+        > * {
+            position: relative;
+        }
+    }
+}

@@ -1,0 +1,180 @@
+
+$card-letter-color: #000000 !default;
+$card-letter-hover-color: #FFFFFF !default;
+$card-letter-hover-opacity: 0.7 !default;
+$card-separator-color: currentColor !default;
+$card-letter-font: () !default;
+
+$card-gutter: 1.7857rem !default;
+$card-content-spacing: 1.5rem !default;
+
+// Cards
+// ------------------------------------------------------------
+
+.c-card {
+  display: flex;
+  flex-direction: column;
+}
+
+// Card Frame
+// ------------------------------------------------------------
+
+.c-card__frame {
+  position: relative;
+  overflow: hidden;
+
+  transition: $transition--default;
+  transition-property: opacity;
+
+  img {
+    display: block;
+  }
+}
+
+.c-card__frame-hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  opacity: 0;
+  transition: $transition--default;
+  transition-property: opacity;
+
+  .c-card:hover & {
+    opacity: 1;
+  }
+}
+
+// Card Content
+// ------------------------------------------------------------
+
+.c-card__content {
+  display: flex;
+  flex-direction: column;
+
+  .c-card__aside + & {
+    @include spacing(margin-top, $card-gutter);
+  }
+
+  > :not(:last-child) {
+    @include spacing(margin-bottom, $card-content-spacing);
+  }
+}
+
+// Card Letter
+// ------------------------------------------------------------
+.c-card__letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: block;
+  @include leading-map($card-letter-font);
+
+  text-align: center;
+  color: $card-letter-color;
+
+  transform: translateY(-50%) translateY(10px) translateX(-50%);
+  transition: opacity .5s ease, transform .5s ease;
+
+  .c-card:hover & {
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  .has-post-thumbnail.jetpack-portfolio & {
+    display: none;
+  }
+}
+
+.has-post-thumbnail > .c-card {
+
+  .c-card__letter {
+    opacity: 0;
+    color: $card-letter-hover-color;
+  }
+
+  &:hover {
+    @include above(lap) {
+      .c-card__letter {
+        opacity: $card-letter-hover-opacity;
+      }
+    }
+  }
+}
+
+// Card links
+// ------------------------------------------------------------
+
+.c-card {
+  position: relative;
+}
+
+.c-card__link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: block;
+}
+
+.c-card__content a {
+  position: relative;
+  z-index: 100;
+}
+
+// Card Meta
+// ------------------------------------------------------------
+
+.c-card__meta {
+  width: 100%;
+}
+
+.c-card__excerpt {
+  max-width: 100%;
+}
+
+.c-card__badge {
+  display: none;
+  width: 20px;
+  height: 20px;
+
+  position: absolute;
+  top: 0;
+  @include spacing(right, 2rem);
+  z-index: 1;
+
+  background: currentColor;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-right: 10px solid transparent;
+    border-top: 10px solid currentColor;
+  }
+
+  &:before,
+  &:after {
+    border-top-color: currentColor;
+  }
+
+  &:after {
+    left: auto;
+    right: 0;
+    border-left: 10px solid transparent;
+    border-right: none;
+  }
+
+  .sticky & {
+    display: block;
+  }
+}

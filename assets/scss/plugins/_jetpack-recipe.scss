@@ -1,0 +1,314 @@
+/* Jetpack Recipe */
+div.jetpack-recipe {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  max-width: none !important;
+  @include spacing(margin-bottom, 3.5rem);
+  @include spacing(margin-top, 2.5rem);
+  margin-right: 0;
+  margin-left: 0;
+  border: 0;
+  padding: 0;
+
+  clear: left;
+
+
+  .jetpack-recipe-title,
+  .jetpack-recipe-ingredients-title,
+  .jetpack-recipe-directions-title {
+    @include leading-map($h3);
+    color: inherit;
+  }
+
+  .jetpack-recipe-title.jetpack-recipe-title {
+    @include spacing(margin-bottom, 3rem);
+
+    order: 1;
+    width: 100%;
+
+    border-bottom: 2px solid currentColor;
+
+    padding-top: 0;
+    @include spacing(padding-bottom, 2.5rem);
+  }
+
+  .jetpack-recipe-description {
+    order: 2;
+    width: 100%;
+  }
+
+  .jetpack-recipe-image-container {
+    @include spacing(margin-bottom, 2.5rem);
+    order: 2;
+    width: 33%;
+
+    .jetpack-recipe-image {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .jetpack-recipe-image-container + .jetpack-recipe-description {
+    @include spacing(padding-left, 2.5rem);
+    width: 67%;
+  }
+
+  .jetpack-recipe-meta {
+    display: flex;
+    order: 3;
+    @include spacing(margin-bottom, 2.5rem);
+    padding-bottom: 0;
+    width: 100%;
+
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: 0;
+
+      pointer-events: none;
+      border: 1px solid currentColor;
+      border-left: 0;
+      opacity: 0.15;
+    }
+
+    > li {
+      @include spacing(padding-top, 1rem);
+      @include spacing(padding-bottom, 1rem);
+      @include fontsize(18px);
+
+      padding-right: 0;
+      margin-bottom: 0;
+      flex-grow: 1;
+      text-align: center;
+      text-transform: capitalize;
+      font-style: italic;
+      position: relative;
+
+      &:first-child {
+        border-left: 0;
+      }
+
+      strong {
+        display: inline;
+        margin-right: 8px;
+
+        @include leading-map(map-merge($h5, (
+          font-weight: 700,
+          letter-spacing: 0.1em,
+          text-transform: uppercase,
+        )));
+
+        font-style: normal;
+      }
+
+      &.jetpack-recipe-print {
+        display: none;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        pointer-events: none;
+        border-left: 1px solid currentColor;
+        opacity: 0.15;
+      }
+    }
+  }
+
+  .jetpack-recipe-content {
+    order: 4;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    p {
+      width: 100%;
+    }
+  }
+
+  .jetpack-recipe-ingredients {
+    @include spacing(padding-bottom, 8rem);
+    @include spacing(padding-right, 4rem);
+    @include fontsize(15px);
+    flex: 1 1 33%;
+    order: 1;
+
+    .is-IE & {
+      max-width: 33%;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li,
+      .jetpack-recipe-ingredient {
+        list-style-type: none;
+
+        .first-word {
+          @include fontsize(17px);
+          font-weight: 600;
+        }
+
+      }
+    }
+
+    // Subtitle
+    h3 { 
+      font-size: 1.2em;
+    }
+  }
+
+  div.jetpack-recipe-directions {
+    flex: 1 1 67%;
+    order: 2;
+
+    ul, ol {
+      margin: 0;
+      padding: 0;
+
+      counter-reset: section;
+      list-style-type: none;
+
+      li {
+        position: relative;
+        @include spacing(padding-left, 4rem);
+        @include spacing(padding-bottom, 1rem);
+        list-style-type: none;
+
+        line-height: 1.5;
+
+        &:before,
+        &:after {
+          position: absolute;
+          left: 0;
+          top: -3px;
+          width: 31px;
+          height: 31px;
+        }
+
+        &:before {
+          content: "";
+          border-radius: 50%;
+          background: currentColor;
+        }
+
+        &:after {
+          content: counters(section, ".") " ";
+          counter-increment: section;
+          font-weight: bold;
+          line-height: 31px;
+          text-align: center;
+          color: $theme-background-color;
+        }
+
+        &:last-child {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .jetpack-recipe-print[class] {
+    @include fontsize(16px);
+    flex: 0 0 100%;
+    order: 3;
+
+    a {
+      @include btn;
+      @include button-directional;
+      @include button-directional--right;
+
+      margin-bottom: 0;
+      box-shadow: none;
+    }
+
+    @media print {
+      display: none;
+    }
+  }
+
+  .jetpack-has-ingredients.jetpack-recipe-print {
+    position: relative;
+    top: -5px;
+    @include spacing(margin-top, -4rem);
+  }
+
+  .jetpack-recipe-notes {
+    @include spacing(margin-top, 2.5rem);
+    @include spacing(padding-top, 2.5rem);
+
+    order: 4;
+    flex: 0 0 100%;
+    border-top: 2px solid currentColor;
+  }
+
+  @include below(lap) {
+
+    .jetpack-recipe-ingredients {
+      margin-bottom: 30px;
+      width: 100%;
+      padding-bottom: 0 !important;
+    }
+
+    div.jetpack-recipe-directions {
+      width: 100%;
+      padding-left: 0;
+      padding-bottom: 50px;
+
+      ol li {
+        padding-left: 45px;
+      }
+    }
+
+    .jetpack-has-ingredients.jetpack-recipe-print {
+      margin-top: 0;
+    }
+  }
+
+  @include below(small) {
+
+    .jetpack-recipe-meta > li strong {
+      display: block;
+      margin-right: 0;
+    }
+  }
+
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1124px) {
+  div.jetpack-recipe .jetpack-recipe-ingredients,
+  div.jetpack-recipe .jetpack-recipe-directions {
+    flex-basis: 100%;
+    padding-bottom: 40px;
+  }
+
+  div.jetpack-recipe .jetpack-recipe-ingredients {
+    padding-right: 0;
+  }
+  div.jetpack-recipe .jetpack-has-ingredients.jetpack-recipe-print {
+    margin-top: 0;
+  }
+}
+
+@include below(small) {
+  div.jetpack-recipe .jetpack-recipe-ingredients,
+  div.jetpack-recipe .jetpack-recipe-directions {
+    flex-basis: 100%;
+  }
+}
+

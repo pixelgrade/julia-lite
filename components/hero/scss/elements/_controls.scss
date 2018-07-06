@@ -1,0 +1,69 @@
+.c-controls {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 50vw);
+
+    width: 100vw;
+    height: 100%;
+
+    // transparent gif to hide cursor
+    cursor: url("data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="), none !important;
+
+    .has-media-and-content & {
+        left: 0;
+        width: 100%;
+    }
+}
+
+.c-controls__area {
+    position: absolute;
+    top: 0;
+
+    height: 100%;
+}
+
+// prev
+.c-controls__area--prev {
+    left: 0;
+    width: 40%;
+}
+
+// close
+.c-controls__area--close {
+    left: 40%;
+    width: 20%;
+}
+
+// next
+.c-controls__area--next {
+    left: 60%;
+    width: 40%;
+}
+
+.c-controls__cursor {
+    @include leading-map($h4);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: auto;
+    height: auto;
+
+    color: white;
+    pointer-events: none;
+    transform: translate(-50%,-50%);
+    white-space: nowrap;
+    mix-blend-mode: difference;
+    will-change: top, left;
+
+    &:before,
+    &:after {
+        display: none;
+    }
+}
+
+.c-controls__cursor--remove {
+    width: 16px;
+    height: 16px;
+    background: url(assets/images/show-thumbs.svg) center center no-repeat;
+}

@@ -1,0 +1,78 @@
+.c-search-overlay {
+  padding: 24px;
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: map_get($zindex, modal) + 200;
+
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #F7F6F5;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $transition--macro ease-in-out;
+
+  @include wp-offset();
+
+  .show-search-overlay & {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &__close-button {
+    @include button-reset;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding: 33px;
+  }
+
+  .search-field {
+    // @todo add "h0" class to the element for better consistency
+    @include spacing(margin-bottom, 0.5rem);
+    font-size: 32px;
+
+    padding: 0;
+    border: 0;
+
+    font-weight: 700;
+
+    background-color: transparent;
+    color: inherit;
+  }
+
+  @include placeholder {
+    font: inherit;
+    color: inherit;
+    opacity: 1;
+  }
+
+  .search-submit.search-submit.search-submit {
+    display: none;
+  }
+
+  @include above(lap) {
+    padding: 8rem;
+
+    &__description {
+      font-size: 20px;
+    }
+
+    .search-field {
+      font-size: 100px;
+    }
+  }
+}
+
+body.show-search-overlay {
+  overflow: hidden;
+}

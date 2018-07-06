@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress-Components">
+    <description>A custom set of rules to check coding standards for Components.</description>
+
+    <!--
+        Default settings for command line usage
+    -->
+
+    <!-- Exclude folders and files from being checked. -->
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/wordpress/*</exclude-pattern>
+
+    <!-- Check all PHP files in directory tree by default. -->
+    <arg name="extensions" value="php"/>
+    <file>.</file>
+
+    <!-- Use colors in output. -->
+    <arg name="colors"/>
+
+    <!-- Show sniff names and progress. -->
+    <arg value="sp"/>
+
+    <!--
+        WordPress-Extra
+        Best practices beyond core WordPress Coding Standards.
+
+        The WordPress-Core standard doesn’t have to be included here,
+        because WordPress-Extra already includes it.
+    -->
+    <rule ref="WordPress-Extra">
+        <!-- Do not check for proper WordPress file names. -->
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+    </rule>
+
+    <!--
+        WordPress-Docs
+        WordPress Coding Standards for Inline Documentation and Comments.
+    -->
+    <rule ref="WordPress-Docs" />
+
+    <!--
+        File Names
+
+        The WordPress Coding Standards state that all class files should start with 'class-'. Components
+        follows the PSR-0 standard for naming class files, as to allow for autoloading via Composer one day.
+
+        @link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki/Customizable-sniff-properties#disregard-class-file-name-rules
+
+    <rule ref="WordPress.Files.FileName">
+        <properties>
+            <property name="strict_class_file_names" value="false" />
+        </properties>
+    </rule>-->
+
+    <rule ref="PEAR.Functions.FunctionCallSignature">
+        <properties>
+            <property name="requiredSpacesAfterOpen" value="1" />
+            <property name="requiredSpacesBeforeClose" value="1"/>
+        </properties>
+    </rule>
+
+</ruleset>

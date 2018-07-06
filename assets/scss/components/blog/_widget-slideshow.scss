@@ -1,0 +1,192 @@
+.widget_featured_posts_slideshow {
+
+  // increase specificity drastically
+  #primary & {
+    padding-top: 0;
+    padding-bottom: 0;
+    background: none;
+  }
+
+  @include below(lap) {
+    // a new container is created via javascript on small screens with the .featured-posts-cards--mobile class
+    &:not(.featured-posts-cards--mobile) {
+      display: none;
+    }
+  }
+}
+
+.featured-posts-slideshow {
+
+  @include above(lap) {
+
+    @import "../../../../components/hero/scss/style";
+
+    .slick-slide {
+      opacity: 1 !important;
+      transition: none !important;
+      will-change: transform;
+    }
+
+    .c-hero {
+      position: relative;
+      padding-top: 60%;
+      color: $color-white;
+      overflow: hidden;
+
+      display: flex;
+      align-items: stretch;
+      min-height: 0;
+    }
+
+    .c-hero__title {
+      font-size: 36px;
+
+      @include leading-map((
+        font-family: $theme-headings-font-family,
+        line-height: 1,
+        font-weight: 700,
+        spacing-top: 1rem,
+        spacing-bottom: 1rem
+      ));
+
+    }
+
+    .c-hero__content {
+      max-width: 45em;
+      margin-top: auto;
+      padding: 4rem 4rem 2rem;
+      transform: translateZ(0);
+
+      > * {
+        padding-bottom: 2rem;
+      }
+
+      .c-hero__excerpt {
+        padding-bottom: 3rem;
+      }
+    }
+
+    &[data-show_pagination] .c-hero__content {
+      padding-bottom: 4rem;
+    }
+
+    .c-hero__meta {
+      justify-content: center;
+
+      .c-meta {
+        justify-content: inherit;
+
+        > * > * {
+          font-size: 110%;
+          font-weight: bold; // hacky overwrite
+        }
+      }
+
+      ul {
+        padding-left: 0;
+      }
+    }
+
+    .o-layout__full & {
+      position: relative;
+      z-index: 1000;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+    }
+
+    .slick-list,
+    .slick-track,
+    .slick-slide > * {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .slick-dots {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 0;
+      right: 0;
+      list-style: none;
+
+      &[class] button {
+        background: none;
+      }
+    }
+  }
+
+  .c-hero__slide {
+    width: 100%;
+    height: 100%;
+  }
+
+  .c-hero__title,
+  .c-hero__link,
+  .c-meta__primary,
+  .c-meta__secondary {
+    color: inherit;
+  }
+
+  .c-hero__link {
+    display: block;
+    text-decoration: none;
+  }
+
+  .c-hero__excerpt {
+    display: none;
+  }
+
+  &.featured-posts--show-excerpt .c-hero__excerpt {
+    display: block;
+  }
+}
+
+.site-header--inverted {
+  min-height: 100vh;
+
+  @include wp-offset(margin-top, 0, false, -1);
+  @include wp-offset(padding-top, 0);
+
+  .site-description {
+    background: transparent;
+    color: inherit;
+  }
+
+  .widget_featured_posts_slideshow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    .widget__title {
+      display: none;
+    }
+  }
+
+  .c-hero,
+  .featured-posts-slideshow {
+    padding-top: 0;
+    height: 100%;
+  }
+
+  .c-navbar__zone--left {
+    position: relative;
+    z-index: 20;
+  }
+
+  .c-navbar,
+  .c-navbar [class*=current-menu],
+  .c-navbar li,
+  .c-navbar li:hover {
+    color: $color-white;
+  }
+
+  .c-navbar [class*="current-menu"],
+  .c-navbar li:hover {
+    color: $color-white;
+  }
+
+}

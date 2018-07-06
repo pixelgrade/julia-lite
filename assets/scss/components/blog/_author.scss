@@ -1,0 +1,60 @@
+/**
+ * Style Author Box displayed below post
+ */
+
+.c-author {
+  @include spacing(padding-top, 3rem);
+  @include spacing(padding-bottom, 3rem);
+
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+
+.c-author__description {
+  @include fontsize(15px);
+}
+
+.c-author__avatar + .c-author__details {
+  @include spacing(padding-left, 3rem);
+}
+
+.c-author__avatar {
+
+  img {
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0;
+  }
+}
+
+.c-author__label {
+  color: $color-dark;
+
+  .c-author &:after {
+    @include spacing(padding-bottom, 1rem);
+  }
+}
+
+.c-author__links {
+
+  &, * {
+    color: inherit;
+  }
+}
+
+.c-author__footer {
+  padding-bottom: 0;
+
+  & > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
