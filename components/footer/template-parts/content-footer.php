@@ -72,8 +72,6 @@ $zones = pixelgrade_footer_get_zones();
 					$output = pixelgrade_footer_get_back_to_top_link();
 				} elseif ( 'footer-copyright' === $id ) {
 					$output = pixelgrade_footer_get_copyright_content();
-				} elseif ( 'jetpack-social-menu' === $id && has_nav_menu( 'jetpack-social-menu' ) ) {
-					$is_empty = false;
 				}
 
 				if ( ! empty( $output ) ) {
@@ -94,8 +92,6 @@ $zones = pixelgrade_footer_get_zones();
 					$output = pixelgrade_footer_get_back_to_top_link();
 				} elseif ( 'footer-copyright' === $id ) {
 					$output = pixelgrade_footer_get_copyright_content();
-				} elseif ( 'jetpack-social-menu' === $id && has_nav_menu( 'jetpack-social-menu' ) ) {
-					$is_empty = false;
 				}
 
 				if ( ! empty( $output ) ) {
@@ -133,8 +129,6 @@ $zones = pixelgrade_footer_get_zones();
 							pixelgrade_footer_the_back_to_top_link();
 						} elseif ( 'footer-copyright' === $current_sidebar_id ) {
 							pixelgrade_footer_the_copyright();
-						} elseif ( 'jetpack-social-menu' === $current_sidebar_id && function_exists( 'jetpack_social_menu' ) ) {
-							jetpack_social_menu();
 						}
 					} else {
 						// We will display the current sidebar.
@@ -150,8 +144,6 @@ $zones = pixelgrade_footer_get_zones();
 							pixelgrade_footer_the_back_to_top_link();
 						} elseif ( 'footer-copyright' === $current_menu_location_id ) {
 							pixelgrade_footer_the_copyright();
-						} elseif ( 'jetpack-social-menu' === $current_menu_location_id && function_exists( 'jetpack_social_menu' ) ) {
-							jetpack_social_menu();
 						}
 					} else {
 						// We will display the current menu.

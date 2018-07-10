@@ -449,9 +449,6 @@ function julia_hkgrotesk_font_url() {
 	return '';
 }
 
-// Tell the Footer Component that it should use the Jetpack Social Menu
-add_filter( 'pixelgrade_footer_use_jetpack_social_menu', '__return_true' );
-
 /**
  * Filter the Featured Posts widget wrapper classes.
  *

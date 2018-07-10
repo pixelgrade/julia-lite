@@ -50,13 +50,6 @@ function julia_customize_header_config( $config ) {
 	// Set the nav menu location CSS class
 	$config['menu_locations']['primary-right']['nav_menu_args']['menu_class'] = 'menu  menu--primary';
 
-	// The Social Menu should be in the left zone
-	$config['menu_locations']['jetpack-social-menu']['default_zone'] = 'left';
-	// Make sure there is no callback
-	$config['menu_locations']['jetpack-social-menu']['zone_callback'] = false;
-	// Make sure it comes after the menu
-	$config['menu_locations']['jetpack-social-menu']['order'] = 20;
-
 	return $config;
 }
 add_filter( 'pixelgrade_header_config', 'julia_customize_header_config', 10, 1 );

@@ -56,8 +56,6 @@ if ( ! pixelgrade_header_is_valid_config() ) {
 						// We have something special to show.
 						if ( 'header-branding' === $menu_id ) {
 							pixelgrade_get_component_template_part( Pixelgrade_Header::COMPONENT_SLUG, 'branding' );
-						} elseif ( 'jetpack-social-menu' === $menu_id && function_exists( 'jetpack_social_menu' ) ) {
-							jetpack_social_menu();
 						}
 					} else {
 						// We have a nav menu location that we need to show.

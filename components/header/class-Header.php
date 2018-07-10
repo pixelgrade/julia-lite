@@ -90,18 +90,6 @@ class Pixelgrade_Header extends Pixelgrade_Component {
 			),
 		);
 
-		// Add theme support for Jetpack Social Menu, if we are allowed to
-		if ( apply_filters( 'pixelgrade_header_use_jetpack_social_menu', true ) ) {
-			// Add it to the config
-			$this->config['menu_locations']['jetpack-social-menu'] = array(
-				'default_zone'  => 'right',
-				// This callback should always accept 3 parameters as documented in pixelgrade_header_get_zones()
-				'zone_callback' => false,
-				'order'         => 20, // We will use this to establish the display order of nav menu locations, inside a certain zone
-				'bogus'         => true, // this tells the world that this is just a placeholder, not a real nav menu location
-			);
-		}
-
 		// Allow others to make changes to the config
 		// Make the hooks dynamic and standard
 		$hook_slug       = self::prepareStringForHooks( self::COMPONENT_SLUG );
@@ -147,11 +135,6 @@ class Pixelgrade_Header extends Pixelgrade_Component {
 					)
 				)
 			);
-		}
-
-		if ( ! empty( $this->config['menu_locations']['jetpack-social-menu'] ) ) {
-			// Add support for the Jetpack Social Menu
-			add_theme_support( 'jetpack-social-menu' );
 		}
 	}
 
