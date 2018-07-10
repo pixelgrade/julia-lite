@@ -396,11 +396,6 @@ function julia_footer_extras() {
 		get_template_part( 'template-parts/site-header-sticky' );
 	} ?>
 
-	<button class="c-btn--reset  c-btn--search  search-trigger  js-search-trigger  u-hidden">
-		<?php get_template_part( 'template-parts/svg/icon-search' );?>
-		<span class="screen-reader-text"><?php esc_html_e( 'Search', '__theme_txtd' ); ?></span>
-	</button>
-
 	<?php get_template_part( 'template-parts/search-overlay' ); ?>
 
 	<span class="u-hidden  js-menu-mobile-label"><?php esc_html_e( 'Menu', '__theme_txtd' ); ?></span>
