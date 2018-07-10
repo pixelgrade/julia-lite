@@ -194,7 +194,7 @@ function pixelgrade_footer_the_back_to_top_link() {
 function pixelgrade_footer_get_back_to_top_link() {
 	$option = pixelgrade_option( 'footer_hide_back_to_top_link', false );
 	if ( empty( $option ) ) {
-		return '<a class="back-to-top" href="#">' . esc_html__( 'Back to Top', '__components_txtd' ) . '</a>';
+		return '';
 	}
 
 	return '';
