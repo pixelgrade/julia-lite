@@ -30,16 +30,6 @@ function julia_customize_header_config( $config ) {
 	$config['zones']['right']['display_blank'] = false;
 
 	// Customize the nav menu locations
-	// Change the nav menu location's title
-	$config['menu_locations']['primary-left']['title'] = esc_html__( 'Top Menu', '__theme_txtd' );
-	// Deactivate the default zone behaviour
-	$config['menu_locations']['primary-left']['zone_callback'] = false;
-	// Set the nav menu location's CSS id
-	$config['menu_locations']['primary-left']['nav_menu_args']['menu_id'] = 'menu-2';
-	// Set the nav menu location CSS class
-	$config['menu_locations']['primary-left']['nav_menu_args']['menu_class'] = 'menu  menu--secondary';
-	// Set the nav menu depth
-	$config['menu_locations']['primary-left']['nav_menu_args']['depth'] = 1;
 
 	// Change the nav menu location's title
 	$config['menu_locations']['primary-right']['title'] = esc_html__( 'Main Menu', '__theme_txtd' );

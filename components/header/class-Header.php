@@ -54,19 +54,6 @@ class Pixelgrade_Header extends Pixelgrade_Component {
 				),
 			),
 			'menu_locations' => array(
-				'primary-left'    => array(
-					'title'         => esc_html__( 'Header Left', '__components_txtd' ),
-					'default_zone'  => 'left',
-					// This callback should always accept 3 parameters as documented in pixelgrade_header_get_zones()
-					'zone_callback' => false,
-					'order'         => 10, // We will use this to establish the display order of nav menu locations, inside a certain zone
-					'nav_menu_args' => array( // skip 'theme_location' and 'echo' args as we will force those
-						'menu_id'         => 'menu-1',
-						'container'       => 'nav',
-						'container_class' => '',
-						'fallback_cb'     => false,
-					),
-				),
 				'header-branding' => array(
 					'default_zone'  => 'middle',
 					// This callback should always accept 3 parameters as documented in pixelgrade_header_get_zones()
@@ -78,7 +65,6 @@ class Pixelgrade_Header extends Pixelgrade_Component {
 					'title'         => esc_html__( 'Header Right', '__components_txtd' ),
 					'default_zone'  => 'right',
 					// This callback should always accept 3 parameters as documented in pixelgrade_header_get_zones()
-					'zone_callback' => array( $this, 'primaryRightNavMenuZone' ),
 					'order'         => 10, // We will use this to establish the display order of nav menu locations, inside a certain zone
 					'nav_menu_args' => array( // skip 'theme_location' and 'echo' args as we will force those
 						'menu_id'         => 'menu-2',
@@ -181,24 +167,6 @@ class Pixelgrade_Header extends Pixelgrade_Component {
 
 		// Others might want to know about this and get a chance to do their own work (like messing with our's :) )
 		do_action( 'pixelgrade_header_registered_hooks' );
-	}
-
-	/**
-	 * Change the primary-right nav menu's zone depending on the other nav menus.
-	 *
-	 * @param string $default_zone
-	 * @param array  $menu_location_config
-	 * @param array  $menu_locations_config
-	 *
-	 * @return string
-	 */
-	public function primaryRightNavMenuZone( $default_zone, $menu_location_config, $menu_locations_config ) {
-		// if there is no left zone menu we will show the right menu in the middle zone, not the right zone
-		if ( ! has_nav_menu( 'primary-left' ) ) {
-			$default_zone = 'middle';
-		}
-
-		return $default_zone;
 	}
 
 	/**
