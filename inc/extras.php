@@ -390,13 +390,7 @@ function julia_prevent_entry_title( $show, $location ) {
 }
 add_filter( 'pixelgrade_display_entry_header', 'julia_prevent_entry_title', 10, 2 );
 
-function julia_footer_extras() {
-	$header_position = pixelgrade_option( 'header_position' );
-	if ( 'sticky' == $header_position || empty( $header_position ) ) {
-		get_template_part( 'template-parts/site-header-sticky' );
-	} ?>
-
-	<?php get_template_part( 'template-parts/search-overlay' ); ?>
+function julia_footer_extras() { ?>
 
 	<span class="u-hidden  js-menu-mobile-label"><?php esc_html_e( 'Menu', '__theme_txtd' ); ?></span>
 
