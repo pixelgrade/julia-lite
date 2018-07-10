@@ -434,3 +434,7 @@ body {
 .widget-area--side {
   z-index: 100;
 }
+
+.menu--primary > li[class*='children'] > a:after {
+  opacity: 0;
+}

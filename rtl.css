@@ -16086,6 +16086,9 @@ body {
 .widget-area--side {
   z-index: 100; }
 
+.menu--primary > li[class*='children'] > a:after {
+  opacity: 0; }
+
 .single .post-categories[class] a {
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
