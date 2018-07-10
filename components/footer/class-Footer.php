@@ -81,20 +81,6 @@ class Pixelgrade_Footer extends Pixelgrade_Component {
 					'order'         => 5, // We will use this to establish the display order of nav menu locations, inside a certain zone
 					'bogus'         => true, // this tells the world that this is just a placeholder, not a real nav menu location
 				),
-				'footer'                  => array(
-					'title'         => esc_html__( 'Footer', '__components_txtd' ),
-					'default_zone'  => 'bottom',
-					// This callback should always accept 3 parameters as documented in pixelgrade_footer_get_zones()
-					'zone_callback' => false,
-					'order'         => 10, // We will use this to establish the display order of nav menu locations, inside a certain zone
-					'nav_menu_args' => array( // skip 'theme_location' and 'echo' args as we will force those
-						'menu_id'         => 'menu-footer',
-						'container'       => 'nav',
-						'container_class' => 'menu-footer-menu-container',
-						'depth'           => - 1, // by default we will flatten the menu hierarchy, if there is one
-						'fallback_cb'     => false,
-					),
-				),
 				'footer-copyright'        => array(
 					'default_zone'  => 'bottom',
 					// This callback should always accept 3 parameters as documented in pixelgrade_footer_get_zones()
