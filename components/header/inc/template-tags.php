@@ -89,7 +89,7 @@ function pixelgrade_the_header( $location = '' ) {
  * @param array  $args An array with options for the wp_nav_menu() function.
  * @param string $menu_location Optional. The menu location id (slug) to process.
  *
- * @return false|void
+ * @return false|object
  */
 function pixelgrade_header_the_nav_menu( $args, $menu_location = '' ) {
 	$defaults = array(
@@ -104,6 +104,9 @@ function pixelgrade_header_the_nav_menu( $args, $menu_location = '' ) {
 
 	// Parse the sent arguments
 	$args = wp_parse_args( $args, $defaults );
+
+	// Limit
+	$args['depth'] = 1;
 
 	// Allow others to have a say
 	$args = apply_filters( 'pixelgrade_header_nav_menu_args', $args, $menu_location );
