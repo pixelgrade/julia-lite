@@ -43,6 +43,7 @@ if ( ! function_exists( 'pixelgrade_get_blog_grid_class' ) ) {
 		 */
 		$classes[] = 'c-gallery';
 		$classes[] = 'c-gallery--blog';
+		$classes[] = 'aspect-ratio-square';
 
 		/*
 		 * Options dependent classes
