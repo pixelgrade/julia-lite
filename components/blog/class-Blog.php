@@ -557,12 +557,7 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 		 *          ),
 		 *      ),
 		 */
-		$this->config['page_templates'] = array(
-			// We put the component slug in front to make sure that we don't have collisions with other components or theme defined templates
-			trailingslashit( self::COMPONENT_SLUG ) . trailingslashit( PIXELGRADE_COMPONENTS_PAGE_TEMPLATES_PATH ) . 'full-width.php'          => 'Full Width',
-			trailingslashit( self::COMPONENT_SLUG ) . trailingslashit( PIXELGRADE_COMPONENTS_PAGE_TEMPLATES_PATH ) . 'full-width-no-title.php' => 'Full Width (No Title)',
-			trailingslashit( self::COMPONENT_SLUG ) . trailingslashit( PIXELGRADE_COMPONENTS_PAGE_TEMPLATES_PATH ) . 'no-title.php'            => 'Default Template (No title)',
-		);
+		$this->config['page_templates'] = array();
 
 		$this->config['templates'] = array(
 			// The config key is just for easy identification by filters. It doesn't matter in the logic.
