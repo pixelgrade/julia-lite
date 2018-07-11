@@ -36,3 +36,20 @@
 .pixelgrade_image_preview .clear-image:hover {
 	cursor: pointer;
 }
+
+#customize-theme-controls .widget-content .accordion-container .accordion-section.open .accordion-section-content {
+	max-height: 100%;
+	padding-top: 17px;
+	padding-bottom: 17px;
+}
+
+#customize-theme-controls .widget-content .accordion-container .accordion-section .accordion-section-content {
+	position: relative;
+	left: 0;
+	overflow: hidden;
+	max-height: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	/* transition: all .4s ease; */
+	color: #416b7e;
+}

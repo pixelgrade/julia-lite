@@ -244,29 +244,30 @@ function pixelgrade_footer_get_zones() {
 	foreach ( $zones as $zone_id => $zone_settings ) {
 		$zones[ $zone_id ]['sidebars'] = array();
 		// Cycle through each defined sidebar and determine if it is a part of the current zone
-		foreach ( $config['sidebars'] as $sidebar_id => $sidebar ) {
-			// A little sanity check
-			if ( empty( $sidebar['default_zone'] ) ) {
-				$sidebar['default_zone'] = '';
-			}
+		if ( ! empty ( $config['sidebars'] ) )
+			foreach ( $config['sidebars'] as $sidebar_id => $sidebar ) {
+				// A little sanity check
+				if ( empty( $sidebar['default_zone'] ) ) {
+					$sidebar['default_zone'] = '';
+				}
 
-			if ( empty( $sidebar['order'] ) ) {
-				$sidebar['order'] = 0;
-			}
+				if ( empty( $sidebar['order'] ) ) {
+					$sidebar['order'] = 0;
+				}
 
-			/**
-			 * Allow others to filter the default zone this sidebar should be shown.
-			 *
-			 * @param string $default_zone The default zone for this sidebar as configured.
-			 * @param array $sidebar_config The whole configuration for the current sidebar.
-			 * @param array $sidebars_config The whole configuration for all the sidebars.
-			 *
-			 * @return string
-			 */
-			if ( $zone_id == apply_filters( "pixelgrade_footer_{$sidebar_id}_widget_area_display_zone", $sidebar['default_zone'], $sidebar, $config['sidebars'] ) ) {
-				$zones[ $zone_id ]['sidebars'][ $sidebar_id ] = $sidebar;
+				/**
+				 * Allow others to filter the default zone this sidebar should be shown.
+				 *
+				 * @param string $default_zone The default zone for this sidebar as configured.
+				 * @param array $sidebar_config The whole configuration for the current sidebar.
+				 * @param array $sidebars_config The whole configuration for all the sidebars.
+				 *
+				 * @return string
+				 */
+				if ( $zone_id == apply_filters( "pixelgrade_footer_{$sidebar_id}_widget_area_display_zone", $sidebar['default_zone'], $sidebar, $config['sidebars'] ) ) {
+					$zones[ $zone_id ]['sidebars'][ $sidebar_id ] = $sidebar;
+				}
 			}
-		}
 
 		$zones[ $zone_id ]['menu_locations'] = array();
 		// Cycle through each defined nav menu location and determine if it is a part of the current zone

@@ -104,33 +104,21 @@ function julia_widget_areas_init_front_page() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Front Page - Full Width Center', '__theme_txtd' ),
 		'id'            => 'front-page-4',
-		'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
-		'before_widget' => '<section id="%1$s" class="widget widget--full %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget__title h3"><span>',
-		'after_title'   => '</span></h2>',
+		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', '__theme_txtd' ),
 	) );
 
 	// The Content Area #2
 	register_sidebar( array(
 		'name'          => esc_html__( 'Front Page - &#9484; Content 2', '__theme_txtd' ),
 		'id'            => 'front-page-5',
-		'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
-		'before_widget' => '<section id="%1$s" class="widget widget--content %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget__title h3"><span>',
-		'after_title'   => '</span></h2>',
+		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', '__theme_txtd' ),
 	) );
 
 	// The Sidebar Area #2
 	register_sidebar( array(
 		'name'          => esc_html__( 'Front Page - &#9492; Sidebar 2', '__theme_txtd' ),
 		'id'            => 'front-page-6',
-		'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
-		'before_widget' => '<section id="%1$s" class="widget  widget--side %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget__title h3"><span>',
-		'after_title'   => '</span></h2>',
+		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', '__theme_txtd' ),
 	) );
 
 	// The Full Width Area #3
@@ -148,11 +136,7 @@ function julia_widget_areas_init_front_page() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - Featured Area', '__theme_txtd' ),
 		'id'            => 'footer-featured',
-		'description'   => esc_html__( 'Site-wide widgets displayed above the Footer Area of your website.', '__theme_txtd' ),
-		'before_widget' => '<section id="%1$s" class="widget widget--full %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget__title h3"><span>',
-		'after_title'   => '</span></h2>',
+		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', '__theme_txtd' ),
 	) );
 }
 // We use a latter priority to make sure that all these sidebars appear grouped
@@ -203,25 +187,3 @@ function julia_custom_widgets_init() {
 	register_widget( 'Pixelgrade_PromoBoxWidget' );
 }
 add_action( 'widgets_init', 'julia_custom_widgets_init', 10 );
-
-if ( ! function_exists( 'julia_the_footer_featured_area' ) ) {
-	function julia_the_footer_featured_area( $location ) {
-		if ( is_active_sidebar( 'footer-featured' ) ) { ?>
-
-		<div class="u-container-sides-spacing">
-			<div class="o-wrapper u-container-width">
-				<div class="o-layout">
-					<div class="o-layout__full  widget-area  widget-area--footer-featured">
-			            <?php
-			            // The Footer - Featured Area
-			            pixelgrade_get_sidebar( 'footer-featured' );
-			            ?>
-					</div><!-- .widget-area -->
-				</div><!-- .o-layout -->
-			</div><!-- .o-wrapper .u-container-width -->
-		</div><!-- .u-container-sides-spacing -->
-
-	<?php }
-	}
-}
-add_action( 'pixelgrade_before_footer', 'julia_the_footer_featured_area', 10, 1 );

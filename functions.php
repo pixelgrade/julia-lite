@@ -124,11 +124,6 @@ if ( ! function_exists( 'julia_setup' ) ) {
 		 * @link https://make.wordpress.org/core/2016/11/10/visible-edit-shortcuts-in-the-customizer-preview/
 		 */
 		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		/**
-		 * Enable support for the Style Manager Customizer section (via Customify).
-		 */
-		add_theme_support( 'customizer_style_manager' );
 	}
 }
 add_action( 'after_setup_theme', 'julia_setup' );
