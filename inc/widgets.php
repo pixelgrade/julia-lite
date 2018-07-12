@@ -31,11 +31,7 @@ function julia_widget_areas_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Below Post', '__theme_txtd' ),
 		'id'            => 'sidebar-2',
-		'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
-		'before_widget' => '<section id="%1$s" class="widget widget--content %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget__title h3"><span>',
-		'after_title'   => '</span></h2>',
+		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', '__theme_txtd' ),
 	) );
 
 	/**

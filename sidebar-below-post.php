@@ -12,7 +12,3 @@ if ( ! is_active_sidebar( 'sidebar-2' ) ) {
 	return;
 }
 ?>
-
-<aside class="widget-area  widget-area--below-post">
-	<?php dynamic_sidebar( 'sidebar-2' ); ?>
-</aside><!-- .widget-area -->
