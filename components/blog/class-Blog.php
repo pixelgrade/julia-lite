@@ -470,16 +470,6 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
                 ),
             ),
 
-            'related-posts' => array(
-                'type' => 'template_part',
-                'templates' => array(
-                    array(
-                        'component_slug' => self::COMPONENT_SLUG,
-                        'slug' => 'content-relatedposts',
-                    ),
-                ),
-            ),
-
             'single' => array(
                 'extend' => 'blog/default',
                 'type' => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
