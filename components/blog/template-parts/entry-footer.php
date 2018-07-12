@@ -26,7 +26,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <footer class="entry-footer  u-content-width">
-	<?php pixelgrade_the_author_info_box(); ?>
 	<?php pixelgrade_the_post_navigation(); ?>
 	<?php pixelgrade_entry_footer(); ?>
 </footer><!-- .entry-footer -->
