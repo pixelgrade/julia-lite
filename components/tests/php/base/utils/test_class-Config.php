@@ -855,7 +855,7 @@ class CP_Tests_Class_Config extends \WP_UnitTestCase {
 
 		$config = array(
 			'buttons' => array(
-				'title'   => esc_html__( 'Buttons', '__components_txtd' ),
+				'title'   => esc_html__( 'Buttons', 'julia-lite' ),
 				'options' => array(
 					'buttons_customizer_tabs'      => array(
 						'type' => 'html',
@@ -863,12 +863,12 @@ class CP_Tests_Class_Config extends \WP_UnitTestCase {
 					),
 					'buttons_style'                => array(
 						'type'    => 'radio',
-						'label'   => esc_html__( 'Buttons Style', '__components_txtd' ),
-						'desc'    => esc_html__( 'Choose the default button style.', '__components_txtd' ),
+						'label'   => esc_html__( 'Buttons Style', 'julia-lite' ),
+						'desc'    => esc_html__( 'Choose the default button style.', 'julia-lite' ),
 						'default' => null,
 						'choices' => array(
-							'solid'   => esc_html__( 'Solid', '__components_txtd' ),
-							'outline' => esc_html__( 'Outline', '__components_txtd' ),
+							'solid'   => esc_html__( 'Solid', 'julia-lite' ),
+							'outline' => esc_html__( 'Outline', 'julia-lite' ),
 						),
 					),
 				),
@@ -878,19 +878,19 @@ class CP_Tests_Class_Config extends \WP_UnitTestCase {
 
 		$config = array(
 			'buttons' => array(
-				'title'   => esc_html__( 'Buttons', '__components_txtd' ),
+				'title'   => esc_html__( 'Buttons', 'julia-lite' ),
 				'options' => array(
 					'buttons_customizer_tabs'      => array(
 						'html' => '',
 					),
 					'buttons_style'                => array(
 						'type'    => 'radio',
-						'label'   => esc_html__( 'Buttons Style', '__components_txtd' ),
-						'desc'    => esc_html__( 'Choose the default button style.', '__components_txtd' ),
+						'label'   => esc_html__( 'Buttons Style', 'julia-lite' ),
+						'desc'    => esc_html__( 'Choose the default button style.', 'julia-lite' ),
 						'default' => null,
 						'choices' => array(
-							'solid'   => esc_html__( 'Solid', '__components_txtd' ),
-							'outline' => esc_html__( 'Outline', '__components_txtd' ),
+							'solid'   => esc_html__( 'Solid', 'julia-lite' ),
+							'outline' => esc_html__( 'Outline', 'julia-lite' ),
 						),
 					),
 				),
@@ -908,7 +908,7 @@ class CP_Tests_Class_Config extends \WP_UnitTestCase {
 
 		$modified_config = array(
 			'buttons' => array(
-				'title'   => esc_html__( 'Buttons', '__components_txtd' ),
+				'title'   => esc_html__( 'Buttons', 'julia-lite' ),
 				'options' => array(
 					'buttons_customizer_tabs'      => array(
 						'type' => 'html',
@@ -916,12 +916,12 @@ class CP_Tests_Class_Config extends \WP_UnitTestCase {
 					),
 					'buttons_style'                => array(
 						'type'    => 'radio',
-						'label'   => esc_html__( 'Buttons Style', '__components_txtd' ),
-						'desc'    => esc_html__( 'Choose the default button style.', '__components_txtd' ),
+						'label'   => esc_html__( 'Buttons Style', 'julia-lite' ),
+						'desc'    => esc_html__( 'Choose the default button style.', 'julia-lite' ),
 						'default' => 'something',
 						'choices' => array(
-							'solid'   => esc_html__( 'Solid', '__components_txtd' ),
-							'outline' => esc_html__( 'Outline', '__components_txtd' ),
+							'solid'   => esc_html__( 'Solid', 'julia-lite' ),
+							'outline' => esc_html__( 'Outline', 'julia-lite' ),
 						),
 					),
 				),
@@ -929,7 +929,7 @@ class CP_Tests_Class_Config extends \WP_UnitTestCase {
 		);
 		$original_config = array(
 			'buttons' => array(
-				'title'   => esc_html__( 'Buttons', '__components_txtd' ),
+				'title'   => esc_html__( 'Buttons', 'julia-lite' ),
 				'options' => array(
 					'buttons_customizer_tabs'      => array(
 						'type' => 'html',
@@ -937,12 +937,12 @@ class CP_Tests_Class_Config extends \WP_UnitTestCase {
 					),
 					'buttons_style'                => array(
 						'type'    => 'radio',
-						'label'   => esc_html__( 'Buttons Style', '__components_txtd' ),
-						'desc'    => esc_html__( 'Choose the default button style.', '__components_txtd' ),
+						'label'   => esc_html__( 'Buttons Style', 'julia-lite' ),
+						'desc'    => esc_html__( 'Choose the default button style.', 'julia-lite' ),
 						'default' => null,
 						'choices' => array(
-							'solid'   => esc_html__( 'Solid', '__components_txtd' ),
-							'outline' => esc_html__( 'Outline', '__components_txtd' ),
+							'solid'   => esc_html__( 'Solid', 'julia-lite' ),
+							'outline' => esc_html__( 'Outline', 'julia-lite' ),
 						),
 					),
 				),
@@ -952,7 +952,7 @@ class CP_Tests_Class_Config extends \WP_UnitTestCase {
 
 		$modified_config = array(
 			'buttons' => array(
-				'title'   => esc_html__( 'Buttons', '__components_txtd' ),
+				'title'   => esc_html__( 'Buttons', 'julia-lite' ),
 				'options' => array(
 					'buttons_customizer_tabs'      => array(
 						'type' => 'html',
@@ -960,12 +960,12 @@ class CP_Tests_Class_Config extends \WP_UnitTestCase {
 					),
 					'buttons_style'                => array(
 						'type'    => 'radio',
-						'label'   => esc_html__( 'Buttons Style', '__components_txtd' ),
-						'desc'    => esc_html__( 'Choose the default button style.', '__components_txtd' ),
+						'label'   => esc_html__( 'Buttons Style', 'julia-lite' ),
+						'desc'    => esc_html__( 'Choose the default button style.', 'julia-lite' ),
 						'default' => null,
 						'choices' => array(
-							'solid'   => esc_html__( 'Solid', '__components_txtd' ),
-							'outline' => esc_html__( 'Outline', '__components_txtd' ),
+							'solid'   => esc_html__( 'Solid', 'julia-lite' ),
+							'outline' => esc_html__( 'Outline', 'julia-lite' ),
 						),
 					),
 				),
@@ -973,7 +973,7 @@ class CP_Tests_Class_Config extends \WP_UnitTestCase {
 		);
 		$original_config = array(
 			'buttons' => array(
-				'title'   => esc_html__( 'Buttons', '__components_txtd' ),
+				'title'   => esc_html__( 'Buttons', 'julia-lite' ),
 				'options' => array(
 					'buttons_customizer_tabs'      => array(
 						'type' => 'html',
@@ -981,12 +981,12 @@ class CP_Tests_Class_Config extends \WP_UnitTestCase {
 					),
 					'buttons_style'                => array(
 						'type'    => 'radio',
-						'label'   => esc_html__( 'Buttons Style', '__components_txtd' ),
-						'desc'    => esc_html__( 'Choose the default button style.', '__components_txtd' ),
+						'label'   => esc_html__( 'Buttons Style', 'julia-lite' ),
+						'desc'    => esc_html__( 'Choose the default button style.', 'julia-lite' ),
 						'default' => null,
 						'choices' => array(
-							'solid'   => esc_html__( 'Solid', '__components_txtd' ),
-							'outline' => esc_html__( 'Outline', '__components_txtd' ),
+							'solid'   => esc_html__( 'Solid', 'julia-lite' ),
+							'outline' => esc_html__( 'Outline', 'julia-lite' ),
 						),
 					),
 				),

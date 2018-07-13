@@ -11,8 +11,8 @@
 	<div class="c-search-overlay__content">
 		<?php get_search_form(); ?>
 		<p class="c-search-overlay__description">
-			<?php esc_html_e( 'Begin typing your search above and press return to search.', '__theme_txtd' ); ?>
-			<span class="hide-on-mobile"><?php esc_html_e( 'Press Esc to cancel.', '__theme_txtd' ); ?></span>
+			<?php esc_html_e( 'Begin typing your search above and press return to search.', 'julia-lite' ); ?>
+			<span class="hide-on-mobile"><?php esc_html_e( 'Press Esc to cancel.', 'julia-lite' ); ?></span>
 		</p>
 	</div><!-- .c-search-overlay__content -->
 	<button class="c-search-overlay__close-button  js-search-close">

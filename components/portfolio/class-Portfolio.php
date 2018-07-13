@@ -506,12 +506,12 @@ class Pixelgrade_Portfolio extends Pixelgrade_Component {
 			array(
 				'name'              => 'page_for_projects',
 				'echo'              => 1,
-				'show_option_none'  => esc_html__( '&mdash; Select &mdash;', '__components_txtd' ),
+				'show_option_none'  => esc_html__( '&mdash; Select &mdash;', 'julia-lite' ),
 				'option_none_value' => '0',
 				'selected'          => get_option( 'page_for_projects' ),
 			)
 		);
-		echo '<p class="description">' . esc_html__( 'Choose what page should act as the portfolio archive page.', '__components_txtd' ) . '</p>';
+		echo '<p class="description">' . esc_html__( 'Choose what page should act as the portfolio archive page.', 'julia-lite' ) . '</p>';
 	}
 
 	/**
@@ -530,7 +530,7 @@ class Pixelgrade_Portfolio extends Pixelgrade_Component {
 	 * Display a notice when editing the page for projects.
 	 */
 	public function projectsPageNotice() {
-		echo '<div class="notice notice-warning inline"><p>' . esc_html__( 'You are currently editing the page that shows your latest projects.', '__components_txtd' ) . '</p></div>';
+		echo '<div class="notice notice-warning inline"><p>' . esc_html__( 'You are currently editing the page that shows your latest projects.', 'julia-lite' ) . '</p></div>';
 	}
 
 	/**

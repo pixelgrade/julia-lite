@@ -42,7 +42,7 @@ if ( ! function_exists( 'pixelgrade_portfolio_get_project_meta' ) ) {
 				// if we are on a page then we only want the main category
 				$main_category = pixelgrade_portfolio_get_project_main_type_link();
 				if ( ! empty( $main_category ) ) {
-					$category .= '<span class="screen-reader-text">' . esc_html__( 'Main Type', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+					$category .= '<span class="screen-reader-text">' . esc_html__( 'Main Type', 'julia-lite' ) . '</span><ul>' . PHP_EOL;
 					$category .= '<li>' . $main_category . '</li>' . PHP_EOL;
 					$category .= '</ul>' . PHP_EOL;
 				}
@@ -50,7 +50,7 @@ if ( ! function_exists( 'pixelgrade_portfolio_get_project_meta' ) ) {
 				// On archives we want to show all the categories, not just the main one
 				$categories = get_the_terms( get_the_ID(), Jetpack_Portfolio::CUSTOM_TAXONOMY_TYPE );
 				if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
-					$category .= '<span class="screen-reader-text">' . esc_html__( 'Types', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+					$category .= '<span class="screen-reader-text">' . esc_html__( 'Types', 'julia-lite' ) . '</span><ul>' . PHP_EOL;
 					foreach ( $categories as $this_category ) {
 						$category .= '<li><a href="' . esc_url( get_term_link( $this_category, Jetpack_Portfolio::CUSTOM_TAXONOMY_TYPE ) ) . '" rel="category">' . $this_category->name . '</a></li>' . PHP_EOL;
 					};
@@ -64,7 +64,7 @@ if ( ! function_exists( 'pixelgrade_portfolio_get_project_meta' ) ) {
 			$post_tags = get_the_terms( get_the_ID(), Jetpack_Portfolio::CUSTOM_TAXONOMY_TAG );
 			$tags      = '';
 			if ( ! is_wp_error( $post_tags ) && ! empty( $post_tags ) ) {
-				$tags .= '<span class="screen-reader-text">' . esc_html__( 'Tags', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+				$tags .= '<span class="screen-reader-text">' . esc_html__( 'Tags', 'julia-lite' ) . '</span><ul>' . PHP_EOL;
 				foreach ( $post_tags as $post_tag ) {
 					$tags .= '<li><a href="' . esc_url( get_term_link( $post_tag, Jetpack_Portfolio::CUSTOM_TAXONOMY_TAG ) ) . '" rel="tag">' . $post_tag->name . '</a></li>' . PHP_EOL;
 				};
@@ -79,9 +79,9 @@ if ( ! function_exists( 'pixelgrade_portfolio_get_project_meta' ) ) {
 		$comments_number = get_comments_number(); // get_comments_number returns only a numeric value
 		if ( comments_open() ) {
 			if ( 0 === intval( $comments_number ) ) {
-				$comments = esc_html__( 'No Comments', '__components_txtd' );
+				$comments = esc_html__( 'No Comments', 'julia-lite' );
 			} else {
-				$comments = sprintf( _n( '%d Comment', '%d Comments', $comments_number, '__components_txtd' ), $comments_number );
+				$comments = sprintf( _n( '%d Comment', '%d Comments', $comments_number, 'julia-lite' ), $comments_number );
 			}
 			$meta['comments'] = '<a href="' . esc_url( get_comments_link() ) . '">' . esc_html( $comments ) . '</a>';
 		} else {
@@ -104,10 +104,10 @@ if ( ! function_exists( 'pixelgrade_portfolio_the_older_projects_button' ) ) {
 		if ( ! empty( $older_posts_link ) ) : ?>
 
 			<nav class="navigation posts-navigation" role="navigation">
-				<h2 class="screen-reader-text"><?php esc_html_e( 'Projects navigation', '__components_txtd' ); ?></h2>
+				<h2 class="screen-reader-text"><?php esc_html_e( 'Projects navigation', 'julia-lite' ); ?></h2>
 				<div class="nav-links">
 					<div class="nav-previous">
-						<a href="<?php echo esc_url( $older_posts_link ); ?>"><?php esc_html_e( 'Older projects', '__components_txtd' ); ?></a>
+						<a href="<?php echo esc_url( $older_posts_link ); ?>"><?php esc_html_e( 'Older projects', 'julia-lite' ); ?></a>
 					</div>
 				</div>
 			</nav>

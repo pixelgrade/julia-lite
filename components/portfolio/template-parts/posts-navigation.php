@@ -29,8 +29,8 @@ $location = pixelgrade_get_location( 'portfolio jetpack' ); ?>
 <?php
 the_posts_navigation(
 	array(
-		'prev_text'          => esc_html__( 'Older projects', '__components_txtd' ),
-		'next_text'          => esc_html__( 'Newer projects', '__components_txtd' ),
-		'screen_reader_text' => esc_html__( 'Projects navigation', '__components_txtd' ),
+		'prev_text'          => esc_html__( 'Older projects', 'julia-lite' ),
+		'next_text'          => esc_html__( 'Newer projects', 'julia-lite' ),
+		'screen_reader_text' => esc_html__( 'Projects navigation', 'julia-lite' ),
 	)
 );

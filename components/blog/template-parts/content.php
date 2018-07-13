@@ -106,7 +106,7 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 				<?php } ?>
 
 				<div class="c-card__footer">
-					<a href="<?php the_permalink(); ?>" class="c-card__action"><?php esc_html_e( 'Read More', '__components_txtd' ); ?></a>
+					<a href="<?php the_permalink(); ?>" class="c-card__action"><?php esc_html_e( 'Read More', 'julia-lite' ); ?></a>
 				</div>
 
 			</div>

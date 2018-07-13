@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<input class="c-navbar__checkbox" id="menu-toggle" type="checkbox">
 				<label class="c-navbar__label u-header-sides-spacing" for="menu-toggle">
 					<span class="c-navbar__label-icon"><?php pixelgrade_get_component_template_part( Pixelgrade_Header::COMPONENT_SLUG, 'burger' ); ?></span>
-					<span class="c-navbar__label-text screen-reader-text"><?php esc_html_e( 'Menu', '__components_txtd' ); ?></span>
+					<span class="c-navbar__label-text screen-reader-text"><?php esc_html_e( 'Menu', 'julia-lite' ); ?></span>
 				</label><!-- .c-navbar__label -->
 
 				<?php

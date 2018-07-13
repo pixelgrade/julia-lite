@@ -183,9 +183,9 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 		                    'end_size'           => 1,
 		                    'mid_size'           => 2,
 		                    'type'               => 'list',
-		                    'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', '__components_txtd' ),
-		                    'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', '__components_txtd' ),
-		                    'screen_reader_text' => esc_html__( 'Posts navigation', '__components_txtd' ),
+		                    'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', 'julia-lite' ),
+		                    'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', 'julia-lite' ),
+		                    'screen_reader_text' => esc_html__( 'Posts navigation', 'julia-lite' ),
 	                    ),
                     ),
                 ),
@@ -690,10 +690,10 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 		$this->config['sidebars'] = array(
 			'sidebar-1' => array(
 				'sidebar_args' => array(
-					'name'          => esc_html__( 'Sidebar', '__components_txtd' ),
+					'name'          => esc_html__( 'Sidebar', 'julia-lite' ),
 					'id'            => 'sidebar-1', // You can skip this and we will use the sidebar config key as ID
 					'class'         => '', // In case you need some classes added to the sidebar - in the WP Admin only!!!
-					'description'   => esc_html__( 'Add widgets here.', '__components_txtd' ),
+					'description'   => esc_html__( 'Add widgets here.', 'julia-lite' ),
 					'before_widget' => '<section id="%1$s" class="widget widget--side %2$s">',
 					'after_widget'  => '</section>',
 					'before_title'  => '<h2 class="widget__title h3"><span>',
@@ -702,9 +702,9 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 			),
 			'sidebar-2' => array(
 				'sidebar_args' => array(
-					'name'          => esc_html__( 'Below Post', '__components_txtd' ),
+					'name'          => esc_html__( 'Below Post', 'julia-lite' ),
 					'id'            => 'sidebar-2',
-					'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', '__components_txtd' ),
+					'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', 'julia-lite' ),
 				),
 			),
 		);

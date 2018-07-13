@@ -260,7 +260,7 @@ if ( ! function_exists( 'julia_google_fonts_url' ) ) :
 		}
 
 		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */
-		$subset = esc_html_x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', '__theme_txtd' );
+		$subset = esc_html_x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', 'julia-lite' );
 
 		if ( 'cyrillic' == $subset ) {
 			$subsets .= ',cyrillic,cyrillic-ext';
@@ -392,7 +392,7 @@ add_filter( 'pixelgrade_display_entry_header', 'julia_prevent_entry_title', 10, 
 
 function julia_footer_extras() { ?>
 
-	<span class="u-hidden  js-menu-mobile-label"><?php esc_html_e( 'Menu', '__theme_txtd' ); ?></span>
+	<span class="u-hidden  js-menu-mobile-label"><?php esc_html_e( 'Menu', 'julia-lite' ); ?></span>
 
 	<div class="c-border"></div>
 
@@ -411,7 +411,7 @@ function julia_charter_font_url() {
 	* supported by Charter, translate this to 'off'. Do not translate
 	* into your own language.
 	*/
-	$charter = esc_html_x( 'on', 'Charter font: on or off', '__theme_txtd' );
+	$charter = esc_html_x( 'on', 'Charter font: on or off', 'julia-lite' );
 	if ( 'off' !== $charter ) {
 		return get_template_directory_uri() . '/assets/fonts/charter/stylesheet.css';
 	}
@@ -430,7 +430,7 @@ function julia_hkgrotesk_font_url() {
 	* supported by HK Grotesk, translate this to 'off'. Do not translate
 	* into your own language.
 	*/
-	$hk_grotesk = esc_html_x( 'on', 'HK Grotesk font: on or off', '__theme_txtd' );
+	$hk_grotesk = esc_html_x( 'on', 'HK Grotesk font: on or off', 'julia-lite' );
 	if ( 'off' !== $hk_grotesk ) {
 		return get_template_directory_uri() . '/assets/fonts/hkgrotesk/stylesheet.css';
 	}

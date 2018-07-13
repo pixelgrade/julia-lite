@@ -32,7 +32,7 @@ function julia_customize_header_config( $config ) {
 	// Customize the nav menu locations
 
 	// Change the nav menu location's title
-	$config['menu_locations']['primary-right']['title'] = esc_html__( 'Main Menu', '__theme_txtd' );
+	$config['menu_locations']['primary-right']['title'] = esc_html__( 'Main Menu', 'julia-lite' );
 	// Deactivate the default zone behaviour
 	$config['menu_locations']['primary-right']['zone_callback'] = false;
 	// Set the nav menu location's CSS id

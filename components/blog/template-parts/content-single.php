@@ -116,7 +116,7 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 							the_content(
 								sprintf(
 									/* translators: %s: Name of current post. */
-									wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', '__components_txtd' ), array( 'span' => array( 'class' => array() ) ) ),
+									wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'julia-lite' ), array( 'span' => array( 'class' => array() ) ) ),
 									the_title( '<span class="screen-reader-text">"', '"</span>', false )
 								)
 							);
@@ -130,7 +130,7 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 
 							wp_link_pages(
 								array(
-									'before' => '<div class="page-links">' . esc_html__( 'Pages:', '__components_txtd' ),
+									'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'julia-lite' ),
 									'after'  => '</div>',
 								)
 							);

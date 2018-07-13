@@ -431,12 +431,12 @@ function pixelgrade_get_parent_theme_file_uri( $file = '' ) {
 function pixelgrade_autoload_dir( $path, $depth = 0, $method = 'require_once' ) {
 	// If the $path starts with the absolute path to the WP install or the template directory, not good
 	if ( strpos( $path, ABSPATH ) === 0 && strpos( $path, get_template_directory() ) !== 0 ) {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Please provide only paths in the theme for autoloading.', '__components_txtd' ), null );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Please provide only paths in the theme for autoloading.', 'julia-lite' ), null );
 		return false;
 	}
 
 	if ( ! in_array( $method, array( 'require', 'require_once', 'include', 'include_once' ) ) ) {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'We support only require, require_once, include, and include_once.', '__components_txtd' ), null );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'We support only require, require_once, include, and include_once.', 'julia-lite' ), null );
 		return false;
 	}
 
@@ -801,7 +801,7 @@ if ( ! function_exists( 'pixelgrade_is_page_for_projects' ) ) {
 		global $wp_query;
 
 		if ( ! isset( $wp_query ) ) {
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Conditional query tags do not work before the query is run. Before then, they always return false.', '__components_txtd' ), '3.1.0' );
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'Conditional query tags do not work before the query is run. Before then, they always return false.', 'julia-lite' ), '3.1.0' );
 
 			return false;
 		}

@@ -174,7 +174,7 @@ if ( ! class_exists( 'Pixelgrade_Templater' ) ) :
 			global $wp_query;
 
 			if ( ! isset( $wp_query ) ) {
-				_doing_it_wrong( __FUNCTION__, esc_html__( 'Conditional query tags do not work before the query is run. Before then, they always return false.', '__components_txtd' ), '3.1.0' );
+				_doing_it_wrong( __FUNCTION__, esc_html__( 'Conditional query tags do not work before the query is run. Before then, they always return false.', 'julia-lite' ), '3.1.0' );
 				return $template;
 			}
 

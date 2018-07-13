@@ -335,7 +335,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 
 			// The default widget name - as it will be shown in the WordPress admin.
 			if ( empty( $name ) ) {
-				$name = esc_html__( 'Featured Posts', '__theme_txtd' );
+				$name = esc_html__( 'Featured Posts', 'julia-lite' );
 			}
 
 			// Initialize the widget.

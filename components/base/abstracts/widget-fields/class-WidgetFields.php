@@ -131,8 +131,8 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 			wp_localize_script(
 				'pixelgrade-widget-fields-js', 'pixelgradeWidgetFields', array(
 					'image' => array(
-						'frame_title'  => esc_html__( 'Select an Image', '__components_txtd' ),
-						'button_title' => esc_html__( 'Insert Into Widget', '__components_txtd' ),
+						'frame_title'  => esc_html__( 'Select an Image', 'julia-lite' ),
+						'button_title' => esc_html__( 'Insert Into Widget', 'julia-lite' ),
 					),
 				)
 			);
@@ -230,7 +230,7 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 
 							// Handle the section title and wrappers.
 							/* translators: Used for screen readers on widget sections. */
-							echo '<h3 class="accordion-section-title hndle">' . ( ! empty( $section['title'] ) ? $section['title'] : '' ) . '<span class="screen-reader-text">' . esc_html__( 'Press return or enter to open this section.', '__components_txtd' ) . '</span></h3>' . PHP_EOL;
+							echo '<h3 class="accordion-section-title hndle">' . ( ! empty( $section['title'] ) ? $section['title'] : '' ) . '<span class="screen-reader-text">' . esc_html__( 'Press return or enter to open this section.', 'julia-lite' ) . '</span></h3>' . PHP_EOL;
 
 							// The section fields wrapper.
 							echo '<div class="accordion-section-content">';
@@ -839,12 +839,12 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 				$desc = $field_config['desc'];
 			}
 
-			$button_label = esc_html__( 'Select Image', '__components_txtd' );
+			$button_label = esc_html__( 'Select Image', 'julia-lite' );
 			if ( ! empty( $field_config['button_label'] ) ) {
 				$button_label = $field_config['button_label'];
 			}
 
-			$clear_label = esc_html__( 'Clear', '__components_txtd' );
+			$clear_label = esc_html__( 'Clear', 'julia-lite' );
 			if ( ! empty( $field_config['clear_label'] ) ) {
 				$clear_label = $field_config['clear_label'];
 			}
@@ -1451,7 +1451,7 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 			?>
 
 			<div class="c-alert  c-alert--danger">
-				<h4 class="c-alert__title"><?php esc_html_e( '🤦 Widget Type Not Supported Here', '__theme_txtd' ); ?></h4>
+				<h4 class="c-alert__title"><?php esc_html_e( '🤦 Widget Type Not Supported Here', 'julia-lite' ); ?></h4>
 				<div class="c-alert__body">
 					<p><?php printf( esc_html__( 'Oops! The %s is not supported in this area, but don\'t panic. You can try to move it to another section or just replace it.', '__theme_txtd' ), '<em>' . $args['widget_name'] . '</em>' ); ?></p>
 				</div>

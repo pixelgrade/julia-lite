@@ -41,8 +41,8 @@ pixelgrade_get_header(); ?>
 						?>
 
 						<div class="entry-content u-content-width">
-							<h1 class="entry-title <?php echo esc_attr( $visibility_class ); ?>"><?php esc_html_e( 'Oops! This page can&rsquo;t be found anywhere.', '__components_txtd' ); ?></h1>
-							<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', '__components_txtd' ); ?></p>
+							<h1 class="entry-title <?php echo esc_attr( $visibility_class ); ?>"><?php esc_html_e( 'Oops! This page can&rsquo;t be found anywhere.', 'julia-lite' ); ?></h1>
+							<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'julia-lite' ); ?></p>
 							<?php get_search_form(); ?>
 						</div><!-- .entry-content -->
 

@@ -59,7 +59,7 @@ do_action( 'pixelgrade_before_custom_loop', $location );
 	</div><!-- .u-portfolio-sides-spacing.u-content-bottom-spacing -->
 
 <?php } else { ?>
-	<p><em><?php esc_html_e( 'Your Portfolio currently has no entries. You can start creating them on your dashboard.', '__components_txtd' ); ?></em></p>
+	<p><em><?php esc_html_e( 'Your Portfolio currently has no entries. You can start creating them on your dashboard.', 'julia-lite' ); ?></em></p>
 <?php } ?>
 
 <?php

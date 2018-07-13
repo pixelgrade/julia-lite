@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		edit_post_link(
 			sprintf(
 				/* translators: %s: Name of current post */
-				esc_html__( 'Edit %s', '__components_txtd' ),
+				esc_html__( 'Edit %s', 'julia-lite' ),
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			),
 			'<div class="edit-link">',

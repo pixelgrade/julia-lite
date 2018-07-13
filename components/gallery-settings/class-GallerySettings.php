@@ -55,11 +55,11 @@ class Pixelgrade_GallerySettings extends Pixelgrade_Component {
 		// Initialize the $config
 		$this->config = array(
 			'gallery_spacing_options' => array(
-				'none'   => esc_html__( 'None', '__components_txtd' ),
-				'small'  => esc_html__( 'Small', '__components_txtd' ),
-				'medium' => esc_html__( 'Medium', '__components_txtd' ),
-				'large'  => esc_html__( 'Large', '__components_txtd' ),
-				'xlarge' => esc_html__( 'X-Large', '__components_txtd' ),
+				'none'   => esc_html__( 'None', 'julia-lite' ),
+				'small'  => esc_html__( 'Small', 'julia-lite' ),
+				'medium' => esc_html__( 'Medium', 'julia-lite' ),
+				'large'  => esc_html__( 'Large', 'julia-lite' ),
+				'xlarge' => esc_html__( 'X-Large', 'julia-lite' ),
 			),
 			'gallery_spacing_default' => 'small',
 		);
@@ -176,7 +176,7 @@ class Pixelgrade_GallerySettings extends Pixelgrade_Component {
 	 * @return array
 	 */
 	public function addMasonryGalleryType( $types ) {
-		$setting = array( 'masonry' => esc_html__( 'Masonry', '__components_txtd' ) );
+		$setting = array( 'masonry' => esc_html__( 'Masonry', 'julia-lite' ) );
 
 		// we want to insert after the default Thumbnail Grid
 		$key = array_search( 'default', array_keys( $types ) );
@@ -203,7 +203,7 @@ class Pixelgrade_GallerySettings extends Pixelgrade_Component {
 	 */
 	public function maybeAddSlideshowGalleryType( $types ) {
 		if ( ! isset( $types['slideshow'] ) ) {
-			$types['slideshow'] = esc_html__( 'Slideshow', '__components_txtd' );
+			$types['slideshow'] = esc_html__( 'Slideshow', 'julia-lite' );
 		}
 
 		return $types;
@@ -292,7 +292,7 @@ class Pixelgrade_GallerySettings extends Pixelgrade_Component {
 		?>
 		<script type="text/html" id="tmpl-pixelgrade-gallery-settings">
 			<label class="setting">
-				<span><?php esc_html_e( 'Spacing', '__components_txtd' ); ?></span>
+				<span><?php esc_html_e( 'Spacing', 'julia-lite' ); ?></span>
 				<select class="spacing" name="spacing" data-setting="spacing">
 
 					<?php

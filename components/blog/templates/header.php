@@ -57,7 +57,7 @@ do_action( 'pixelgrade_before_barba_wrapper', 'main' );
 ?>
 
 <div id="barba-wrapper" class="site u-wrap-text u-header-height-padding-top u-border-width">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '__components_txtd' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'julia-lite' ); ?></a>
 
 	<?php
 	/**

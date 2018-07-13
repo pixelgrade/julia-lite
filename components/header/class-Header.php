@@ -62,7 +62,7 @@ class Pixelgrade_Header extends Pixelgrade_Component {
 					'bogus'         => true, // this tells the world that this is just a placeholder, not a real nav menu location
 				),
 				'primary-right'   => array(
-					'title'         => esc_html__( 'Header Right', '__components_txtd' ),
+					'title'         => esc_html__( 'Header Right', 'julia-lite' ),
 					'default_zone'  => 'right',
 					// This callback should always accept 3 parameters as documented in pixelgrade_header_get_zones()
 					'order'         => 10, // We will use this to establish the display order of nav menu locations, inside a certain zone

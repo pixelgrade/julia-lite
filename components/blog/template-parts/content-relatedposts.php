@@ -66,7 +66,7 @@ if ( $query->have_posts() ) {
 	<div class="u-container-sides-spacing">
 		<div class="o-wrapper u-container-width">
 			<div id="related-posts-container" class="related-posts-container">
-				<?php pixelgrade_the_jetpack_related_posts_headline( esc_html__( 'Related Posts', '__components_txtd' ) ); ?>
+				<?php pixelgrade_the_jetpack_related_posts_headline( esc_html__( 'Related Posts', 'julia-lite' ) ); ?>
 				<div class="c-gallery  c-gallery--blog  c-gallery--regular  o-grid  o-grid--3col-@desk  o-grid--3col-@lap  o-grid--col-@small">
 					<?php
 					/* Start the Loop */

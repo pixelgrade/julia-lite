@@ -77,7 +77,7 @@ class Pixelgrade_Blog_Metaboxes extends Pixelgrade_Singleton {
 		$component_metaboxes = array(
 			'base_custom_css_style' => array(
 				'id'         => 'base_custom_css_style',
-				'title'      => esc_html__( 'Custom CSS Styles', '__components_txtd' ),
+				'title'      => esc_html__( 'Custom CSS Styles', 'julia-lite' ),
 				'pages'      => array( 'page' ), // Post type
 				'context'    => 'normal',
 				'priority'   => 'low',
@@ -85,8 +85,8 @@ class Pixelgrade_Blog_Metaboxes extends Pixelgrade_Singleton {
 				'show_names' => false, // Show field names on the left
 				'fields'     => array(
 					array(
-						'name' => esc_html__( 'CSS Style', '__components_txtd' ),
-						'desc' => esc_html__( 'Add CSS that will only be applied to this post.', '__components_txtd' ),
+						'name' => esc_html__( 'CSS Style', 'julia-lite' ),
+						'desc' => esc_html__( 'Add CSS that will only be applied to this post.', 'julia-lite' ),
 						'id'   => 'custom_css_style',
 						'type' => 'textarea_code',
 						'rows' => '12',

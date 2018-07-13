@@ -202,7 +202,7 @@ if ( ! function_exists( 'pixelgrade_get_post_meta' ) ) {
 						// If we are on a page then we only want the main category
 						$main_category = pixelgrade_get_main_category_link();
 						if ( ! empty( $main_category ) ) {
-							$category .= '<span class="screen-reader-text">' . esc_html__( 'Main Category', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+							$category .= '<span class="screen-reader-text">' . esc_html__( 'Main Category', 'julia-lite' ) . '</span><ul>' . PHP_EOL;
 							$category .= '<li>' . $main_category . '</li>' . PHP_EOL;
 							$category .= '</ul>' . PHP_EOL;
 						}
@@ -210,7 +210,7 @@ if ( ! function_exists( 'pixelgrade_get_post_meta' ) ) {
 						// On archives we want to show all the categories, not just the main one
 						$categories = get_the_terms( get_the_ID(), 'category' );
 						if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
-							$category .= '<span class="screen-reader-text">' . esc_html__( 'Categories', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+							$category .= '<span class="screen-reader-text">' . esc_html__( 'Categories', 'julia-lite' ) . '</span><ul>' . PHP_EOL;
 							foreach ( $categories as $this_category ) {
 								$category .= '<li><a href="' . esc_url( get_category_link( $this_category ) ) . '" rel="category">' . $this_category->name . '</a></li>' . PHP_EOL;
 							};
@@ -223,7 +223,7 @@ if ( ! function_exists( 'pixelgrade_get_post_meta' ) ) {
 					$post_tags = get_the_terms( get_the_ID(), 'post_tag' );
 					$tags      = '';
 					if ( ! is_wp_error( $post_tags ) && ! empty( $post_tags ) ) {
-						$tags .= '<span class="screen-reader-text">' . esc_html__( 'Tags', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+						$tags .= '<span class="screen-reader-text">' . esc_html__( 'Tags', 'julia-lite' ) . '</span><ul>' . PHP_EOL;
 						foreach ( $post_tags as $post_tag ) {
 							$tags .= '<li><a href="' . esc_url( get_term_link( $post_tag ) ) . '" rel="tag">' . $post_tag->name . '</a></li>' . PHP_EOL;
 						};
@@ -241,9 +241,9 @@ if ( ! function_exists( 'pixelgrade_get_post_meta' ) ) {
 					if ( comments_open() ) {
 						$comments_number = get_comments_number(); // get_comments_number returns only a numeric value
 						if ( $comments_number == 0 ) {
-							$comments = esc_html__( 'No Comments', '__components_txtd' );
+							$comments = esc_html__( 'No Comments', 'julia-lite' );
 						} else {
-							$comments = sprintf( _n( '%d Comment', '%d Comments', $comments_number, '__components_txtd' ), $comments_number );
+							$comments = sprintf( _n( '%d Comment', '%d Comments', $comments_number, 'julia-lite' ), $comments_number );
 						}
 						$meta['comments'] = '<a href="' . esc_url( get_comments_link() ) . '">' . esc_html( $comments ) . '</a>';
 					} else {
@@ -302,14 +302,14 @@ if ( ! function_exists( 'pixelgrade_get_the_post_navigation' ) ) {
 				'in_same_term'       => false,
 				'excluded_terms'     => '',
 				'taxonomy'           => 'category',
-				'screen_reader_text' => esc_html__( 'Post navigation', '__components_txtd' ),
+				'screen_reader_text' => esc_html__( 'Post navigation', 'julia-lite' ),
 			)
 		);
 
 		$navigation = '';
 
 		$previous = get_previous_post_link(
-			'<div class="nav-previous"><span class="nav-links__label  nav-links__label--previous">' . esc_html__( 'Previous article', '__components_txtd' ) . '</span><span class="nav-title  nav-title--previous">%link</span></div>',
+			'<div class="nav-previous"><span class="nav-links__label  nav-links__label--previous">' . esc_html__( 'Previous article', 'julia-lite' ) . '</span><span class="nav-title  nav-title--previous">%link</span></div>',
 			$args['prev_text'],
 			$args['in_same_term'],
 			$args['excluded_terms'],
@@ -317,7 +317,7 @@ if ( ! function_exists( 'pixelgrade_get_the_post_navigation' ) ) {
 		);
 
 		$next = get_next_post_link(
-			'<div class="nav-next"><span class="nav-links__label  nav-links__label--next">' . esc_html__( 'Next article', '__components_txtd' ) . '</span><span class="nav-title  nav-title--next">%link</span></div>',
+			'<div class="nav-next"><span class="nav-links__label  nav-links__label--next">' . esc_html__( 'Next article', 'julia-lite' ) . '</span><span class="nav-title  nav-title--next">%link</span></div>',
 			$args['next_text'],
 			$args['in_same_term'],
 			$args['excluded_terms'],
@@ -359,7 +359,7 @@ if ( ! function_exists( 'pixelgrade_get_author_bio_links' ) ) {
 
 		$markup .= '<span class="c-author__links">' . PHP_EOL;
 
-		$markup .= '<a class="c-author__social-link  c-author__website-link" href="' . esc_url( $user_posts ) . '" rel="author" title="' . esc_attr( sprintf( __( 'View all posts by %s', '__components_txtd' ), get_the_author() ) ) . '">' . esc_html__( 'All posts', '__components_txtd' ) . '</a>';
+		$markup .= '<a class="c-author__social-link  c-author__website-link" href="' . esc_url( $user_posts ) . '" rel="author" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'julia-lite' ), get_the_author() ) ) . '">' . esc_html__( 'All posts', 'julia-lite' ) . '</a>';
 
 		if ( is_array( $profile ) && ! empty( $profile['entry'][0]['urls'] ) ) {
 			foreach ( $profile['entry'][0]['urls'] as $link ) {
@@ -370,7 +370,7 @@ if ( ! function_exists( 'pixelgrade_get_author_bio_links' ) ) {
 		}
 
 		if ( ! empty( $user_website ) ) {
-			$markup .= '<a class="c-author__social-link" href="' . esc_url( $user_website ) . '" target="_blank">' . esc_html__( 'Website', '__components_txtd' ) . '</a>' . PHP_EOL;
+			$markup .= '<a class="c-author__social-link" href="' . esc_url( $user_website ) . '" target="_blank">' . esc_html__( 'Website', 'julia-lite' ) . '</a>' . PHP_EOL;
 		}
 		$markup .= '</span>' . PHP_EOL;
 
@@ -541,14 +541,14 @@ if ( ! function_exists( 'pixelgrade_entry_footer' ) ) {
 		if ( ! is_single( $post_id ) && ! post_password_required( $post_id ) && ( comments_open( $post_id ) || get_comments_number( $post_id ) ) ) {
 			echo '<span class="comments-link">';
 			/* translators: %s: post title */
-			comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', '__components_txtd' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title( $post_id ) ) );
+			comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'julia-lite' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title( $post_id ) ) );
 			echo '</span>';
 		}
 
 		edit_post_link(
 			sprintf(
 				/* translators: %s: Name of current post */
-				esc_html__( 'Edit %s', '__components_txtd' ),
+				esc_html__( 'Edit %s', 'julia-lite' ),
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			),
 			'<div class="edit-link">',
@@ -575,7 +575,7 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 			case 'trackback':
 				?>
 				<li class="post pingback">
-				<p><?php esc_html_e( 'Pingback:', '__components_txtd' ); ?><?php comment_author_link(); ?><?php edit_comment_link( esc_html__( '(Edit)', '__components_txtd' ), ' ' ); ?></p>
+				<p><?php esc_html_e( 'Pingback:', 'julia-lite' ); ?><?php comment_author_link(); ?><?php edit_comment_link( esc_html__( '(Edit)', 'julia-lite' ), ' ' ); ?></p>
 				<?php
 				break;
 			default:
@@ -591,7 +591,7 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 								<?php
 								/* translators: %s: comment author link */
 								printf(
-									__( '%s <span class="says">says:</span>', '__components_txtd' ),
+									__( '%s <span class="says">says:</span>', 'julia-lite' ),
 									sprintf( '<b class="fn">%s</b>', get_comment_author_link( $comment ) )
 								);
 								?>
@@ -602,15 +602,15 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 									<time datetime="<?php comment_time( 'c' ); ?>">
 										<?php
 										/* translators: 1: comment date, 2: comment time */
-										printf( __( '%1$s at %2$s', '__components_txtd' ), get_comment_date( '', $comment ), get_comment_time() );
+										printf( __( '%1$s at %2$s', 'julia-lite' ), get_comment_date( '', $comment ), get_comment_time() );
 										?>
 									</time>
 								</a>
-								<?php edit_comment_link( esc_html__( 'Edit', '__components_txtd' ), '<span class="edit-link">', '</span>' ); ?>
+								<?php edit_comment_link( esc_html__( 'Edit', 'julia-lite' ), '<span class="edit-link">', '</span>' ); ?>
 							</div><!-- .comment-metadata -->
 
 							<?php if ( '0' == $comment->comment_approved ) : ?>
-								<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', '__components_txtd' ); ?></p>
+								<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'julia-lite' ); ?></p>
 							<?php endif; ?>
 						</header><!-- .comment-meta -->
 
@@ -729,9 +729,9 @@ if ( ! function_exists( 'pixelgrade_get_the_posts_pagination' ) ) {
 				'end_size'           => 1,
 				'mid_size'           => 2,
 				'type'               => 'list',
-				'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', '__components_txtd' ),
-				'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', '__components_txtd' ),
-				'screen_reader_text' => esc_html__( 'Posts navigation', '__components_txtd' ),
+				'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', 'julia-lite' ),
+				'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', 'julia-lite' ),
+				'screen_reader_text' => esc_html__( 'Posts navigation', 'julia-lite' ),
 			)
 		);
 
@@ -760,12 +760,12 @@ if ( ! function_exists( 'pixelgrade_posted_on' ) ) {
 
 		$posted_on = sprintf(
 			/* translators: %s: The current post's posted date, in the post header */
-			esc_html_x( '%s', 'post date', '__components_txtd' ),
+			esc_html_x( '%s', 'post date', 'julia-lite' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
 		$byline = sprintf(
-			'<span class="by">' . esc_html_x( 'by', 'post author', '__components_txtd' ) . '</span> %s',
+			'<span class="by">' . esc_html_x( 'by', 'post author', 'julia-lite' ) . '</span> %s',
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 

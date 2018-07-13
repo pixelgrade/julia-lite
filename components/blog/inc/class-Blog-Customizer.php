@@ -125,11 +125,11 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 		$general_section = array(
 			// General section
 			'general' => array(
-				'title'   => esc_html__( 'General', '__components_txtd' ),
+				'title'   => esc_html__( 'General', 'julia-lite' ),
 				'options' => array(
 					'use_ajax_loading' => array(
 						'type'    => 'checkbox',
-						'label'   => esc_html__( 'Enable dynamic page content loading using AJAX.', '__components_txtd' ),
+						'label'   => esc_html__( 'Enable dynamic page content loading using AJAX.', 'julia-lite' ),
 						'default' => 1,
 					),
 				),
@@ -204,25 +204,25 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 		$main_content_section = array(
 			// Main Content
 			'main_content' => array(
-				'title'   => esc_html__( 'Main Content', '__components_txtd' ),
+				'title'   => esc_html__( 'Main Content', 'julia-lite' ),
 				'options' => array(
 					'main_content_options_customizer_tabs' => array(
 						'type' => 'html',
 						'html' => '<nav class="section-navigation  js-section-navigation">
-							<a href="#section-title-main-layout">' . esc_html__( 'Layout', '__components_txtd' ) . '</a>
-							<a href="#section-title-main-colors">' . esc_html__( 'Colors', '__components_txtd' ) . '</a>
-							<a href="#section-title-main-fonts">' . esc_html__( 'Fonts', '__components_txtd' ) . '</a>
+							<a href="#section-title-main-layout">' . esc_html__( 'Layout', 'julia-lite' ) . '</a>
+							<a href="#section-title-main-colors">' . esc_html__( 'Colors', 'julia-lite' ) . '</a>
+							<a href="#section-title-main-fonts">' . esc_html__( 'Fonts', 'julia-lite' ) . '</a>
 							</nav>',
 					),
 					// [Section] Layout
 					'main_content_title_layout_section'    => array(
 						'type' => 'html',
-						'html' => '<span id="section-title-main-layout" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Layout', '__components_txtd' ) . '</span>',
+						'html' => '<span id="section-title-main-layout" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Layout', 'julia-lite' ) . '</span>',
 					),
 					'main_content_container_width'         => array(
 						'type'        => 'range',
-						'label'       => esc_html__( 'Site Container Max Width', '__components_txtd' ),
-						'desc'        => esc_html__( 'Adjust the max width of your site content area.', '__components_txtd' ),
+						'label'       => esc_html__( 'Site Container Max Width', 'julia-lite' ),
+						'desc'        => esc_html__( 'Adjust the max width of your site content area.', 'julia-lite' ),
 						'live'        => true,
 						'default'     => null, // this should be set by the theme (previously 1300)
 						'input_attrs' => array(
@@ -241,8 +241,8 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'main_content_container_sides_spacing' => array(
 						'type'        => 'range',
-						'label'       => esc_html__( 'Site Container Sides Spacing', '__components_txtd' ),
-						'desc'        => esc_html__( 'Adjust the space separating the site content and the sides of the browser.', '__components_txtd' ),
+						'label'       => esc_html__( 'Site Container Sides Spacing', 'julia-lite' ),
+						'desc'        => esc_html__( 'Adjust the space separating the site content and the sides of the browser.', 'julia-lite' ),
 						'live'        => true,
 						'default'     => null, // this should be set by the theme (previously 60)
 						'input_attrs' => array(
@@ -274,8 +274,8 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'main_content_container_padding'       => array(
 						'type'        => 'range',
-						'label'       => esc_html__( 'Site Container Padding', '__components_txtd' ),
-						'desc'        => esc_html__( 'Adjust the top and bottom distance between the page content and header/footer.', '__components_txtd' ),
+						'label'       => esc_html__( 'Site Container Padding', 'julia-lite' ),
+						'desc'        => esc_html__( 'Adjust the top and bottom distance between the page content and header/footer.', 'julia-lite' ),
 						'live'        => true,
 						'default'     => null, // this should be set by the theme (previously 60)
 						'input_attrs' => array(
@@ -301,8 +301,8 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'main_content_content_width'           => array(
 						'type'        => 'range',
-						'label'       => esc_html__( 'Content Width', '__components_txtd' ),
-						'desc'        => esc_html__( 'Decrease the width of your content to create an inset area for your text. The inset size will be the space between Site Container and Content.', '__components_txtd' ),
+						'label'       => esc_html__( 'Content Width', 'julia-lite' ),
+						'desc'        => esc_html__( 'Decrease the width of your content to create an inset area for your text. The inset size will be the space between Site Container and Content.', 'julia-lite' ),
 						'live'        => true,
 						'default'     => null, // this should be set by the theme (previously 720)
 						'input_attrs' => array(
@@ -323,7 +323,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'main_content_border_width'            => array(
 						'type'        => 'range',
-						'label'       => esc_html__( 'Site Border Width', '__components_txtd' ),
+						'label'       => esc_html__( 'Site Border Width', 'julia-lite' ),
 						'desc'        => '',
 						'live'        => true,
 						'default'     => null, // this should be set by the theme (previously 0)
@@ -343,7 +343,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'main_content_border_color'            => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Site Border Color', '__components_txtd' ),
+						'label'   => esc_html__( 'Site Border Color', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #FFFFFF)
 						'css'     => array(
@@ -357,11 +357,11 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					// [Section] COLORS
 					'main_content_title_colors_section'    => array(
 						'type' => 'html',
-						'html' => '<span id="section-title-main-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', '__components_txtd' ) . '</span>',
+						'html' => '<span id="section-title-main-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', 'julia-lite' ) . '</span>',
 					),
 					'main_content_page_title_color'        => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Page Title Color', '__components_txtd' ),
+						'label'   => esc_html__( 'Page Title Color', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #3B3B3B)
 						'css'     => array(
@@ -373,7 +373,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'main_content_body_text_color'         => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Body Text Color', '__components_txtd' ),
+						'label'   => esc_html__( 'Body Text Color', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #3B3B3B)
 						'css'     => array(
@@ -385,7 +385,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'main_content_body_link_color'         => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Body Link Color', '__components_txtd' ),
+						'label'   => esc_html__( 'Body Link Color', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #3B3B3B)
 						'css'     => array(
@@ -397,7 +397,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'main_content_body_link_active_color'  => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Body Link Active Color', '__components_txtd' ),
+						'label'   => esc_html__( 'Body Link Active Color', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #dfa671)
 						'css'     => array(
@@ -409,17 +409,17 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'main_content_underlined_body_links'   => array(
 						'type'    => 'checkbox',
-						'label'   => esc_html__( 'Underlined Body Links', '__components_txtd' ),
+						'label'   => esc_html__( 'Underlined Body Links', 'julia-lite' ),
 						'default' => null, // this should be set by the theme (previously 1)
 					),
 					// [Sub Section] Headings Color
 					'main_content_title_headings_color_section' => array(
 						'type' => 'html',
-						'html' => '<span class="separator sub-section label">' . esc_html__( 'Headings Color', '__components_txtd' ) . '</span>',
+						'html' => '<span class="separator sub-section label">' . esc_html__( 'Headings Color', 'julia-lite' ) . '</span>',
 					),
 					'main_content_heading_1_color'         => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Heading 1', '__components_txtd' ),
+						'label'   => esc_html__( 'Heading 1', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #3B3B3B)
 						'css'     => array(
@@ -431,7 +431,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'main_content_heading_2_color'         => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Heading 2', '__components_txtd' ),
+						'label'   => esc_html__( 'Heading 2', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #3B3B3B)
 						'css'     => array(
@@ -443,7 +443,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'main_content_heading_3_color'         => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Heading 3', '__components_txtd' ),
+						'label'   => esc_html__( 'Heading 3', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #3B3B3B)
 						'css'     => array(
@@ -455,7 +455,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'main_content_heading_4_color'         => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Heading 4', '__components_txtd' ),
+						'label'   => esc_html__( 'Heading 4', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #3B3B3B)
 						'css'     => array(
@@ -467,7 +467,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'main_content_heading_5_color'         => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Heading 5', '__components_txtd' ),
+						'label'   => esc_html__( 'Heading 5', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #3B3B3B)
 						'css'     => array(
@@ -479,7 +479,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'main_content_heading_6_color'         => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Heading 6', '__components_txtd' ),
+						'label'   => esc_html__( 'Heading 6', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #3B3B3B)
 						'css'     => array(
@@ -493,11 +493,11 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					// [Sub Section] Backgrounds
 					'main_content_title_backgrounds_section' => array(
 						'type' => 'html',
-						'html' => '<span class="separator sub-section label">' . esc_html__( 'Backgrounds', '__components_txtd' ) . '</span>',
+						'html' => '<span class="separator sub-section label">' . esc_html__( 'Backgrounds', 'julia-lite' ) . '</span>',
 					),
 					'main_content_content_background_color' => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Content Background Color', '__components_txtd' ),
+						'label'   => esc_html__( 'Content Background Color', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #F5FBFE)
 						'css'     => array(
@@ -511,12 +511,12 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					// [Section] FONTS
 					'main_content_title_fonts_section'     => array(
 						'type' => 'html',
-						'html' => '<span id="section-title-main-fonts" class="separator section label large">&#x1f4dd;  ' . esc_html__( 'Fonts', '__components_txtd' ) . '</span>',
+						'html' => '<span id="section-title-main-fonts" class="separator section label large">&#x1f4dd;  ' . esc_html__( 'Fonts', 'julia-lite' ) . '</span>',
 					),
 
 					'main_content_page_title_font'         => array(
 						'type'        => 'font',
-						'label'       => esc_html__( 'Page Title Font', '__components_txtd' ),
+						'label'       => esc_html__( 'Page Title Font', 'julia-lite' ),
 						'desc'        => '',
 						'selector'    => '.entry-title, .h0',
 						'callback'    => 'typeline_font_cb',
@@ -556,7 +556,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 
 					'main_content_body_text_font'          => array(
 						'type'        => 'font',
-						'label'       => esc_html__( 'Body Text Font', '__components_txtd' ),
+						'label'       => esc_html__( 'Body Text Font', 'julia-lite' ),
 						'desc'        => '',
 						'selector'    => 'body',
 						'callback'    => 'typeline_font_cb',
@@ -596,7 +596,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 
 					'main_content_paragraph_text_font'     => array(
 						'type'        => 'font',
-						'label'       => esc_html__( 'Content Text Font', '__components_txtd' ),
+						'label'       => esc_html__( 'Content Text Font', 'julia-lite' ),
 						'desc'        => '',
 						'selector'    => '.entry-content',
 						'callback'    => 'typeline_font_cb',
@@ -636,7 +636,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 
 					'main_content_quote_block_font'        => array(
 						'type'        => 'font',
-						'label'       => esc_html__( 'Quote Block Font', '__components_txtd' ),
+						'label'       => esc_html__( 'Quote Block Font', 'julia-lite' ),
 						'desc'        => '',
 						'selector'    => 'blockquote',
 						'callback'    => 'typeline_font_cb',
@@ -677,12 +677,12 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					// [Sub Section] Headings Fonts
 					'main_content_title_headings_fonts_section' => array(
 						'type' => 'html',
-						'html' => '<span class="separator sub-section label">' . esc_html__( 'Headings Fonts', '__components_txtd' ) . '</span>',
+						'html' => '<span class="separator sub-section label">' . esc_html__( 'Headings Fonts', 'julia-lite' ) . '</span>',
 					),
 
 					'main_content_heading_1_font'          => array(
 						'type'        => 'font',
-						'label'       => esc_html__( 'Heading 1', '__components_txtd' ),
+						'label'       => esc_html__( 'Heading 1', 'julia-lite' ),
 						'desc'        => '',
 						'selector'    => 'h1, .h1',
 						'callback'    => 'typeline_font_cb',
@@ -721,7 +721,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 
 					'main_content_heading_2_font'          => array(
 						'type'        => 'font',
-						'label'       => esc_html__( 'Heading 2', '__components_txtd' ),
+						'label'       => esc_html__( 'Heading 2', 'julia-lite' ),
 						'desc'        => '',
 						'selector'    => 'h2, .h2',
 						'callback'    => 'typeline_font_cb',
@@ -761,7 +761,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 
 					'main_content_heading_3_font'          => array(
 						'type'        => 'font',
-						'label'       => esc_html__( 'Heading 3', '__components_txtd' ),
+						'label'       => esc_html__( 'Heading 3', 'julia-lite' ),
 						'desc'        => '',
 						'selector'    => 'h3, .h3',
 						'callback'    => 'typeline_font_cb',
@@ -802,7 +802,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 
 					'main_content_heading_4_font'          => array(
 						'type'        => 'font',
-						'label'       => esc_html__( 'Heading 4', '__components_txtd' ),
+						'label'       => esc_html__( 'Heading 4', 'julia-lite' ),
 						'desc'        => '',
 						'selector'    => 'h4, .h4',
 						'callback'    => 'typeline_font_cb',
@@ -842,7 +842,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 
 					'main_content_heading_5_font'          => array(
 						'type'        => 'font',
-						'label'       => esc_html__( 'Heading 5', '__components_txtd' ),
+						'label'       => esc_html__( 'Heading 5', 'julia-lite' ),
 						'desc'        => '',
 						'selector'    => 'h5, .h5',
 						'callback'    => 'typeline_font_cb',
@@ -882,7 +882,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 
 					'main_content_heading_6_font'          => array(
 						'type'        => 'font',
-						'label'       => esc_html__( 'Heading 6', '__components_txtd' ),
+						'label'       => esc_html__( 'Heading 6', 'julia-lite' ),
 						'desc'        => '',
 						'selector'    => 'h6, .h6',
 						'callback'    => 'typeline_font_cb',
@@ -965,47 +965,47 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 		$buttons_section = array(
 			// Buttons
 			'buttons' => array(
-				'title'   => esc_html__( 'Buttons', '__components_txtd' ),
+				'title'   => esc_html__( 'Buttons', 'julia-lite' ),
 				'options' => array(
 					'buttons_customizer_tabs'      => array(
 						'type' => 'html',
 						'html' => '<nav class="section-navigation  js-section-navigation">
-								<a href="#section-title-buttons-layout">' . esc_html__( 'Layout', '__components_txtd' ) . '</a>
-								<a href="#section-title-buttons-colors">' . esc_html__( 'Colors', '__components_txtd' ) . '</a>
-								<a href="#section-title-buttons-fonts">' . esc_html__( 'Fonts', '__components_txtd' ) . '</a>
+								<a href="#section-title-buttons-layout">' . esc_html__( 'Layout', 'julia-lite' ) . '</a>
+								<a href="#section-title-buttons-colors">' . esc_html__( 'Colors', 'julia-lite' ) . '</a>
+								<a href="#section-title-buttons-fonts">' . esc_html__( 'Fonts', 'julia-lite' ) . '</a>
 								</nav>',
 					),
 					'buttons_title_layout_section' => array(
 						'type' => 'html',
-						'html' => '<span id="section-title-buttons-layout" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Layout', '__components_txtd' ) . '</span>',
+						'html' => '<span id="section-title-buttons-layout" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Layout', 'julia-lite' ) . '</span>',
 					),
 					'buttons_style'                => array(
 						'type'    => 'radio',
-						'label'   => esc_html__( 'Buttons Style', '__components_txtd' ),
-						'desc'    => esc_html__( 'Choose the default button style.', '__components_txtd' ),
+						'label'   => esc_html__( 'Buttons Style', 'julia-lite' ),
+						'desc'    => esc_html__( 'Choose the default button style.', 'julia-lite' ),
 						'default' => null, // this should be set by the theme (previously regular)
 						'choices' => array(
-							'solid'   => esc_html__( 'Solid', '__components_txtd' ),
-							'outline' => esc_html__( 'Outline', '__components_txtd' ),
+							'solid'   => esc_html__( 'Solid', 'julia-lite' ),
+							'outline' => esc_html__( 'Outline', 'julia-lite' ),
 						),
 					),
 					'buttons_shape'                => array(
 						'type'    => 'radio',
-						'label'   => esc_html__( 'Buttons Shape', '__components_txtd' ),
+						'label'   => esc_html__( 'Buttons Shape', 'julia-lite' ),
 						'default' => null, // this should be set by the theme (previously regular)
 						'choices' => array(
-							'square'  => esc_html__( 'Square', '__components_txtd' ),
-							'rounded' => esc_html__( 'Rounded', '__components_txtd' ),
-							'pill'    => esc_html__( 'Pill', '__components_txtd' ),
+							'square'  => esc_html__( 'Square', 'julia-lite' ),
+							'rounded' => esc_html__( 'Rounded', 'julia-lite' ),
+							'pill'    => esc_html__( 'Pill', 'julia-lite' ),
 						),
 					),
 					'buttons_title_colors_section' => array(
 						'type' => 'html',
-						'html' => '<span id="section-title-buttons-layout" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', '__components_txtd' ) . '</span>',
+						'html' => '<span id="section-title-buttons-layout" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', 'julia-lite' ) . '</span>',
 					),
 					'buttons_color'                => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Button Color', '__components_txtd' ),
+						'label'   => esc_html__( 'Button Color', 'julia-lite' ),
 						'live'    => true,
 						'default' => null,
 						'css'     => array(
@@ -1033,7 +1033,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'buttons_text_color'           => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Button Text Color', '__components_txtd' ),
+						'label'   => esc_html__( 'Button Text Color', 'julia-lite' ),
 						'live'    => true,
 						'default' => null,
 						'css'     => array(
@@ -1053,11 +1053,11 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'buttons_title_fonts_section'  => array(
 						'type' => 'html',
-						'html' => '<span id="section-title-buttons-layout" class="separator section label large">&#x1f4dd; ' . esc_html__( 'Fonts', '__components_txtd' ) . '</span>',
+						'html' => '<span id="section-title-buttons-layout" class="separator section label large">&#x1f4dd; ' . esc_html__( 'Fonts', 'julia-lite' ) . '</span>',
 					),
 					'buttons_font'                 => array(
 						'type'     => 'font',
-						'label'    => esc_html__( 'Button Font', '__components_txtd' ),
+						'label'    => esc_html__( 'Button Font', 'julia-lite' ),
 						'desc'     => '',
 						'selector' => '
 							.c-btn,
@@ -1169,26 +1169,26 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 		$blog_grid_section = array(
 			// Blog Grid
 			'blog_grid' => array(
-				'title'   => esc_html__( 'Blog Grid Items', '__components_txtd' ),
+				'title'   => esc_html__( 'Blog Grid Items', 'julia-lite' ),
 				'options' => array(
 					'blog_grid_options_customizer_tabs'   => array(
 						'type' => 'html',
 						'html' => '<nav class="section-navigation  js-section-navigation">
-								<a href="#section-title-blog-layout">' . esc_html__( 'Layout', '__components_txtd' ) . '</a>
-								<a href="#section-title-blog-colors">' . esc_html__( 'Colors', '__components_txtd' ) . '</a>
-								<a href="#section-title-blog-fonts">' . esc_html__( 'Fonts', '__components_txtd' ) . '</a>
+								<a href="#section-title-blog-layout">' . esc_html__( 'Layout', 'julia-lite' ) . '</a>
+								<a href="#section-title-blog-colors">' . esc_html__( 'Colors', 'julia-lite' ) . '</a>
+								<a href="#section-title-blog-fonts">' . esc_html__( 'Fonts', 'julia-lite' ) . '</a>
 								</nav>',
 					),
 
 					// [Section] Layout
 					'blog_grid_title_layout_section'      => array(
 						'type' => 'html',
-						'html' => '<span id="section-title-blog-layout" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Layout', '__components_txtd' ) . '</span>',
+						'html' => '<span id="section-title-blog-layout" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Layout', 'julia-lite' ) . '</span>',
 					),
 					'blog_grid_width'                     => array(
 						'type'        => 'range',
-						'label'       => esc_html__( 'Blog Grid Max Width', '__components_txtd' ),
-						'desc'        => esc_html__( 'Adjust the max width of the blog area.', '__components_txtd' ),
+						'label'       => esc_html__( 'Blog Grid Max Width', 'julia-lite' ),
+						'desc'        => esc_html__( 'Adjust the max width of the blog area.', 'julia-lite' ),
 						'live'        => true,
 						'default'     => null, // this should be set by the theme (previously 1300)
 						'input_attrs' => array(
@@ -1207,8 +1207,8 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'blog_container_sides_spacing'        => array(
 						'type'        => 'range',
-						'label'       => esc_html__( 'Container Sides Spacing', '__components_txtd' ),
-						'desc'        => esc_html__( 'Adjust the space separating the site content and the sides of the browser.', '__components_txtd' ),
+						'label'       => esc_html__( 'Container Sides Spacing', 'julia-lite' ),
+						'desc'        => esc_html__( 'Adjust the space separating the site content and the sides of the browser.', 'julia-lite' ),
 						'live'        => true,
 						'default'     => null, // this should be set by the theme (previously 60)
 						'input_attrs' => array(
@@ -1236,24 +1236,24 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					// [Sub Section] Items Grid
 					'blog_grid_title_items_grid_section'  => array(
 						'type' => 'html',
-						'html' => '<span class="separator sub-section label large">' . esc_html__( 'Items Grid', '__components_txtd' ) . '</span>',
+						'html' => '<span class="separator sub-section label large">' . esc_html__( 'Items Grid', 'julia-lite' ) . '</span>',
 					),
 					'blog_grid_layout'                    => array(
 						'type'    => 'radio',
-						'label'   => esc_html__( 'Grid Layout', '__components_txtd' ),
-						'desc'    => esc_html__( 'Choose whether the items display in a fixed height regular grid, or in a packed style layout.', '__components_txtd' ),
+						'label'   => esc_html__( 'Grid Layout', 'julia-lite' ),
+						'desc'    => esc_html__( 'Choose whether the items display in a fixed height regular grid, or in a packed style layout.', 'julia-lite' ),
 						'default' => null, // this should be set by the theme (previously regular)
 						'choices' => array(
-							'regular' => esc_html__( 'Regular Grid', '__components_txtd' ),
-							'masonry' => esc_html__( 'Masonry', '__components_txtd' ),
-							'mosaic'  => esc_html__( 'Mosaic', '__components_txtd' ),
-							'packed'  => esc_html__( 'Packed', '__components_txtd' ),
+							'regular' => esc_html__( 'Regular Grid', 'julia-lite' ),
+							'masonry' => esc_html__( 'Masonry', 'julia-lite' ),
+							'mosaic'  => esc_html__( 'Mosaic', 'julia-lite' ),
+							'packed'  => esc_html__( 'Packed', 'julia-lite' ),
 						),
 					),
 					'blog_items_aspect_ratio'             => array(
 						'type'            => 'range',
-						'label'           => esc_html__( 'Items Aspect Ratio', '__components_txtd' ),
-						'desc'            => esc_html__( 'Change the images ratio from landscape to portrait.', '__components_txtd' ),
+						'label'           => esc_html__( 'Items Aspect Ratio', 'julia-lite' ),
+						'desc'            => esc_html__( 'Change the images ratio from landscape to portrait.', 'julia-lite' ),
 						'live'            => true,
 						'default'         => null, // this should be set by the theme (previously 130)
 						'input_attrs'     => array(
@@ -1274,8 +1274,8 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'blog_items_per_row'                  => array(
 						'type'        => 'range',
-						'label'       => esc_html__( 'Items per Row', '__components_txtd' ),
-						'desc'        => esc_html__( 'Set the desktop-based number of columns you want and we automatically make it right for other screen sizes.', '__components_txtd' ),
+						'label'       => esc_html__( 'Items per Row', 'julia-lite' ),
+						'desc'        => esc_html__( 'Set the desktop-based number of columns you want and we automatically make it right for other screen sizes.', 'julia-lite' ),
 						'live'        => false,
 						'default'     => null, // this should be set by the theme (previously 3)
 						'input_attrs' => array(
@@ -1293,8 +1293,8 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'blog_items_vertical_spacing'         => array(
 						'type'        => 'range',
-						'label'       => esc_html__( 'Items Vertical Spacing', '__components_txtd' ),
-						'desc'        => esc_html__( 'Adjust the spacing between individual items in your grid.', '__components_txtd' ),
+						'label'       => esc_html__( 'Items Vertical Spacing', 'julia-lite' ),
+						'desc'        => esc_html__( 'Adjust the spacing between individual items in your grid.', 'julia-lite' ),
 						'live'        => true,
 						'default'     => null, // this should be set by the theme (previously 80)
 						'input_attrs' => array(
@@ -1314,8 +1314,8 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'blog_items_horizontal_spacing'       => array(
 						'type'        => 'range',
-						'label'       => esc_html__( 'Items Horizontal Spacing', '__components_txtd' ),
-						'desc'        => esc_html__( 'Adjust the spacing between individual items in your grid.', '__components_txtd' ),
+						'label'       => esc_html__( 'Items Horizontal Spacing', 'julia-lite' ),
+						'desc'        => esc_html__( 'Adjust the spacing between individual items in your grid.', 'julia-lite' ),
 						'live'        => true,
 						'default'     => null, // this should be set by the theme (previously 60)
 						'input_attrs' => array(
@@ -1337,48 +1337,48 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					// [Sub Section] Items Title
 					'blog_grid_title_items_title_section' => array(
 						'type' => 'html',
-						'html' => '<span class="separator sub-section label">' . esc_html__( 'Items Title', '__components_txtd' ) . '</span>',
+						'html' => '<span class="separator sub-section label">' . esc_html__( 'Items Title', 'julia-lite' ) . '</span>',
 					),
 					'blog_items_title_position'           => array(
 						'type'    => 'radio',
-						'label'   => esc_html__( 'Title Position', '__components_txtd' ),
-						'desc'    => esc_html__( 'Choose whether the items titles are placed nearby the thumbnail or show as an overlay cover on  mouse over.', '__components_txtd' ),
+						'label'   => esc_html__( 'Title Position', 'julia-lite' ),
+						'desc'    => esc_html__( 'Choose whether the items titles are placed nearby the thumbnail or show as an overlay cover on  mouse over.', 'julia-lite' ),
 						'default' => null, // this should be set by the theme (previously below)
 						'choices' => array(
-							'above'   => esc_html__( 'Above', '__components_txtd' ),
-							'below'   => esc_html__( 'Below', '__components_txtd' ),
-							'overlay' => esc_html__( 'Overlay', '__components_txtd' ),
+							'above'   => esc_html__( 'Above', 'julia-lite' ),
+							'below'   => esc_html__( 'Below', 'julia-lite' ),
+							'overlay' => esc_html__( 'Overlay', 'julia-lite' ),
 						),
 					),
 					'blog_items_title_alignment_nearby'   => array(
 						'type'            => 'select',
-						'label'           => esc_html__( 'Title Alignment (Above/Below)', '__components_txtd' ),
-						'desc'            => esc_html__( 'Adjust the alignment of your title.', '__components_txtd' ),
+						'label'           => esc_html__( 'Title Alignment (Above/Below)', 'julia-lite' ),
+						'desc'            => esc_html__( 'Adjust the alignment of your title.', 'julia-lite' ),
 						'default'         => null, // this should be set by the theme (previously left)
 						'choices'         => array(
-							'left'   => esc_html__( '← Left', '__components_txtd' ),
-							'center' => esc_html__( '↔ Center', '__components_txtd' ),
-							'right'  => esc_html__( '→ Right', '__components_txtd' ),
+							'left'   => esc_html__( '← Left', 'julia-lite' ),
+							'center' => esc_html__( '↔ Center', 'julia-lite' ),
+							'right'  => esc_html__( '→ Right', 'julia-lite' ),
 						),
 						'active_callback' => 'pixelgrade_blog_items_title_alignment_nearby_control_show',
 					),
 					'blog_items_title_alignment_overlay'  => array(
 						'type'            => 'select',
-						'label'           => esc_html__( 'Title Alignment (Overlay)', '__components_txtd' ),
-						'desc'            => esc_html__( 'Adjust the alignment of your hover title.', '__components_txtd' ),
+						'label'           => esc_html__( 'Title Alignment (Overlay)', 'julia-lite' ),
+						'desc'            => esc_html__( 'Adjust the alignment of your hover title.', 'julia-lite' ),
 						'default'         => null, // this should be set by the theme (previously middle-center)
 						'choices'         => array(
-							'top-left'      => esc_html__( '↑ Top     ← Left', '__components_txtd' ),
-							'top-center'    => esc_html__( '↑ Top     ↔ Center', '__components_txtd' ),
-							'top-right'     => esc_html__( '↑ Top     → Right', '__components_txtd' ),
+							'top-left'      => esc_html__( '↑ Top     ← Left', 'julia-lite' ),
+							'top-center'    => esc_html__( '↑ Top     ↔ Center', 'julia-lite' ),
+							'top-right'     => esc_html__( '↑ Top     → Right', 'julia-lite' ),
 
-							'middle-left'   => esc_html__( '↕ Middle     ← Left', '__components_txtd' ),
-							'middle-center' => esc_html__( '↕ Middle     ↔ Center', '__components_txtd' ),
-							'middle-right'  => esc_html__( '↕ Middle     → Right', '__components_txtd' ),
+							'middle-left'   => esc_html__( '↕ Middle     ← Left', 'julia-lite' ),
+							'middle-center' => esc_html__( '↕ Middle     ↔ Center', 'julia-lite' ),
+							'middle-right'  => esc_html__( '↕ Middle     → Right', 'julia-lite' ),
 
-							'bottom-left'   => esc_html__( '↓ bottom     ← Left', '__components_txtd' ),
-							'bottom-center' => esc_html__( '↓ bottom     ↔ Center', '__components_txtd' ),
-							'bottom-right'  => esc_html__( '↓ bottom     → Right', '__components_txtd' ),
+							'bottom-left'   => esc_html__( '↓ bottom     ← Left', 'julia-lite' ),
+							'bottom-center' => esc_html__( '↓ bottom     ↔ Center', 'julia-lite' ),
+							'bottom-right'  => esc_html__( '↓ bottom     → Right', 'julia-lite' ),
 						),
 						'active_callback' => 'pixelgrade_blog_items_title_alignment_overlay_control_show',
 					),
@@ -1387,76 +1387,76 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					// Title + Checkbox
 					'blog_items_title_visibility_title'   => array(
 						'type' => 'html',
-						'html' => '<span class="customize-control-title">' . esc_html__( 'Title Visibility', '__components_txtd' ) . '</span><span class="description customize-control-description">' . esc_html__( 'Select whether to show or hide the summary.', '__components_txtd' ) . '</span>',
+						'html' => '<span class="customize-control-title">' . esc_html__( 'Title Visibility', 'julia-lite' ) . '</span><span class="description customize-control-description">' . esc_html__( 'Select whether to show or hide the summary.', 'julia-lite' ) . '</span>',
 					),
 					'blog_items_title_visibility'         => array(
 						'type'    => 'checkbox',
-						'label'   => esc_html__( 'Show Title', '__components_txtd' ),
+						'label'   => esc_html__( 'Show Title', 'julia-lite' ),
 						'default' => null, // this should be set by the theme (previously 1)
 					),
 
 					// [Sub Section] Items Excerpt
 					'blog_grid_title_items_excerpt_section' => array(
 						'type' => 'html',
-						'html' => '<span class="separator sub-section label">' . esc_html__( 'Items Excerpt', '__components_txtd' ) . '</span>',
+						'html' => '<span class="separator sub-section label">' . esc_html__( 'Items Excerpt', 'julia-lite' ) . '</span>',
 					),
 
 					// Excerpt Visiblity
 					// Title + Checkbox
 					'blog_items_excerpt_visibility_title' => array(
 						'type' => 'html',
-						'html' => '<span class="customize-control-title">' . esc_html__( 'Excerpt Visibility', '__components_txtd' ) . '</span><span class="description customize-control-description">' . esc_html__( 'Select whether to show or hide the summary.', '__components_txtd' ) . '</span>',
+						'html' => '<span class="customize-control-title">' . esc_html__( 'Excerpt Visibility', 'julia-lite' ) . '</span><span class="description customize-control-description">' . esc_html__( 'Select whether to show or hide the summary.', 'julia-lite' ) . '</span>',
 					),
 					'blog_items_excerpt_visibility'       => array(
 						'type'    => 'checkbox',
-						'label'   => esc_html__( 'Show Excerpt Text', '__components_txtd' ),
+						'label'   => esc_html__( 'Show Excerpt Text', 'julia-lite' ),
 						'default' => null, // this should be set by the theme (previously 1)
 					),
 
 					// [Sub Section] Items Meta
 					'blog_grid_title_items_meta_section'  => array(
 						'type' => 'html',
-						'html' => '<span class="separator sub-section label">' . esc_html__( 'Items Meta', '__components_txtd' ) . '</span>',
+						'html' => '<span class="separator sub-section label">' . esc_html__( 'Items Meta', 'julia-lite' ) . '</span>',
 					),
 
 					'blog_items_primary_meta'             => array(
 						'type'    => 'select',
-						'label'   => esc_html__( 'Primary Meta Section', '__components_txtd' ),
-						'desc'    => esc_html__( 'Set the meta info that display around the title. ', '__components_txtd' ),
+						'label'   => esc_html__( 'Primary Meta Section', 'julia-lite' ),
+						'desc'    => esc_html__( 'Set the meta info that display around the title. ', 'julia-lite' ),
 						'default' => null, // this should be set by the theme (previously category)
 						'choices' => array(
-							'none'     => esc_html__( 'None', '__components_txtd' ),
-							'category' => esc_html__( 'Category', '__components_txtd' ),
-							'author'   => esc_html__( 'Author', '__components_txtd' ),
-							'date'     => esc_html__( 'Date', '__components_txtd' ),
-							'tags'     => esc_html__( 'Tags', '__components_txtd' ),
-							'comments' => esc_html__( 'Comments', '__components_txtd' ),
+							'none'     => esc_html__( 'None', 'julia-lite' ),
+							'category' => esc_html__( 'Category', 'julia-lite' ),
+							'author'   => esc_html__( 'Author', 'julia-lite' ),
+							'date'     => esc_html__( 'Date', 'julia-lite' ),
+							'tags'     => esc_html__( 'Tags', 'julia-lite' ),
+							'comments' => esc_html__( 'Comments', 'julia-lite' ),
 						),
 					),
 
 					'blog_items_secondary_meta'           => array(
 						'type'    => 'select',
-						'label'   => esc_html__( 'Secondary Meta Section', '__components_txtd' ),
+						'label'   => esc_html__( 'Secondary Meta Section', 'julia-lite' ),
 						'desc'    => '',
 						'default' => null, // this should be set by the theme (previously date)
 						'choices' => array(
-							'none'     => esc_html__( 'None', '__components_txtd' ),
-							'category' => esc_html__( 'Category', '__components_txtd' ),
-							'author'   => esc_html__( 'Author', '__components_txtd' ),
-							'date'     => esc_html__( 'Date', '__components_txtd' ),
-							'tags'     => esc_html__( 'Tags', '__components_txtd' ),
-							'comments' => esc_html__( 'Comments', '__components_txtd' ),
+							'none'     => esc_html__( 'None', 'julia-lite' ),
+							'category' => esc_html__( 'Category', 'julia-lite' ),
+							'author'   => esc_html__( 'Author', 'julia-lite' ),
+							'date'     => esc_html__( 'Date', 'julia-lite' ),
+							'tags'     => esc_html__( 'Tags', 'julia-lite' ),
+							'comments' => esc_html__( 'Comments', 'julia-lite' ),
 						),
 					),
 
 					// [Section] COLORS
 					'blog_grid_title_colors_section'      => array(
 						'type' => 'html',
-						'html' => '<span id="section-title-blog-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', '__components_txtd' ) . '</span>',
+						'html' => '<span id="section-title-blog-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', 'julia-lite' ) . '</span>',
 					),
 					'blog_item_title_color'               => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Item Title Color', '__components_txtd' ),
+						'label'   => esc_html__( 'Item Title Color', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #252525)
 						'css'     => array(
@@ -1468,7 +1468,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'blog_item_meta_primary_color'        => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Meta Primary Color', '__components_txtd' ),
+						'label'   => esc_html__( 'Meta Primary Color', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #3B3B3B)
 						'css'     => array(
@@ -1480,7 +1480,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'blog_item_meta_secondary_color'      => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Meta Secondary Color', '__components_txtd' ),
+						'label'   => esc_html__( 'Meta Secondary Color', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #818282)
 						'css'     => array(
@@ -1492,7 +1492,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'blog_item_excerpt_color'             => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Item Excerpt Color', '__components_txtd' ),
+						'label'   => esc_html__( 'Item Excerpt Color', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #252525)
 						'css'     => array(
@@ -1504,7 +1504,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					),
 					'blog_item_thumbnail_background'      => array(
 						'type'    => 'color',
-						'label'   => esc_html__( 'Thumbnail Background', '__components_txtd' ),
+						'label'   => esc_html__( 'Thumbnail Background', 'julia-lite' ),
 						'live'    => true,
 						'default' => null, // this should be set by the theme (previously #EEEEEE)
 						'css'     => array(
@@ -1518,11 +1518,11 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					// [Sub Section] Thumbnail Hover
 					'blog_grid_title_thumbnail_hover_section' => array(
 						'type' => 'html',
-						'html' => '<span class="separator sub-section label">' . esc_html__( 'Thumbnail Hover', '__components_txtd' ) . '</span><span class="description customize-control-description">' . esc_html__( 'Customize the mouse over effect for your thumbnails.', '__components_txtd' ) . '</span>',
+						'html' => '<span class="separator sub-section label">' . esc_html__( 'Thumbnail Hover', 'julia-lite' ) . '</span><span class="description customize-control-description">' . esc_html__( 'Customize the mouse over effect for your thumbnails.', 'julia-lite' ) . '</span>',
 					),
 					'blog_item_thumbnail_hover_opacity'   => array(
 						'type'        => 'range',
-						'label'       => esc_html__( 'Thumbnail Background Opacity', '__components_txtd' ),
+						'label'       => esc_html__( 'Thumbnail Background Opacity', 'julia-lite' ),
 						'desc'        => '',
 						'live'        => true,
 						'default'     => null, // this should be set by the theme (previously 0.7)
@@ -1544,12 +1544,12 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 					// [Section] FONTS
 					'blog_grid_title_fonts_section'       => array(
 						'type' => 'html',
-						'html' => '<span id="section-title-blog-fonts" class="separator section label large">&#x1f4dd;  ' . esc_html__( 'Fonts', '__components_txtd' ) . '</span>',
+						'html' => '<span id="section-title-blog-fonts" class="separator section label large">&#x1f4dd;  ' . esc_html__( 'Fonts', 'julia-lite' ) . '</span>',
 					),
 
 					'blog_item_title_font'                => array(
 						'type'        => 'font',
-						'label'       => esc_html__( 'Item Title Font', '__components_txtd' ),
+						'label'       => esc_html__( 'Item Title Font', 'julia-lite' ),
 						'desc'        => '',
 						'selector'    => '.c-gallery--blog .c-card__title, .c-gallery--blog .c-card__letter',
 						'callback'    => 'typeline_font_cb',
@@ -1589,7 +1589,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 
 					'blog_item_meta_font'                 => array(
 						'type'        => 'font',
-						'label'       => esc_html__( 'Item Meta Font', '__components_txtd' ),
+						'label'       => esc_html__( 'Item Meta Font', 'julia-lite' ),
 						'desc'        => '',
 						'selector'    => '.c-gallery--blog .c-meta__primary, .c-gallery--blog .c-meta__secondary',
 						'callback'    => 'typeline_font_cb',
@@ -1629,7 +1629,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 
 					'blog_item_excerpt_font'              => array(
 						'type'     => 'font',
-						'label'    => esc_html__( 'Item Excerpt Font', '__components_txtd' ),
+						'label'    => esc_html__( 'Item Excerpt Font', 'julia-lite' ),
 						'desc'     => '',
 						'selector' => '.c-gallery--blog .c-card__excerpt',
 						'callback' => 'typeline_font_cb',

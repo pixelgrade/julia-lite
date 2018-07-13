@@ -35,7 +35,7 @@ if ( ! class_exists( 'Jetpack_Gallery_Settings' ) && ! class_exists( 'Jetpack_Ga
 			 *
 			 * @param array $value Array of the default thumbnail grid gallery type. Default array contains one key, 'default'.
 			 */
-			$this->gallery_types = apply_filters( 'jetpack_gallery_types', array( 'default' => esc_html__( 'Thumbnail Grid', '__components_txtd' ) ) );
+			$this->gallery_types = apply_filters( 'jetpack_gallery_types', array( 'default' => esc_html__( 'Thumbnail Grid', 'julia-lite' ) ) );
 
 			// Enqueue the media UI only if needed.
 			if ( count( $this->gallery_types ) > 1 ) {
@@ -77,7 +77,7 @@ if ( ! class_exists( 'Jetpack_Gallery_Settings' ) && ! class_exists( 'Jetpack_Ga
 			?>
 			<script type="text/html" id="tmpl-jetpack-gallery-settings">
 				<label class="setting">
-					<span><?php esc_html_e( 'Type', '__components_txtd' ); ?></span>
+					<span><?php esc_html_e( 'Type', 'julia-lite' ); ?></span>
 					<select class="type" name="type" data-setting="type">
 						<?php foreach ( $this->gallery_types as $value => $caption ) : ?>
 							<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $value, $default_gallery_type ); ?>><?php echo esc_html( $caption ); ?></option>

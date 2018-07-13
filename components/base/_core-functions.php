@@ -569,7 +569,7 @@ if ( ! function_exists( 'pixelgrade_get_template_part' ) ) {
 		$located = pixelgrade_locate_template_part( $template_slug, $template_path, $template_name, $default_path );
 
 		if ( ! file_exists( $located ) ) {
-			_doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', 'pixelgrade_care' ), '<code>' . $located . '</code>' ), null );
+			_doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', 'julia-lite' ), '<code>' . $located . '</code>' ), null );
 
 			return;
 		}
