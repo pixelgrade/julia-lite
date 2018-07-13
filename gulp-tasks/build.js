@@ -188,7 +188,7 @@ gulp.task( 'build', 'Remove unneeded files and folders from the build folder', [
 // -----------------------------------------------------------------------------
 
 gulp.task( 'zip', 'Create the theme installer archive and delete the build folder', ['build'], function() {
-    let variation = 'julia';
+    let variation = 'julia-lite';
 
     if ( argv.variation !== undefined ) {
         variation = argv.variation;
@@ -214,5 +214,5 @@ gulp.task( 'zip', 'Create the theme installer archive and delete the build folde
     versionString = '-' + versionString.replace( /\./g, '-' );
 
     return gulp.src( './' )
-        .pipe( plugins.exec( 'cd ./../; rm -rf ' + variation[0].toUpperCase() + variation.slice( 1 ) + '*.zip; cd ./build/; zip -r -X ./../' + variation[0].toUpperCase() + variation.slice( 1 ) + '-Installer' + versionString + '.zip ./; cd ./../; rm -rf build' ) );
+        .pipe( plugins.exec( 'cd ./../; rm -rf ' + variation[0].toUpperCase() + variation.slice( 1 ) + '*.zip; cd ./build/; zip -r -X ./../' + variation[0] + variation.slice( 1 ) + '.zip ./; cd ./../; rm -rf build' ) );
 } );
