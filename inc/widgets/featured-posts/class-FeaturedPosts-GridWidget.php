@@ -27,7 +27,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_GridWidget' ) ) :
 		public function __construct() {
 			$widget_ops = array(
 				'classname'                   => 'widget_featured_posts_grid',
-				'description'                 => esc_html__( 'Displays posts in a multi-columns layout grid.', '__theme_txtd' ),
+				'description'                 => esc_html__( 'Displays posts in a multi-columns layout grid.', 'julia-lite' ),
 				'customize_selective_refresh' => true,
 			);
 

@@ -27,7 +27,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_6CardsWidget' ) ) :
 		public function __construct() {
 			$widget_ops = array(
 				'classname'                   => 'widget_featured_posts_6cards',
-				'description'                 => esc_html__( 'Displays 6 of your posts in a different style, highlighting the most recent one.', '__theme_txtd' ),
+				'description'                 => esc_html__( 'Displays 6 of your posts in a different style, highlighting the most recent one.', 'julia-lite' ),
 				'customize_selective_refresh' => true,
 			);
 

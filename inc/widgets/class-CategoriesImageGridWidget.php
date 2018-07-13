@@ -39,18 +39,18 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 				    // Title Section
 				    'title'                => array(
 					    'type'     => 'text',
-					    'label'    => esc_html__( 'Title:', '__theme_txtd' ),
-					    'default'  => esc_html__( 'Categories', '__theme_txtd' ),
+					    'label'    => esc_html__( 'Title:', 'julia-lite' ),
+					    'default'  => esc_html__( 'Categories', 'julia-lite' ),
 					    'section'  => 'default',
 					    'priority' => 10,
 				    ),
 
 				    'source'                  => array(
 						'type'     => 'radio_group',
-						'label'    => esc_html__( 'Display:', '__theme_txtd' ),
+						'label'    => esc_html__( 'Display:', 'julia-lite' ),
 						'options'  => array(
-							'all'   => esc_html__( 'All Categories', '__theme_txtd' ),
-							'selected_categories' => esc_html__( 'Selected Categories', '__theme_txtd' ),
+							'all'   => esc_html__( 'All Categories', 'julia-lite' ),
+							'selected_categories' => esc_html__( 'Selected Categories', 'julia-lite' ),
 						),
 						'default'  => 'all',
 						'section' => 'default',
@@ -58,10 +58,10 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 					),
 					'orderby' => array(
 						'type'       => 'select',
-						'label'      => esc_html__( 'Order by:', '__theme_txtd' ),
+						'label'      => esc_html__( 'Order by:', 'julia-lite' ),
 						'options'    => array(
-							'count' => esc_html__( 'Posts Count', '__theme_txtd' ),
-							'name'    => esc_html__( 'Name', '__theme_txtd' ),
+							'count' => esc_html__( 'Posts Count', 'julia-lite' ),
+							'name'    => esc_html__( 'Name', 'julia-lite' ),
 						),
 						'default'    => 'posts',
 						'display_on' => array(
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 					),
 					'number'  => array(
 						'type'              => 'number',
-						'label'             => esc_html__( 'Number of items:', '__theme_txtd' ),
+						'label'             => esc_html__( 'Number of items:', 'julia-lite' ),
 						'sanitize_callback' => array( $this, 'sanitize_positive_int' ),
 						'min'        => 1,
 						'step'       => 1,
@@ -93,8 +93,8 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 					),
 					'show_subcategories' => array(
 						'type'     => 'checkbox',
-						'label'    => esc_html__( 'Show Sub-categories', '__theme_txtd' ),
-						'desc'     => esc_html__( '', '__theme_txtd' ),
+						'label'    => esc_html__( 'Show Sub-categories', 'julia-lite' ),
+						'desc'     => esc_html__( '', 'julia-lite' ),
 						'default'  => true,
 						'display_on'        => array(
 							'display' => true,
@@ -108,8 +108,8 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 					),
 					'selected_categories'                => array(
 						'type'       => 'select2',
-						'label'      => esc_html__( 'Categories:', '__theme_txtd' ),
-						'desc'       => esc_html__( 'Choose what categories should be shown and in what order.', '__theme_txtd' ),
+						'label'      => esc_html__( 'Categories:', 'julia-lite' ),
+						'desc'       => esc_html__( 'Choose what categories should be shown and in what order.', 'julia-lite' ),
 						'options'    => array( $this, 'categoriesForOptions' ),
 						'default'    => '',
 						'multiple'   => true, // We allow for multiple values to be selected
@@ -128,7 +128,7 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 
 			$widget_ops = array(
 				'classname'                   => 'widget_categories_image_grid',
-				'description'                 => esc_html__( 'Displays your categories within an images grid.', '__theme_txtd' ),
+				'description'                 => esc_html__( 'Displays your categories within an images grid.', 'julia-lite' ),
 				'customize_selective_refresh' => true,
 			);
 

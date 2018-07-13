@@ -27,7 +27,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_ListWidget' ) ) :
 		public function __construct() {
 			$widget_ops = array(
 				'classname'                   => 'widget_featured_posts_list',
-				'description'                 => esc_html__( 'Displays your posts in a single column with thumbnail images on the left side and text on the right.', '__theme_txtd' ),
+				'description'                 => esc_html__( 'Displays your posts in a single column with thumbnail images on the left side and text on the right.', 'julia-lite' ),
 				'customize_selective_refresh' => true,
 			);
 

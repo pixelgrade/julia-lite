@@ -27,7 +27,7 @@ if ( ! function_exists( 'julia_posted_on' ) ) {
 
 		$posted_on = sprintf(
 			/* translators: %s: The current post's posted date, in the post header */
-			esc_html_x( '%s', 'post date', '__theme_txtd' ),
+			esc_html_x( '%s', 'post date', 'julia-lite' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
@@ -97,9 +97,9 @@ if ( ! function_exists( 'julia_get_the_posts_pagination' ) ) {
 			'end_size'           => 1,
 			'mid_size'           => 2,
 			'type'               => 'list',
-			'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', '__theme_txtd' ),
-			'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', '__theme_txtd' ),
-			'screen_reader_text' => esc_html__( 'Posts navigation', '__theme_txtd' ),
+			'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', 'julia-lite' ),
+			'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', 'julia-lite' ),
+			'screen_reader_text' => esc_html__( 'Posts navigation', 'julia-lite' ),
 		) );
 
 		return get_the_posts_pagination( $args );

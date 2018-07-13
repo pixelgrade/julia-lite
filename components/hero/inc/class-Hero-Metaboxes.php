@@ -235,7 +235,7 @@ class Pixelgrade_Hero_Metaboxes extends Pixelgrade_Singleton {
 								<li>Mix it with a background color overlay to make it pop</li>
 								<li>Individual text alignments will override this option</li>
 								<li>You can align the content to make them both more visible.</li>
-							</ul>', '__components_txtd'
+							</ul>', 'julia-lite'
 							), wp_kses_allowed_html()
 						),
 						'id'      => '_hero_description_alignment',

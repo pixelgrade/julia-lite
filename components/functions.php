@@ -572,7 +572,7 @@ function mock_customify_footer_section( $section_options, $options ) {
 			'options' => array(
 				// [Section] Layout
 				'copyright_text'               => array(
-					'default' => esc_html__( '&copy; %year% %site-title%.', '__theme_txtd' ),
+					'default' => esc_html__( '&copy; %year% %site-title%.', 'julia-lite' ),
 				),
 				'footer_top_spacing'     => array(
 					'default' => 80,

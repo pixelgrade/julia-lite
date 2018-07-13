@@ -51,7 +51,7 @@ if ( ! function_exists( 'julia_setup' ) ) {
 		 * If you're building a theme based on '__theme_txtd', use a find and replace
 		 * to change '__theme_txtd' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( '__theme_txtd', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'julia-lite', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );

@@ -42,20 +42,20 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 			            'priority' => 1, // This section should really be the first as it is not part of the accordion
                     ),
                     'content' => array(
-                        'title' => esc_html__( 'Content', '__theme_txtd' ),
+                        'title' => esc_html__( 'Content', 'julia-lite' ),
                         'default_state' => 'open',
                         'priority' => 10,
                     ),
                     'layout' => array(
-                        'title' => esc_html__( 'Layout', '__theme_txtd' ),
+                        'title' => esc_html__( 'Layout', 'julia-lite' ),
                         'priority' => 20,
                     ),
                     'display' => array(
-                        'title' => esc_html__( 'Display', '__theme_txtd' ),
+                        'title' => esc_html__( 'Display', 'julia-lite' ),
                         'priority' => 30,
                     ),
                     'others' => array(
-                        'title' => esc_html__( 'Others', '__theme_txtd' ),
+                        'title' => esc_html__( 'Others', 'julia-lite' ),
                         'priority' => 40,
                     ),
                 ),
@@ -64,8 +64,8 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				    // Title Section
 				    'title'                => array(
 					    'type'     => 'text',
-					    'label'    => esc_html__( 'Section Title:', '__theme_txtd' ),
-					    'default'  => esc_html__( 'My Promo Box', '__theme_txtd' ),
+					    'label'    => esc_html__( 'Section Title:', 'julia-lite' ),
+					    'default'  => esc_html__( 'My Promo Box', 'julia-lite' ),
 					    'section'  => 'default',
 					    'priority' => 10,
 				    ),
@@ -73,36 +73,36 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				    // Content Section
 				    'featured_image'       => array(
 					    'type'     => 'image',
-					    'label'    => esc_html__( 'Featured Image:', '__theme_txtd' ),
+					    'label'    => esc_html__( 'Featured Image:', 'julia-lite' ),
 					    'default'  => 0, // This is the attachment ID
 					    'section'  => 'content',
 					    'priority' => 10,
 				    ),
 				    'headline'             => array(
 					    'type'     => 'textarea',
-					    'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
+					    'label'    => esc_html__( 'Headline:', 'julia-lite' ),
 					    'default'  => 'What is a high converting headline worth to you?',
 					    'section'  => 'content',
 					    'priority' => 20,
 				    ),
 				    'description'          => array(
 					    'type'     => 'textarea',
-					    'label'    => esc_html__( 'Description:', '__theme_txtd' ),
+					    'label'    => esc_html__( 'Description:', 'julia-lite' ),
 					    'default'  => 'This is a Promo Box Widget where you can personalize your own advertisment area, with your content, images and call to actions. You can promote your product or link to another website of yours.',
 					    'section'  => 'content',
 					    'priority' => 30,
 				    ),
 				    'button_text'          => array(
 					    'type'     => 'text',
-					    'label'    => esc_html__( 'Button Text:', '__theme_txtd' ),
-					    'default'  => esc_html__('Get started now', '__theme_txtd' ),
+					    'label'    => esc_html__( 'Button Text:', 'julia-lite' ),
+					    'default'  => esc_html__('Get started now', 'julia-lite' ),
 					    'section'  => 'content',
 					    'priority' => 40,
 				    ),
 				    'button_url'           => array(
 					    'type'     => 'text',
-					    'label'    => esc_html__( 'Button Link URL:', '__theme_txtd' ),
-					    'default'  => esc_html__('#', '__theme_txtd' ),
+					    'label'    => esc_html__( 'Button Link URL:', 'julia-lite' ),
+					    'default'  => esc_html__('#', 'julia-lite' ),
 					    'section'  => 'content',
 					    'priority' => 50,
 				    ),
@@ -111,10 +111,10 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				    // Display Section
 				    'box_style'            => array(
 					    'type'     => 'radio_group',
-					    'label'    => esc_html__( 'Box Style:', '__theme_txtd' ),
+					    'label'    => esc_html__( 'Box Style:', 'julia-lite' ),
 					    'options'  => array(
-						    'light' => esc_html__( 'Light', '__theme_txtd' ),
-						    'dark'  => esc_html__( 'Dark', '__theme_txtd' ),
+						    'light' => esc_html__( 'Light', 'julia-lite' ),
+						    'dark'  => esc_html__( 'Dark', 'julia-lite' ),
 					    ),
 					    'default'  => 'dark',
 					    'section'  => 'display',
@@ -122,7 +122,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				    ),
 				    'switch_content_order' => array(
 					    'type'     => 'checkbox',
-					    'label'    => esc_html__( 'Switch Content Order', '__theme_txtd' ),
+					    'label'    => esc_html__( 'Switch Content Order', 'julia-lite' ),
 					    'default'  => false,
 					    'section'  => 'display',
 					    'priority' => 20,
@@ -146,7 +146,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
             // Set up the widget options
             $widget_ops = array(
                 'classname'                   => 'widget_promo_box',
-                'description'                 => esc_html__( 'Use this area to reinforce a particular call to action that you consider important.', '__theme_txtd' ),
+                'description'                 => esc_html__( 'Use this area to reinforce a particular call to action that you consider important.', 'julia-lite' ),
                 'customize_selective_refresh' => true,
             );
 

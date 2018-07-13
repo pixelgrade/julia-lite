@@ -16,9 +16,9 @@ function julia_widget_areas_init() {
 	 * The main widget area
 	 */
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', '__theme_txtd' ),
+		'name'          => esc_html__( 'Sidebar', 'julia-lite' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
+		'description'   => esc_html__( 'Add widgets here.', 'julia-lite' ),
 		'before_widget' => '<section id="%1$s" class="widget widget--side %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget__title h3"><span>',
@@ -29,9 +29,9 @@ function julia_widget_areas_init() {
 	 * The below single post widget area
 	 */
 	register_sidebar( array(
-		'name'          => esc_html__( 'Below Post', '__theme_txtd' ),
+		'name'          => esc_html__( 'Below Post', 'julia-lite' ),
 		'id'            => 'sidebar-2',
-		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', '__theme_txtd' ),
+		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', 'julia-lite' ),
 	) );
 
 	/**
@@ -40,9 +40,9 @@ function julia_widget_areas_init() {
 
 	// The Content Area
 	register_sidebar( array(
-		'name'          => esc_html__( 'Archive Index', '__theme_txtd' ),
+		'name'          => esc_html__( 'Archive Index', 'julia-lite' ),
 		'id'            => 'archive-1',
-		'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
+		'description'   => esc_html__( 'Add widgets here.', 'julia-lite' ),
 		'before_widget' => '<section id="%1$s" class="widget widget--content %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget__title h3"><span>',
@@ -64,9 +64,9 @@ function julia_widget_areas_init_front_page() {
 
 	// The Full Width Area #1
 	register_sidebar( array(
-		'name'          => esc_html__( 'Front Page - Full Width Top', '__theme_txtd' ),
+		'name'          => esc_html__( 'Front Page - Full Width Top', 'julia-lite' ),
 		'id'            => 'front-page-1',
-		'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
+		'description'   => esc_html__( 'Add widgets here.', 'julia-lite' ),
 		'before_widget' => '<section id="%1$s" class="widget widget--full %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget__title h3"><span>',
@@ -75,9 +75,9 @@ function julia_widget_areas_init_front_page() {
 
 	// The Content Area #1
 	register_sidebar( array(
-		'name'          => esc_html__( 'Front Page - &#9484;  Content 1', '__theme_txtd' ),
+		'name'          => esc_html__( 'Front Page - &#9484;  Content 1', 'julia-lite' ),
 		'id'            => 'front-page-2',
-		'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
+		'description'   => esc_html__( 'Add widgets here.', 'julia-lite' ),
 		'before_widget' => '<section id="%1$s" class="widget widget--content %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget__title h3"><span>',
@@ -87,9 +87,9 @@ function julia_widget_areas_init_front_page() {
 	// The Sidebar Area #1
 	// @todo Rename this sidebar right here
 	register_sidebar( array(
-		'name'          => esc_html__( 'Front Page - &#9492; Sidebar 1', '__theme_txtd' ),
+		'name'          => esc_html__( 'Front Page - &#9492; Sidebar 1', 'julia-lite' ),
 		'id'            => 'front-page-3',
-		'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
+		'description'   => esc_html__( 'Add widgets here.', 'julia-lite' ),
 		'before_widget' => '<section id="%1$s" class="widget widget--side %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget__title h3"><span>',
@@ -98,30 +98,30 @@ function julia_widget_areas_init_front_page() {
 
 	// The Full Width Area #2
 	register_sidebar( array(
-		'name'          => esc_html__( 'Front Page - Full Width Center', '__theme_txtd' ),
+		'name'          => esc_html__( 'Front Page - Full Width Center', 'julia-lite' ),
 		'id'            => 'front-page-4',
-		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', '__theme_txtd' ),
+		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', 'julia-lite' ),
 	) );
 
 	// The Content Area #2
 	register_sidebar( array(
-		'name'          => esc_html__( 'Front Page - &#9484; Content 2', '__theme_txtd' ),
+		'name'          => esc_html__( 'Front Page - &#9484; Content 2', 'julia-lite' ),
 		'id'            => 'front-page-5',
-		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', '__theme_txtd' ),
+		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', 'julia-lite' ),
 	) );
 
 	// The Sidebar Area #2
 	register_sidebar( array(
-		'name'          => esc_html__( 'Front Page - &#9492; Sidebar 2', '__theme_txtd' ),
+		'name'          => esc_html__( 'Front Page - &#9492; Sidebar 2', 'julia-lite' ),
 		'id'            => 'front-page-6',
-		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', '__theme_txtd' ),
+		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', 'julia-lite' ),
 	) );
 
 	// The Full Width Area #3
 	register_sidebar( array(
-		'name'          => esc_html__( 'Front Page - Full Width Bottom', '__theme_txtd' ),
+		'name'          => esc_html__( 'Front Page - Full Width Bottom', 'julia-lite' ),
 		'id'            => 'front-page-7',
-		'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
+		'description'   => esc_html__( 'Add widgets here.', 'julia-lite' ),
 		'before_widget' => '<section id="%1$s" class="widget widget--full %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget__title h3"><span>',
@@ -130,9 +130,9 @@ function julia_widget_areas_init_front_page() {
 
 	// Footer - Featured Area
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer - Featured Area', '__theme_txtd' ),
+		'name'          => esc_html__( 'Footer - Featured Area', 'julia-lite' ),
 		'id'            => 'footer-featured',
-		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', '__theme_txtd' ),
+		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', 'julia-lite' ),
 	) );
 }
 // We use a latter priority to make sure that all these sidebars appear grouped

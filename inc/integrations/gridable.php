@@ -17,18 +17,18 @@
  */
 function fargo_gridable_row_options( $options ) {
 	$options['row_style'] = array(
-		'label'   => esc_html__( 'Row Style', '__theme_txtd' ),
+		'label'   => esc_html__( 'Row Style', 'julia-lite' ),
 		'type'    => 'select',
 		'options' => array(
-			'simple' => esc_html__( 'Simple', '__theme_txtd' ),
-			'strip' => esc_html__( 'Strip', '__theme_txtd' ),
+			'simple' => esc_html__( 'Simple', 'julia-lite' ),
+			'strip' => esc_html__( 'Strip', 'julia-lite' ),
 		),
 		'default' => 'simple',
 	);
 
 	$options['stretch'] = array(
 		'type'    => 'checkbox',
-		'label'   => esc_html__( 'Is stretched?', '__theme_txtd' ),
+		'label'   => esc_html__( 'Is stretched?', 'julia-lite' ),
 		'default' => 0,
 	);
 
@@ -113,12 +113,12 @@ add_filter( 'gridable_row_attributes',  'fargo_gridable_row_attributes', 10, 3 )
  */
 function fargo_gridable_column_options( $options ) {
 	$options['column_style'] = array(
-		'label'   => esc_html__( 'Column Style', '__theme_txtd' ),
+		'label'   => esc_html__( 'Column Style', 'julia-lite' ),
 		'type'    => 'select',
 		'options' => array(
-			'simple' => esc_html__( 'Simple', '__theme_txtd' ),
-			'highlighted' => esc_html__( 'Highlighted', '__theme_txtd' ),
-			'boxed' => esc_html__( 'Feature Box', '__theme_txtd' ),
+			'simple' => esc_html__( 'Simple', 'julia-lite' ),
+			'highlighted' => esc_html__( 'Highlighted', 'julia-lite' ),
+			'boxed' => esc_html__( 'Feature Box', 'julia-lite' ),
 		),
 		'default' => 'simple',
 	);

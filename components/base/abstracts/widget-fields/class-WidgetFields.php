@@ -1453,7 +1453,7 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 			<div class="c-alert  c-alert--danger">
 				<h4 class="c-alert__title"><?php esc_html_e( '🤦 Widget Type Not Supported Here', 'julia-lite' ); ?></h4>
 				<div class="c-alert__body">
-					<p><?php printf( esc_html__( 'Oops! The %s is not supported in this area, but don\'t panic. You can try to move it to another section or just replace it.', '__theme_txtd' ), '<em>' . $args['widget_name'] . '</em>' ); ?></p>
+					<p><?php printf( esc_html__( 'Oops! The %s is not supported in this area, but don\'t panic. You can try to move it to another section or just replace it.', 'julia-lite' ), '<em>' . $args['widget_name'] . '</em>' ); ?></p>
 				</div>
 			</div>
 

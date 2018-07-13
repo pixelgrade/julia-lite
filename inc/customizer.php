@@ -38,15 +38,15 @@ function julia_customize_register( $wp_customize ) {
 	$custom_logo_args = get_theme_support( 'custom-logo' );
 	$wp_customize->add_control( new WP_Customize_Cropped_Image_Control( $wp_customize, 'pixelgrade_transparent_logo',
 		array(
-			'label' => esc_html__( 'Logo while on Transparent Header', '__theme_txtd' ),
+			'label' => esc_html__( 'Logo while on Transparent Header', 'julia-lite' ),
 			'button_labels' => array(
-				'select'       => esc_html__( 'Select logo', '__theme_txtd' ),
-				'change'       => esc_html__( 'Change logo', '__theme_txtd' ),
-				'default'      => esc_html__( 'Default', '__theme_txtd' ),
-				'remove'       => esc_html__( 'Remove', '__theme_txtd' ),
-				'placeholder'  => esc_html__( 'No logo selected', '__theme_txtd' ),
-				'frame_title'  => esc_html__( 'Select logo', '__theme_txtd' ),
-				'frame_button' => esc_html__( 'Choose logo', '__theme_txtd' ),
+				'select'       => esc_html__( 'Select logo', 'julia-lite' ),
+				'change'       => esc_html__( 'Change logo', 'julia-lite' ),
+				'default'      => esc_html__( 'Default', 'julia-lite' ),
+				'remove'       => esc_html__( 'Remove', 'julia-lite' ),
+				'placeholder'  => esc_html__( 'No logo selected', 'julia-lite' ),
+				'frame_title'  => esc_html__( 'Select logo', 'julia-lite' ),
+				'frame_button' => esc_html__( 'Choose logo', 'julia-lite' ),
 			),
 			'section' => 'title_tagline',
 			'priority'      => 9, // put it after the normal logo that has priority 8
@@ -82,8 +82,8 @@ function julia_sanitize_transparent_logo( $input ) {
  */
 function julia_sanitize_header_position( $input ) {
 	$valid = array(
-		'static' => esc_html__( 'Static', '__theme_txtd' ),
-		'sticky' => esc_html__( 'Sticky (fixed)', '__theme_txtd' ),
+		'static' => esc_html__( 'Static', 'julia-lite' ),
+		'sticky' => esc_html__( 'Sticky (fixed)', 'julia-lite' ),
 	);
 
 	if ( array_key_exists( $input, $valid ) ) {

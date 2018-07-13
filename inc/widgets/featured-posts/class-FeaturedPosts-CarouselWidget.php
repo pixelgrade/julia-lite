@@ -27,7 +27,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_CarouselWidget' ) ) :
 		public function __construct() {
 			$widget_ops = array(
 				'classname'                   => 'widget_featured_posts_carousel',
-				'description'                 => esc_html__( 'Displays posts in a carousel.', '__theme_txtd' ),
+				'description'                 => esc_html__( 'Displays posts in a carousel.', 'julia-lite' ),
 				'customize_selective_refresh' => true,
 			);
 
@@ -39,10 +39,10 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_CarouselWidget' ) ) :
 					),
 					'items_layout' => array(
 						'type'     => 'select',
-						'label'    => esc_html__( 'Items Layout:', '__theme_txtd' ),
+						'label'    => esc_html__( 'Items Layout:', 'julia-lite' ),
 						'options'  => array(
-							'fixed_width'    => esc_html__( 'Fixed Width', '__theme_txtd' ),
-							'variable_width' => esc_html__( 'Variable Width', '__theme_txtd' ),
+							'fixed_width'    => esc_html__( 'Fixed Width', 'julia-lite' ),
+							'variable_width' => esc_html__( 'Variable Width', 'julia-lite' ),
 						),
 						'default'  => 'fixed_width',
 						'section'  => 'layout',
@@ -50,8 +50,8 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_CarouselWidget' ) ) :
 					),
 					'items_per_row' => array(
 						'type'       => 'range',
-						'label'      => esc_html__( 'Number of Items per Row:', '__theme_txtd' ),
-						'desc'       => esc_html__( 'Set how many items should be visible at a time.', '__theme_txtd' ),
+						'label'      => esc_html__( 'Number of Items per Row:', 'julia-lite' ),
+						'desc'       => esc_html__( 'Set how many items should be visible at a time.', 'julia-lite' ),
 						'min'        => 2,
 						'max'        => 4,
 						'step'       => 1,
@@ -68,10 +68,10 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_CarouselWidget' ) ) :
 					),
 					'image_size'    => array(
 						'type'       => 'select',
-						'label'      => esc_html__( 'Image Size:', '__theme_txtd' ),
+						'label'      => esc_html__( 'Image Size:', 'julia-lite' ),
 						'options'    => array(
-							'medium' => esc_html__( 'Medium', '__theme_txtd' ),
-							'large'  => esc_html__( 'Large', '__theme_txtd' ),
+							'medium' => esc_html__( 'Medium', 'julia-lite' ),
+							'large'  => esc_html__( 'Large', 'julia-lite' ),
 						),
 						'default'    => 'medium',
 						'display_on' => array(
@@ -86,10 +86,10 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_CarouselWidget' ) ) :
 					),
 					'image_ratio'  => array(
 						'options' => array(
-							'original'  => esc_html__( 'Original', '__theme_txtd' ),
-							'portrait'  => esc_html__( 'Portrait', '__theme_txtd' ),
-							'square'    => esc_html__( 'Square', '__theme_txtd' ),
-							'landscape' => esc_html__( 'Landscape', '__theme_txtd' ),
+							'original'  => esc_html__( 'Original', 'julia-lite' ),
+							'portrait'  => esc_html__( 'Portrait', 'julia-lite' ),
+							'square'    => esc_html__( 'Square', 'julia-lite' ),
+							'landscape' => esc_html__( 'Landscape', 'julia-lite' ),
 						),
 						'default' => 'original',
 						'display_on' => array(
@@ -109,7 +109,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_CarouselWidget' ) ) :
 
 					'show_pagination'         => array(
 						'type'     => 'checkbox',
-						'label'    => esc_html__( 'Show Pagination', '__theme_txtd' ),
+						'label'    => esc_html__( 'Show Pagination', 'julia-lite' ),
 						'default'  => true,
 						'section' => 'others',
 						'priority' => 10,

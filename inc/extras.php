@@ -346,10 +346,10 @@ add_filter( 'mce_buttons_2', 'julia_mce_editor_buttons' );
 function julia_mce_before_init( $settings ) {
 
 	$style_formats =array(
-		array( 'title' => esc_html__( 'Display', '__theme_txtd' ), 'block' => 'h1', 'classes' => 'h0'),
-		array( 'title' => esc_html__( 'Intro Text', '__theme_txtd' ), 'selector' => 'p', 'classes' => 'intro'),
-		array( 'title' => esc_html__( 'Dropcap', '__theme_txtd' ), 'inline' => 'span', 'classes' => 'dropcap' ),
-		array( 'title' => esc_html__( 'Button Arrow', '__theme_txtd' ), 'selector' => 'a', 'classes' => 'button arrow' ),
+		array( 'title' => esc_html__( 'Display', 'julia-lite' ), 'block' => 'h1', 'classes' => 'h0'),
+		array( 'title' => esc_html__( 'Intro Text', 'julia-lite' ), 'selector' => 'p', 'classes' => 'intro'),
+		array( 'title' => esc_html__( 'Dropcap', 'julia-lite' ), 'inline' => 'span', 'classes' => 'dropcap' ),
+		array( 'title' => esc_html__( 'Button Arrow', 'julia-lite' ), 'selector' => 'a', 'classes' => 'button arrow' ),
 	);
 
 	$settings['style_formats'] = json_encode( $style_formats );

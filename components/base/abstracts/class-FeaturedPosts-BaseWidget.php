@@ -68,20 +68,20 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 						'priority' => 1, // This section should really be the first as it is not part of the accordion.
 					),
 					'content' => array(
-						'title'         => esc_html__( 'Content', '__theme_txtd' ),
+						'title'         => esc_html__( 'Content', 'julia-lite' ),
 						'default_state' => 'open',
 						'priority'      => 10,
 					),
 					'layout'  => array(
-						'title'    => esc_html__( 'Layout', '__theme_txtd' ),
+						'title'    => esc_html__( 'Layout', 'julia-lite' ),
 						'priority' => 20,
 					),
 					'display' => array(
-						'title'    => esc_html__( 'Display', '__theme_txtd' ),
+						'title'    => esc_html__( 'Display', 'julia-lite' ),
 						'priority' => 30,
 					),
 					'others'  => array(
-						'title'    => esc_html__( 'Others', '__theme_txtd' ),
+						'title'    => esc_html__( 'Others', 'julia-lite' ),
 						'priority' => 40,
 					),
 				),
@@ -90,8 +90,8 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					// Title Section.
 					'title'                   => array(
 						'type'     => 'text',
-						'label'    => esc_html__( 'Section Title:', '__theme_txtd' ),
-						'default'  => esc_html__( 'My Featured Posts', '__theme_txtd' ),
+						'label'    => esc_html__( 'Section Title:', 'julia-lite' ),
+						'default'  => esc_html__( 'My Featured Posts', 'julia-lite' ),
 						'section'  => 'default',
 						'priority' => 10,
 					),
@@ -99,12 +99,12 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					// Content Section.
 					'source'                  => array(
 						'type'     => 'radio_group',
-						'label'    => esc_html__( 'Posts Source:', '__theme_txtd' ),
+						'label'    => esc_html__( 'Posts Source:', 'julia-lite' ),
 						'options'  => array(
-							'recent'   => esc_html__( 'Recent Posts', '__theme_txtd' ),
-							'category' => esc_html__( 'Category', '__theme_txtd' ),
-							'tag'      => esc_html__( 'Tag', '__theme_txtd' ),
-							'post_ids' => esc_html__( 'Selected Posts', '__theme_txtd' ),
+							'recent'   => esc_html__( 'Recent Posts', 'julia-lite' ),
+							'category' => esc_html__( 'Category', 'julia-lite' ),
+							'tag'      => esc_html__( 'Tag', 'julia-lite' ),
+							'post_ids' => esc_html__( 'Selected Posts', 'julia-lite' ),
 						),
 						'default'  => 'recent',
 						'section'  => 'content',
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					),
 					'source_category'         => array(
 						'type'              => 'select',
-						'label'             => esc_html__( 'Category:', '__theme_txtd' ),
+						'label'             => esc_html__( 'Category:', 'julia-lite' ),
 						'callback'          => array( $this, 'categoriesDropdown' ),
 						'sanitize_callback' => array( $this, 'sanitizeCategory' ), // We need to do custom sanitization for custom generated selects.
 						'default'           => 0,
@@ -128,7 +128,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					),
 					'source_tag'              => array(
 						'type'              => 'select',
-						'label'             => esc_html__( 'Tag:', '__theme_txtd' ),
+						'label'             => esc_html__( 'Tag:', 'julia-lite' ),
 						'callback'          => array( $this, 'tagsDropdown' ),
 						'sanitize_callback' => array( $this, 'sanitizeTag' ), // We need to do custom sanitization for custom generated selects.
 						'default'           => 0,
@@ -144,8 +144,8 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					),
 					'post_ids'                => array(
 						'type'       => 'text',
-						'label'      => esc_html__( 'Post IDs:', '__theme_txtd' ),
-						'desc'       => esc_html__( 'Use Posts IDs, separated by commas, to show only a set of specific posts.', '__theme_txtd' ),
+						'label'      => esc_html__( 'Post IDs:', 'julia-lite' ),
+						'desc'       => esc_html__( 'Use Posts IDs, separated by commas, to show only a set of specific posts.', 'julia-lite' ),
 						'default'    => '',
 						'display_on' => array(
 							'display' => true,
@@ -159,10 +159,10 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					),
 					'orderby'                 => array(
 						'type'       => 'select',
-						'label'      => esc_html__( 'Order by:', '__theme_txtd' ),
+						'label'      => esc_html__( 'Order by:', 'julia-lite' ),
 						'options'    => array(
-							'date'    => esc_html__( 'Date', '__theme_txtd' ),
-							'popular' => esc_html__( 'Most Popular', '__theme_txtd' ),
+							'date'    => esc_html__( 'Date', 'julia-lite' ),
+							'popular' => esc_html__( 'Most Popular', 'julia-lite' ),
 						),
 						'default'    => 'date',
 						'display_on' => array(
@@ -177,7 +177,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					),
 					'number'                  => array(
 						'type'              => 'number',
-						'label'             => esc_html__( 'Number of posts:', '__theme_txtd' ),
+						'label'             => esc_html__( 'Number of posts:', 'julia-lite' ),
 						'sanitize_callback' => array( $this, 'sanitize_positive_int' ),
 						'default'           => 6,
 						'display_on'        => array(
@@ -192,8 +192,8 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					),
 					'prevent_duplicate_posts' => array(
 						'type'     => 'checkbox',
-						'label'    => esc_html__( 'Prevent Duplicate Posts', '__theme_txtd' ),
-						'desc'     => esc_html__( 'The posts displayed by this widget won\'t show up in the next widgets.', '__theme_txtd' ),
+						'label'    => esc_html__( 'Prevent Duplicate Posts', 'julia-lite' ),
+						'desc'     => esc_html__( 'The posts displayed by this widget won\'t show up in the next widgets.', 'julia-lite' ),
 						'default'  => true,
 						'section'  => 'content',
 						'priority' => 70,
@@ -202,12 +202,12 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					// Layout Section.
 					'columns'                 => array(
 						'type'     => 'select',
-						'label'    => esc_html__( 'Number of columns:', '__theme_txtd' ),
+						'label'    => esc_html__( 'Number of columns:', 'julia-lite' ),
 						'options'  => array(
-							'1' => esc_html__( '1 Column', '__theme_txtd' ),
-							'2' => esc_html__( '2 Columns', '__theme_txtd' ),
-							'3' => esc_html__( '3 Columns', '__theme_txtd' ),
-							'4' => esc_html__( '4 Columns', '__theme_txtd' ),
+							'1' => esc_html__( '1 Column', 'julia-lite' ),
+							'2' => esc_html__( '2 Columns', 'julia-lite' ),
+							'3' => esc_html__( '3 Columns', 'julia-lite' ),
+							'4' => esc_html__( '4 Columns', 'julia-lite' ),
 						),
 						'default'  => '3',
 						'section'  => 'layout',
@@ -215,11 +215,11 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					),
 					'image_ratio'             => array(
 						'type'     => 'select',
-						'label'    => esc_html__( 'Image Aspect Ratio:', '__theme_txtd' ),
+						'label'    => esc_html__( 'Image Aspect Ratio:', 'julia-lite' ),
 						'options'  => array(
-							'portrait'  => esc_html__( 'Portrait', '__theme_txtd' ),
-							'square'    => esc_html__( 'Square', '__theme_txtd' ),
-							'landscape' => esc_html__( 'Landscape', '__theme_txtd' ),
+							'portrait'  => esc_html__( 'Portrait', 'julia-lite' ),
+							'square'    => esc_html__( 'Square', 'julia-lite' ),
+							'landscape' => esc_html__( 'Landscape', 'julia-lite' ),
 						),
 						'default'  => 'portrait',
 						'section'  => 'layout',
@@ -229,28 +229,28 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					// Display Section.
 					'show_excerpt'            => array(
 						'type'     => 'checkbox',
-						'label'    => esc_html__( 'Show Excerpt', '__theme_txtd' ),
+						'label'    => esc_html__( 'Show Excerpt', 'julia-lite' ),
 						'default'  => true,
 						'section'  => 'display',
 						'priority' => 10,
 					),
 					'show_readmore'           => array(
 						'type'     => 'checkbox',
-						'label'    => esc_html__( 'Show "Read More" Link', '__theme_txtd' ),
+						'label'    => esc_html__( 'Show "Read More" Link', 'julia-lite' ),
 						'default'  => true,
 						'section'  => 'display',
 						'priority' => 20,
 					),
 					'primary_meta'            => array(
 						'type'     => 'select',
-						'label'    => esc_html__( 'Primary Meta:', '__theme_txtd' ),
+						'label'    => esc_html__( 'Primary Meta:', 'julia-lite' ),
 						'options'  => array(
-							'none'     => esc_html__( 'None', '__theme_txtd' ),
-							'date'     => esc_html__( 'Date', '__theme_txtd' ),
-							'category' => esc_html__( 'Category', '__theme_txtd' ),
-							'tags'     => esc_html__( 'Tags', '__theme_txtd' ),
-							'author'   => esc_html__( 'Author', '__theme_txtd' ),
-							'comments' => esc_html__( 'Comments', '__theme_txtd' ),
+							'none'     => esc_html__( 'None', 'julia-lite' ),
+							'date'     => esc_html__( 'Date', 'julia-lite' ),
+							'category' => esc_html__( 'Category', 'julia-lite' ),
+							'tags'     => esc_html__( 'Tags', 'julia-lite' ),
+							'author'   => esc_html__( 'Author', 'julia-lite' ),
+							'comments' => esc_html__( 'Comments', 'julia-lite' ),
 						),
 						'default'  => 'category',
 						'section'  => 'display',
@@ -258,14 +258,14 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					),
 					'secondary_meta'          => array(
 						'type'     => 'select',
-						'label'    => esc_html__( 'Secondary Meta:', '__theme_txtd' ),
+						'label'    => esc_html__( 'Secondary Meta:', 'julia-lite' ),
 						'options'  => array(
-							'none'     => esc_html__( 'None', '__theme_txtd' ),
-							'date'     => esc_html__( 'Date', '__theme_txtd' ),
-							'category' => esc_html__( 'Category', '__theme_txtd' ),
-							'tags'     => esc_html__( 'Tags', '__theme_txtd' ),
-							'author'   => esc_html__( 'Author', '__theme_txtd' ),
-							'comments' => esc_html__( 'Comments', '__theme_txtd' ),
+							'none'     => esc_html__( 'None', 'julia-lite' ),
+							'date'     => esc_html__( 'Date', 'julia-lite' ),
+							'category' => esc_html__( 'Category', 'julia-lite' ),
+							'tags'     => esc_html__( 'Tags', 'julia-lite' ),
+							'author'   => esc_html__( 'Author', 'julia-lite' ),
+							'comments' => esc_html__( 'Comments', 'julia-lite' ),
 						),
 						'default'  => 'none',
 						'section'  => 'display',
@@ -273,7 +273,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					),
 					'show_view_more'          => array(
 						'type'       => 'checkbox',
-						'label'      => esc_html__( 'Show View More Button', '__theme_txtd' ),
+						'label'      => esc_html__( 'Show View More Button', 'julia-lite' ),
 						'default'    => false,
 						'display_on' => array(
 							'display' => false,
@@ -287,8 +287,8 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					),
 					'view_more_label'         => array(
 						'type'       => 'text',
-						'label'      => esc_html__( 'Label:', '__theme_txtd' ),
-						'default'    => esc_html__( 'View More', '__theme_txtd' ),
+						'label'      => esc_html__( 'Label:', 'julia-lite' ),
+						'default'    => esc_html__( 'View More', 'julia-lite' ),
 						'display_on' => array(
 							'display' => true,
 							'on'      => array(
@@ -328,7 +328,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 			$widget_ops = wp_parse_args(
 				$widget_ops, array(
 					'classname'                   => 'widget_featured_posts',
-					'description'                 => esc_html__( 'Your featured posts.', '__theme_txtd' ),
+					'description'                 => esc_html__( 'Your featured posts.', 'julia-lite' ),
 					'customize_selective_refresh' => false,
 				)
 			);
@@ -733,7 +733,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 			}
 
 			$args         = array(
-				'show_option_all'   => esc_html__( 'All', '__theme_txtd' ),
+				'show_option_all'   => esc_html__( 'All', 'julia-lite' ),
 				'orderby'           => 'id',
 				'order'             => 'ASC',
 				'show_count'        => 1,
@@ -757,7 +757,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 			$cat_dropdown = wp_dropdown_categories( $args );
 
 			if ( empty( $cat_dropdown ) ) {
-				$output .= '<br /><small>' . esc_html__( 'Please define some categories first.', '__theme_txtd' ) . '</small>' . PHP_EOL;
+				$output .= '<br /><small>' . esc_html__( 'Please define some categories first.', 'julia-lite' ) . '</small>' . PHP_EOL;
 			} else {
 				$output .= $cat_dropdown;
 			}
@@ -837,7 +837,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 			}
 
 			$args         = array(
-				'show_option_all'   => esc_html__( 'All', '__theme_txtd' ),
+				'show_option_all'   => esc_html__( 'All', 'julia-lite' ),
 				'orderby'           => 'id',
 				'order'             => 'ASC',
 				'show_count'        => 1,
@@ -858,7 +858,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 			$tag_dropdown = wp_dropdown_categories( $args );
 
 			if ( empty( $tag_dropdown ) ) {
-				$output .= '<br /><small>' . esc_html__( 'Please define some tags first.', '__theme_txtd' ) . '</small>' . PHP_EOL;
+				$output .= '<br /><small>' . esc_html__( 'Please define some tags first.', 'julia-lite' ) . '</small>' . PHP_EOL;
 			} else {
 				$output .= $tag_dropdown;
 			}

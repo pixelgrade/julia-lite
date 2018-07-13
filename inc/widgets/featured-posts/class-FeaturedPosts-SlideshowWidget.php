@@ -27,7 +27,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_SlideshowWidget' ) ) :
 		public function __construct() {
 			$widget_ops = array(
 				'classname'                   => 'widget_featured_posts_slideshow',
-				'description'                 => esc_html__( 'Displays posts in a slideshow.', '__theme_txtd' ),
+				'description'                 => esc_html__( 'Displays posts in a slideshow.', 'julia-lite' ),
 				'customize_selective_refresh' => true,
 			);
 
@@ -43,8 +43,8 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_SlideshowWidget' ) ) :
 					// A new field
 					'blend_with_header' => array(
 						'type'     => 'checkbox',
-						'label'    => esc_html__( 'Blend with the Header', '__theme_txtd' ),
-						'desc'     => esc_html__( 'Create an immersive experience by mixing the slideshow with the header.', '__theme_txtd' ),
+						'label'    => esc_html__( 'Blend with the Header', 'julia-lite' ),
+						'desc'     => esc_html__( 'Create an immersive experience by mixing the slideshow with the header.', 'julia-lite' ),
 						'default'  => true,
 						'section'  => 'layout',
 						'priority' => 30,
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_SlideshowWidget' ) ) :
 					),
 					'show_pagination' => array(
 						'type'     => 'checkbox',
-						'label'    => esc_html__( 'Show Pagination', '__theme_txtd' ),
+						'label'    => esc_html__( 'Show Pagination', 'julia-lite' ),
 						'default'  => true,
 						'section'  => 'others',
 						'priority' => 10,
