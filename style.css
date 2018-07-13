@@ -1925,33 +1925,33 @@ figure {
       figure.alignleft, figure.alignright, figure.aligncenter, figure.alignnone {
         margin-top: 19.64912px; } }
 
-.wp-caption-text {
+.wp-caption-text, .gallery-caption {
   font-size: 14px; }
   @media only screen and (max-width: 1360px) {
-    .wp-caption-text {
+    .wp-caption-text, .gallery-caption {
       font-size: 13.23724px; } }
   @media only screen and (max-width: 1024px) {
-    .wp-caption-text {
+    .wp-caption-text, .gallery-caption {
       font-size: 12.5533px; } }
   @media only screen and (max-width: 768px) {
-    .wp-caption-text {
+    .wp-caption-text, .gallery-caption {
       font-size: 11.93657px; } }
   @media only screen and (max-width: 400px) {
-    .wp-caption-text {
+    .wp-caption-text, .gallery-caption {
       font-size: 11.37759px; } }
-  .wp-caption-text:not(:first-child) {
+  .wp-caption-text:not(:first-child), .gallery-caption:not(:first-child) {
     margin-top: 14px; }
     @media only screen and (max-width: 1360px) {
-      .wp-caption-text:not(:first-child) {
+      .wp-caption-text:not(:first-child), .gallery-caption:not(:first-child) {
         margin-top: 12.89431px; } }
     @media only screen and (max-width: 1024px) {
-      .wp-caption-text:not(:first-child) {
+      .wp-caption-text:not(:first-child), .gallery-caption:not(:first-child) {
         margin-top: 11.95049px; } }
     @media only screen and (max-width: 768px) {
-      .wp-caption-text:not(:first-child) {
+      .wp-caption-text:not(:first-child), .gallery-caption:not(:first-child) {
         margin-top: 11.13541px; } }
     @media only screen and (max-width: 320px) {
-      .wp-caption-text:not(:first-child) {
+      .wp-caption-text:not(:first-child), .gallery-caption:not(:first-child) {
         margin-top: 10.42442px; } }
 
 .o-grid {

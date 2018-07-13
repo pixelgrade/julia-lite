@@ -118,7 +118,7 @@ figure {
 	}
 }
 
-.wp-caption-text {
+.wp-caption-text, .gallery-caption {
   @include leading-map($wp-align-caption-font);
 }
 
