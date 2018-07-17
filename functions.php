@@ -201,3 +201,8 @@ add_action( 'admin_enqueue_scripts', 'julia_load_wp_admin_style' );
  * ==================================================
  */
 pixelgrade_autoload_dir( 'inc' );
+
+/**
+ * Theme About page.
+ */
+require get_template_directory() . '/inc/admin/about-page.php';
