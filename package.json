@@ -1,5 +1,5 @@
 {
-  "name": "julia",
+  "name": "julia-lite",
   "main": "webpack.config.js",
   "scripts": {
     "julia:prod": "webpack --env.variation=julia && npm run rtl  && gulp zip --variation julia",
