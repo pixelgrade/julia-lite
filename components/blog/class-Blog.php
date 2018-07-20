@@ -704,7 +704,7 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 				'sidebar_args' => array(
 					'name'          => esc_html__( 'Below Post', 'julia-lite' ),
 					'id'            => 'sidebar-2',
-					'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', 'julia-lite' ),
+					'description'   => esc_html__( 'Ooops! This entire widget area is available only if you have the Pro version of Julia Lite. You want to stand out from the crowd, right?', 'julia-lite' ),
 				),
 			),
 		);

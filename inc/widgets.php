@@ -31,7 +31,7 @@ function julia_widget_areas_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Below Post', 'julia-lite' ),
 		'id'            => 'sidebar-2',
-		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', 'julia-lite' ),
+		'description'   => esc_html__( 'Ooops! This entire widget area is available only if you have the Pro version of Julia Lite. You want to stand out from the crowd, right?', 'julia-lite' ),
 	) );
 
 	/**
@@ -100,21 +100,21 @@ function julia_widget_areas_init_front_page() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Front Page - Full Width Center', 'julia-lite' ),
 		'id'            => 'front-page-4',
-		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', 'julia-lite' ),
+		'description'   => esc_html__( 'Ooops! This entire widget area is available only if you have the Pro version of Julia Lite. You want to stand out from the crowd, right?', 'julia-lite' ),
 	) );
 
 	// The Content Area #2
 	register_sidebar( array(
 		'name'          => esc_html__( 'Front Page - &#9484; Content 2', 'julia-lite' ),
 		'id'            => 'front-page-5',
-		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', 'julia-lite' ),
+		'description'   => esc_html__( 'Ooops! This entire widget area is available only if you have the Pro version of Julia Lite. You want to stand out from the crowd, right?', 'julia-lite' ),
 	) );
 
 	// The Sidebar Area #2
 	register_sidebar( array(
 		'name'          => esc_html__( 'Front Page - &#9492; Sidebar 2', 'julia-lite' ),
 		'id'            => 'front-page-6',
-		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', 'julia-lite' ),
+		'description'   => esc_html__( 'Ooops! This entire widget area is available only if you have the Pro version of Julia Lite. You want to stand out from the crowd, right?', 'julia-lite' ),
 	) );
 
 	// The Full Width Area #3
@@ -132,7 +132,7 @@ function julia_widget_areas_init_front_page() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - Featured Area', 'julia-lite' ),
 		'id'            => 'footer-featured',
-		'description'   => esc_html__( 'You can only use this area in the PRO version of the theme.', 'julia-lite' ),
+		'description'   => esc_html__( 'Ooops! This entire widget area is available only if you have the Pro version of Julia Lite. You want to stand out from the crowd, right?', 'julia-lite' ),
 	) );
 }
 // We use a latter priority to make sure that all these sidebars appear grouped
