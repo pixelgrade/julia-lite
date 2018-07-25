@@ -34,6 +34,16 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_GridWidget' ) ) :
 			// This is the way we can alter the base widget's behaviour
 			$config = array(
                 'fields'   => array(
+	                'show_excerpt' => array(
+		                'disabled' => true,
+	                ),
+	                'show_readmore' => array(
+		                'disabled' => true,
+	                ),
+	                'show_view_more' => array(
+		                'disabled' => true,
+		                'default' => false,
+	                ),
                 ),
 				'posts' => array(
 					'classes'       => array( 'featured-posts-grid' ),

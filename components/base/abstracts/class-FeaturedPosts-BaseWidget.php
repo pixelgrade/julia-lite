@@ -102,78 +102,13 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 						'label'    => esc_html__( 'Posts Source:', 'julia-lite' ),
 						'options'  => array(
 							'recent'   => esc_html__( 'Recent Posts', 'julia-lite' ),
-							'category' => esc_html__( 'Category', 'julia-lite' ),
-							'tag'      => esc_html__( 'Tag', 'julia-lite' ),
-							'post_ids' => esc_html__( 'Selected Posts', 'julia-lite' ),
+							'category' => esc_html__( 'Category - Available on PRO version', 'julia-lite' ),
+							'tag'      => esc_html__( 'Tag - Available on PRO version', 'julia-lite' ),
+							'post_ids' => esc_html__( 'Selected Posts - Available on PRO version', 'julia-lite' ),
 						),
 						'default'  => 'recent',
 						'section'  => 'content',
 						'priority' => 10,
-					),
-					'source_category'         => array(
-						'type'              => 'select',
-						'label'             => esc_html__( 'Category:', 'julia-lite' ),
-						'callback'          => array( $this, 'categoriesDropdown' ),
-						'sanitize_callback' => array( $this, 'sanitizeCategory' ), // We need to do custom sanitization for custom generated selects.
-						'default'           => 0,
-						'display_on'        => array(
-							'display' => true,
-							'on'      => array(
-								'field' => 'source',
-								'value' => 'category',
-							),
-						),
-						'section'           => 'content',
-						'priority'          => 20,
-					),
-					'source_tag'              => array(
-						'type'              => 'select',
-						'label'             => esc_html__( 'Tag:', 'julia-lite' ),
-						'callback'          => array( $this, 'tagsDropdown' ),
-						'sanitize_callback' => array( $this, 'sanitizeTag' ), // We need to do custom sanitization for custom generated selects.
-						'default'           => 0,
-						'display_on'        => array(
-							'display' => true,
-							'on'      => array(
-								'field' => 'source',
-								'value' => 'tag',
-							),
-						),
-						'section'           => 'content',
-						'priority'          => 30,
-					),
-					'post_ids'                => array(
-						'type'       => 'text',
-						'label'      => esc_html__( 'Post IDs:', 'julia-lite' ),
-						'desc'       => esc_html__( 'Use Posts IDs, separated by commas, to show only a set of specific posts.', 'julia-lite' ),
-						'default'    => '',
-						'display_on' => array(
-							'display' => true,
-							'on'      => array(
-								'field' => 'source',
-								'value' => 'post_ids',
-							),
-						),
-						'section'    => 'content',
-						'priority'   => 40,
-					),
-					'orderby'                 => array(
-						'type'       => 'select',
-						'label'      => esc_html__( 'Order by:', 'julia-lite' ),
-						'options'    => array(
-							'date'    => esc_html__( 'Date', 'julia-lite' ),
-							'popular' => esc_html__( 'Most Popular', 'julia-lite' ),
-						),
-						'default'    => 'date',
-						'display_on' => array(
-							'display' => false,
-							'on'      => array(
-								'field' => 'source',
-								'value' => 'post_ids',
-							),
-						),
-						'section'    => 'content',
-						'priority'   => 50,
 					),
 					'number'                  => array(
 						'type'              => 'number',
@@ -271,20 +206,6 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 						'section'  => 'display',
 						'priority' => 40,
 					),
-					'show_view_more'          => array(
-						'type'       => 'checkbox',
-						'label'      => esc_html__( 'Show View More Button', 'julia-lite' ),
-						'default'    => false,
-						'display_on' => array(
-							'display' => false,
-							'on'      => array(
-								'field' => 'source',
-								'value' => 'post_ids',
-							),
-						),
-						'section'    => 'display',
-						'priority'   => 50,
-					),
 					'view_more_label'         => array(
 						'type'       => 'text',
 						'label'      => esc_html__( 'Label:', 'julia-lite' ),
@@ -314,16 +235,6 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					),
 				),
 				'sidebars_not_supported' => array(
-					'sidebar-1',
-					'sidebar-2',
-					'front-page-1',
-					'front-page-2',
-					'front-page-3',
-					'front-page-4',
-					'front-page-5',
-					'front-page-6',
-					'archive-1',
-					'footer-featured',
 				),
 			);
 
@@ -550,22 +461,6 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 								// link to the posts home page.
 								$view_more_link = get_post_type_archive_link( 'post' );
 								break;
-							case 'category':
-								if ( empty( $instance['source_category'] ) || -1 == $instance['source_category'] ) {
-									// link to the posts home page.
-									$view_more_link = get_post_type_archive_link( 'post' );
-								} else {
-									$view_more_link = get_term_link( $instance['source_category'], 'category' );
-								}
-								break;
-							case 'tag':
-								if ( empty( $instance['source_tag'] ) || -1 == $instance['source_tag'] ) {
-									// link to the posts home page.
-									$view_more_link = get_post_type_archive_link( 'post' );
-								} else {
-									$view_more_link = get_term_link( $instance['source_tag'], 'post_tag' );
-								}
-								break;
 						}
 
 						if ( ! empty( $view_more_link ) && ! is_wp_error( $view_more_link ) ) {
@@ -654,38 +549,6 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 							'terms'    => array( $instance['source_category'] ),
 						),
 					);
-				} elseif ( ! $this->isFieldDisabled( 'source_tag' )
-						   && 'tag' === $instance['source']
-						   && ! empty( $instance['source_tag'] )
-						   && - 1 != $instance['source_tag'] ) {
-					$query_args['tax_query'] = array(
-						array(
-							'taxonomy' => 'post_tag',
-							'field'    => 'slug',
-							'terms'    => array( $instance['source_tag'] ),
-						),
-					);
-				} elseif ( ! $this->isFieldDisabled( 'post_ids' )
-						   && 'post_ids' == $instance['source']
-						   && ! empty( $instance['post_ids'] ) ) {
-
-					// If we are given a list of post_ids, then we will ignore the posts queried thus far and the ones that need to be excluded.
-					// You can't have post__in and post__not_in in the same query!
-					// Transform and sanitize the ids.
-					$post_ids = Pixelgrade_Value::maybeExplodeList( $instance['post_ids'] );
-					if ( ! empty( $post_ids ) ) {
-						foreach ( $post_ids as $key => $value ) {
-							if ( ! is_numeric( $value ) ) {
-								unset( $post_ids[ $key ] );
-							} else {
-								$post_ids[ $key ] = intval( $value );
-							}
-						}
-
-						$query_args['post__in']       = $post_ids;
-						$query_args['posts_per_page'] = count( $post_ids );
-						$query_args['orderby']        = 'post__in';
-					}
 				}
 			}
 

@@ -42,10 +42,10 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_5CardsWidget' ) ) :
 						'disabled' => true,
 					),
                     'show_excerpt' => array(
-                        'default' => true,
+	                    'disabled' => true,
                     ),
                     'show_readmore' => array(
-                        'default' => true,
+	                    'disabled' => true,
                     ),
                     'show_view_more' => array(
                         'disabled' => true,
