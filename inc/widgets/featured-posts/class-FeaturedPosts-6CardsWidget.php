@@ -60,8 +60,15 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_6CardsWidget' ) ) :
 				),
 				'sidebars_not_supported' => array(
 					'sidebar-1',
+					'sidebar-2',
+					'front-page-1',
+					'front-page-2',
 					'front-page-3',
+					'front-page-4',
+					'front-page-5',
 					'front-page-6',
+					'archive-1',
+					'footer-featured',
 				),
 			);
 

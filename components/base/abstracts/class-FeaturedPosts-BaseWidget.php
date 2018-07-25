@@ -314,8 +314,16 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					),
 				),
 				'sidebars_not_supported' => array(
-					// Sidebar IDs that this widget is not meant for.
-					// We will show a notification instead of the widget content.
+					'sidebar-1',
+					'sidebar-2',
+					'front-page-1',
+					'front-page-2',
+					'front-page-3',
+					'front-page-4',
+					'front-page-5',
+					'front-page-6',
+					'archive-1',
+					'footer-featured',
 				),
 			);
 
