@@ -48,6 +48,12 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_GridWidget' ) ) :
 				'posts' => array(
 					'classes'       => array( 'featured-posts-grid' ),
 				),
+                'sidebars_not_supported' => array(
+	                'front-page-4',
+	                'front-page-5',
+	                'front-page-6',
+	                'footer-featured',
+                ),
 			);
 
 			parent::__construct( 'featured-posts-grid',

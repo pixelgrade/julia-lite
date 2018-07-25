@@ -59,9 +59,10 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_5CardsWidget' ) ) :
 					'classes'       => array( 'featured-posts-5cards' ),
 				),
 				'sidebars_not_supported' => array(
-					'sidebar-1',
-					'front-page-3',
+					'front-page-4',
+					'front-page-5',
 					'front-page-6',
+					'footer-featured',
 				),
 			);
 

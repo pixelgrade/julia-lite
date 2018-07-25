@@ -1033,7 +1033,7 @@ var Julia = function (_BaseTheme) {
         key: 'modifyHeaderDropcap',
         value: function modifyHeaderDropcap() {
             __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.header-dropcap, .c-card__letter').each(function (index, element) {
-                __WEBPACK_IMPORTED_MODULE_6__components_base_ts_services_Helper__["a" /* Helper */].fitText(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(element));
+                //__WEBPACK_IMPORTED_MODULE_6__components_base_ts_services_Helper__["a" /* Helper */].fitText(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(element));
             });
         }
     }, {
