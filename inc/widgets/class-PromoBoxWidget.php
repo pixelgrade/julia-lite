@@ -150,6 +150,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				    'front-page-4',
 				    'front-page-5',
 				    'front-page-6',
+				    'front-page-7',
 				    'archive-1',
 				    'footer-featured',
 			    ),
