@@ -162,6 +162,12 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 		 * @param array $instance Settings for the current Categories widget instance.
 		 */
 		public function widget( $args, $instance ) {
+			// First, process the sidebars that are not supported by the current widget instance, if any.
+			if ( false === $this->showInSidebar( $args, $instance ) ) {
+				$this->sidebarNotSupportedMessage( $args, $instance );
+				return;
+			}
+
 			// Make sure that we have the defaults in place, where there entry is missing
 			$instance = wp_parse_args( $instance, $this->getDefaults() );
 
