@@ -139,19 +139,6 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 		// Allow others to make changes
 		$modified_config = apply_filters( 'pixelgrade_customify_general_section_options', $general_section, $options );
 
-		// Validate the config
-		// We will trigger _doing_it_wrong() errors, but in production we will let it pass.
-		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-			Pixelgrade_Config::validateCustomizerSectionConfig( $modified_config, $general_section );
-		}
-
-		// Validate the default values
-		// When we have defined in the original config 'default' => null, this means the theme (or someone) must define the value via the filter above.
-		// We will trigger _doing_it_wrong() errors, but in production we will let it pass.
-		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-			Pixelgrade_Config::validateCustomizerSectionConfigDefaults( $modified_config, $general_section, 'pixelgrade_customify_general_section_options' );
-		}
-
 		// Assign the modified config
 		$general_section = $modified_config;
 
@@ -926,19 +913,6 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 		// Allow others to make changes
 		$modified_config = apply_filters( 'pixelgrade_customify_main_content_section_options', $main_content_section, $options );
 
-		// Validate the config
-		// We will trigger _doing_it_wrong() errors, but in production we will let it pass.
-		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-			Pixelgrade_Config::validateCustomizerSectionConfig( $modified_config, $main_content_section );
-		}
-
-		// Validate the default values
-		// When we have defined in the original config 'default' => null, this means the theme (or someone) must define the value via the filter above.
-		// We will trigger _doing_it_wrong() errors, but in production we will let it pass.
-		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-			Pixelgrade_Config::validateCustomizerSectionConfigDefaults( $modified_config, $main_content_section, 'pixelgrade_customify_main_content_section_options' );
-		}
-
 		// Assign the modified config
 		$main_content_section = $modified_config;
 
@@ -1103,19 +1077,6 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 
 		// Allow others to make changes
 		$modified_config = apply_filters( 'pixelgrade_customify_buttons_section_options', $buttons_section, $options );
-
-		// Validate the config
-		// We will trigger _doing_it_wrong() errors, but in production we will let it pass.
-		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-			Pixelgrade_Config::validateCustomizerSectionConfig( $modified_config, $buttons_section );
-		}
-
-		// Validate the default values
-		// When we have defined in the original config 'default' => null, this means the theme (or someone) must define the value via the filter above.
-		// We will trigger _doing_it_wrong() errors, but in production we will let it pass.
-		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-			Pixelgrade_Config::validateCustomizerSectionConfigDefaults( $modified_config, $buttons_section, 'pixelgrade_customify_buttons_section_options' );
-		}
 
 		// Assign the modified config
 		$buttons_section = $modified_config;
@@ -1657,19 +1618,6 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 
 		// Allow others to make changes
 		$modified_config = apply_filters( 'pixelgrade_customify_blog_grid_section_options', $blog_grid_section, $options );
-
-		// Validate the config
-		// We will trigger _doing_it_wrong() errors, but in production we will let it pass.
-		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-			Pixelgrade_Config::validateCustomizerSectionConfig( $modified_config, $blog_grid_section );
-		}
-
-		// Validate the default values
-		// When we have defined in the original config 'default' => null, this means the theme (or someone) must define the value via the filter above.
-		// We will trigger _doing_it_wrong() errors, but in production we will let it pass.
-		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-			Pixelgrade_Config::validateCustomizerSectionConfigDefaults( $modified_config, $blog_grid_section, 'pixelgrade_customify_blog_grid_section_options' );
-		}
 
 		// Assign the modified config
 		$blog_grid_section = $modified_config;

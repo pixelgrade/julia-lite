@@ -519,7 +519,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 				'no_found_rows'       => true, // extra performance
 				'post_status'         => 'publish', // only published posts in featured posts widgets
 				'ignore_sticky_posts' => true, // we don't deal with sticky posts in featured posts widgets
-				'order'               => 'desc',
+				'orderby'               => 'desc',
 			);
 
 			// If the number field is disabled, force the default value

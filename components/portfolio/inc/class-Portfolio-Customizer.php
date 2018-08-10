@@ -581,19 +581,6 @@ class Pixelgrade_Portfolio_Customizer extends Pixelgrade_Singleton {
 		// Allow others to make changes
 		$modified_config = apply_filters( 'pixelgrade_portfolio_customify_grid_section_options', $portfolio_grid_section, $options );
 
-		// Validate the config
-		// We will trigger _doing_it_wrong() errors, but in production we will let it pass.
-		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-			Pixelgrade_Config::validateCustomizerSectionConfig( $modified_config, $portfolio_grid_section );
-		}
-
-		// Validate the default values
-		// When we have defined in the original config 'default' => null, this means the theme (or someone) must define the value via the filter above.
-		// We will trigger _doing_it_wrong() errors, but in production we will let it pass.
-		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-			Pixelgrade_Config::validateCustomizerSectionConfigDefaults( $modified_config, $portfolio_grid_section, 'pixelgrade_portfolio_customify_grid_section_options' );
-		}
-
 		// Assign the modified config
 		$portfolio_grid_section = $modified_config;
 
