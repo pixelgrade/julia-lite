@@ -215,3 +215,12 @@ function julia_customize_preview_js() {
 	wp_enqueue_script( 'julia_customizer', pixelgrade_get_theme_file_uri( '/assets/js/customizer.js' ), array( 'customize-preview' ), '20171201', true );
 }
 add_action( 'customize_preview_init', 'julia_customize_preview_js' );
+
+/**
+ * Assets that will be loaded for the customizer sidebar
+ */
+function julia_lite_customizer_assets() {
+	wp_enqueue_style( 'julia_lite_customizer_style', get_template_directory_uri() . '/assets/css/admin/customizer.css', null, '1.0.0', false );
+}
+
+add_action( 'customize_controls_enqueue_scripts', 'julia_lite_customizer_assets' );

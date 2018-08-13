@@ -69,7 +69,21 @@ gulp.task( 'styles', 'Compile styles', function( cb ) {
 	plugins.sequence( 'typeline-config', 'typeline-phpconfig', 'styles-components', 'styles-main', 'styles-rtl', cb );
 } );
 
+gulp.task('styles-admin', 'Compiles Sass and uses autoprefixer', function () {
 
+	function handleError(err, res) {
+		log(c.red('Sass failed to compile'));
+		log(c.red('> ') + err.file.split('/')[err.file.split('/').length - 1] + ' ' + c.underline('line ' + err.line) + ': ' + err.message);
+	}
+
+	return gulp.src('assets/scss/admin/*.scss')
+		.pipe(plugins.sourcemaps.init())
+		.pipe(plugins.sass().on('error', logError))
+		.pipe(plugins.autoprefixer() )
+		// .pipe(csscomb())
+		// .pipe(chmod(644))
+		.pipe(gulp.dest('./assets/css/admin/'));
+});
 
 
 
