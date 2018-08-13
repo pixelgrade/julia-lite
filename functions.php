@@ -161,15 +161,6 @@ function julia_scripts() {
 	/* Default Google Fonts */
 	wp_enqueue_style( 'julia-google-fonts', julia_google_fonts_url() );
 
-	/* Default Self-hosted Fonts should be loaded when Customify is off */
-	if ( ! class_exists( 'PixCustomifyPlugin' ) ) {
-		wp_enqueue_style( 'julia-fonts-charter', julia_charter_font_url() );
-		$main_style_deps[] = 'julia-fonts-charter';
-
-		wp_enqueue_style( 'julia-fonts-hkgrotesk', julia_hkgrotesk_font_url() );
-		$main_style_deps[] = 'julia-fonts-hkgrotesk';
-	}
-
 	/* The main theme stylesheet */
 	if ( ! is_rtl() ) {
 		wp_enqueue_style( 'julia-style', get_stylesheet_uri(), $main_style_deps, $theme->get( 'Version' ) );
