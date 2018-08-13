@@ -182,7 +182,7 @@ function julia_scripts() {
 	wp_enqueue_script( 'julia-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'julia-commons-scripts' ), $theme->get( 'Version' ), true );
 
 	$localization_array = array(
-		'ajaxurl'      => admin_url( 'admin-ajax.php' ),
+		'ajaxurl'      => esc_url( admin_url( 'admin-ajax.php' ) ),
 	);
 
 	wp_localize_script( 'julia-main-scripts', 'juliaStrings', $localization_array );
