@@ -1,5 +1,4 @@
 Theme Name: Julia Lite
-Theme URI: https://pixelgrade.com/themes/julia-lite/
 Author: Pixelgrade
 Author URI: https://pixelgrade.com
 Description: Julia Lite is a free food blogging theme for community builders who want to share their passion for cooking.
