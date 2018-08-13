@@ -70,7 +70,7 @@ function julia_customize_register( $wp_customize ) {
 		'description' => sprintf(
 			__( '<div class="upsell-container">
 					<h2>Need More? Go PRO</h2>
-					<p>Take it to the next level. See the features below:</p>
+					<p>Take it to the next level and stand out. See the hotspots of Julia PRO:</p>
 					<ul class="upsell-features">
                             <li>
                             	<h4>Personalize to Match Your Style</h4>
@@ -78,13 +78,13 @@ function julia_customize_register( $wp_customize ) {
                             </li>
 
                             <li>
-                            	<h4>Post Formats</h4>
-                            	<div class="description">Make room for a wide range of post formats to pack your engaging stories so that people will enjoy sharing. Text, image, video, audio—you name it, and you’re covered.</div>
+                            	<h4>New Widgets for More Flexiblity</h4>
+                            	<div class="description">Besides the Featured and Grid Posts widgets, the PRO version comes with extra goodies: Slideshow Posts, Carousel, Promo Box, and Categories Images. You also get more font options and widget areas to play with.</div>
                             </li>
 
                             <li>
-                            	<h4>Adaptive Layouts For Your Posts</h4>
-                            	<div class="description">Whether your featured image is in portrait or landscape mode, Julia takes care of it by changing the post layout to provide the right fit.</div>
+                            	<h4>Intuitive Recipe Index</h4>
+                            	<div class="description">You keep track of your recipes with our cus­tom made recipe index­ing sys­tem. Fil­ter by Cat­e­go­ry, Course, Sea­son and much more to easily discover your culinary gems and food stories.</div>
                             </li>
 
                             <li>
@@ -113,7 +113,7 @@ add_action( 'customize_register', 'julia_customize_register' );
  * Generate a link to the Julia Lite info page.
  */
 function julia_lite_get_pro_link() {
-	return 'https://pixelgrade.com/themes/blogging/julia-lite?utm_source=julia-lite-clients&utm_medium=customizer&utm_campaign=julia-lite#pro';
+	return 'https://pixelgrade.com/themes/blogging/julia-pro?utm_source=julia-lite-clients&utm_medium=customizer&utm_campaign=julia-lite';
 }
 
 /**
