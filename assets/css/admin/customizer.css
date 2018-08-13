@@ -1,8 +1,8 @@
-#accordion-section-silklite_style_presets h3:before,
-#accordion-section-silklite_colors h3:before,
-#accordion-section-silklite_fonts h3:before,
-#accordion-section-silklite_style_view_pro h3:before,
-a.badge-silk-pro {
+#accordion-section-julia_lite_style_presets h3:before,
+#accordion-section-julia_lite_colors h3:before,
+#accordion-section-julia_lite_fonts h3:before,
+#accordion-section-julia_lite_style_view_pro h3:before,
+a.badge-julia-pro {
   position: relative;
   top: 2px;
   float: right;
@@ -21,10 +21,10 @@ a.badge-silk-pro {
   border-radius: 2px;
   -webkit-font-smoothing: subpixel-antialiased !important; }
 
-a.badge-silk-pro {
+a.badge-julia-pro {
   float: none;
   margin: 0; }
-  a.badge-silk-pro:hover {
+  a.badge-julia-pro:hover {
     background-color: #00a0d2 !important; }
 
 .upsell_link_details {
@@ -40,27 +40,27 @@ a.badge-silk-pro {
     .upsell_link_details a:hover {
       color: #00a0d2 !important; }
 
-.upsell_links_dismissed .badge-silk-pro,
+.upsell_links_dismissed .badge-julia-pro,
 .upsell_links_dismissed .upsell_link_details,
-.upsell_links_dismissed #accordion-section-silklite_style_presets,
-.upsell_links_dismissed #accordion-section-silklite_colors,
-.upsell_links_dismissed #accordion-section-silklite_fonts {
+.upsell_links_dismissed #accordion-section-julialite_style_presets,
+.upsell_links_dismissed #accordion-section-julialite_colors,
+.upsell_links_dismissed #accordion-section-julialite_fonts {
   display: none !important; }
 
-#accordion-section-silklite_style_presets .accordion-section-content,
-#accordion-section-silklite_colors .accordion-section-content,
-#accordion-section-silklite_fonts .accordion-section-content {
+#accordion-section-julia_lite_style_presets .accordion-section-content,
+#accordion-section-julia_lite_colors .accordion-section-content,
+#accordion-section-julia_lite_fonts .accordion-section-content {
   background: #eaf9fe; }
 
-#accordion-section-silklite_style_presets .description,
-#accordion-section-silklite_colors .description,
-#accordion-section-silklite_fonts .description {
+#accordion-section-julia_lite_style_presets .description,
+#accordion-section-julia_lite_colors .description,
+#accordion-section-julia_lite_fonts .description {
   color: #88B6CE;
   line-height: 1.65; }
 
-#accordion-section-silklite_style_presets a,
-#accordion-section-silklite_colors a,
-#accordion-section-silklite_fonts a {
+#accordion-section-julia_lite_style_presets a,
+#accordion-section-julia_lite_colors a,
+#accordion-section-julia_lite_fonts a {
   font-weight: bold;
   text-decoration: underline; }
 
