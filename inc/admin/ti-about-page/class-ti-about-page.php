@@ -1,16 +1,16 @@
 <?php
 /**
- * ThemeIsle - About page class
+ * About page class
  *
  * @package Pixelgrade
  * @subpackage Admin
  * @since 1.0.0
  */
-if ( ! class_exists( 'TI_About_Page' ) ) {
+if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 	/**
 	 * Singleton class used for generating the about page of the theme.
 	 */
-	class TI_About_Page {
+	class Julia_Lite_About_Page {
 		/**
 		 * Define the version of the class.
 		 *
@@ -74,7 +74,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		/**
 		 * The single instance of TI_About_Page
 		 *
-		 * @var TI_About_Page $instance The  TI_About_Page instance.
+		 * @var Julia_Lite_About_Page $instance The  TI_About_Page instance.
 		 */
 		private static $instance;
 
@@ -86,8 +86,8 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		 * @param array $config The configuration array.
 		 */
 		public static function init( $config ) {
-			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof TI_About_Page ) ) {
-				self::$instance = new TI_About_Page;
+			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Julia_Lite_About_Page ) ) {
+				self::$instance = new Julia_Lite_About_Page;
 				if ( ! empty( $config ) && is_array( $config ) ) {
 					self::$instance->config = $config;
 					self::$instance->setup_config();

@@ -31,6 +31,7 @@ function julia_customize_register( $wp_customize ) {
 	$wp_customize->add_setting('pixelgrade_transparent_logo', array(
 		'theme_supports' => array( 'custom-logo' ),
 		'transport'      => 'postMessage',
+		'sanitize_callback' => 'julia_lite_sanitize_checkbox',
 	) );
 	// Add a control to upload the logo
 	// But first get the custom logo options
@@ -98,7 +99,7 @@ function julia_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'julia_lite_style_view_pro_desc', array(
 		'default'           => '',
-//		'sanitize_callback' => 'julia_lite_sanitize_checkbox',
+		'sanitize_callback' => 'julia_lite_sanitize_checkbox',
 	) );
 
 	$wp_customize->add_control( 'julia_lite_style_view_pro_desc', array(
@@ -113,6 +114,21 @@ add_action( 'customize_register', 'julia_customize_register' );
  */
 function julia_lite_get_pro_link() {
 	return 'https://pixelgrade.com/themes/blogging/julia-lite?utm_source=julia-lite-clients&utm_medium=customizer&utm_campaign=julia-lite#pro';
+}
+
+/**
+ * Sanitize the checkbox.
+ *
+ * @param boolean $input .
+ *
+ * @return boolean true if is 1 or '1', false if anything else
+ */
+function julia_lite_sanitize_checkbox( $input ) {
+	if ( 1 == $input ) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 /* =========================
