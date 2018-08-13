@@ -66,7 +66,7 @@ gulp.task( 'styles-components', 'Compiles Sass and uses autoprefixer', function(
 } );
 
 gulp.task( 'styles', 'Compile styles', function( cb ) {
-	plugins.sequence( 'typeline-config', 'typeline-phpconfig', 'styles-components', 'styles-main', 'styles-rtl', cb );
+	plugins.sequence( 'typeline-config', 'typeline-phpconfig', 'styles-components', 'styles-admin', 'styles-main', 'styles-rtl', cb );
 } );
 
 gulp.task('styles-admin', 'Compiles Sass and uses autoprefixer', function () {
