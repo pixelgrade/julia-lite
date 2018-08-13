@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress-Components">
+    <description>A custom set of rules to check coding standards for Components.</description>
+
+    <!--
+        Default settings for command line usage
+    -->
+
+    <!-- Exclude folders and files from being checked. -->
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/wordpress/*</exclude-pattern>
+
+    <!-- Check all PHP files in directory tree by default. -->
+    <arg name="extensions" value="php"/>
+    <file>.</file>
+
+    <!-- Use colors in output. -->
+    <arg name="colors"/>
+
+    <!-- Show sniff names and progress. -->
+    <arg value="sp"/>
+
+    <!--
+        WordPress-Extra
+        Best practices beyond core WordPress Coding Standards.
+
+        The WordPress-Core standard doesn’t have to be included here,
+        because WordPress-Extra already includes it.
+    -->
+    <rule ref="WordPress-Theme"/>
+
+    <rule ref="PEAR.Functions.FunctionCallSignature">
+        <properties>
+            <property name="requiredSpacesAfterOpen" value="1" />
+            <property name="requiredSpacesBeforeClose" value="1"/>
+        </properties>
+    </rule>
+
+</ruleset>

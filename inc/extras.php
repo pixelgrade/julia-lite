@@ -401,44 +401,6 @@ function julia_footer_extras() { ?>
 add_action( 'pixelgrade_after_footer', 'julia_footer_extras', 10 );
 
 /**
- * Generate the HK Grotesk font URL
- *
- * @return string
- */
-function julia_charter_font_url() {
-
-	/* Translators: If there are characters in your language that are not
-	* supported by Charter, translate this to 'off'. Do not translate
-	* into your own language.
-	*/
-	$charter = esc_html_x( 'on', 'Charter font: on or off', 'julia-lite' );
-	if ( 'off' !== $charter ) {
-		return get_template_directory_uri() . '/assets/fonts/charter/stylesheet.css';
-	}
-
-	return '';
-}
-
-/**
- * Generate the HK Grotesk font URL
- *
- * @return string
- */
-function julia_hkgrotesk_font_url() {
-
-	/* Translators: If there are characters in your language that are not
-	* supported by HK Grotesk, translate this to 'off'. Do not translate
-	* into your own language.
-	*/
-	$hk_grotesk = esc_html_x( 'on', 'HK Grotesk font: on or off', 'julia-lite' );
-	if ( 'off' !== $hk_grotesk ) {
-		return get_template_directory_uri() . '/assets/fonts/hkgrotesk/stylesheet.css';
-	}
-
-	return '';
-}
-
-/**
  * Filter the Featured Posts widget wrapper classes.
  *
  * @param array $classes
