@@ -8,11 +8,9 @@ a.badge-julia-pro {
     top: 2px;
     float: right;
     content: "Pro";
-
     margin-left: 8px;
     margin-right: 32px;
     padding: 3px 6px !important;
-
     font-size: 9px !important;
     font-weight: bold;
     line-height: 1.5 !important;
@@ -20,9 +18,8 @@ a.badge-julia-pro {
     text-transform: uppercase;
     text-decoration: none;
     color: #ffffff !important;
-    background-color: #C63D6F;
+    background-color: #018ec2;
     border-radius: 2px;
-
     -webkit-font-smoothing: subpixel-antialiased !important;
 }
 
@@ -83,7 +80,7 @@ a.badge-julia-pro {
     a {
         font-weight: bold;
         text-decoration: underline;
-    }
+    }   
 }
 
 // Upsell Container
@@ -94,14 +91,13 @@ a.badge-julia-pro {
     font-size: 14px;
 
    .button-primary {
-        height: 40px;
-        width: 100%;
-        text-align: center;
-        line-height: 40px;
-        text-shadow: none;
-        background: #C63D6F;
-        border-color: #982851 #982851 #982851;
-        box-shadow: none;
+      padding: 10px 0 !important;
+      height: auto  !important;
+      width: 100%  !important;
+      text-align: center  !important;
+      text-shadow: none  !important;
+      background: #018ec2  !important;
+      box-shadow: none  !important;
     }
 }
 
@@ -132,7 +128,7 @@ ul.upsell-features {
         text-transform: uppercase;
         text-decoration: none;
         color: #ffffff !important;
-        background-color: #C63D6F;
+        background-color: #018ec2;
         border-radius: 2px;
 
         -webkit-font-smoothing: subpixel-antialiased !important;

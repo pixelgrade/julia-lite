@@ -17,7 +17,7 @@ a.badge-julia-pro {
   text-transform: uppercase;
   text-decoration: none;
   color: #ffffff !important;
-  background-color: #C63D6F;
+  background-color: #018ec2;
   border-radius: 2px;
   -webkit-font-smoothing: subpixel-antialiased !important; }
 
@@ -70,15 +70,14 @@ a.badge-julia-pro {
   border-radius: 2px;
   font-size: 14px; }
   .upsell-container .button-primary {
-    height: 40px;
-    width: 100%;
-    text-align: center;
-    line-height: 40px;
-    text-shadow: none;
-    background: #C63D6F;
-    border-color: #982851 #982851 #982851;
-    -webkit-box-shadow: none;
-            box-shadow: none; }
+    padding: 10px 0 !important;
+    height: auto  !important;
+    width: 100%  !important;
+    text-align: center  !important;
+    text-shadow: none  !important;
+    background: #018ec2  !important;
+    -webkit-box-shadow: none  !important;
+            box-shadow: none  !important; }
 
 ul.upsell-features li {
   margin-bottom: 20px; }
@@ -99,6 +98,6 @@ ul.upsell-features li h4:before {
   text-transform: uppercase;
   text-decoration: none;
   color: #ffffff !important;
-  background-color: #C63D6F;
+  background-color: #018ec2;
   border-radius: 2px;
   -webkit-font-smoothing: subpixel-antialiased !important; }
