@@ -61,8 +61,59 @@ function julia_customize_register( $wp_customize ) {
 		'render_callback'     => 'julia_customizer_partial_transparent_logo',
 		'container_inclusive' => true,
 	) );
+
+	// View Pro
+	$wp_customize->add_section( 'julia_lite_style_view_pro', array(
+		'title'       => '' . esc_html__( 'View PRO Version', 'julia-lite' ),
+		'priority'    => 2,
+		'description' => sprintf(
+			__( '<div class="upsell-container">
+					<h2>Need More? Go PRO</h2>
+					<p>Take it to the next level. See the features below:</p>
+					<ul class="upsell-features">
+                            <li>
+                            	<h4>Personalize to Match Your Style</h4>
+                            	<div class="description">Having different tastes and preferences might be tricky for users, but not with Julia onboard. It has an intuitive and catchy interface which allows you to change <strong>fonts, colors or layout sizes</strong> in a blink of an eye.</div>
+                            </li>
+
+                            <li>
+                            	<h4>Post Formats</h4>
+                            	<div class="description">Make room for a wide range of post formats to pack your engaging stories so that people will enjoy sharing. Text, image, video, audio—you name it, and you’re covered.</div>
+                            </li>
+
+                            <li>
+                            	<h4>Adaptive Layouts For Your Posts</h4>
+                            	<div class="description">Whether your featured image is in portrait or landscape mode, Julia takes care of it by changing the post layout to provide the right fit.</div>
+                            </li>
+
+                            <li>
+                            	<h4>Premium Customer Support</h4>
+                            	<div class="description">You will benefit by priority support from a caring and devoted team, eager to help and to spread happiness. We work hard to provide a flawless experience for those who vote us with trust and choose to be our special clients.</div>
+                            </li>
+                            
+                    </ul> %s </div>', 'julia-lite' ),
+			sprintf( '<a href="%1$s" target="_blank" class="button button-primary">%2$s</a>', esc_url( julia_lite_get_pro_link() ), esc_html__( 'View Julia PRO', 'julia-lite' ) )
+		),
+	) );
+
+	$wp_customize->add_setting( 'julia_lite_style_view_pro_desc', array(
+		'default'           => '',
+//		'sanitize_callback' => 'julia_lite_sanitize_checkbox',
+	) );
+
+	$wp_customize->add_control( 'julia_lite_style_view_pro_desc', array(
+		'section' => 'julia_lite_style_view_pro',
+		'type'    => 'hidden',
+	) );
 }
 add_action( 'customize_register', 'julia_customize_register' );
+
+/**
+ * Generate a link to the Julia Lite info page.
+ */
+function julia_lite_get_pro_link() {
+	return 'https://pixelgrade.com/themes/blogging/julia-lite?utm_source=julia-lite-clients&utm_medium=customizer&utm_campaign=julia-lite#pro';
+}
 
 /* =========================
  * SANITIZATION FOR SETTINGS - EXAMPLES
