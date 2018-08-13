@@ -177,9 +177,5 @@ function julia_custom_widgets_init() {
     // The Categories Image Grid Widget
     require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-CategoriesImageGridWidget.php' );
     register_widget( 'Pixelgrade_CategoriesImageGridWidget' );
-
-	// The Promo Box Widget
-	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-PromoBoxWidget.php' );
-	register_widget( 'Pixelgrade_PromoBoxWidget' );
 }
 add_action( 'widgets_init', 'julia_custom_widgets_init', 10 );
