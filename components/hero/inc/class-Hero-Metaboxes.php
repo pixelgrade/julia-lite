@@ -91,7 +91,7 @@ class Pixelgrade_Hero_Metaboxes extends Pixelgrade_Singleton {
 
 			wp_localize_script(
 				'pixelgrade_hero-admin-metaboxes-scripts', 'pixelgrade_hero_admin', array(
-					'ajaxurl'                      => admin_url( 'admin-ajax.php' ),
+					'ajaxurl'                      => esc_url( admin_url( 'admin-ajax.php' ) ),
 					'featured_projects_ids_helper' => esc_html__( 'Here are the IDs of the selected featured projects to use elsewhere, if the need arises: ', 'julia-lite' ),
 				)
 			);

@@ -889,7 +889,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 				$required_actions = $this->get_required_actions();
 				wp_localize_script( 'ti-about-page-js', 'tiAboutPageObject', array(
 					'nr_actions_required'      => count( $required_actions ),
-					'ajaxurl'                  => admin_url( 'admin-ajax.php' ),
+					'ajaxurl'                  => esc_url( admin_url( 'admin-ajax.php' ) ),
 					'template_directory'       => get_template_directory_uri(),
 					'activating_string'        => __( 'Activating', 'julia-lite' )
 				) );
