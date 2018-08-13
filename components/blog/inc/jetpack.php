@@ -51,13 +51,13 @@ function pixelgrade_get_jetpack_related_posts_ids( $post = null ) {
 
 		$related = Jetpack_RelatedPosts::init_raw()
 									->set_query_name( 'pixelgrade-jetpack-related-posts' ) // Optional, name can be anything
-									->get_for_post_id(
-										$post->ID,
-										array(
-											'exclude_post_ids' => array( $post->ID ),
-											'size' => (int) $related_posts_options['size'],
-										)
-									);
+        ->get_for_post_id(
+            $post->ID,
+            array(
+            'exclude_post_ids' => array( $post->ID ),
+            'size' => (int) $related_posts_options['size'],
+            )
+        );
 
 		if ( $related ) {
 			foreach ( $related as $result ) {

@@ -27,4 +27,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! is_active_sidebar( 'sidebar-2' ) ) {
 	return;
 }
-?>
+

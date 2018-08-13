@@ -17,50 +17,62 @@ function julia_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
-		$wp_customize->selective_refresh->add_partial( 'blogname', array(
-			'selector' => '.site-title',
-			'render_callback' => 'julia_customize_partial_blogname',
-		) );
-		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
-			'selector' => '.site-description-text',
-			'render_callback' => 'julia_customize_partial_blogdescription',
-		) );
+$wp_customize->selective_refresh->add_partial(
+    'blogname', array(
+    'selector' => '.site-title',
+    'render_callback' => 'julia_customize_partial_blogname',
+    ) 
+);
+$wp_customize->selective_refresh->add_partial(
+    'blogdescription', array(
+    'selector' => '.site-description-text',
+    'render_callback' => 'julia_customize_partial_blogdescription',
+    ) 
+);
 	}
 
 	// add a setting for the site logo
-	$wp_customize->add_setting('pixelgrade_transparent_logo', array(
-		'theme_supports' => array( 'custom-logo' ),
-		'transport'      => 'postMessage',
-	) );
+$wp_customize->add_setting(
+    'pixelgrade_transparent_logo', array(
+    'theme_supports' => array( 'custom-logo' ),
+    'transport'      => 'postMessage',
+    ) 
+);
 	// Add a control to upload the logo
 	// But first get the custom logo options
 	$custom_logo_args = get_theme_support( 'custom-logo' );
-	$wp_customize->add_control( new WP_Customize_Cropped_Image_Control( $wp_customize, 'pixelgrade_transparent_logo',
-		array(
-			'label' => esc_html__( 'Logo while on Transparent Header', 'julia-lite' ),
-			'button_labels' => array(
-				'select'       => esc_html__( 'Select logo', 'julia-lite' ),
-				'change'       => esc_html__( 'Change logo', 'julia-lite' ),
-				'default'      => esc_html__( 'Default', 'julia-lite' ),
-				'remove'       => esc_html__( 'Remove', 'julia-lite' ),
-				'placeholder'  => esc_html__( 'No logo selected', 'julia-lite' ),
-				'frame_title'  => esc_html__( 'Select logo', 'julia-lite' ),
-				'frame_button' => esc_html__( 'Choose logo', 'julia-lite' ),
-			),
-			'section' => 'title_tagline',
-			'priority'      => 9, // put it after the normal logo that has priority 8
-			'height'        => $custom_logo_args[0]['height'],
-			'width'         => $custom_logo_args[0]['width'],
-			'flex_height'   => $custom_logo_args[0]['flex-height'],
-			'flex_width'    => $custom_logo_args[0]['flex-width'],
-		) ) );
+$wp_customize->add_control(
+    new WP_Customize_Cropped_Image_Control(
+        $wp_customize, 'pixelgrade_transparent_logo',
+        array(
+        'label' => esc_html__( 'Logo while on Transparent Header', 'julia-lite' ),
+        'button_labels' => array(
+        'select'       => esc_html__( 'Select logo', 'julia-lite' ),
+        'change'       => esc_html__( 'Change logo', 'julia-lite' ),
+        'default'      => esc_html__( 'Default', 'julia-lite' ),
+        'remove'       => esc_html__( 'Remove', 'julia-lite' ),
+        'placeholder'  => esc_html__( 'No logo selected', 'julia-lite' ),
+        'frame_title'  => esc_html__( 'Select logo', 'julia-lite' ),
+        'frame_button' => esc_html__( 'Choose logo', 'julia-lite' ),
+        ),
+        'section' => 'title_tagline',
+        'priority'      => 9, // put it after the normal logo that has priority 8
+        'height'        => $custom_logo_args[0]['height'],
+        'width'         => $custom_logo_args[0]['width'],
+        'flex_height'   => $custom_logo_args[0]['flex-height'],
+        'flex_width'    => $custom_logo_args[0]['flex-width'],
+        ) 
+    ) 
+);
 
-	$wp_customize->selective_refresh->add_partial( 'pixelgrade_transparent_logo', array(
-		'settings'            => array( 'pixelgrade_transparent_logo' ),
-		'selector'            => '.custom-logo-link--transparent',
-		'render_callback'     => 'julia_customizer_partial_transparent_logo',
-		'container_inclusive' => true,
-	) );
+$wp_customize->selective_refresh->add_partial(
+    'pixelgrade_transparent_logo', array(
+    'settings'            => array( 'pixelgrade_transparent_logo' ),
+    'selector'            => '.custom-logo-link--transparent',
+    'render_callback'     => 'julia_customizer_partial_transparent_logo',
+    'container_inclusive' => true,
+    ) 
+);
 }
 add_action( 'customize_register', 'julia_customize_register' );
 

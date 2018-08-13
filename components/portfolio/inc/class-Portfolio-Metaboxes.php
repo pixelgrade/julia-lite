@@ -91,12 +91,12 @@ class Pixelgrade_Portfolio_Metaboxes extends Pixelgrade_Singleton {
 			}
 
 			// Add our CPT to the list
-			$base_metaboxes['base_custom_css_style']['pages'] = array_merge(
+$base_metaboxes['base_custom_css_style']['pages'] = array_merge(
 				$base_metaboxes['base_custom_css_style']['pages'],
 				array(
 					Jetpack_Portfolio::CUSTOM_POST_TYPE,
 				)
-			);
+);
 		}
 
 		return $base_metaboxes;
@@ -125,10 +125,10 @@ class Pixelgrade_Portfolio_Metaboxes extends Pixelgrade_Singleton {
 
 				// Add our page templates
 				$hero_metaboxes['hero_area_background__page']['show_on']['value'] = array_merge(
-					$hero_metaboxes['hero_area_background__page']['show_on']['value'],
-					array(
-						$portfolio_page_template,
-					)
+        $hero_metaboxes['hero_area_background__page']['show_on']['value'],
+        array(
+        $portfolio_page_template,
+        )
 				);
 			}
 
@@ -143,10 +143,10 @@ class Pixelgrade_Portfolio_Metaboxes extends Pixelgrade_Singleton {
 
 				// Add our page templates
 				$hero_metaboxes['hero_area_content__page']['show_on']['value'] = array_merge(
-					$hero_metaboxes['hero_area_content__page']['show_on']['value'],
-					array(
-						$portfolio_page_template,
-					)
+        $hero_metaboxes['hero_area_content__page']['show_on']['value'],
+        array(
+        $portfolio_page_template,
+        )
 				);
 			}
 		}
@@ -203,10 +203,10 @@ class Pixelgrade_Portfolio_Metaboxes extends Pixelgrade_Singleton {
 		}
 
 		// Insert the featured projects fields at the end
-		$hero_metaboxes['hero_area_content__page']['fields'] = array_merge(
-			$hero_metaboxes['hero_area_content__page']['fields'],
-			$featured_projects_fields
-		);
+$hero_metaboxes['hero_area_content__page']['fields'] = array_merge(
+    $hero_metaboxes['hero_area_content__page']['fields'],
+    $featured_projects_fields
+);
 
 		return $hero_metaboxes;
 	}
@@ -275,10 +275,10 @@ class Pixelgrade_Portfolio_Metaboxes extends Pixelgrade_Singleton {
 		}
 
 		// Insert the featured projects fields at the end
-		$hero_metaboxes['hero_area_content__page']['fields'] = array_merge(
-			$hero_metaboxes['hero_area_content__page']['fields'],
-			$portfolio_grid_fields
-		);
+$hero_metaboxes['hero_area_content__page']['fields'] = array_merge(
+    $hero_metaboxes['hero_area_content__page']['fields'],
+    $portfolio_grid_fields
+);
 
 		return $hero_metaboxes;
 	}

@@ -62,10 +62,12 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_ListWidget' ) ) :
 				),
 			);
 
-			parent::__construct( 'featured-posts-list',
+parent::__construct(
+    'featured-posts-list',
 				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: List Posts', '__theme_txtd' ) ),
 				$widget_ops,
-				$config );
+    $config 
+);
 
 			$this->alt_option_name = 'widget_featured_entries_list';
 		}

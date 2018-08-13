@@ -17,7 +17,7 @@
  * @return WP_Term
  */
 function julia_yoast_primary_category( $category, $post_id ) {
-	if ( class_exists('WPSEO_Primary_Term') ) {
+	if ( class_exists( 'WPSEO_Primary_Term' ) ) {
 		// Show the post's 'Primary' category, if this Yoast feature is available, & one is set
 		$wpseo_primary_term = new WPSEO_Primary_Term( 'category', $post_id );
 		$wpseo_primary_term = $wpseo_primary_term->get_primary_term();

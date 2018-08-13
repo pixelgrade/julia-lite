@@ -20,23 +20,25 @@ function julia_jetpack_setup() {
 	add_theme_support( 'jetpack-responsive-videos' );
 
 	// Add support for content options, where it's appropriate
-	add_theme_support( 'jetpack-content-options', array(
-		'blog-display'       => false, // we only show the excerpt, not full post content on archives
-		'author-bio'         => true, // display or not the author bio by default: true or false.
-		'masonry'            => '.c-gallery--masonry', // a CSS selector matching the elements that triggers a masonry refresh if the theme is using a masonry layout.
-		'post-details'       => array(
-			'stylesheet'      => 'julia-style', // name of the theme's stylesheet.
-			'date'            => '.single-post .posted-on', // a CSS selector matching the elements that display the post date.
-			'categories'      => '.single-post .cats', // a CSS selector matching the elements that display the post categories.
-			'tags'            => '.single-post .tags', // a CSS selector matching the elements that display the post tags.
-			'author'          => '.single-post .byline', // a CSS selector matching the elements that display the post author.
-		),
-		'featured-images'    => array(
-			'archive'         => true, // enable or not the featured image check for archive pages: true or false.
-			'post'            => true, // we do not display the featured image on single posts
-			'page'            => false, // enable or not the featured image check for single pages: true or false.
-		),
-	) );
+add_theme_support(
+    'jetpack-content-options', array(
+    'blog-display'       => false, // we only show the excerpt, not full post content on archives
+    'author-bio'         => true, // display or not the author bio by default: true or false.
+    'masonry'            => '.c-gallery--masonry', // a CSS selector matching the elements that triggers a masonry refresh if the theme is using a masonry layout.
+    'post-details'       => array(
+    'stylesheet'      => 'julia-style', // name of the theme's stylesheet.
+    'date'            => '.single-post .posted-on', // a CSS selector matching the elements that display the post date.
+    'categories'      => '.single-post .cats', // a CSS selector matching the elements that display the post categories.
+    'tags'            => '.single-post .tags', // a CSS selector matching the elements that display the post tags.
+    'author'          => '.single-post .byline', // a CSS selector matching the elements that display the post author.
+    ),
+    'featured-images'    => array(
+    'archive'         => true, // enable or not the featured image check for archive pages: true or false.
+    'post'            => true, // we do not display the featured image on single posts
+    'page'            => false, // enable or not the featured image check for single pages: true or false.
+    ),
+    ) 
+);
 
 	/**
 	 * Set our own default activated modules
@@ -192,13 +194,13 @@ function julia_get_jetpack_related_posts_ids( $post = null ) {
 
 		$related = Jetpack_RelatedPosts::init_raw()
 		                               ->set_query_name( 'julia-jetpack-related-posts' ) // Optional, name can be anything
-		                               ->get_for_post_id(
-				$post->ID,
-				array(
-					'exclude_post_ids' => array( $post->ID ),
-					'size' => (int)$related_posts_options['size'],
-				)
-			);
+                                ->get_for_post_id(
+                                    $post->ID,
+                                    array(
+                                    'exclude_post_ids' => array( $post->ID ),
+                                    'size' => (int)$related_posts_options['size'],
+                                    )
+                                );
 
 		if ( $related ) {
 			foreach ( $related as $result ) {

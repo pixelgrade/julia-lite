@@ -88,7 +88,7 @@ if ( $query->have_posts() ) {
 						$primary_meta_output   = ( 'none' !== $primary_meta ) ? pixelgrade_get_post_meta( $primary_meta ) : false;
 						$secondary_meta_output = ( 'none' !== $secondary_meta ) ? pixelgrade_get_post_meta( $secondary_meta ) : false;
 					?>
-						<article id="post-<?php the_ID(); ?>" <?php post_class('c-gallery__item'); ?>>
+						<article id="post-<?php the_ID(); ?>" <?php post_class( 'c-gallery__item' ); ?>>
 							<div class="c-card  c-card--related">
 								<?php if ( has_post_thumbnail() ) : ?>
 								<div class="c-card__aside c-card__thumbnail-background">

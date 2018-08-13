@@ -279,11 +279,11 @@ final class Pixelgrade_BlocksManager extends Pixelgrade_Singleton {
 		// @todo This is not used right now. Decide if we need the logic for block JS templates.
 		foreach ( $this->registered_block_types as $block_type ) {
 			/** @var Pixelgrade_Block $block */
-			$block = new $block_type(
+$block = new $block_type(
 				$this, 'temp', array(
 					'settings' => array(),
 				)
-			);
+);
 			$block->print_template();
 		}
 		?>
@@ -337,12 +337,12 @@ final class Pixelgrade_BlocksManager extends Pixelgrade_Singleton {
 	 * @return array
 	 */
 	public static function orderBlocks( $blocks ) {
-		return wp_list_sort(
-			$blocks, array(
+return wp_list_sort(
+    $blocks, array(
 				'priority'        => 'ASC',
 				'instance_number' => 'ASC',
-			), 'ASC', true
-		);
+    ), 'ASC', true
+);
 	}
 
 	/**

@@ -220,16 +220,16 @@ class Pixelgrade_Wrapper {
 		}
 
 		// We will filter the markup parts to avoid gluing empty entries
-		return '<' . implode(
-			' ', array_filter(
-				array(
-					$tag,
-					self::getIdMarkup( $this->id ),
-					self::getClassMarkup( $this->classes, $this ),
-					self::getAttributesMarkup( $this->attributes, $this ),
-				)
-			)
-		) . '>';
+return '<' . implode(
+    ' ', array_filter(
+        array(
+        $tag,
+        self::getIdMarkup( $this->id ),
+        self::getClassMarkup( $this->classes, $this ),
+        self::getAttributesMarkup( $this->attributes, $this ),
+        )
+    )
+) . '>';
 	}
 
 	/**

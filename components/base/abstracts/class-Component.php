@@ -692,13 +692,13 @@ abstract class Pixelgrade_Component extends Pixelgrade_Singleton {
 			// Make sure that the helper class is loaded.
 			pixelgrade_load_component_file( Pixelgrade_Base::COMPONENT_SLUG, 'inc/class-CustomLoopsForPages' );
 
-			$new_query = new Pixelgrade_CustomLoopsForPages(
+$new_query = new Pixelgrade_CustomLoopsForPages(
 				constant( get_class( $this ) . '::COMPONENT_SLUG' ),
 				$page_template, // The page template slug we will target.
 				$post_template_part, // Component template part which will be used to display posts, name should be without .php extension.
 				$loop_template_part, // Component template part which will be used to display the loop, name should be without .php extension.
 				$query_args  // Array of valid arguments that will be passed to WP_Query/pre_get_posts.
-			);
+);
 			$new_query->init();
 
 			// Now setup the hooks for outputting the custom loop and the wrappers.

@@ -639,10 +639,10 @@ function pixelgrade_attachment_url_to_postid( $url ) {
 	// Remove the resizing details off the end of the file name
 	$path = preg_replace( '/-[0-9]{1,4}x[0-9]{1,4}\.(jpg|jpeg|png|gif|bmp)$/i', '.$1', $path );
 
-	$sql     = $wpdb->prepare(
-		"SELECT post_id FROM $wpdb->postmeta WHERE meta_key = '_wp_attached_file' AND meta_value = %s",
-		$path
-	);
+$sql     = $wpdb->prepare(
+    "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = '_wp_attached_file' AND meta_value = %s",
+    $path
+);
 	$post_id = $wpdb->get_var( $sql );
 
 	if ( empty( $post_id ) ) {
@@ -873,12 +873,12 @@ function pixelgrade_parse_content_tags( $content ) {
 
 		// If we still haven't got a user ID, we will just use the first user on the site
 		if ( empty( $user_id ) ) {
-			$blogusers = get_users(
+$blogusers = get_users(
 				array(
 					'role'   => 'administrator',
 					'number' => 1,
 				)
-			);
+);
 			if ( ! empty( $blogusers ) ) {
 				$blogusers = reset( $blogusers );
 				$user_id   = $blogusers->ID;

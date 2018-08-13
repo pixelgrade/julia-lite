@@ -18,18 +18,19 @@ if ( ! function_exists( 'julia_posted_on' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
 
-		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( 'c' ) ),
-			esc_html( get_the_modified_date() )
-		);
+$time_string = sprintf(
+    $time_string,
+    esc_attr( get_the_date( 'c' ) ),
+    esc_html( get_the_date() ),
+    esc_attr( get_the_modified_date( 'c' ) ),
+    esc_html( get_the_modified_date() )
+);
 
-		$posted_on = sprintf(
-			/* translators: %s: The current post's posted date, in the post header */
-			esc_html_x( '%s', 'post date', 'julia-lite' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-		);
+$posted_on = sprintf(
+    /* translators: %s: The current post's posted date, in the post header */
+    esc_html_x( '%s', 'post date', 'julia-lite' ),
+    '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+);
 
         $byline = sprintf(
             '<span class="by">' . esc_html_x( 'by', 'post author', '__theme_txtd' ) . '</span> %s',
@@ -93,14 +94,16 @@ if ( ! function_exists( 'julia_get_the_posts_pagination' ) ) {
 	 */
 	function julia_get_the_posts_pagination( $args = array() ) {
 		// Put our own defaults in place
-		$args = wp_parse_args( $args, array(
-			'end_size'           => 1,
-			'mid_size'           => 2,
-			'type'               => 'list',
-			'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', 'julia-lite' ),
-			'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', 'julia-lite' ),
-			'screen_reader_text' => esc_html__( 'Posts navigation', 'julia-lite' ),
-		) );
+$args = wp_parse_args(
+    $args, array(
+    'end_size'           => 1,
+    'mid_size'           => 2,
+    'type'               => 'list',
+    'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', 'julia-lite' ),
+    'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', 'julia-lite' ),
+    'screen_reader_text' => esc_html__( 'Posts navigation', 'julia-lite' ),
+    ) 
+);
 
 		return get_the_posts_pagination( $args );
 	}

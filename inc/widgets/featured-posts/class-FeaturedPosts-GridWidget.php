@@ -56,10 +56,12 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_GridWidget' ) ) :
                 ),
 			);
 
-			parent::__construct( 'featured-posts-grid',
+parent::__construct(
+    'featured-posts-grid',
 				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: Grid Posts', '__theme_txtd' ) ),
 				$widget_ops,
-				$config );
+    $config 
+);
 
 			$this->alt_option_name = 'widget_featured_entries_grid';
 		}

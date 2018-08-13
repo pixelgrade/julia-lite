@@ -213,4 +213,4 @@ function julia_lite_admin_setup() {
 	);
 	TI_About_Page::init( $config );
 }
-add_action('after_setup_theme', 'julia_lite_admin_setup' );
+add_action( 'after_setup_theme', 'julia_lite_admin_setup' );

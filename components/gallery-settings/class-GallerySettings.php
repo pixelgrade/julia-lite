@@ -161,11 +161,11 @@ class Pixelgrade_GallerySettings extends Pixelgrade_Component {
 		// Enqueue our script
 		wp_enqueue_script( 'pixelgrade-gallery-settings' );
 
-		wp_localize_script(
-			'pixelgrade-gallery-settings', 'pixelgradeGallerySettings', array(
+wp_localize_script(
+    'pixelgrade-gallery-settings', 'pixelgradeGallerySettings', array(
 				'postType' => get_post_type(),
-			)
-		);
+    )
+);
 	}
 
 	/**

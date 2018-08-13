@@ -42,7 +42,7 @@
 
 <?php } ?>
 
-<?php if ( ! empty ( $featured_image ) ) { ?>
+<?php if ( ! empty( $featured_image ) ) { ?>
 	<div class="c-promo__media">
 		<?php echo wp_get_attachment_image( $featured_image, 'pixelgrade_single_portrait' ); ?>
 	</div>

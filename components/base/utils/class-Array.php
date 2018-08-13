@@ -250,15 +250,15 @@ if ( ! class_exists( 'Pixelgrade_Array' ) ) :
 				return false;
 			}
 
-			array_splice(
+array_splice(
 				$array,
 				$new_index,
 				count( $array ),
 				array_merge(
-					array_splice( $array, $old_index, 1 ),
-					array_slice( $array, $new_index, count( $array ) )
+        array_splice( $array, $old_index, 1 ),
+        array_slice( $array, $new_index, count( $array ) )
 				)
-			);
+);
 
 			return $array;
 		}

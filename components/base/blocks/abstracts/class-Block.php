@@ -159,12 +159,12 @@ abstract class Pixelgrade_Block {
 				if ( empty( $this->end_wrappers ) || ! Pixelgrade_Wrapper::isInlineMarkup( $this->end_wrappers ) ) {
 					_doing_it_wrong( __METHOD__, sprintf( 'An inline opening wrapper markup has been given (%s), but no valid ending provided (%s)!', htmlentities( $this->wrappers ), htmlentities( $this->end_wrappers ) ), null );
 				} else {
-					$new_wrappers[] = new Pixelgrade_Wrapper(
-						array(
-							'tag'     => $this->wrappers,
-							'end_tag' => $this->end_wrappers,
-						)
-					);
+    $new_wrappers[] = new Pixelgrade_Wrapper(
+        array(
+        'tag'     => $this->wrappers,
+        'end_tag' => $this->end_wrappers,
+        )
+    );
 				}
 			} else {
 				// This is just a shorthand for a tag
@@ -172,11 +172,11 @@ abstract class Pixelgrade_Block {
 			}
 		} elseif ( is_array( $this->wrappers ) && isset( $this->wrappers['callback'] ) ) {
 			// If it's a callback we will treat it as the master callback for the wrapper
-			$new_wrappers[] = new Pixelgrade_Wrapper(
+$new_wrappers[] = new Pixelgrade_Wrapper(
 				array(
 					'master_callback' => $this->wrappers,
 				)
-			);
+);
 		} else {
 			// We have a collection of wrappers
 			// We will save the last priority present so we can help wrappers without priority maintain their relative order
@@ -219,20 +219,20 @@ abstract class Pixelgrade_Block {
 				return false;
 			} else {
 				return new Pixelgrade_Wrapper(
-					array(
-						'tag'      => $wrapper,
-						'priority' => $default_priority,
-					)
+        array(
+        'tag'      => $wrapper,
+        'priority' => $default_priority,
+        )
 				);
 			}
 		} elseif ( is_array( $wrapper ) && isset( $wrapper['callback'] ) ) {
 			// If it's a callback we will treat it as the master callback for the wrapper
-			return new Pixelgrade_Wrapper(
+return new Pixelgrade_Wrapper(
 				array(
 					'master_callback' => $wrapper,
 					'priority'        => $default_priority,
 				)
-			);
+);
 		} elseif ( is_array( $wrapper ) ) {
 			// If we don't have a priority, we will put the default priority (it may be different than 10)
 			if ( ! isset( $wrapper['priority'] ) ) {
@@ -728,12 +728,12 @@ abstract class Pixelgrade_Block {
 		}
 
 		// Make sure the extended wrappers are ordered ascending
-		$extended_wrappers = self::orderWrappers(
-			$extended_wrappers, array(
+$extended_wrappers = self::orderWrappers(
+    $extended_wrappers, array(
 				'priority'        => 'ASC',
 				'instance_number' => 'ASC',
-			), 'ASC'
-		);
+    ), 'ASC'
+);
 
 		// We need to make an initial pass through the new wrappers and setup their priorities in such a way
 		// that new unnamed wrappers retain their order relative to new named wrappers

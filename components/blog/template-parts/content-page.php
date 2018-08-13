@@ -126,12 +126,12 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 							<?php
 							the_content();
 
-							wp_link_pages(
+    wp_link_pages(
 								array(
 									'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'julia-lite' ),
 									'after'  => '</div>',
 								)
-							);
+    );
 							?>
 						</div><!-- .entry-content.u-content-width -->
 

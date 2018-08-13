@@ -273,10 +273,12 @@ if ( ! function_exists( 'julia_google_fonts_url' ) ) :
 		}
 
 		if ( $fonts ) {
-			$fonts_url = add_query_arg( array(
+$fonts_url = add_query_arg(
+    array(
 				'family' => urlencode( implode( '|', $fonts ) ),
 				'subset' => urlencode( $subsets ),
-			), '//fonts.googleapis.com/css' );
+    ), '//fonts.googleapis.com/css' 
+);
 		}
 
 		return $fonts_url;
@@ -299,27 +301,29 @@ if ( ! function_exists( 'julia_comment_form_custom_fields' ) ) :
 		$req = get_option( 'require_name_email' );
 		$aria_req = ( $req ? ' aria-required="true"' : '' );
 
-		$fields =  array_merge( $fields, array(
-			'author' =>
+$fields =  array_merge(
+    $fields, array(
+    'author' =>
 				'<p class="comment-form-author"><label for="author">' . esc_html__( 'Name', '__theme_txtd' ) . ( $req ? '*' : '' ) . '</label> ' .
-				'<input id="author" name="author" type="text" placeholder="'. esc_attr__('Your name', '__theme_txtd') .'" value="' . esc_attr( $commenter['comment_author'] ) .
+				'<input id="author" name="author" type="text" placeholder="'. esc_attr__( 'Your name', '__theme_txtd' ) .'" value="' . esc_attr( $commenter['comment_author'] ) .
 				'"' . $aria_req . ' /></p>',
 
-			'email' =>
+    'email' =>
 				'<p class="comment-form-email"><label for="email">' . esc_html__( 'Email', '__theme_txtd' ) . ( $req ? '*' : '' ) . '</label> ' .
-				'<input id="email" name="email" type="text" placeholder="'. esc_attr__('your@email.com', '__theme_txtd') .'" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+				'<input id="email" name="email" type="text" placeholder="'. esc_attr__( 'your@email.com', '__theme_txtd' ) .'" value="' . esc_attr( $commenter['comment_author_email'] ) .
 				'"' . $aria_req . ' /></p>',
 
-			'url' =>
+    'url' =>
 				'<p class="comment-form-url"><label for="url">' . esc_html__( 'Website', '__theme_txtd' ) . '</label>' .
 				'<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
 				'" size="30" /></p>',
-		) );
+    ) 
+);
 
 		return $fields;
 	}
 endif;
-add_filter('comment_form_default_fields', 'julia_comment_form_custom_fields');
+add_filter( 'comment_form_default_fields', 'julia_comment_form_custom_fields' );
 
 /**
  * Display the hidden "Styles" drop-down in the Advanced editor bar.
@@ -327,7 +331,7 @@ add_filter('comment_form_default_fields', 'julia_comment_form_custom_fields');
  * @see https://codex.wordpress.org/TinyMCE_Custom_Styles
  */
 function julia_mce_editor_buttons( $buttons ) {
-	array_unshift($buttons, 'styleselect' );
+	array_unshift( $buttons, 'styleselect' );
 	return $buttons;
 }
 add_filter( 'mce_buttons_2', 'julia_mce_editor_buttons' );
