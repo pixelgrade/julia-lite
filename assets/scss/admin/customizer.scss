@@ -1,9 +1,9 @@
 // Pro Sections Badges
-#accordion-section-silklite_style_presets h3:before,
-#accordion-section-silklite_colors h3:before,
-#accordion-section-silklite_fonts h3:before,
-#accordion-section-silklite_style_view_pro h3:before,
-a.badge-silk-pro {
+#accordion-section-julialite_style_presets h3:before,
+#accordion-section-julialite_colors h3:before,
+#accordion-section-julialite_fonts h3:before,
+#accordion-section-julialite_style_view_pro h3:before,
+a.badge-julia-pro {
     position: relative;
     top: 2px;
     float: right;
@@ -27,7 +27,7 @@ a.badge-silk-pro {
 }
 
 // Title
-a.badge-silk-pro {
+a.badge-julia-pro {
 	float: none;
     margin: 0;
 
@@ -57,20 +57,20 @@ a.badge-silk-pro {
 
  // Dismissed?
  .upsell_links_dismissed {
-    .badge-silk-pro,
+    .badge-julia-pro,
     .upsell_link_details,
-    #accordion-section-silklite_style_presets,
-    #accordion-section-silklite_colors,
-    #accordion-section-silklite_fonts {
+    #accordion-section-julialite_style_presets,
+    #accordion-section-julialite_colors,
+    #accordion-section-julialite_fonts {
         display: none !important;
     }
  }
 
 
 // Content Styling for Pro Sections
-#accordion-section-silklite_style_presets,
-#accordion-section-silklite_colors,
-#accordion-section-silklite_fonts {
+#accordion-section-julialite_style_presets,
+#accordion-section-julialite_colors,
+#accordion-section-julialite_fonts {
 	.accordion-section-content {
 	    background: #eaf9fe;
 	}
