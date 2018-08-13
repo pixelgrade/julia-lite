@@ -31,7 +31,6 @@ function julia_customize_register( $wp_customize ) {
 	$wp_customize->add_setting('pixelgrade_transparent_logo', array(
 		'theme_supports' => array( 'custom-logo' ),
 		'transport'      => 'postMessage',
-		'sanitize_callback' => 'julia_sanitize_transparent_logo',
 	) );
 	// Add a control to upload the logo
 	// But first get the custom logo options
@@ -64,14 +63,6 @@ function julia_customize_register( $wp_customize ) {
 	) );
 }
 add_action( 'customize_register', 'julia_customize_register' );
-
-/* ============================
- * Customizer sanitization
- * ============================ */
-
-function julia_sanitize_transparent_logo( $input ) {
-	return $input;
-}
 
 /* =========================
  * SANITIZATION FOR SETTINGS - EXAMPLES
