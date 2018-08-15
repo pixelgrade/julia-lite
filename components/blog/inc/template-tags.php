@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function pixelgrade_blog_grid_class( $class = '', $location = '' ) {
 	// Separates classes with a single space, collates classes
-	echo 'class="' . join( ' ', pixelgrade_get_blog_grid_class( $class, $location ) ) . '"';
+	echo 'class="' . esc_attr( join( ' ', pixelgrade_get_blog_grid_class( $class, $location ) ) ) . '"';
 }
 
 if ( ! function_exists( 'pixelgrade_get_blog_grid_class' ) ) {
@@ -147,7 +147,7 @@ if ( ! function_exists( 'pixelgrade_get_blog_grid_alignment_class' ) ) {
 }
 
 function pixelgrade_blog_grid_item_class( $class = '', $location = '' ) {
-	echo 'class="' . join( ' ', pixelgrade_get_blog_grid_item_class( $class, $location ) ) . '"';
+	echo 'class="' . esc_attr( join( ' ', pixelgrade_get_blog_grid_item_class( $class, $location ) ) ) . '"';
 }
 
 if ( ! function_exists( 'pixelgrade_get_blog_grid_item_class' ) ) {
@@ -243,6 +243,7 @@ if ( ! function_exists( 'pixelgrade_get_post_meta' ) ) {
 						if ( $comments_number == 0 ) {
 							$comments = esc_html__( 'No Comments', 'julia-lite' );
 						} else {
+							/* translators: Number of comments. */
 							$comments = sprintf( _n( '%d Comment', '%d Comments', $comments_number, 'julia-lite' ), $comments_number );
 						}
 						$meta['comments'] = '<a href="' . esc_url( get_comments_link() ) . '">' . esc_html( $comments ) . '</a>';
@@ -275,7 +276,7 @@ if ( ! function_exists( 'pixelgrade_get_post_meta' ) ) {
  *                    Default empty array.
  */
 function pixelgrade_the_post_navigation( $args = array() ) {
-	echo pixelgrade_get_the_post_navigation( $args );
+	echo pixelgrade_get_the_post_navigation( $args ); // WPCS: XSS ok.
 }
 
 if ( ! function_exists( 'pixelgrade_get_the_post_navigation' ) ) {
@@ -359,6 +360,7 @@ if ( ! function_exists( 'pixelgrade_get_author_bio_links' ) ) {
 
 		$markup .= '<span class="c-author__links">' . PHP_EOL;
 
+		/* translators: The author name. */
 		$markup .= '<a class="c-author__social-link  c-author__website-link" href="' . esc_url( $user_posts ) . '" rel="author" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'julia-lite' ), get_the_author() ) ) . '">' . esc_html__( 'All posts', 'julia-lite' ) . '</a>';
 
 		if ( is_array( $profile ) && ! empty( $profile['entry'][0]['urls'] ) ) {
@@ -466,7 +468,7 @@ function pixelgrade_get_main_category( $post_ID = null ) {
  * @param string $category_class Optional. A CSS class that the category will receive.
  */
 function pixelgrade_the_main_category_link( $before = '', $after = '', $category_class = '' ) {
-	echo pixelgrade_get_main_category_link( $before, $after, $category_class );
+	echo pixelgrade_get_main_category_link( $before, $after, $category_class ); // WPCS: XSS ok.
 
 } // function
 
@@ -569,7 +571,7 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 	 * @param int        $depth
 	 */
 	function pixelgrade_shape_comment( $comment, $args, $depth ) {
-		$GLOBALS['comment'] = $comment;
+		$GLOBALS['comment'] = $comment; // phpcs:ignore
 		switch ( $comment->comment_type ) :
 			case 'pingback':
 			case 'trackback':
@@ -589,9 +591,10 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 						<header class="c-meta">
 							<div class="comment__author vcard">
 								<?php
-								/* translators: %s: comment author link */
 								printf(
-            __( '%s <span class="says">says:</span>', 'julia-lite' ),
+            /* translators: %s: comment author link */
+            wp_kses_post( __( '%s <span class="says">says:</span>', 'julia-lite' ) ),
+            /* translators: %s: comment author link */
             sprintf( '<b class="fn">%s</b>', get_comment_author_link( $comment ) )
 								);
 								?>
@@ -602,7 +605,7 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 									<time datetime="<?php comment_time( 'c' ); ?>">
 										<?php
 										/* translators: 1: comment date, 2: comment time */
-										printf( __( '%1$s at %2$s', 'julia-lite' ), get_comment_date( '', $comment ), get_comment_time() );
+										printf( esc_html__( '%1$s at %2$s', 'julia-lite' ), esc_html( get_comment_date( '', $comment ) ), esc_html( get_comment_time() ) );
 										?>
 									</time>
 								</a>
@@ -656,7 +659,7 @@ if ( ! function_exists( 'pixelgrade_the_post_custom_css' ) ) {
 			}
 
 			// Allow others to modify this
-			echo apply_filters( 'pixelgrade_the_post_custom_css', $output, get_the_ID(), $location );
+			echo apply_filters( 'pixelgrade_the_post_custom_css', $output, get_the_ID(), $location ); // WPCS: XSS ok.
 		}
 	}
 }
@@ -710,7 +713,7 @@ if ( ! function_exists( 'pixelgrade_the_posts_pagination' ) ) {
 	 *                    Default empty array.
 	 */
 	function pixelgrade_the_posts_pagination( $args = array() ) {
-		echo pixelgrade_get_the_posts_pagination( $args );
+		echo pixelgrade_get_the_posts_pagination( $args ); // WPCS: XSS ok.
 	}
 }
 
@@ -760,7 +763,7 @@ $time_string = sprintf(
 
 $posted_on = sprintf(
     /* translators: %s: The current post's posted date, in the post header */
-    esc_html_x( '%s', 'post date', 'julia-lite' ),
+    esc_html_x( '%s', 'post date', 'julia-lite' ), // phpcs:ignore
     '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 );
 

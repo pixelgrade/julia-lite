@@ -526,7 +526,7 @@ return '<' . implode(
 			}
 
 			if ( ! is_array( $data ) || ! is_object( $data ) ) {
-				_doing_it_wrong( __METHOD__, 'The wrapper\'s master callback didn\'t return a valid array of wrapper attributes! The master callback used: ' . print_r( $this->master_callback['callback'], true ), null );
+				_doing_it_wrong( __METHOD__, 'The wrapper\'s master callback didn\'t return a valid array of wrapper attributes! The master callback used: ' . esc_html( print_r( $this->master_callback['callback'], true ) ), null );
 
 				return false;
 			}

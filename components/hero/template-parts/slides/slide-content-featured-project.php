@@ -60,7 +60,7 @@ $link_project_label = trim( get_post_meta( $post_ID, '_hero_featured_projects_vi
 			<?php if ( ! empty( $link_project_label ) ) { ?>
 			<div class="c-hero__action">
 				<span class="link--arrow  light">
-					<?php echo $link_project_label; ?>
+					<?php echo wp_kses_post( $link_project_label ); ?>
 				</span>
 			</div>
 		</a>

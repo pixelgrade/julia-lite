@@ -64,7 +64,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_ListWidget' ) ) :
 
 parent::__construct(
     'featured-posts-list',
-				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: List Posts', '__theme_txtd' ) ),
+				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: List Posts', 'julia-lite' ) ),
 				$widget_ops,
     $config 
 );

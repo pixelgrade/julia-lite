@@ -33,7 +33,7 @@ function pixelgrade_add_cats_list( $content ) {
 		$categories_list = get_the_category_list( ' ' );
 
 		if ( ! empty( $categories_list ) && 'Uncategorized' !== $categories_list ) {
-			$cats_content .= '<div class="cats"><span class="cats__title">' . esc_html__( 'Categories', 'julia-lite' ) . sprintf( '</span>' . esc_html__( '%1$s', 'julia-lite' ), $categories_list ) . '</div>'; // WPCS: XSS OK.
+			$cats_content .= '<div class="cats"><span class="cats__title">' . esc_html__( 'Categories', 'julia-lite' ) . sprintf( '</span>%1$s', $categories_list ) . '</div>'; // WPCS: XSS OK.
 		}
 	}
 
@@ -60,7 +60,7 @@ function pixelgrade_add_tags_list( $content ) {
 		$tags_list = get_the_tag_list();
 
 		if ( ! empty( $tags_list ) ) {
-			$tags_content .= '<div class="tags"><div class="tags__title">' . esc_html__( 'Tags', 'julia-lite' ) . sprintf( '</div>' . esc_html__( '%1$s', 'julia-lite' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+			$tags_content .= '<div class="tags"><div class="tags__title">' . esc_html__( 'Tags', 'julia-lite' ) . sprintf( '</div>%1$s</div>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 

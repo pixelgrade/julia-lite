@@ -1,3 +1,4 @@
+// phpcs:disable
 webpackJsonp([3],{
 
 /***/ 36:

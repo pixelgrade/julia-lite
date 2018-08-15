@@ -41,7 +41,7 @@ $primary_meta_output   = $primary_meta !== 'none' ? pixelgrade_get_post_meta( $p
 $secondary_meta_output = $secondary_meta !== 'none' ? pixelgrade_get_post_meta( $secondary_meta ) : false;
 
 // Get the custom text for the view post button
-$link_post_label = trim( esc_html__( 'Read More', '__theme_txtd' ) );
+$link_post_label = trim( esc_html__( 'Read More', 'julia-lite' ) );
 ?>
 
 <div <?php pixelgrade_hero_wrapper_class( $alignment ); ?>>
@@ -61,7 +61,7 @@ $link_post_label = trim( esc_html__( 'Read More', '__theme_txtd' ) );
 				<div class="c-meta">
 					<?php
 					if ( $primary_meta_output ) {
-						echo '<div class="c-meta__primary">' . $primary_meta_output . '</div>';
+						echo '<div class="c-meta__primary">' . wp_kses_post( $primary_meta_output ) . '</div>';
 						// Add a separator if we also have secondary meta
 						if ( $secondary_meta_output ) {
 							echo '<div class="c-meta__separator js-card-meta-separator"></div>';
@@ -69,7 +69,7 @@ $link_post_label = trim( esc_html__( 'Read More', '__theme_txtd' ) );
 					}
 
 					if ( $secondary_meta_output ) {
-						echo '<div class="c-meta__secondary">' . $secondary_meta_output . '</div>';
+						echo '<div class="c-meta__secondary">' . wp_kses_post( $secondary_meta_output ) . '</div>';
 					} ?>
 				</div>
 			</div>
@@ -90,7 +90,7 @@ $link_post_label = trim( esc_html__( 'Read More', '__theme_txtd' ) );
 		if ( ! empty( $link_project_label ) ) { ?>
 			<div class="c-hero__action">
 				<span class="link--arrow  light">
-					<?php echo $link_project_label ?>
+					<?php echo wp_kses_post( $link_project_label ); ?>
 				</span>
 			</div>
 		<?php } ?>

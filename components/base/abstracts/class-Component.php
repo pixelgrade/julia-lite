@@ -228,13 +228,13 @@ abstract class Pixelgrade_Component extends Pixelgrade_Singleton {
 		if ( ! empty( $this->config['cross_config'] ) &&
 			! empty( $modified_config['cross_config'] ) &&
 			false !== Pixelgrade_Array::arrayDiffAssocRecursive( $this->config['cross_config'], $modified_config['cross_config'] ) ) {
-			_doing_it_wrong( __METHOD__, sprintf( 'You should not modify the \'cross_config\' part of the component config through the "pixelgrade_%1$s_cross_config" dynamic filter (due to possible logic loops). Use the "pixelgrade_%1$s_initial_config" filter instead.', $hook_slug ), null );
+			_doing_it_wrong( __METHOD__, sprintf( 'You should not modify the \'cross_config\' part of the component config through the "pixelgrade_%1$s_cross_config" dynamic filter (due to possible logic loops). Use the "pixelgrade_%1$s_initial_config" filter instead.', esc_html( $hook_slug ) ), null );
 			return;
 		}
 
 		// Check/validate the modified config.
 		if ( method_exists( $this, 'validate_config' ) && ! $this->validate_config( $modified_config ) ) {
-			_doing_it_wrong( __METHOD__, sprintf( 'The component config  modified through the "pixelgrade_%1$s_cross_config" dynamic filter is invalid! Please check the modifications you are trying to do!', $hook_slug ), null );
+			_doing_it_wrong( __METHOD__, sprintf( 'The component config  modified through the "pixelgrade_%1$s_cross_config" dynamic filter is invalid! Please check the modifications you are trying to do!', esc_html( $hook_slug ) ), null );
 			return;
 		}
 
@@ -255,7 +255,7 @@ abstract class Pixelgrade_Component extends Pixelgrade_Singleton {
 
 		// Check/validate the modified config.
 		if ( method_exists( $this, 'validate_config' ) && ! $this->validate_config( $modified_config ) ) {
-			_doing_it_wrong( __METHOD__, sprintf( 'The component config  modified through the "pixelgrade_%1$s_after_cross_config" dynamic filter is invalid! Please check the modifications you are trying to do!', $hook_slug ), null );
+			_doing_it_wrong( __METHOD__, sprintf( 'The component config  modified through the "pixelgrade_%1$s_after_cross_config" dynamic filter is invalid! Please check the modifications you are trying to do!', esc_html( $hook_slug ) ), null );
 			return;
 		}
 
@@ -568,7 +568,7 @@ abstract class Pixelgrade_Component extends Pixelgrade_Singleton {
 			if ( is_array( $template_config ) ) {
 				// First some sanity check.
 				if ( empty( $template_config['type'] ) || empty( $template_config['templates'] ) ) {
-					_doing_it_wrong( __FUNCTION__, sprintf( 'The custom template configuration is wrong! Please check the %s component config, at the %s template.', $component_slug, $key ), null );
+					_doing_it_wrong( __FUNCTION__, sprintf( 'The custom template configuration is wrong! Please check the %s component config, at the %s template.', esc_html( $component_slug ), esc_html( $key ) ), null );
 					continue;
 				}
 

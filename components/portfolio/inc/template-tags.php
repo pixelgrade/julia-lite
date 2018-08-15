@@ -81,6 +81,7 @@ if ( ! function_exists( 'pixelgrade_portfolio_get_project_meta' ) ) {
 			if ( 0 === intval( $comments_number ) ) {
 				$comments = esc_html__( 'No Comments', 'julia-lite' );
 			} else {
+				/* translators: %d: The number of comments */
 				$comments = sprintf( _n( '%d Comment', '%d Comments', $comments_number, 'julia-lite' ), $comments_number );
 			}
 			$meta['comments'] = '<a href="' . esc_url( get_comments_link() ) . '">' . esc_html( $comments ) . '</a>';
@@ -124,7 +125,7 @@ if ( ! function_exists( 'pixelgrade_portfolio_the_older_projects_button' ) ) {
  * @param string $type_class Optional. A CSS class that the category will receive.
  */
 function pixelgrade_portfolio_the_main_project_type_link( $before = '', $after = '', $type_class = '' ) {
-	echo pixelgrade_portfolio_get_project_main_type_link( $before, $after, $type_class );
+	echo pixelgrade_portfolio_get_project_main_type_link( $before, $after, $type_class ); // WPCS: XSS ok.
 
 } // function
 
@@ -152,7 +153,7 @@ if ( ! function_exists( 'pixelgrade_portfolio_get_project_main_type_link' ) ) {
 		if ( ! empty( $type_class ) ) {
 			$class_markup = 'class="' . $type_class . '" ';
 		}
-		return $before . '<a ' . $class_markup . ' href="' . esc_url( get_term_link( $type, Jetpack_Portfolio::CUSTOM_TAXONOMY_TYPE ) ) . '" title="' . esc_attr( $type->name ) . '">' . $type->name . '</a>' . $after;
+		return $before . '<a ' . esc_html( $class_markup ) . ' href="' . esc_url( get_term_link( $type, Jetpack_Portfolio::CUSTOM_TAXONOMY_TYPE ) ) . '" title="' . esc_attr( $type->name ) . '">' . esc_html( $type->name ) . '</a>' . $after;
 
 	} // function
 }

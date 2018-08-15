@@ -16,7 +16,7 @@
 		</p>
 	</div><!-- .c-search-overlay__content -->
 	<button class="c-search-overlay__close-button  js-search-close">
-		<span class="screen-reader-text"><?php esc_html_e( 'Close overlay search', '__theme_txtd' ) ?></span>
+		<span class="screen-reader-text"><?php esc_html_e( 'Close overlay search', 'julia-lite' ) ?></span>
 		<?php get_template_part( 'template-parts/svg/icon-close' ); ?>
 	</button>
 </div><!-- .c-search-overlay -->

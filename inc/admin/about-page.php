@@ -9,6 +9,7 @@ function julia_lite_admin_setup() {
 	/**
 	 * Load the About page class
 	 */
+	// phpcs:ignore
 	require_once 'ti-about-page/class-ti-about-page.php';
 
 	/*
@@ -19,7 +20,7 @@ function julia_lite_admin_setup() {
 		'menu_name'               => esc_html__( 'About Julia Lite', 'julia-lite' ),
 		// Page title.
 		'page_name'               => esc_html__( 'About Julia Lite', 'julia-lite' ),
-		// Main welcome title
+		/* translators: Main welcome title */
 		'welcome_title'         => sprintf( esc_html__( 'Welcome to %s! - Version ', 'julia-lite' ), 'Julia Lite' ),
 		// Main welcome content
 		'welcome_content'       => esc_html__( ' Julia Lite is a free magazine-style theme with clean type, smart layouts and a design flexibility that makes it perfect for publishers of all kinds.', 'julia-lite' ),
@@ -94,6 +95,7 @@ function julia_lite_admin_setup() {
 			'free_theme_name'     => 'Julia Lite',
 			'pro_theme_name'      => 'Julia PRO',
 			'pro_theme_link'      => 'https://pixelgrade.com/themes/julia-lite/?utm_source=julia-lite-clients&utm_medium=about-page&utm_campaign=julia-lite#pro',
+			/* translators: View link */
 			'get_pro_theme_label' => sprintf( __( 'View %s', 'julia-lite' ), 'Julia Pro' ),
 			'features'            => array(
 				array(

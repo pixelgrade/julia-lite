@@ -569,7 +569,8 @@ if ( ! function_exists( 'pixelgrade_get_template_part' ) ) {
 		$located = pixelgrade_locate_template_part( $template_slug, $template_path, $template_name, $default_path );
 
 		if ( ! file_exists( $located ) ) {
-			_doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', 'julia-lite' ), '<code>' . $located . '</code>' ), null );
+			/* translators: The template part path. */
+			_doing_it_wrong( __FUNCTION__, sprintf( esc_html__( '%s does not exist.', 'julia-lite' ), '<code>' . esc_html( $located ) . '</code>' ), null );
 
 			return;
 		}
@@ -577,6 +578,7 @@ if ( ! function_exists( 'pixelgrade_get_template_part' ) ) {
 		// Allow 3rd party plugins or themes to filter template file.
 		$located = apply_filters( 'pixelgrade_get_template_part', $located, $template_slug, $template_path, $args, $template_name, $default_path );
 
+		// phpcs:ignore
 		include( $located );
 	}
 }

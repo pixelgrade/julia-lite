@@ -128,7 +128,7 @@ $zones = pixelgrade_footer_get_zones();
 						if ( 'footer-back-to-top-link' === $current_sidebar_id ) {
 							pixelgrade_footer_the_back_to_top_link();
 						} elseif ( 'footer-copyright' === $current_sidebar_id ) {
-							echo pixelgrade_footer_get_copyright_content();
+							echo pixelgrade_footer_get_copyright_content(); // phpcs:ignore
 						}
 					} else {
 						// We will display the current sidebar.
@@ -143,7 +143,7 @@ $zones = pixelgrade_footer_get_zones();
 						if ( 'footer-back-to-top-link' === $current_menu_location_id ) {
 							pixelgrade_footer_the_back_to_top_link();
 						} elseif ( 'footer-copyright' === $current_menu_location_id ) {
-							echo pixelgrade_footer_get_copyright_content();
+							echo pixelgrade_footer_get_copyright_content(); // phpcs:ignore
 						}
 					} else {
 						// We will display the current menu.

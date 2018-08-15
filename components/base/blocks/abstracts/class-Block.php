@@ -155,16 +155,16 @@ abstract class Pixelgrade_Block {
 
 		if ( is_string( $this->wrappers ) ) {
 			if ( Pixelgrade_Wrapper::isInlineMarkup( $this->wrappers ) ) {
-				// If we have been given a fully qualified wrapper(s) opening markup, we expect to also receive the ending markup
+				// If we have been given a fully qualified wrapper(s) opening markup, we expect to also receive the ending markup.
 				if ( empty( $this->end_wrappers ) || ! Pixelgrade_Wrapper::isInlineMarkup( $this->end_wrappers ) ) {
-					_doing_it_wrong( __METHOD__, sprintf( 'An inline opening wrapper markup has been given (%s), but no valid ending provided (%s)!', htmlentities( $this->wrappers ), htmlentities( $this->end_wrappers ) ), null );
+					_doing_it_wrong( __METHOD__, sprintf( 'An inline opening wrapper markup has been given (%s), but no valid ending provided (%s)!', esc_html( htmlentities( $this->wrappers ) ), esc_html( htmlentities( $this->end_wrappers ) ) ), null );
 				} else {
-    $new_wrappers[] = new Pixelgrade_Wrapper(
-        array(
-        'tag'     => $this->wrappers,
-        'end_tag' => $this->end_wrappers,
-        )
-    );
+				    $new_wrappers[] = new Pixelgrade_Wrapper(
+				        array(
+				        'tag'     => $this->wrappers,
+				        'end_tag' => $this->end_wrappers,
+				        )
+				    );
 				}
 			} else {
 				// This is just a shorthand for a tag
@@ -172,11 +172,7 @@ abstract class Pixelgrade_Block {
 			}
 		} elseif ( is_array( $this->wrappers ) && isset( $this->wrappers['callback'] ) ) {
 			// If it's a callback we will treat it as the master callback for the wrapper
-$new_wrappers[] = new Pixelgrade_Wrapper(
-				array(
-					'master_callback' => $this->wrappers,
-				)
-);
+			$new_wrappers[] = new Pixelgrade_Wrapper( array( 'master_callback' => $this->wrappers ) );
 		} else {
 			// We have a collection of wrappers
 			// We will save the last priority present so we can help wrappers without priority maintain their relative order
@@ -215,7 +211,7 @@ $new_wrappers[] = new Pixelgrade_Wrapper(
 			// We will treat it as shorthand for just the tag
 			// But first we need to make sure that it is not accidentally inline opening markup
 			if ( Pixelgrade_Wrapper::isInlineMarkup( $wrapper ) ) {
-				_doing_it_wrong( __METHOD__, sprintf( 'An inline opening wrapper markup has been given (%s) in an individual wrapper config! This is not possible since there is no way to provide the ending markup.', htmlentities( $wrapper ) ), null );
+				_doing_it_wrong( __METHOD__, sprintf( 'An inline opening wrapper markup has been given (%s) in an individual wrapper config! This is not possible since there is no way to provide the ending markup.', esc_html( htmlentities( $wrapper ) ) ), null );
 				return false;
 			} else {
 				return new Pixelgrade_Wrapper(
@@ -227,12 +223,7 @@ $new_wrappers[] = new Pixelgrade_Wrapper(
 			}
 		} elseif ( is_array( $wrapper ) && isset( $wrapper['callback'] ) ) {
 			// If it's a callback we will treat it as the master callback for the wrapper
-return new Pixelgrade_Wrapper(
-				array(
-					'master_callback' => $wrapper,
-					'priority'        => $default_priority,
-				)
-);
+			return new Pixelgrade_Wrapper( array( 'master_callback' => $wrapper, 'priority' => $default_priority ) );
 		} elseif ( is_array( $wrapper ) ) {
 			// If we don't have a priority, we will put the default priority (it may be different than 10)
 			if ( ! isset( $wrapper['priority'] ) ) {
@@ -276,7 +267,7 @@ return new Pixelgrade_Wrapper(
 		ob_start();
 
 		if ( pixelgrade_is_block_debug() ) {
-			echo PHP_EOL . str_repeat( "\t", count( $blocks_trail ) ) . sprintf( '<!-- ### Before maybeRender() block \'%s\' ### -->', $this->id ) . PHP_EOL;
+			echo PHP_EOL . esc_html( str_repeat( "\t", count( $blocks_trail ) ) ) . sprintf( '<!-- ### Before maybeRender() block \'%s\' ### -->', esc_html( $this->id ) ) . PHP_EOL;
 		}
 
 		/**
@@ -324,7 +315,7 @@ return new Pixelgrade_Wrapper(
 		do_action( "pixelgrade_after_block_{$this->id}", $this, $blocks_trail );
 
 		if ( pixelgrade_is_block_debug() ) {
-			echo PHP_EOL . str_repeat( "\t", count( $blocks_trail ) ) . sprintf( '<!-- ### After maybeRender() block \'%s\' ### -->', $this->id ) . PHP_EOL;
+			echo PHP_EOL . esc_html( str_repeat( "\t", count( $blocks_trail ) ) ) . sprintf( '<!-- ### After maybeRender() block \'%s\' ### -->', esc_html( $this->id ) ) . PHP_EOL;
 		}
 
 		// Get the output buffer and end it
@@ -344,7 +335,7 @@ return new Pixelgrade_Wrapper(
 		}
 
 		if ( pixelgrade_is_block_debug() ) {
-			echo PHP_EOL . str_repeat( "\t", count( $blocks_trail ) ) . sprintf( '<!-- ### Before render() block \'%s\' ### -->', $this->id ) . PHP_EOL;
+			echo PHP_EOL . esc_html( str_repeat( "\t", count( $blocks_trail ) ) ) . sprintf( '<!-- ### Before render() block \'%s\' ### -->', esc_html( $this->id ) ) . PHP_EOL;
 		}
 
 		/**
@@ -392,7 +383,7 @@ return new Pixelgrade_Wrapper(
 		do_action( "pixelgrade_after_render_block_{$this->id}", $this, $blocks_trail );
 
 		if ( pixelgrade_is_block_debug() ) {
-			echo PHP_EOL . str_repeat( "\t", count( $blocks_trail ) ) . sprintf( '<!-- ### After render() block \'%s\' ### -->', $this->id ) . PHP_EOL;
+			echo PHP_EOL . esc_html( str_repeat( "\t", count( $blocks_trail ) ) ) . sprintf( '<!-- ### After render() block \'%s\' ### -->', esc_html( $this->id ) ) . PHP_EOL;
 		}
 	}
 
@@ -455,7 +446,7 @@ return new Pixelgrade_Wrapper(
 			$content = $wrapper->maybeWrapContent( $content );
 		}
 
-		echo $content;
+		echo $content; // WPCS: XSS ok.
 	}
 
 	/**
@@ -470,7 +461,7 @@ return new Pixelgrade_Wrapper(
 		ob_start();
 
 		if ( pixelgrade_is_block_debug() ) {
-			echo PHP_EOL . str_repeat( "\t", count( $blocks_trail ) ) . sprintf( '<!-- ### Before maybeRenderContent() block \'%s\' ### -->', $this->id ) . PHP_EOL;
+			echo PHP_EOL . esc_html( str_repeat( "\t", count( $blocks_trail ) ) ) . sprintf( '<!-- ### Before maybeRenderContent() block \'%s\' ### -->', esc_html( $this->id ) ) . PHP_EOL;
 		}
 
 		/**
@@ -518,7 +509,7 @@ return new Pixelgrade_Wrapper(
 		do_action( "pixelgrade_after_block_{$this->id}_content", $this, $blocks_trail );
 
 		if ( pixelgrade_is_block_debug() ) {
-			echo PHP_EOL . str_repeat( "\t", count( $blocks_trail ) ) . sprintf( '<!-- ### After maybeRenderContent() block \'%s\' ### -->', $this->id ) . PHP_EOL;
+			echo PHP_EOL . esc_html( str_repeat( "\t", count( $blocks_trail ) ) ) . sprintf( '<!-- ### After maybeRenderContent() block \'%s\' ### -->', esc_html( $this->id ) ) . PHP_EOL;
 		}
 
 		// Get the output buffer and end it
@@ -538,7 +529,7 @@ return new Pixelgrade_Wrapper(
 		}
 
 		if ( pixelgrade_is_block_debug() ) {
-			echo PHP_EOL . str_repeat( "\t", count( $blocks_trail ) ) . sprintf( '<!-- ### Before renderContent() block \'%s\' ### -->', $this->id ) . PHP_EOL;
+			echo PHP_EOL . esc_html( str_repeat( "\t", count( $blocks_trail ) ) ) . sprintf( '<!-- ### Before renderContent() block \'%s\' ### -->', esc_html( $this->id ) ) . PHP_EOL;
 		}
 
 		/**
@@ -586,7 +577,7 @@ return new Pixelgrade_Wrapper(
 		do_action( "pixelgrade_after_render_block_{$this->id}_content", $this, $blocks_trail );
 
 		if ( pixelgrade_is_block_debug() ) {
-			echo PHP_EOL . str_repeat( "\t", count( $blocks_trail ) ) . sprintf( '<!-- ### After renderContent() block \'%s\' ### -->', $this->id ) . PHP_EOL;
+			echo PHP_EOL . esc_html( str_repeat( "\t", count( $blocks_trail ) ) ) . sprintf( '<!-- ### After renderContent() block \'%s\' ### -->', esc_html( $this->id ) ) . PHP_EOL;
 		}
 	}
 
@@ -610,7 +601,7 @@ return new Pixelgrade_Wrapper(
 	 */
 	final public function printTemplate() {
 		?>
-		<script type="text/html" id="tmpl-block-<?php echo $this->type; ?>-content">
+		<script type="text/html" id="tmpl-block-<?php echo esc_attr( $this->type ); ?>-content">
 			<?php $this->contentTemplate(); ?>
 		</script>
 		<?php
@@ -728,12 +719,16 @@ return new Pixelgrade_Wrapper(
 		}
 
 		// Make sure the extended wrappers are ordered ascending
-$extended_wrappers = self::orderWrappers(
-    $extended_wrappers, array(
+		// phpcs:disable
+		$extended_wrappers = self::orderWrappers(
+			$extended_wrappers,
+			array(
 				'priority'        => 'ASC',
 				'instance_number' => 'ASC',
-    ), 'ASC'
-);
+		    ),
+			'ASC'
+		);
+		// phpcs:enable
 
 		// We need to make an initial pass through the new wrappers and setup their priorities in such a way
 		// that new unnamed wrappers retain their order relative to new named wrappers

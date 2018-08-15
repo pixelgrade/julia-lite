@@ -287,7 +287,7 @@ class Pixelgrade_Portfolio extends Pixelgrade_Component {
 
 		// Check/validate the modified config
 		if ( method_exists( $this, 'validate_config' ) && ! $this->validate_config( $modified_config ) ) {
-			_doing_it_wrong( __METHOD__, sprintf( 'The component config  modified through the "pixelgrade_%1$s_initial_config" dynamic filter is invalid! Please check the modifications you are trying to do!', $hook_slug ), null );
+			_doing_it_wrong( __METHOD__, sprintf( 'The component config  modified through the "pixelgrade_%1$s_initial_config" dynamic filter is invalid! Please check the modifications you are trying to do!', esc_html( $hook_slug ) ), null );
 			return;
 		}
 
@@ -508,7 +508,7 @@ wp_dropdown_pages(
 				'echo'              => 1,
 				'show_option_none'  => esc_html__( '&mdash; Select &mdash;', 'julia-lite' ),
 				'option_none_value' => '0',
-				'selected'          => get_option( 'page_for_projects' ),
+				'selected'          => get_option( 'page_for_projects' ), // phpcs:ignore
     )
 );
 		echo '<p class="description">' . esc_html__( 'Choose what page should act as the portfolio archive page.', 'julia-lite' ) . '</p>';

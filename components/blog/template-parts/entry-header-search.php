@@ -27,6 +27,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <header class="entry-header">
 	<h2 class="entry-title  u-page-title-color  h2">
-		<?php printf( '<span class="archive-title__pre-title">' . esc_html__( 'Search Results for: %s', 'julia-lite' ), '</span><span>' . get_search_query() . '</span>' ); ?>
+		<?php
+		/* translators: The search query. */
+		printf( '<span class="archive-title__pre-title">' . esc_html__( 'Search Results for: %s', 'julia-lite' ), '</span><span>' . get_search_query() . '</span>' ); ?>
 	</h2>
 </header><!-- .entry-header -->

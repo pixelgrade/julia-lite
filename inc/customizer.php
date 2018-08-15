@@ -16,73 +16,79 @@ function julia_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
+	// phpcs:disable PEAR.Functions.FunctionCallSignature.OpeningIndent
+	// phpcs:disable PEAR.Functions.FunctionCallSignature.Indent
 	if ( isset( $wp_customize->selective_refresh ) ) {
-$wp_customize->selective_refresh->add_partial(
-    'blogname', array(
-    'selector' => '.site-title',
-    'render_callback' => 'julia_customize_partial_blogname',
-    ) 
-);
-$wp_customize->selective_refresh->add_partial(
-    'blogdescription', array(
-    'selector' => '.site-description-text',
-    'render_callback' => 'julia_customize_partial_blogdescription',
-    ) 
-);
+		$wp_customize->selective_refresh->add_partial(
+			'blogname',
+			array(
+				'selector'        => '.site-title',
+				'render_callback' => 'julia_customize_partial_blogname',
+			)
+		);
+		$wp_customize->selective_refresh->add_partial(
+			'blogdescription',
+			array(
+				'selector'        => '.site-description-text',
+				'render_callback' => 'julia_customize_partial_blogdescription',
+			)
+		);
 	}
 
 	// add a setting for the site logo
-$wp_customize->add_setting(
-    'pixelgrade_transparent_logo', array(
-    'theme_supports' => array( 'custom-logo' ),
-    'transport'      => 'postMessage',
-    'sanitize_callback' => 'julia_lite_sanitize_checkbox',
-    ) 
-);
+	$wp_customize->add_setting(
+		'pixelgrade_transparent_logo',
+		array(
+			'theme_supports'    => array( 'custom-logo' ),
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'julia_lite_sanitize_checkbox',
+		)
+	);
 	// Add a control to upload the logo
 	// But first get the custom logo options
 	$custom_logo_args = get_theme_support( 'custom-logo' );
-$wp_customize->add_control(
-    new WP_Customize_Cropped_Image_Control(
-        $wp_customize, 'pixelgrade_transparent_logo',
-        array(
-        'label' => esc_html__( 'Logo while on Transparent Header', 'julia-lite' ),
-        'button_labels' => array(
-        'select'       => esc_html__( 'Select logo', 'julia-lite' ),
-        'change'       => esc_html__( 'Change logo', 'julia-lite' ),
-        'default'      => esc_html__( 'Default', 'julia-lite' ),
-        'remove'       => esc_html__( 'Remove', 'julia-lite' ),
-        'placeholder'  => esc_html__( 'No logo selected', 'julia-lite' ),
-        'frame_title'  => esc_html__( 'Select logo', 'julia-lite' ),
-        'frame_button' => esc_html__( 'Choose logo', 'julia-lite' ),
-        ),
-        'section' => 'title_tagline',
-        'priority'      => 9, // put it after the normal logo that has priority 8
-        'height'        => $custom_logo_args[0]['height'],
-        'width'         => $custom_logo_args[0]['width'],
-        'flex_height'   => $custom_logo_args[0]['flex-height'],
-        'flex_width'    => $custom_logo_args[0]['flex-width'],
-        ) 
-    ) 
-);
+	$wp_customize->add_control(
+		new WP_Customize_Cropped_Image_Control(
+			$wp_customize, 'pixelgrade_transparent_logo',
+			array(
+				'label'         => esc_html__( 'Logo while on Transparent Header', 'julia-lite' ),
+				'button_labels' => array(
+					'select'       => esc_html__( 'Select logo', 'julia-lite' ),
+					'change'       => esc_html__( 'Change logo', 'julia-lite' ),
+					'default'      => esc_html__( 'Default', 'julia-lite' ),
+					'remove'       => esc_html__( 'Remove', 'julia-lite' ),
+					'placeholder'  => esc_html__( 'No logo selected', 'julia-lite' ),
+					'frame_title'  => esc_html__( 'Select logo', 'julia-lite' ),
+					'frame_button' => esc_html__( 'Choose logo', 'julia-lite' ),
+				),
+				'section'       => 'title_tagline',
+				'priority'      => 9, // put it after the normal logo that has priority 8
+				'height'        => $custom_logo_args[0]['height'],
+				'width'         => $custom_logo_args[0]['width'],
+				'flex_height'   => $custom_logo_args[0]['flex-height'],
+				'flex_width'    => $custom_logo_args[0]['flex-width'],
+			)
+		)
+	);
 
-$wp_customize->selective_refresh->add_partial(
-    'pixelgrade_transparent_logo', array(
-    'settings'            => array( 'pixelgrade_transparent_logo' ),
-    'selector'            => '.custom-logo-link--transparent',
-    'render_callback'     => 'julia_customizer_partial_transparent_logo',
-    'container_inclusive' => true,
-    ) 
-);
+	$wp_customize->selective_refresh->add_partial(
+		'pixelgrade_transparent_logo', array(
+			'settings'            => array( 'pixelgrade_transparent_logo' ),
+			'selector'            => '.custom-logo-link--transparent',
+			'render_callback'     => 'julia_customizer_partial_transparent_logo',
+			'container_inclusive' => true,
+		)
+	);
 
 	// View Pro
-$wp_customize->add_section(
-    'julia_lite_style_view_pro', array(
-    'title'       => '' . esc_html__( 'View PRO Version', 'julia-lite' ),
-    'priority'    => 2,
-    'description' => sprintf(
-        __(
-            '<div class="upsell-container">
+	$wp_customize->add_section(
+		'julia_lite_style_view_pro', array(
+			'title'       => '' . esc_html__( 'View PRO Version', 'julia-lite' ),
+			'priority'    => 2,
+			'description' => sprintf(
+			/* translators: The upsell link. */
+				__(
+					'<div class="upsell-container">
 					<h2>Need More? Go PRO</h2>
 					<p>Take it to the next level and stand out. See the hotspots of Julia PRO:</p>
 					<ul class="upsell-features">
@@ -106,26 +112,29 @@ $wp_customize->add_section(
                             	<div class="description">You will benefit by priority support from a caring and devoted team, eager to help and to spread happiness. We work hard to provide a flawless experience for those who vote us with trust and choose to be our special clients.</div>
                             </li>
                             
-                    </ul> %s </div>', 'julia-lite' 
-        ),
-        sprintf( '<a href="%1$s" target="_blank" class="button button-primary">%2$s</a>', esc_url( julia_lite_get_pro_link() ), esc_html__( 'View Julia PRO', 'julia-lite' ) )
-    ),
-    ) 
-);
+                    </ul> %s </div>', 'julia-lite'
+				),
+				sprintf( '<a href="%1$s" target="_blank" class="button button-primary">%2$s</a>', esc_url( julia_lite_get_pro_link() ), esc_html__( 'View Julia PRO', 'julia-lite' ) )
+			),
+		)
+	);
 
-$wp_customize->add_setting(
-    'julia_lite_style_view_pro_desc', array(
-    'default'           => '',
-    'sanitize_callback' => 'julia_lite_sanitize_checkbox',
-    ) 
-);
+	$wp_customize->add_setting(
+		'julia_lite_style_view_pro_desc', array(
+			'default'           => '',
+			'sanitize_callback' => 'julia_lite_sanitize_checkbox',
+		)
+	);
 
-$wp_customize->add_control(
-    'julia_lite_style_view_pro_desc', array(
-    'section' => 'julia_lite_style_view_pro',
-    'type'    => 'hidden',
-    ) 
-);
+	$wp_customize->add_control(
+		'julia_lite_style_view_pro_desc', array(
+			'section' => 'julia_lite_style_view_pro',
+			'type'    => 'hidden',
+		)
+	);
+
+	// phpcs:enable PEAR.Functions.FunctionCallSignature.OpeningIndent
+	// phpcs:enable PEAR.Functions.FunctionCallSignature.Indent
 }
 add_action( 'customize_register', 'julia_customize_register' );
 

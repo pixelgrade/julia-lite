@@ -76,7 +76,7 @@ gulp.task( 'txtdomain-replace', ['components-txtdomain-replace'], function() {
     }
 
     return gulp.src( '../build/' + variation + '/**/*.php' )
-        .pipe( plugins.replace( /['|"]__theme_txtd['|"]/g, '\'' + variation + '\'' ) )
+        .pipe( plugins.replace( /['|"]julia-lite['|"]/g, '\'' + variation + '\'' ) )
         .pipe( gulp.dest( '../build/' + variation ) );
 } );
 

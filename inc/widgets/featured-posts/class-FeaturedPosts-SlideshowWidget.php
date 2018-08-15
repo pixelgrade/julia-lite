@@ -94,7 +94,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_SlideshowWidget' ) ) :
 
 parent::__construct(
     'pixelgrade-featured-posts-slideshow',
-				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#09; Pixelgrade: Slideshow Posts', '__theme_txtd' ) ),
+				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#09; Pixelgrade: Slideshow Posts', 'julia-lite' ) ),
 				$widget_ops,
     $config 
 );

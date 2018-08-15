@@ -92,7 +92,7 @@ class Pixelgrade_Components_Autoloader {
 			$file = trailingslashit( $directory ) . $slug . self::$file_ext;
 			if ( file_exists( $file ) ) {
 				// We will load the main component file and try to fire the instantiation function
-				require_once $file;
+				require_once $file; // phpcs:ignore
 
 				// Get the instantiation function name of the component
 				$function = self::getComponentMainClass( $slug );
@@ -114,19 +114,19 @@ class Pixelgrade_Components_Autoloader {
 						 */
 						do_action( "pixelgrade_after_{$slug}_instantiation" );
 					} else {
-						_doing_it_wrong( __METHOD__, sprintf( 'Trying to autoload the %s component, but couldn\'t find the %s instantiation function in %s.', $slug, $function, $file ), null );
+						_doing_it_wrong( __METHOD__, sprintf( 'Trying to autoload the %s component, but couldn\'t find the %s instantiation function in %s.', esc_html( $slug ), esc_html( $function ), esc_html( $file ) ), null );
 						return false;
 					}
 				} else {
-					_doing_it_wrong( __METHOD__, sprintf( 'Trying to autoload the %s component, but couldn\'t build the instantiation function.', $slug ), null );
+					_doing_it_wrong( __METHOD__, sprintf( 'Trying to autoload the %s component, but couldn\'t build the instantiation function.', esc_html( $slug ) ), null );
 					return false;
 				}
 			} else {
-				_doing_it_wrong( __METHOD__, sprintf( 'Trying to autoload the %s component, but couldn\'t find the %s file.', $slug, $file ), null );
+				_doing_it_wrong( __METHOD__, sprintf( 'Trying to autoload the %s component, but couldn\'t find the %s file.', esc_html( $slug ), esc_html( $file ) ), null );
 				return false;
 			}
 		} else {
-			_doing_it_wrong( __METHOD__, sprintf( 'Trying to autoload the %s component, but couldn\'t find the %s directory.', $slug, $directory ), null );
+			_doing_it_wrong( __METHOD__, sprintf( 'Trying to autoload the %s component, but couldn\'t find the %s directory.', esc_html( $slug ), esc_html( $directory ) ), null );
 			return false;
 		}
 

@@ -314,7 +314,7 @@ $recommended_headings_fonts = apply_filters(
 					'header_links_active_style'       => array(
 						'type'    => 'select',
 						'label'   => esc_html__( 'Links Active Style', 'julia-lite' ),
-						'desc'    => esc_html__( '', 'julia-lite' ),
+						'desc'    => '',
 						'default' => null, // this should be set by the theme (previously active)
 						'choices' => array(
 							'active'    => esc_html__( 'Active', 'julia-lite' ),
@@ -343,7 +343,7 @@ $recommended_headings_fonts = apply_filters(
 					'header_site_title_font'          => array(
 						'type'        => 'font',
 						'label'       => esc_html__( 'Site Title Font', 'julia-lite' ),
-						'desc'        => esc_html__( '', 'julia-lite' ),
+						'desc'        => '',
 						'selector'    => '.site-title',
 						'callback'    => 'typeline_font_cb',
 
@@ -380,7 +380,7 @@ $recommended_headings_fonts = apply_filters(
 					'header_navigation_font'          => array(
 						'type'        => 'font',
 						'label'       => esc_html__( 'Navigation Text', 'julia-lite' ),
-						'desc'        => esc_html__( '', 'julia-lite' ),
+						'desc'        => '',
 						'selector'    => '.c-navbar',
 						'callback'    => 'typeline_font_cb',
 

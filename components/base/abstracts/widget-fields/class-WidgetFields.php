@@ -230,7 +230,7 @@ wp_localize_script(
 
 							// Handle the section title and wrappers.
 							/* translators: Used for screen readers on widget sections. */
-							echo '<h3 class="accordion-section-title hndle">' . ( ! empty( $section['title'] ) ? $section['title'] : '' ) . '<span class="screen-reader-text">' . esc_html__( 'Press return or enter to open this section.', 'julia-lite' ) . '</span></h3>' . PHP_EOL;
+							echo '<h3 class="accordion-section-title hndle">' . ( ! empty( $section['title'] ) ? esc_html( $section['title'] ) : '' ) . '<span class="screen-reader-text">' . esc_html__( 'Press return or enter to open this section.', 'julia-lite' ) . '</span></h3>' . PHP_EOL;
 
 							// The section fields wrapper.
 							echo '<div class="accordion-section-content">';
@@ -279,6 +279,7 @@ wp_localize_script(
 
 				$method = "displayField_{$field_config['type']}";
 				if ( method_exists( $this, $method ) ) {
+					// phpcs:ignore
     echo call_user_func_array(
         array( $this, $method ), array(
         $field_name,
@@ -1447,18 +1448,20 @@ wp_localize_script(
 		 * @param array $instance The widget instance data.
 		 */
 		public function sidebarNotSupportedMessage( $args, $instance ) {
-			echo $args['before_widget'];
+			echo $args['before_widget']; // phpcs:ignore
 			?>
 
 			<div class="c-alert  c-alert--danger">
 				<h4 class="c-alert__title"><?php esc_html_e( '🤦 Widget Not Available', 'julia-lite' ); ?></h4>
 				<div class="c-alert__body">
-					<p><?php printf( esc_html__( 'No way, Huston! The %s is available only if you have the Pro version of Julia Lite. But hey, don\'t let us stay in your way.', 'julia-lite' ), '<em>' . $args['widget_name'] . '</em>' ); ?></p>
+					<p><?php
+						/* translators: %s: The widget name */
+						printf( esc_html__( 'No way, Huston! The %s is available only if you have the Pro version of Julia Lite. But hey, don\'t let us stay in your way.', 'julia-lite' ), '<em>' . esc_html( $args['widget_name'] ) . '</em>' ); ?></p>
 				</div>
 			</div>
 
 			<?php
-			echo $args['after_widget'];
+			echo $args['after_widget']; // phpcs:ignore
 		}
 
 		/**

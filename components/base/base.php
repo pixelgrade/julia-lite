@@ -37,6 +37,7 @@ defined( 'PIXELGRADE_BASE_PATH' ) || define( 'PIXELGRADE_BASE_PATH', trailingsla
  * FIRST (REALLY FIRST)
  * Load our core component functions (like pixelgrade_load_component_file()) and utility classes
  */
+// phpcs:disable
 require_once PIXELGRADE_BASE_PATH . '_core-functions.php';
 require_once PIXELGRADE_BASE_PATH . 'utils/class-Helper.php';
 require_once PIXELGRADE_BASE_PATH . 'utils/class-Array.php';
@@ -57,6 +58,7 @@ require_once PIXELGRADE_BASE_PATH . 'abstracts/class-FeaturedPosts-BaseWidget.ph
  * Load our blocks
  */
 require_once PIXELGRADE_BASE_PATH . 'blocks.php';
+// phpcs:enable
 
 if ( ! function_exists( 'Pixelgrade_Base' ) ) :
 	/**
@@ -78,6 +80,7 @@ endif;
  * Load other files that this component needs loaded before the actual class instantiation
  */
 
+// phpcs:disable
 // Load our Typeline helper functions
 require_once PIXELGRADE_BASE_PATH . 'inc/typeline.php';
 
@@ -86,3 +89,4 @@ require_once PIXELGRADE_BASE_PATH . 'inc/template-tags.php';
 
 // Load our component's extra functionality
 require_once PIXELGRADE_BASE_PATH . 'inc/extras.php';
+// phpcs:enable

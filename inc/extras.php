@@ -113,7 +113,7 @@ add_filter( 'pixelgrade_body_attributes', 'julia_body_attributes', 10, 1 );
  */
 function julia_blog_class( $class = '', $location = '' ) {
 	// Separates classes with a single space, collates classes
-	echo 'class="' . join( ' ', julia_get_blog_class( $class, $location ) ) . '"';
+	echo 'class="' . esc_attr( join( ' ', julia_get_blog_class( $class, $location ) ) ) . '"';
 }
 
 /**
@@ -208,7 +208,7 @@ add_filter( 'pixelgrade_show_thumbnail', 'julia_do_not_show_thumbnail_on_pages',
  */
 function julia_pingback_header() {
 	if ( is_singular() && pings_open() ) {
-		echo '<link rel="pingback" href="'. get_bloginfo( 'pingback_url', 'display' ). '">';
+		echo '<link rel="pingback" href="' . esc_url( get_bloginfo( 'pingback_url', 'display' ) ) . '">';
 	}
 }
 add_action( 'wp_head', 'julia_pingback_header' );
@@ -231,7 +231,7 @@ if ( ! function_exists( 'julia_google_fonts_url' ) ) :
 		* supported by Playfair Display, translate this to 'off'. Do not translate
 		* into your own language.
 		*/
-		if ( 'off' !== esc_html_x( 'on', 'Playfair Display font: on or off', '__theme_txtd' ) ) {
+		if ( 'off' !== esc_html_x( 'on', 'Playfair Display font: on or off', 'julia-lite' ) ) {
 			$fonts[] = 'Playfair Display:700';
 		}
 
@@ -239,7 +239,7 @@ if ( ! function_exists( 'julia_google_fonts_url' ) ) :
 		* supported by Lora, translate this to 'off'. Do not translate
 		* into your own language.
 		*/
-		if ( 'off' !== esc_html_x( 'on', 'Lora font: on or off', '__theme_txtd' ) ) {
+		if ( 'off' !== esc_html_x( 'on', 'Lora font: on or off', 'julia-lite' ) ) {
 			$fonts[] = 'Lora:400,700';
 		}
 
@@ -247,7 +247,7 @@ if ( ! function_exists( 'julia_google_fonts_url' ) ) :
 		* supported by PT Serif, translate this to 'off'. Do not translate
 		* into your own language.
 		*/
-		if ( 'off' !== esc_html_x( 'on', 'PT Serif font: on or off', '__theme_txtd' ) ) {
+		if ( 'off' !== esc_html_x( 'on', 'PT Serif font: on or off', 'julia-lite' ) ) {
 			$fonts[] = 'PT Serif:400,400i,700,700i';
 		}
 
@@ -255,7 +255,7 @@ if ( ! function_exists( 'julia_google_fonts_url' ) ) :
 		* supported by Montserrat, translate this to 'off'. Do not translate
 		* into your own language.
 		*/
-		if ( 'off' !== esc_html_x( 'on', 'Montserrat font: on or off', '__theme_txtd' ) ) {
+		if ( 'off' !== esc_html_x( 'on', 'Montserrat font: on or off', 'julia-lite' ) ) {
 			$fonts[] = 'Montserrat:300,400,500,600';
 		}
 
@@ -304,17 +304,17 @@ if ( ! function_exists( 'julia_comment_form_custom_fields' ) ) :
 $fields =  array_merge(
     $fields, array(
     'author' =>
-				'<p class="comment-form-author"><label for="author">' . esc_html__( 'Name', '__theme_txtd' ) . ( $req ? '*' : '' ) . '</label> ' .
-				'<input id="author" name="author" type="text" placeholder="'. esc_attr__( 'Your name', '__theme_txtd' ) .'" value="' . esc_attr( $commenter['comment_author'] ) .
+				'<p class="comment-form-author"><label for="author">' . esc_html__( 'Name', 'julia-lite' ) . ( $req ? '*' : '' ) . '</label> ' .
+				'<input id="author" name="author" type="text" placeholder="'. esc_attr__( 'Your name', 'julia-lite' ) .'" value="' . esc_attr( $commenter['comment_author'] ) .
 				'"' . $aria_req . ' /></p>',
 
     'email' =>
-				'<p class="comment-form-email"><label for="email">' . esc_html__( 'Email', '__theme_txtd' ) . ( $req ? '*' : '' ) . '</label> ' .
-				'<input id="email" name="email" type="text" placeholder="'. esc_attr__( 'your@email.com', '__theme_txtd' ) .'" value="' . esc_attr( $commenter['comment_author_email'] ) .
+				'<p class="comment-form-email"><label for="email">' . esc_html__( 'Email', 'julia-lite' ) . ( $req ? '*' : '' ) . '</label> ' .
+				'<input id="email" name="email" type="text" placeholder="'. esc_attr__( 'your@email.com', 'julia-lite' ) .'" value="' . esc_attr( $commenter['comment_author_email'] ) .
 				'"' . $aria_req . ' /></p>',
 
     'url' =>
-				'<p class="comment-form-url"><label for="url">' . esc_html__( 'Website', '__theme_txtd' ) . '</label>' .
+				'<p class="comment-form-url"><label for="url">' . esc_html__( 'Website', 'julia-lite' ) . '</label>' .
 				'<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
 				'" size="30" /></p>',
     ) 

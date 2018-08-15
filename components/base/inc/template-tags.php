@@ -45,7 +45,7 @@ function pixelgrade_element_attributes( $attributes = array(), $location = '' ) 
 
 	// Display the attributes
 	if ( ! empty( $full_attributes ) ) {
-		echo join( ' ', $full_attributes );
+		echo esc_html( join( ' ', $full_attributes ) );
 	}
 }
 
@@ -115,7 +115,7 @@ function pixelgrade_body_attributes( $attributes = array() ) {
 
 	// Display the attributes
 	if ( ! empty( $full_attributes ) ) {
-		echo join( ' ', $full_attributes );
+		echo esc_html( join( ' ', $full_attributes ) );
 	}
 } // function
 
@@ -381,7 +381,7 @@ if ( ! function_exists( 'pixelgrade_display_featured_images' ) ) {
 }
 
 function pixelgrade_the_taxonomy_dropdown( $taxonomy, $current_term = null ) {
-	echo pixelgrade_get_the_taxonomy_dropdown( $taxonomy, $current_term );
+	echo pixelgrade_get_the_taxonomy_dropdown( $taxonomy, $current_term ); // WPCS: XSS ok.
 }
 
 if ( ! function_exists( 'pixelgrade_get_the_taxonomy_dropdown' ) ) {

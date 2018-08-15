@@ -26,15 +26,15 @@ if ( ! function_exists( 'pixelgrade_get_current_action' ) ) {
 		}
 
 		if ( isset( $_REQUEST['action'] ) && - 1 != $_REQUEST['action'] ) {
-			return wp_unslash( sanitize_text_field( $_REQUEST['action'] ) );
+			return sanitize_text_field( wp_unslash( $_REQUEST['action'] ) );
 		}
 
 		if ( isset( $_REQUEST['action2'] ) && - 1 != $_REQUEST['action2'] ) {
-			return wp_unslash( sanitize_text_field( $_REQUEST['action2'] ) );
+			return sanitize_text_field( wp_unslash( $_REQUEST['action2'] ) );
 		}
 
 		if ( isset( $_REQUEST['tgmpa-activate'] ) && - 1 != $_REQUEST['tgmpa-activate'] ) {
-			return wp_unslash( sanitize_text_field( $_REQUEST['tgmpa-activate'] ) );
+			return sanitize_text_field( wp_unslash( $_REQUEST['tgmpa-activate'] ) );
 		}
 
 		return false;
@@ -458,16 +458,16 @@ function pixelgrade_autoload_dir( $path, $depth = 0, $method = 'require_once' ) 
 		if ( ! $file_info->isDir() && ! $file_info->isDot() && 'php' == strtolower( $file_info->getExtension() ) ) {
 			switch ( $method ) {
 				case 'require':
-					require $file_info->getPathname();
+					require $file_info->getPathname(); // phpcs:ignore
 					break;
 				case 'require_once':
-					require_once $file_info->getPathname();
+					require_once $file_info->getPathname(); // phpcs:ignore
 					break;
 				case 'include':
-					include $file_info->getPathname();
+					include $file_info->getPathname(); // phpcs:ignore
 					break;
 				case 'include_once':
-					include_once $file_info->getPathname();
+					include_once $file_info->getPathname(); // phpcs:ignore
 					break;
 				default:
 					break;
@@ -639,11 +639,11 @@ function pixelgrade_attachment_url_to_postid( $url ) {
 	// Remove the resizing details off the end of the file name
 	$path = preg_replace( '/-[0-9]{1,4}x[0-9]{1,4}\.(jpg|jpeg|png|gif|bmp)$/i', '.$1', $path );
 
-$sql     = $wpdb->prepare(
+$query     = $wpdb->prepare(
     "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = '_wp_attached_file' AND meta_value = %s",
     $path
 );
-	$post_id = $wpdb->get_var( $sql );
+	$post_id = $wpdb->get_var( $query ); // phpcs:ignore
 
 	if ( empty( $post_id ) ) {
 		return false;

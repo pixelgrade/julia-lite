@@ -94,7 +94,7 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 					'show_subcategories' => array(
 						'type'     => 'checkbox',
 						'label'    => esc_html__( 'Show Sub-categories', 'julia-lite' ),
-						'desc'     => esc_html__( '', 'julia-lite' ),
+						'desc'     => '',
 						'default'  => true,
 						'display_on'        => array(
 							'display' => true,
@@ -146,7 +146,7 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 
 parent::__construct(
     'categories-image-grid',
-				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#32; Pixelgrade: Categories Images', '__theme_txtd' ) ),
+				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#32; Pixelgrade: Categories Images', 'julia-lite' ) ),
 				$widget_ops,
     $config 
 );
@@ -177,11 +177,11 @@ parent::__construct(
 			$instance = $this->sanitizeFields( $instance );
 
 			/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
-			$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? esc_html__( 'Categories', '__theme_txtd' ) : $instance['title'], $instance, $this->id_base );
+			$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? esc_html__( 'Categories', 'julia-lite' ) : $instance['title'], $instance, $this->id_base );
 
-			echo $args['before_widget'];
+			echo $args['before_widget']; // phpcs:ignore
 			if ( $title ) {
-				echo $args['before_title'] . $title . $args['after_title'];
+				echo $args['before_title'] . esc_html( $title ) . $args['after_title']; // phpcs:ignore
 			}
 
 			$query_args   = array(
@@ -293,13 +293,13 @@ parent::__construct(
 						/**
 						 * Filters the HTML output of a category in the Categories Image Grid widget
 						 */
-						echo apply_filters( 'pixelgrade_category_image_grid', $output, $args );
+						echo apply_filters( 'pixelgrade_category_image_grid', $output, $args ); // phpcs:ignore
 					} ?>
 				</ul>
 				<?php
 			}
 
-			echo $args['after_widget'];
+			echo $args['after_widget']; // phpcs:ignore
 		}
 
 		public function categoriesForOptions( $field_name, $field_config, $instance ) {

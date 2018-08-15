@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function pixelgrade_hero_class( $class = '', $location = '', $post = null ) {
 	// Separates classes with a single space, collates classes for hero element
-	echo 'class="' . join( ' ', pixelgrade_get_hero_class( $class, $location, $post ) ) . '"';
+	echo 'class="' . esc_attr( join( ' ', pixelgrade_get_hero_class( $class, $location, $post ) ) ) . '"';
 }
 
 /**
@@ -87,7 +87,7 @@ function pixelgrade_get_hero_class( $class = '', $location = '', $post = null ) 
  */
 function pixelgrade_hero_slider_class( $class = '', $location = '', $post = null ) {
 	// Separates classes with a single space, collates classes for hero element
-	echo 'class="' . join( ' ', pixelgrade_get_hero_slider_class( $class, $location, $post ) ) . '"';
+	echo 'class="' . esc_attr( join( ' ', pixelgrade_get_hero_slider_class( $class, $location, $post ) ) ) . '"';
 }
 
 /**
@@ -184,7 +184,7 @@ function pixelgrade_hero_slider_attributes( $attribute = '', $post = null ) {
 	}
 
 	if ( ! empty( $full_attributes ) ) {
-		echo join( ' ', $full_attributes );
+		echo esc_html( join( ' ', $full_attributes ) );
 	}
 
 	return true;
@@ -271,13 +271,13 @@ function pixelgrade_hero_background_color_style( $post = null ) {
 
 	$background_color = trim( pixelgrade_hero_get_background_color( $post ) );
 	if ( ! empty( $background_color ) ) {
-		$output .= 'style="background-color: ' . $background_color . ';"';
+		$output .= 'style="background-color: ' . esc_attr( $background_color ) . ';"';
 	}
 
 	// allow others to make changes
 	$output = apply_filters( 'pixelgrade_hero_the_background_color_style', $output, $post );
 
-	echo $output;
+	echo $output; // phpcs:ignore
 
 	return true;
 }
@@ -329,7 +329,7 @@ function pixelgrade_hero_get_background_color( $post = null, $default = '#333' )
  */
 function pixelgrade_hero_background_class( $class = '', $location = '', $prefix = 'c-hero__background--' ) {
 	// Separates classes with a single space, collates classes for hero element
-	echo 'class="' . join( ' ', pixelgrade_get_hero_background_class( $class, $location, $prefix ) ) . '"';
+	echo 'class="' . esc_attr( join( ' ', pixelgrade_get_hero_background_class( $class, $location, $prefix ) ) ) . '"';
 }
 
 /**
@@ -387,7 +387,7 @@ function pixelgrade_get_hero_background_class( $class = '', $location = '', $pre
  */
 function pixelgrade_hero_wrapper_class( $class = '', $location = '', $prefix = 'c-hero__wrapper--' ) {
 	// Separates classes with a single space, collates classes for hero element
-	echo 'class="' . join( ' ', pixelgrade_get_hero_wrapper_class( $class, $location, $prefix ) ) . '"';
+	echo 'class="' . esc_attr( join( ' ', pixelgrade_get_hero_wrapper_class( $class, $location, $prefix ) ) ) . '"';
 }
 
 /**
@@ -903,7 +903,7 @@ function pixelgrade_hero_the_background_image( $slide = null, $opacity = 100 ) {
 	// Allow others to make changes
 	$output = apply_filters( 'pixelgrade_hero_the_background_image', $output, $slide, $opacity );
 
-	echo $output;
+	echo $output; // phpcs:ignore
 }
 
 function pixelgrade_hero_get_img_alt( $image ) {
@@ -976,7 +976,7 @@ function pixelgrade_hero_the_background_video( $slide = null, $opacity = 100, $i
 	// allow others to make changes
 	$output = apply_filters( 'pixelgrade_hero_the_background_video', $output, $slide, $opacity, $ignore_video );
 
-	echo $output;
+	echo $output; // phpcs:ignore
 }
 
 /**
@@ -1015,6 +1015,7 @@ function pixelgrade_hero_the_description( $content, $slide = null ) {
 
 		if ( ! empty( $new_post ) ) {
 			$original_post = $post;
+			// phpcs:ignore
 			$post          = $new_post;
 			setup_postdata( $post );
 		}
@@ -1029,7 +1030,7 @@ function pixelgrade_hero_the_description( $content, $slide = null ) {
 
 	$content = apply_filters( 'convert_chars', $content );
 
-	include_once ABSPATH . 'wp-admin/includes/plugin.php';
+	include_once ABSPATH . 'wp-admin/includes/plugin.php'; // phpcs:ignore
 
 	if ( function_exists( 'wpgrade_remove_spaces_around_shortcodes' ) ) {
 		$content = wpgrade_remove_spaces_around_shortcodes( $content );
@@ -1045,6 +1046,7 @@ function pixelgrade_hero_the_description( $content, $slide = null ) {
 
 	// If we had to modify the global post, we need to clean up and restore things to the way they were
 	if ( ! empty( $new_post ) ) {
+		// phpcs:ignore
 		$post = $original_post;
 		wp_reset_postdata();
 	}

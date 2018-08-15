@@ -68,7 +68,7 @@ if ( pixelgrade_hero_is_hero_needed( $location, $post_ID ) ) {
 				$template = pixelgrade_locate_component_template_part( Pixelgrade_Hero::COMPONENT_SLUG, 'slides/slide', $slide_type );
 
 				if ( $template ) {
-					include $template;
+					include $template; // phpcs:ignore
 				}
 				?>
 

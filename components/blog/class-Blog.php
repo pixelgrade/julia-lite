@@ -745,7 +745,7 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 
 		// Check/validate the modified config
 		if ( method_exists( $this, 'validate_config' ) && ! $this->validate_config( $modified_config ) ) {
-			_doing_it_wrong( __METHOD__, sprintf( 'The component config  modified through the "pixelgrade_%1$s_initial_config" dynamic filter is invalid! Please check the modifications you are trying to do!', $hook_slug ), null );
+			_doing_it_wrong( __METHOD__, sprintf( 'The component config  modified through the "pixelgrade_%1$s_initial_config" dynamic filter is invalid! Please check the modifications you are trying to do!', esc_html( $hook_slug ) ), null );
 			return;
 		}
 
@@ -972,7 +972,7 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 	 */
 	public function pingbackHeader() {
 		if ( is_singular() && pings_open() ) {
-			echo '<link rel="pingback" href="' . get_bloginfo( 'pingback_url', 'display' ) . '">';
+			echo '<link rel="pingback" href="' . esc_url( get_bloginfo( 'pingback_url', 'display' ) ) . '">';
 		}
 	}
 

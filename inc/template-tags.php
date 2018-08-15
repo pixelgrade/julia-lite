@@ -28,12 +28,12 @@ $time_string = sprintf(
 
 $posted_on = sprintf(
     /* translators: %s: The current post's posted date, in the post header */
-    esc_html_x( '%s', 'post date', 'julia-lite' ),
+    esc_html_x( '%s', 'post date', 'julia-lite' ), // phpcs:ignore
     '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 );
 
         $byline = sprintf(
-            '<span class="by">' . esc_html_x( 'by', 'post author', '__theme_txtd' ) . '</span> %s',
+            '<span class="by">' . esc_html_x( 'by', 'post author', 'julia-lite' ) . '</span> %s',
             '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
         );
 
@@ -80,7 +80,7 @@ if ( ! function_exists( 'julia_the_posts_pagination' ) ) {
 	 *                    Default empty array.
 	 */
 	function julia_the_posts_pagination( $args = array() ) {
-		echo julia_get_the_posts_pagination( $args );
+		echo julia_get_the_posts_pagination( $args ); // WPCS: XSS ok.
 	}
 }
 
@@ -93,17 +93,22 @@ if ( ! function_exists( 'julia_get_the_posts_pagination' ) ) {
 	 * @return string Markup for pagination links.
 	 */
 	function julia_get_the_posts_pagination( $args = array() ) {
+		// phpcs:disable PEAR.Functions.FunctionCallSignature.OpeningIndent
+		// phpcs:disable PEAR.Functions.FunctionCallSignature.Indent
+
 		// Put our own defaults in place
-$args = wp_parse_args(
-    $args, array(
-    'end_size'           => 1,
-    'mid_size'           => 2,
-    'type'               => 'list',
-    'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', 'julia-lite' ),
-    'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', 'julia-lite' ),
-    'screen_reader_text' => esc_html__( 'Posts navigation', 'julia-lite' ),
-    ) 
-);
+		$args = wp_parse_args(
+		    $args, array(
+		    'end_size'           => 1,
+		    'mid_size'           => 2,
+		    'type'               => 'list',
+		    'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', 'julia-lite' ),
+		    'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', 'julia-lite' ),
+		    'screen_reader_text' => esc_html__( 'Posts navigation', 'julia-lite' ),
+		    )
+		);
+		// phpcs:enable PEAR.Functions.FunctionCallSignature.OpeningIndent
+		// phpcs:enable PEAR.Functions.FunctionCallSignature.Indent
 
 		return get_the_posts_pagination( $args );
 	}

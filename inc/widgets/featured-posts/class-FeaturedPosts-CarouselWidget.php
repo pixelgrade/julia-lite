@@ -135,7 +135,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_CarouselWidget' ) ) :
 
 parent::__construct(
     'pixelgrade-featured-posts-carousel',
-				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: Carousel Posts', '__theme_txtd' ) ),
+				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: Carousel Posts', 'julia-lite' ) ),
 				$widget_ops,
     $config 
 );

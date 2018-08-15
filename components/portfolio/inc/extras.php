@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function pixelgrade_portfolio_class( $class = '', $location = '', $atts = array() ) {
 	// Separates classes with a single space, collates classes
-	echo 'class="' . join( ' ', pixelgrade_get_portfolio_class( $class, $location, $atts ) ) . '"';
+	echo 'class="' . esc_attr( join( ' ', pixelgrade_get_portfolio_class( $class, $location, $atts ) ) ) . '"';
 }
 
 /**

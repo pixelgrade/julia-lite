@@ -60,7 +60,7 @@ do_action( 'pixelgrade_before_main_content', $location );
                     <div class="u-container-sides-spacing">
                         <div class="o-wrapper u-container-width">
 
-                            <header class="entry-header <?php echo $header_class; ?>">
+                            <header class="entry-header <?php echo esc_attr( $header_class ); ?>">
 
                                 <?php
                                 /**

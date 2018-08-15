@@ -75,7 +75,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_6CardsWidget' ) ) :
 
 parent::__construct(
     'featured-posts-6cards',
-				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: Featured Posts Alt', '__theme_txtd' ) ),
+				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: Featured Posts Alt', 'julia-lite' ) ),
 				$widget_ops,
     $config 
 );

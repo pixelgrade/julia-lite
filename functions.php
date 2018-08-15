@@ -48,8 +48,8 @@ if ( ! function_exists( 'julia_setup' ) ) {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on '__theme_txtd', use a find and replace
-		 * to change '__theme_txtd' to the name of your theme in all the template files.
+		 * If you're building a theme based on 'julia-lite', use a find and replace
+		 * to change 'julia-lite' to the name of your theme in all the template files.
 		 */
 		load_theme_textdomain( 'julia-lite', get_template_directory() . '/languages' );
 

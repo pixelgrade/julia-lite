@@ -122,7 +122,7 @@ class Pixelgrade_LayoutBlock extends Pixelgrade_Block {
 
 				// This should never happen, but it's best to let someone know, besides ignoring it.
 				if ( null === $block_instance ) {
-					_doing_it_wrong( __METHOD__, sprintf( 'You tried to add or define a block (%s) but ended up with NULL - very strange indeed!', $key ), null );
+					_doing_it_wrong( __METHOD__, sprintf( 'You tried to add or define a block (%s) but ended up with NULL - very strange indeed!', esc_html( $key ) ), null );
 					continue;
 				}
 
@@ -180,7 +180,7 @@ class Pixelgrade_LayoutBlock extends Pixelgrade_Block {
 				$block = $this->manager->getRegisteredBlock( $id );
 			}
 		} else {
-			_doing_it_wrong( __METHOD__, sprintf( 'You tried to add or define a block (%s) using a strange (e.g. not supported) way!', $id ), null );
+			_doing_it_wrong( __METHOD__, sprintf( 'You tried to add or define a block (%s) using a strange (e.g. not supported) way!', esc_html( $id ) ), null );
 		}
 
 		// Add the block instance to the child blocks list

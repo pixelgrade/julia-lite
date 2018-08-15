@@ -166,7 +166,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 			// Initialize the widget
 parent::__construct(
     'pixelgrade-promo-box',
-				apply_filters( 'pixelgrade_promo_box_widget_name', esc_html__( '&#32; Pixelgrade: Promo Box', '__theme_txtd' ) ),
+				apply_filters( 'pixelgrade_promo_box_widget_name', esc_html__( '&#32; Pixelgrade: Promo Box', 'julia-lite' ) ),
 				$widget_ops,
     $config 
 );
@@ -250,7 +250,7 @@ parent::__construct(
 				/*
 				 * Start outputting the widget markup
 				 */
-				echo $args['before_widget'];
+				echo $args['before_widget']; // phpcs:ignore
 
 				/**
 				 * Fires at the beginning of the Promo Box widget, after the title.
@@ -261,7 +261,7 @@ parent::__construct(
 
 					<?php
 					// We use include so the template part gets access to all the variables defined above
-					include( $found_template ); ?>
+					include( $found_template ); // phpcs:ignore ?>
 
 				</div>
 
@@ -271,10 +271,10 @@ parent::__construct(
 				 */
 				do_action( 'pixelgrade_promo_box_widget_end', $instance, $args );
 
-				echo $args['after_widget'];
+				echo $args['after_widget']; // phpcs:ignore
 			} else {
 				// Let the developers know that something is amiss
-				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t find a template part to use for displaying widget posts in the %s widget!', $this->name ), null );
+				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t find a template part to use for displaying widget posts in the %s widget!', esc_html( $this->name ) ), null );
 			}
 		}
 

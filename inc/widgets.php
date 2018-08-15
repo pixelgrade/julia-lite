@@ -168,6 +168,7 @@ function julia_custom_widgets_init() {
      * Load and register the custom Featured Posts Widgets
      */
 
+    // phpcs:disable
     // The Featured Posts - Grid Widget
     require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/featured-posts/class-FeaturedPosts-GridWidget.php' );
     register_widget( 'Pixelgrade_FeaturedPosts_GridWidget' );
@@ -199,5 +200,6 @@ function julia_custom_widgets_init() {
     // The Categories Image Grid Widget
     require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-CategoriesImageGridWidget.php' );
     register_widget( 'Pixelgrade_CategoriesImageGridWidget' );
+    // phpcs:enable
 }
 add_action( 'widgets_init', 'julia_custom_widgets_init', 10 );

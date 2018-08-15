@@ -123,11 +123,11 @@ final class Pixelgrade_BlocksManager extends Pixelgrade_Singleton {
 					//
 					// }
 				} else {
-					_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t register the block %s because the class %s doesn\'t exist.', $id, $block_type_class ), null );
+					_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t register the block %s because the class %s doesn\'t exist.', esc_html( $id ), esc_html( $block_type_class ) ), null );
 					return false;
 				}
 			} else {
-				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t add the block %s because the type provided is invalid or not registered.', $id ), null );
+				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t add the block %s because the type provided is invalid or not registered.', esc_html( $id ) ), null );
 				return false;
 			}
 		}
@@ -312,6 +312,7 @@ $block = new $block_type(
 	 * The class file needs to be loaded before the block type registration because it will do a class_exists check.
 	 */
 	public function registerDefaultBlockTypes() {
+		// phpcs:disable
 		require_once PIXELGRADE_BLOCKS_PATH . 'class-LayoutBlock.php';
 		$this->registerBlockType( 'layout', 'Pixelgrade_LayoutBlock' );
 		require_once PIXELGRADE_BLOCKS_PATH . 'class-LoopBlock.php';
@@ -320,6 +321,7 @@ $block = new $block_type(
 		$this->registerBlockType( 'template_part', 'Pixelgrade_TemplatePartBlock' );
 		require_once PIXELGRADE_BLOCKS_PATH . 'class-CallbackBlock.php';
 		$this->registerBlockType( 'callback', 'Pixelgrade_CallbackBlock' );
+		// phpcs:enable
 	}
 
 	/**

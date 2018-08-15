@@ -58,7 +58,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_GridWidget' ) ) :
 
 parent::__construct(
     'featured-posts-grid',
-				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: Grid Posts', '__theme_txtd' ) ),
+				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: Grid Posts', 'julia-lite' ) ),
 				$widget_ops,
     $config 
 );

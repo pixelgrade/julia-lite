@@ -21,20 +21,20 @@
 	<div class="c-promo__content">
 
 		<?php if ( ! empty( $title ) ) { ?>
-			<div class="c-promo__subtitle h6"><?php echo $title; ?></div>
+			<div class="c-promo__subtitle h6"><?php echo wp_kses_post( $title ); ?></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $headline ) ) { ?>
-			<div class="c-promo__title"><div><?php echo $headline ?></div></div>
+			<div class="c-promo__title"><div><?php echo wp_kses_post( $headline ) ?></div></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $description ) ) { ?>
-			<div class="c-promo__description"><div><?php echo $description; ?></div></div>
+			<div class="c-promo__description"><div><?php echo wp_kses_post( $description ); ?></div></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
 			<div class="c-promo__action">
-				<a href="<?php echo $button_url; ?>" class="c-promo__btn button arrow"><?php echo $button_text; ?></a>
+				<a href="<?php echo esc_url( $button_url ); ?>" class="c-promo__btn button arrow"><?php echo esc_html( $button_text ); ?></a>
 			</div>
 		<?php } ?>
 

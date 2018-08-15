@@ -230,7 +230,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 
 				/* Display tabs */
 				if ( ! empty( $this->tabs ) ) {
-					$active_tab = isset( $_GET['tab'] ) ? wp_unslash( $_GET['tab'] ) : 'getting_started';
+					$active_tab = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : 'getting_started';
 
 					echo '<h2 class="nav-tab-wrapper wp-clearfix">';
 
@@ -251,7 +251,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 								continue;
 							}
 
-							echo '<a href="' . esc_url( admin_url( 'themes.php?page=' . $this->theme_slug . '-welcome' ) ) . '&tab=' . $tab_key . '" class="nav-tab ' . ( $active_tab == $tab_key ? 'nav-tab-active' : '' ) . '" role="tab" data-toggle="tab">';
+							echo '<a href="' . esc_url( admin_url( 'themes.php?page=' . $this->theme_slug . '-welcome' ) ) . '&tab=' . esc_attr( $tab_key ) . '" class="nav-tab ' . ( $active_tab == $tab_key ? 'nav-tab-active' : '' ) . '" role="tab" data-toggle="tab">';
 							echo esc_html( $tab_name );
 							if ( $tab_key == 'recommended_actions' ) {
 								$count = 0;
@@ -286,7 +286,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 		 * Call plugin api
 		 */
 		public function call_plugin_api( $slug ) {
-			include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+			include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' ); // phpcs:ignore
 
 			if ( false === ( $call_api = get_transient( 'ti_about_page_plugin_information_transient_' . $slug ) ) ) {
 				$call_api = plugins_api(
@@ -336,7 +336,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 
 			if ( file_exists( $path ) ) {
 
-				include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+				include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); // phpcs:ignore
 
 				$needs = is_plugin_active( $slug . '/' . $plugin_root_file . '.php' ) ? 'deactivate' : 'activate';
 
@@ -432,10 +432,10 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 
 						echo '<div class="col">';
 						if ( ! empty( $getting_started_item['title'] ) ) {
-							echo '<h3>' . $getting_started_item['title'] . '</h3>';
+							echo '<h3>' . wp_kses_post( $getting_started_item['title'] ) . '</h3>';
 						}
 						if ( ! empty( $getting_started_item['text'] ) ) {
-							echo '<p>' . $getting_started_item['text'] . '</p>';
+							echo '<p>' . wp_kses_post( $getting_started_item['text'] ) . '</p>';
 						}
 						if ( ! empty( $getting_started_item['button_link'] ) && ! empty( $getting_started_item['button_label'] ) ) {
 
@@ -456,7 +456,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 							if ( $getting_started_item['recommended_actions'] && isset( $count ) ) {
 								if ( $count == 0 ) {
 									echo '<span class="dashicons dashicons-yes"></span>';
-									echo '<span class="' . $button_class . '">' . $getting_started_item['button_ok_label'] . '</span>';
+									echo '<span class="' . esc_attr( $button_class ) . '">' . esc_html( $getting_started_item['button_ok_label'] ) . '</span>';
 
 								} else {
 									echo '<span class="dashicons dashicons-no-alt"></span>';
@@ -467,7 +467,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 										}
 									}
 
-									echo '<a target="' . $button_new_tab . '" href="' . $getting_started_item['button_link'] . '"class="' . $button_class . '">' . $getting_started_item['button_label'] . '</a>';
+									echo '<a target="' . esc_attr( $button_new_tab ) . '" href="' . esc_url( $getting_started_item['button_link'] ) . '"class="' . esc_attr( $button_class ) . '">' . esc_html( $getting_started_item['button_label'] ) . '</a>';
 								}
 							} else {
 								$button_new_tab = '_self';
@@ -477,7 +477,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 									}
 								}
 
-								echo '<a target="' . $button_new_tab . '" href="' . $getting_started_item['button_link'] . '"class="' . $button_class . '">' . $getting_started_item['button_label'] . '</a>';
+								echo '<a target="' . esc_attr( $button_new_tab ) . '" href="' . esc_url( $getting_started_item['button_link'] ) . '"class="' . esc_attr( $button_class ) . '">' . esc_html( $getting_started_item['button_label'] ) . '</a>';
 							}
 
 							echo '</p>';
@@ -687,12 +687,12 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 								echo '<div class="ti-about-page-child-theme-details">';
 								if ( $child['title'] != $this->theme_name ) {
 									echo '<div class="theme-details">';
-									echo '<span class="theme-name">' . $child['title'] . '</span>';
+									echo '<span class="theme-name">' . wp_kses_post( $child['title'] ) . '</span>';
 									if ( ! empty( $child['download_link'] ) && ! empty( $child_themes['download_button_label'] ) ) {
 										echo '<a href="' . esc_url( $child['download_link'] ) . '" class="button button-primary install right">' . esc_html( $child_themes['download_button_label'] ) . '</a>';
 									}
 									if ( ! empty( $child['preview_link'] ) && ! empty( $child_themes['preview_button_label'] ) ) {
-										echo '<a class="button button-secondary preview right" target="_blank" href="' . $child['preview_link'] . '">' . esc_html( $child_themes['preview_button_label'] ) . '</a>';
+										echo '<a class="button button-secondary preview right" target="_blank" href="' . esc_url( $child['preview_link'] ) . '">' . esc_html( $child_themes['preview_button_label'] ) . '</a>';
 									}
 									echo '</div>';
 								}
@@ -727,14 +727,14 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 						if ( ! empty( $support_step['title'] ) ) {
 							echo '<h3>';
 							if ( ! empty( $support_step['icon'] ) ) {
-								echo '<i class="' . $support_step['icon'] . '"></i>';
+								echo '<i class="' . esc_attr( $support_step['icon'] ) . '"></i>';
 							}
-							echo $support_step['title'];
+							echo wp_kses_post( $support_step['title'] );
 							echo '</h3>';
 						}
 
 						if ( ! empty( $support_step['text'] ) ) {
-							echo '<p><i>' . $support_step['text'] . '</i></p>';
+							echo '<p><i>' . wp_kses_post( $support_step['text'] ) . '</i></p>';
 						}
 
 						if ( ! empty( $support_step['button_link'] ) && ! empty( $support_step['button_label'] ) ) {
@@ -751,7 +751,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 									$button_new_tab = '_blank';
 								}
 							}
-							echo '<a target="' . $button_new_tab . '" href="' . $support_step['button_link'] . '"class="' . $button_class . '">' . $support_step['button_label'] . '</a>';
+							echo '<a target="' . esc_attr( $button_new_tab ) . '" href="' . esc_url( $support_step['button_link'] ) . '" class="' . esc_attr( $button_class ) . '">' . esc_html( $support_step['button_label'] ) . '</a>';
 							echo '</p>';
 						}
 
@@ -775,10 +775,10 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 				echo '<div class="featured-section changelog">';
 				foreach ( $changelog as $release ) {
 					if ( ! empty( $release['title'] ) ) {
-						echo '<h2>' . $release['title'] . ' </h2 > ';
+						echo '<h2>' . wp_kses_post( $release['title'] ) . ' </h2 > ';
 					}
 					if ( ! empty( $release['changes'] ) ) {
-						echo implode( '<br/>', $release['changes'] );
+						echo wp_kses_post( implode( '<br/>', $release['changes'] ) );
 					}
 				}
 				echo '</div><!-- .featured-section.changelog -->';
@@ -940,7 +940,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 				$recommended_actions[] = $req_action;
 			}
 
-			$action_id = ( isset( $_GET['id'] ) ) ? $_GET['id'] : 0;
+			$action_id = ( isset( $_GET['id'] ) ) ? sanitize_text_field( wp_unslash( $_GET['id'] ) ) : 0;
 
 			echo esc_html( wp_unslash( $action_id ) ); /* this is needed and it's the id of the dismissable required action */
 
@@ -951,7 +951,8 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 
 					$ti_about_page_show_required_actions = get_option( $this->theme_slug . '_required_actions' );
 
-					switch ( esc_html( $_GET['todo'] ) ) {
+					$todo = ( isset( $_GET['todo'] ) ) ? sanitize_text_field( wp_unslash( $_GET['todo'] ) ) : '';
+					switch ( $todo ) {
 						case 'add';
 							$ti_about_page_show_required_actions[ absint( $action_id ) ] = true;
 							break;

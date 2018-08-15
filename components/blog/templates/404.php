@@ -2,10 +2,9 @@
 /**
  * The template for displaying 404 pages (not found).
  *
- * This template part can be overridden by copying it to a child theme or in the same theme
- * by putting it in the root `/404.php` or in `/templates/blog/404.php`.
- *
- * @see pixelgrade_locate_component_template()
+ * This template part can be overridden by copying it to a child theme or
+ * in the same theme by putting it in the root `/404.php`
+ * or in `/templates/blog/404.php`.
  *
  * HOWEVER, on occasion Pixelgrade will need to update template files and you
  * will need to copy the new files to your child theme to
@@ -13,10 +12,13 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see        https://pixelgrade.com
- * @author     Pixelgrade
- * @package    Components/Blog
- * @version    1.0.0
+ * @package Components/Blog
+ * @author  Pixelgrade <contact@pixelgrade.com>
+ * @version 1.0.0
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @see pixelgrade_locate_component_template()
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

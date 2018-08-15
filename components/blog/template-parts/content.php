@@ -78,7 +78,7 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 					<div class="c-card__meta c-meta">
 						<?php
 						if ( $primary_meta_output ) {
-							echo '<div class="c-meta__primary">' . $primary_meta_output . '</div>';
+							echo '<div class="c-meta__primary">' . wp_kses_post( $primary_meta_output ) . '</div>';
 							// Add a separator if we also have secondary meta
 							if ( $secondary_meta_output ) {
 								echo '<div class="c-meta__separator js-card-meta-separator"></div>';
@@ -86,7 +86,7 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 						}
 
 						if ( $secondary_meta_output ) {
-							echo '<div class="c-meta__secondary">' . $secondary_meta_output . '</div>';
+							echo '<div class="c-meta__secondary">' . wp_kses_post( $secondary_meta_output ) . '</div>';
 						}
 						?>
 					</div>

@@ -379,10 +379,10 @@ parent::__construct(
 					 */
 					do_action( 'pixelgrade_widget_before_' . $this->id, $args, $instance );
 
-					echo $args['before_widget'];
+					echo $args['before_widget']; // phpcs:ignore
 
 					if ( ! empty( $title ) ) {
-						echo $args['before_title'] . $title . $args['after_title'];
+						echo $args['before_title'] . $title . $args['after_title']; // phpcs:ignore
 					}
 
 					/**
@@ -425,7 +425,7 @@ parent::__construct(
 							do_action( 'pixelgrade_featured_posts_widget_before_post' . $this->id, $post_index, $posts );
 
 							// We use include so the template parts gets access to all the variables defined above.
-							include $found_template;
+							include $found_template; // phpcs:ignore
 
 							/**
 							 * Fires after the widget post.
@@ -457,7 +457,7 @@ parent::__construct(
 
 						if ( ! empty( $view_more_link ) && ! is_wp_error( $view_more_link ) ) {
 							echo '<div class="featured-posts__footer">' . PHP_EOL .
-								 '<a class="featured-posts__more" href="' . esc_url( $view_more_link ) . '">' . $view_more_label . '</a>' . PHP_EOL .
+								 '<a class="featured-posts__more" href="' . esc_url( $view_more_link ) . '">' . esc_html( $view_more_label ) . '</a>' . PHP_EOL .
 								 '</div>';
 						}
 					}
@@ -476,7 +476,7 @@ parent::__construct(
 					 */
 					do_action( 'pixelgrade_featured_posts_widget_end' . $this->id, $instance, $args );
 
-					echo $args['after_widget'];
+					echo $args['after_widget']; // phpcs:ignore
 
 					/**
 					 * Fires after the widget markup, including the closing </section>.
@@ -500,7 +500,7 @@ parent::__construct(
 				}
 			} else {
 				// Let the developers know that something is amiss.
-				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t find a template part to use for displaying widget posts in the %s widget!', $this->name ), null );
+				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t find a template part to use for displaying widget posts in the %s widget!', esc_html( $this->name ) ), null );
 			}
 		}
 
