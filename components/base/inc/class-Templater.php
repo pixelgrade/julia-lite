@@ -133,20 +133,20 @@ if ( ! class_exists( 'Pixelgrade_Templater' ) ) :
 					// for each possible value of $type.
 					// But this forces us to use a function, not a class method as the callback (in would complicate things too much).
 					// So we need to pass the info regarding the configured templates and component slug to the function hook also.
-					add_filter(
-						"{$type}_template_hierarchy",
-						array(
-							new Pixelgrade_FilterStorage(
-								array(
-									'type'           => $type,
-									'component_slug' => $this->component,
-									'templates'      => $this->templates,
-								)
-							),
-							'pixelgrade_add_configured_templates',
-						),
-						$this->priority, 10
-					);
+    add_filter(
+        "{$type}_template_hierarchy",
+        array(
+        new Pixelgrade_FilterStorage(
+            array(
+            'type'           => $type,
+            'component_slug' => $this->component,
+            'templates'      => $this->templates,
+            )
+        ),
+        'pixelgrade_add_configured_templates',
+        ),
+        $this->priority, 10
+    );
 
 					// We will also remember non-core template types so we can trigger the above filter for them.
 					if ( ! in_array( $type, self::$core_types, true ) ) {
@@ -160,12 +160,12 @@ if ( ! class_exists( 'Pixelgrade_Templater' ) ) :
 			 * Just like this guy https://youtu.be/GIQn8pab8Vc
 			 */
 			// We only want to hook to 'template_include' once and only once, even if this class gets instantiated multiple times.
-			if ( ! empty( self::$extra_types ) && ! has_filter(
+if ( ! empty( self::$extra_types ) && ! has_filter(
 				'template_include', array(
 					'Pixelgrade_Templater',
 					'extraTypesTemplateHierarchyFilters',
 				)
-			) ) {
+) ) {
 				add_filter( 'template_include', array( 'Pixelgrade_Templater', 'extraTypesTemplateHierarchyFilters' ), 20, 1 );
 			}
 		}
@@ -382,12 +382,12 @@ if ( ! class_exists( 'Pixelgrade_FilterStorage' ) ) {
 			}
 
 			// Wrong function called.
-			throw new InvalidArgumentException(
+throw new InvalidArgumentException(
 				sprintf(
-					'File: %1$s<br>Line %2$d<br>Not callable: %3$s',
-					__FILE__, __LINE__, print_r( $callback, true )
+        'File: %1$s<br>Line %2$d<br>Not callable: %3$s',
+        __FILE__, __LINE__, print_r( $callback, true )
 				)
-			);
+);
 		}
 	}
 }

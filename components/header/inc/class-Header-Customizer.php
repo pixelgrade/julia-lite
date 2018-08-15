@@ -111,9 +111,9 @@ class Pixelgrade_Header_Customizer extends Pixelgrade_Singleton {
 	 */
 	public function addCustomifyOptions( $options ) {
 		// Recommended Fonts List - Headings
-		$recommended_headings_fonts = apply_filters(
-			'pixelgrade_header_customify_recommended_headings_fonts',
-			array(
+$recommended_headings_fonts = apply_filters(
+    'pixelgrade_header_customify_recommended_headings_fonts',
+    array(
 				'Playfair Display',
 				'Oswald',
 				'Lato',
@@ -133,8 +133,8 @@ class Pixelgrade_Header_Customizer extends Pixelgrade_Singleton {
 				'Handlee',
 				'Satify',
 				'Pompiere',
-			)
-		);
+    )
+);
 
 		$header_section = array(
 			// Header

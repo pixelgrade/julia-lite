@@ -95,11 +95,11 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 			}
 
 			// Initialize the widget.
-			parent::__construct(
+parent::__construct(
 				$id,
 				apply_filters( 'pixelgrade_widget_name', $name ),
 				$widget_ops
-			);
+);
 
 			// Enqueue the frontend styles and scripts, if that is the case.
 			if ( is_active_widget( false, false, $this->id_base ) || is_customize_preview() ) {
@@ -128,14 +128,14 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 			// Enqueue the needed admin scripts.
 			wp_enqueue_script( 'pixelgrade-widget-fields-js', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( Pixelgrade_Base::COMPONENT_SLUG ) . 'abstracts/widget-fields/widget-fields.js' ), array( 'jquery', 'media-upload', 'media-views' ), 20171111 );
 
-			wp_localize_script(
+wp_localize_script(
 				'pixelgrade-widget-fields-js', 'pixelgradeWidgetFields', array(
 					'image' => array(
 						'frame_title'  => esc_html__( 'Select an Image', 'julia-lite' ),
 						'button_title' => esc_html__( 'Insert Into Widget', 'julia-lite' ),
 					),
 				)
-			);
+);
 
 			// Enqueue the needed admin styles.
 			wp_enqueue_style( 'pixelgrade-widget-fields', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( Pixelgrade_Base::COMPONENT_SLUG ) . 'abstracts/widget-fields/widget-fields.css' ), array(), 20171111 );
@@ -279,13 +279,13 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 
 				$method = "displayField_{$field_config['type']}";
 				if ( method_exists( $this, $method ) ) {
-					echo call_user_func_array(
-						array( $this, $method ), array(
-							$field_name,
-							$field_config,
-							$instance,
-						)
-					);
+    echo call_user_func_array(
+        array( $this, $method ), array(
+        $field_name,
+        $field_config,
+        $instance,
+        )
+    );
 				}
 			}
 		}
@@ -1094,21 +1094,21 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 				}
 
 				if ( isset( $field_config['sanitize_callback'] ) && is_callable( $field_config['sanitize_callback'] ) ) {
-					$instance[ $field_name ] = call_user_func_array(
-						$field_config['sanitize_callback'], array(
-							$instance[ $field_name ],
-							$field_name,
-							$field_config,
-						)
-					);
+    $instance[ $field_name ] = call_user_func_array(
+        $field_config['sanitize_callback'], array(
+        $instance[ $field_name ],
+        $field_name,
+        $field_config,
+        )
+    );
 				} elseif ( method_exists( $this, "sanitize_{$field_config['type']}" ) ) {
 					// Default to the field type sanitization, if available.
-					$instance[ $field_name ] = call_user_func_array(
-						array(
-							$this,
-							"sanitize_{$field_config['type']}",
-						), array( $instance[ $field_name ], $field_name, $field_config )
-					);
+    $instance[ $field_name ] = call_user_func_array(
+        array(
+        $this,
+        "sanitize_{$field_config['type']}",
+        ), array( $instance[ $field_name ], $field_name, $field_config )
+    );
 				}
 			}
 
@@ -1170,24 +1170,24 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 			if ( strpos( $filtered, '<' ) !== false ) {
 				// Allow others to filter the allowed tags.
 				$allowed_tags = apply_filters(
-					'pixelgrade_widget_allowed_textarea_html_tags',
-					array(
-						'a'      => array(
-							'href'  => array(),
-							'title' => array(),
-						),
-						'strong' => array(),
-						'b'      => array(),
-						'div'    => array(
-							'class' => array(),
-						),
-						'em'     => array(),
-						'i'      => array(),
-						'u'      => array(),
-						'span'   => array(
-							'class' => array(),
-						),
-					), $field_name, $field_config
+        'pixelgrade_widget_allowed_textarea_html_tags',
+        array(
+        'a'      => array(
+        'href'  => array(),
+        'title' => array(),
+        ),
+        'strong' => array(),
+        'b'      => array(),
+        'div'    => array(
+        'class' => array(),
+        ),
+        'em'     => array(),
+        'i'      => array(),
+        'u'      => array(),
+        'span'   => array(
+        'class' => array(),
+        ),
+        ), $field_name, $field_config
 				);
 
 				$filtered = wp_kses( $filtered, $allowed_tags );

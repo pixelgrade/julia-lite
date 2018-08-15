@@ -92,10 +92,12 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_SlideshowWidget' ) ) :
                 ),
 			);
 
-			parent::__construct( 'pixelgrade-featured-posts-slideshow',
+parent::__construct(
+    'pixelgrade-featured-posts-slideshow',
 				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#09; Pixelgrade: Slideshow Posts', '__theme_txtd' ) ),
 				$widget_ops,
-				$config );
+    $config 
+);
 
 			$this->alt_option_name = 'widget_featured_entries_slideshow';
 

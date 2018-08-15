@@ -566,9 +566,9 @@ if ( ! class_exists( 'Pixelgrade_Config' ) ) :
 						if ( is_array( $option ) && ! array_key_exists( 'type', $option ) ) {
 							if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
 								_doing_it_wrong(
-									__METHOD__,
-									sprintf( 'There is something wrong with the following Customizer option: %s > %s > %s.', $section_key, 'options', $option_key ) .
-									' The option has no TYPE defined! Maybe it doesn\'t even exist.', null
+            __METHOD__,
+            sprintf( 'There is something wrong with the following Customizer option: %s > %s > %s.', $section_key, 'options', $option_key ) .
+            ' The option has no TYPE defined! Maybe it doesn\'t even exist.', null
 								);
 							}
 
@@ -604,11 +604,11 @@ if ( ! class_exists( 'Pixelgrade_Config' ) ) :
 							// This means we should receive a value in the modified config.
 							if ( ! isset( $modified_config[ $section_key ]['options'][ $option_key ]['default'] ) ) {
 								if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-									_doing_it_wrong(
-										__METHOD__,
-										sprintf( 'You need to define a default value for the following Customizer option: %s > %s > %s.', $section_key, 'options', $option_key ) .
-										( ! empty( $filter_to_use ) ? ' ' . sprintf( 'Use this filter: %s', $filter_to_use ) : '' ), null
-									);
+        _doing_it_wrong(
+            __METHOD__,
+            sprintf( 'You need to define a default value for the following Customizer option: %s > %s > %s.', $section_key, 'options', $option_key ) .
+            ( ! empty( $filter_to_use ) ? ' ' . sprintf( 'Use this filter: %s', $filter_to_use ) : '' ), null
+        );
 								}
 
 								$errors = true;

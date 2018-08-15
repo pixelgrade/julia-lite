@@ -73,10 +73,12 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_6CardsWidget' ) ) :
 				),
 			);
 
-			parent::__construct( 'featured-posts-6cards',
+parent::__construct(
+    'featured-posts-6cards',
 				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: Featured Posts Alt', '__theme_txtd' ) ),
 				$widget_ops,
-				$config );
+    $config 
+);
 
 			$this->alt_option_name = 'widget_featured_entries_5cards';
 

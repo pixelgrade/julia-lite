@@ -207,7 +207,7 @@ function pixelgrade_footer_get_back_to_top_link() {
  * @return bool|string
  */
 function pixelgrade_footer_get_copyright_content() {
-	return '<span class="c-footer__credits"><a href="' . esc_url('http://wordpress.org' ) . '">' . esc_html__( 'Proudly powered by WordPress', 'julia-lite' ) . '</a> | Theme: Julia Lite by <a href="' . esc_url( 'https://pixelgrade.com/' ) .' target="_blank">Pixelgrade</a>' . '</span>' . PHP_EOL;
+	return '<span class="c-footer__credits"><a href="' . esc_url( 'http://wordpress.org' ) . '">' . esc_html__( 'Proudly powered by WordPress', 'julia-lite' ) . '</a> | Theme: Julia Lite by <a href="' . esc_url( 'https://pixelgrade.com/' ) .' target="_blank">Pixelgrade</a>' . '</span>' . PHP_EOL;
 }
 
 /**
@@ -244,7 +244,7 @@ function pixelgrade_footer_get_zones() {
 	foreach ( $zones as $zone_id => $zone_settings ) {
 		$zones[ $zone_id ]['sidebars'] = array();
 		// Cycle through each defined sidebar and determine if it is a part of the current zone
-		if ( ! empty ( $config['sidebars'] ) )
+		if ( ! empty( $config['sidebars'] ) )
 			foreach ( $config['sidebars'] as $sidebar_id => $sidebar ) {
 				// A little sanity check
 				if ( empty( $sidebar['default_zone'] ) ) {

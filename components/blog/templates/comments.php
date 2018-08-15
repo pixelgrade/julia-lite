@@ -46,8 +46,8 @@ if ( post_password_required() ) {
 			<span class="c-comments-toggle__text">
 			<?php
 				printf( // WPCS: XSS OK.
-					esc_html( _nx( '%1$s comment', '%1$s comments', get_comments_number(), 'comments title', 'julia-lite' ) ),
-					number_format_i18n( get_comments_number() )
+        esc_html( _nx( '%1$s comment', '%1$s comments', get_comments_number(), 'comments title', 'julia-lite' ) ),
+        number_format_i18n( get_comments_number() )
 				);
 				?>
 				</span>
@@ -73,12 +73,12 @@ if ( post_password_required() ) {
 			<ol class="comment-list">
 				<?php
 				wp_list_comments(
-					array(
-						'style'       => 'ol',
-						'short_ping'  => true,
-						'callback'    => 'pixelgrade_shape_comment',
-						'avatar_size' => 56,
-					)
+        array(
+        'style'       => 'ol',
+        'short_ping'  => true,
+        'callback'    => 'pixelgrade_shape_comment',
+        'avatar_size' => 56,
+        )
 				);
 				?>
 			</ol><!-- .comment-list -->

@@ -25,4 +25,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<?php the_title( '<h1 class="h0 entry-title u-page-title-color">', '</h1>' ); ?>
+<?php the_title( '<h1 class="h0 entry-title u-page-title-color">', '</h1>' ); 

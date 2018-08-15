@@ -236,13 +236,13 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 			}
 
 			// Set up the widget options - merge them with our defaults.
-			$widget_ops = wp_parse_args(
+$widget_ops = wp_parse_args(
 				$widget_ops, array(
 					'classname'                   => 'widget_featured_posts',
 					'description'                 => esc_html__( 'Your featured posts.', 'julia-lite' ),
 					'customize_selective_refresh' => false,
 				)
-			);
+);
 
 			// The default widget name - as it will be shown in the WordPress admin.
 			if ( empty( $name ) ) {
@@ -250,12 +250,12 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 			}
 
 			// Initialize the widget.
-			parent::__construct(
+parent::__construct(
 				$id,
 				apply_filters( 'pixelgrade_featured_posts_widget_name', $name ),
 				$widget_ops,
 				$default_config
-			);
+);
 
 			// Set up an alternate widget options name.
 			$this->alt_option_name = 'widget_featured_entries';
@@ -646,7 +646,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 		 */
 		public function sanitizeCategory( $value, $field_name, $field_config ) {
 			// Get all the categories shown in the dropdown.
-			$categories = get_terms(
+$categories = get_terms(
 				'category', array(
 					'hide_empty'   => 1,
 					'child_of'     => 0,
@@ -654,7 +654,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					'hierarchical' => 1,
 					'fields'       => 'id=>slug',
 				)
-			);
+);
 
 			if ( ! in_array( $value, $categories ) ) {
 				// Fallback on the default value.
@@ -747,14 +747,14 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 		 */
 		public function sanitizeTag( $value, $field_name, $field_config ) {
 			// Get all the tags shown in the dropdown.
-			$tags = get_terms(
+$tags = get_terms(
 				'post_tag', array(
 					'hide_empty'   => 0,
 					'exclude'      => '',
 					'hierarchical' => 0,
 					'fields'       => 'id=>slug',
 				)
-			);
+);
 
 			if ( ! in_array( $value, $tags ) ) {
 				// Fallback on the default value.

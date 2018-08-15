@@ -95,14 +95,14 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				    'button_text'          => array(
 					    'type'     => 'text',
 					    'label'    => esc_html__( 'Button Text:', 'julia-lite' ),
-					    'default'  => esc_html__('Get started now', 'julia-lite' ),
+					    'default'  => esc_html__( 'Get started now', 'julia-lite' ),
 					    'section'  => 'content',
 					    'priority' => 40,
 				    ),
 				    'button_url'           => array(
 					    'type'     => 'text',
 					    'label'    => esc_html__( 'Button Link URL:', 'julia-lite' ),
-					    'default'  => esc_html__('#', 'julia-lite' ),
+					    'default'  => esc_html__( '#', 'julia-lite' ),
 					    'section'  => 'content',
 					    'priority' => 50,
 				    ),
@@ -164,10 +164,12 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
             );
 
 			// Initialize the widget
-			parent::__construct( 'pixelgrade-promo-box',
+parent::__construct(
+    'pixelgrade-promo-box',
 				apply_filters( 'pixelgrade_promo_box_widget_name', esc_html__( '&#32; Pixelgrade: Promo Box', '__theme_txtd' ) ),
 				$widget_ops,
-                $config );
+    $config 
+);
 
 			// Set up an alternate widget options name
 			$this->alt_option_name = 'widget_pixelgrade_promo_box';
@@ -230,7 +232,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				if ( isset( $box_style ) ) {
 					$classes[] = 'c-promo--' . $box_style;
 					// We also want to add our class to the widget top wrapper
-					preg_match('/class="([^"]*)"/', $args['before_widget'], $matches);
+					preg_match( '/class="([^"]*)"/', $args['before_widget'], $matches );
 					if ( ! empty( $matches[1] ) ) {
 						$args['before_widget'] = str_replace( $matches[1], $matches[1] . ' widget_promo_box--' . $box_style, $args['before_widget'] );
 					}

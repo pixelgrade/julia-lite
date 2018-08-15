@@ -461,22 +461,22 @@ class Pixelgrade_Portfolio extends Pixelgrade_Component {
 			delete_option( 'page_for_projects' );
 		} else {
 			// Add the section to reading settings so we can add our fields to it
-			add_settings_section(
+add_settings_section(
 				'portfolio_setting_section',
 				'Projects',
 				array( $this, 'readingSettingsSectionCallback' ),
 				'reading'
-			);
+);
 
 			// Add the field with the names and function to use for our new
 			// settings, put it in our new section
-			add_settings_field(
+add_settings_field(
 				'page_for_projects',
 				'Projects Page',
 				array( $this, 'pageForProjectsSettingCallback' ),
 				'reading',
 				'portfolio_setting_section'
-			);
+);
 
 			// Register our setting so that $_POST handling is done for us and
 			// our callback function just has to echo the <input>
@@ -502,15 +502,15 @@ class Pixelgrade_Portfolio extends Pixelgrade_Component {
 	// creates a checkbox true/false option. Other types are surely possible
 	//
 	public function pageForProjectsSettingCallback() {
-		wp_dropdown_pages(
-			array(
+wp_dropdown_pages(
+    array(
 				'name'              => 'page_for_projects',
 				'echo'              => 1,
 				'show_option_none'  => esc_html__( '&mdash; Select &mdash;', 'julia-lite' ),
 				'option_none_value' => '0',
 				'selected'          => get_option( 'page_for_projects' ),
-			)
-		);
+    )
+);
 		echo '<p class="description">' . esc_html__( 'Choose what page should act as the portfolio archive page.', 'julia-lite' ) . '</p>';
 	}
 

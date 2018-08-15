@@ -324,22 +324,22 @@ function pixelgrade_get_custom_logo_transparent( $blog_id = 0 ) {
 
 	// We have a logo. Logo is go.
 	if ( $custom_logo_id ) {
-		$html = sprintf(
-			'<a href="%1$s" class="custom-logo-link  custom-logo-link--inversed" rel="home" itemprop="url">%2$s</a>',
-			esc_url( home_url( '/' ) ),
-			wp_get_attachment_image(
-				$custom_logo_id, 'large', false, array(
-					'class'    => 'custom-logo--transparent',
-					'itemprop' => 'logo',
-				)
-			)
-		);
+$html = sprintf(
+    '<a href="%1$s" class="custom-logo-link  custom-logo-link--inversed" rel="home" itemprop="url">%2$s</a>',
+    esc_url( home_url( '/' ) ),
+    wp_get_attachment_image(
+        $custom_logo_id, 'large', false, array(
+        'class'    => 'custom-logo--transparent',
+        'itemprop' => 'logo',
+        )
+    )
+);
 	} // If no logo is set but we're in the Customizer, leave a placeholder (needed for the live preview).
 	elseif ( is_customize_preview() ) {
-		$html = sprintf(
-			'<a href="%1$s" class="custom-logo-link  custom-logo-link--inversed" style="display:none;"><img class="custom-logo--transparent"/></a>',
-			esc_url( home_url( '/' ) )
-		);
+$html = sprintf(
+    '<a href="%1$s" class="custom-logo-link  custom-logo-link--inversed" style="display:none;"><img class="custom-logo--transparent"/></a>',
+    esc_url( home_url( '/' ) )
+);
 	}
 
 	if ( $switched_blog ) {

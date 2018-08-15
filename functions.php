@@ -82,26 +82,32 @@ if ( ! function_exists( 'julia_setup' ) ) {
 		 * First, it's the image size we want to use for the logo thumbnails
 		 * Second, the 2 classes we want to use for the "Display Header Text" Customizer logic
 		 */
-		add_theme_support( 'custom-logo', apply_filters( 'julia_header_site_logo', array(
-			'height'      => 600,
-			'width'       => 1360,
-			'flex-height' => true,
-			'flex-width'  => true,
-			'header-text' => array(
-				'site-title',
-				'site-description-text',
-			)
-		) ) );
+add_theme_support(
+    'custom-logo', apply_filters(
+        'julia_header_site_logo', array(
+        'height'      => 600,
+        'width'       => 1360,
+        'flex-height' => true,
+        'flex-width'  => true,
+        'header-text' => array(
+        'site-title',
+        'site-description-text',
+        )
+        ) 
+    ) 
+);
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
-		add_theme_support( 'html5', array(
-			'comment-list',
-			'gallery',
-			'caption',
-		) );
+add_theme_support(
+    'html5', array(
+    'comment-list',
+    'gallery',
+    'caption',
+    ) 
+);
 
 		/*
 		 * Remove themes' post formats support
@@ -111,12 +117,12 @@ if ( ! function_exists( 'julia_setup' ) ) {
 		/*
 		 * Add the editor style and fonts
 		 */
-		add_editor_style(
-			array(
+add_editor_style(
+    array(
 				julia_google_fonts_url(),
 				'editor-style.css',
-			)
-		);
+    )
+);
 
 		/*
 		 * Enable support for Visible Edit Shortcuts in the Customizer Preview

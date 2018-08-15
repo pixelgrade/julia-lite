@@ -187,10 +187,10 @@ class Pixelgrade_Blog_Metaboxes extends Pixelgrade_Singleton {
 
 				// Add our page templates
 				$hero_metaboxes['hero_area_background__page']['show_on']['value'] = array_merge(
-					$hero_metaboxes['hero_area_background__page']['show_on']['value'],
-					array(
-						$fullwidth_page_template,
-					)
+        $hero_metaboxes['hero_area_background__page']['show_on']['value'],
+        array(
+        $fullwidth_page_template,
+        )
 				);
 			}
 
@@ -205,10 +205,10 @@ class Pixelgrade_Blog_Metaboxes extends Pixelgrade_Singleton {
 
 				// Add our page templates
 				$hero_metaboxes['hero_area_content__page']['show_on']['value'] = array_merge(
-					$hero_metaboxes['hero_area_content__page']['show_on']['value'],
-					array(
-						$fullwidth_page_template,
-					)
+        $hero_metaboxes['hero_area_content__page']['show_on']['value'],
+        array(
+        $fullwidth_page_template,
+        )
 				);
 			}
 		}

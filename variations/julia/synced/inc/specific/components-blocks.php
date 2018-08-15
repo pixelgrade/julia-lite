@@ -16,11 +16,12 @@
  */
 function julia_register_blog_blocks( $component_slug, $component_config ) {
 
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/single-portrait', array(
-		'type' => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
-		'blocks' => array(
-			'blog/entry-thumbnail',
-			'sidebar' => array(
+Pixelgrade_BlocksManager()->registerBlock(
+    'blog/single-portrait', array(
+    'type' => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
+    'blocks' => array(
+    'blog/entry-thumbnail',
+    'sidebar' => array(
 				'extend'   => 'blog/side',
 				'blocks'   => array( 'blog/sidebar' ),
 				'wrappers' => array(
@@ -28,8 +29,8 @@ function julia_register_blog_blocks( $component_slug, $component_config ) {
 						'extend_classes' => 'widget-area--post',
 					),
 				),
-			),
-			'layout' => array( 
+    ),
+    'layout' => array( 
 				'blocks'   => array(
 					'blog/entry-content',
 					'sidebar-below-post' => array(
@@ -49,14 +50,16 @@ function julia_register_blog_blocks( $component_slug, $component_config ) {
 						'classes' => 'single-main clearfix'
 					),
 				),
-			),
-		),
-	) );
+    ),
+    ),
+    ) 
+);
 
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/single-landscape', array(
-		'type' => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
-		'blocks' => array(
-			'layout' => array(
+Pixelgrade_BlocksManager()->registerBlock(
+    'blog/single-landscape', array(
+    'type' => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
+    'blocks' => array(
+    'layout' => array(
 				'extend' => 'blog/layout',
 				'wrappers' => array(
 					'layout' => array(
@@ -92,15 +95,17 @@ function julia_register_blog_blocks( $component_slug, $component_config ) {
 						),
 					),
 				),
-			),
-		),
-	) );
+    ),
+    ),
+    ) 
+);
 
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/single', array(
-		'extend' => 'blog/default',
-		'type' => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
-		'blocks' => array(
-			'header' => array(
+Pixelgrade_BlocksManager()->registerBlock(
+    'blog/single', array(
+    'extend' => 'blog/default',
+    'type' => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
+    'blocks' => array(
+    'header' => array(
 				'extend'   => 'blog/container',
 				'blocks'   => array( 'blog/entry-header-single' ),
 				'wrappers' => array(
@@ -109,8 +114,8 @@ function julia_register_blog_blocks( $component_slug, $component_config ) {
 						'classes'  => 'u-header-background'
 					),
 				),
-			),
-			'layout' => array(
+    ),
+    'layout' => array(
 				'extend' => 'blog/container',
 				'blocks' => array(
 					'image-landscape' => array(
@@ -140,16 +145,18 @@ function julia_register_blog_blocks( $component_slug, $component_config ) {
 						),
 					),
 				),
-			),
-			'blog/related-posts',
-		),
-	) );
+    ),
+    'blog/related-posts',
+    ),
+    ) 
+);
 
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/page', array(
-		'extend' => 'blog/default',
-		'type' => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
-		'blocks' => array(
-			'content' => array(
+Pixelgrade_BlocksManager()->registerBlock(
+    'blog/page', array(
+    'extend' => 'blog/default',
+    'type' => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
+    'blocks' => array(
+    'content' => array(
 				'extend' => 'blog/container',
 				'blocks' => array(
 					'layout' => array(
@@ -181,8 +188,9 @@ function julia_register_blog_blocks( $component_slug, $component_config ) {
 						),
 					),
 				),
-			),
-		)
-	) );
+    ),
+    )
+    ) 
+);
 }
 add_action( 'pixelgrade_blog_after_register_blocks', 'julia_register_blog_blocks', 10, 2 );

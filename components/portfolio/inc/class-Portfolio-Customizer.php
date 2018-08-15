@@ -104,9 +104,9 @@ class Pixelgrade_Portfolio_Customizer extends Pixelgrade_Singleton {
 	 * @return array
 	 */
 	public function addCustomifyOptions( $options ) {
-		$recommended_body_fonts = apply_filters(
-			'customify_theme_recommended_body_fonts',
-			array(
+$recommended_body_fonts = apply_filters(
+    'customify_theme_recommended_body_fonts',
+    array(
 				'Roboto',
 				'Playfair Display',
 				'Oswald',
@@ -127,8 +127,8 @@ class Pixelgrade_Portfolio_Customizer extends Pixelgrade_Singleton {
 				'Handlee',
 				'Satify',
 				'Pompiere',
-			)
-		);
+    )
+);
 
 		$portfolio_grid_section = array(
 			// Portfolio Grid

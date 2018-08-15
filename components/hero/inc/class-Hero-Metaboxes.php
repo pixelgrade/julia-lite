@@ -89,12 +89,12 @@ class Pixelgrade_Hero_Metaboxes extends Pixelgrade_Singleton {
 			wp_enqueue_script( 'pixelgrade_hero-admin-metaboxes-scripts' );
 			add_editor_style( array( pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( Pixelgrade_Hero::COMPONENT_SLUG ) . 'css/editor-style.css' ) ) );
 
-			wp_localize_script(
+wp_localize_script(
 				'pixelgrade_hero-admin-metaboxes-scripts', 'pixelgrade_hero_admin', array(
 					'ajaxurl'                      => esc_url( admin_url( 'admin-ajax.php' ) ),
 					'featured_projects_ids_helper' => esc_html__( 'Here are the IDs of the selected featured projects to use elsewhere, if the need arises: ', 'julia-lite' ),
 				)
-			);
+);
 		}
 	}
 
@@ -228,16 +228,16 @@ class Pixelgrade_Hero_Metaboxes extends Pixelgrade_Singleton {
 					),
 					array(
 						'name'    => esc_html__( 'Hero Content Alignment', 'julia-lite' ),
-						'desc'    => wp_kses(
-							__(
-								'<p>Considering the background image focal point, you can align the content to make them both more visible.</p>
+    'desc'    => wp_kses(
+        __(
+            '<p>Considering the background image focal point, you can align the content to make them both more visible.</p>
 							<ul>
 								<li>Mix it with a background color overlay to make it pop</li>
 								<li>Individual text alignments will override this option</li>
 								<li>You can align the content to make them both more visible.</li>
 							</ul>', 'julia-lite'
-							), wp_kses_allowed_html()
-						),
+        ), wp_kses_allowed_html()
+    ),
 						'id'      => '_hero_description_alignment',
 						'type'    => 'positions_map',
 						'options' => array(

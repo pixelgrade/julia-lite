@@ -144,10 +144,12 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 				'customize_selective_refresh' => true,
 			);
 
-			parent::__construct( 'categories-image-grid',
+parent::__construct(
+    'categories-image-grid',
 				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#32; Pixelgrade: Categories Images', '__theme_txtd' ) ),
 				$widget_ops,
-                $config );
+    $config 
+);
 
 			$this->alt_option_name = 'widget_categories_thumbnail_grid';
 		}
@@ -231,11 +233,11 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 					/** @var WP_Term $category */
 					foreach ( $categories as $category ) {
 						/** This filter is documented in wp-includes/category-template.php */
-						$cat_name = apply_filters(
-							'list_cats',
-							esc_attr( $category->name ),
-							$category
-						);
+    $cat_name = apply_filters(
+        'list_cats',
+        esc_attr( $category->name ),
+        $category
+    );
 
 						$classes = 'cat-item cat-item-' . $category->term_id;
 

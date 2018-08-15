@@ -226,12 +226,12 @@ if ( ! class_exists( 'Pixelgrade_Value' ) ) :
 		 * @return string
 		 */
 		public static function removeDoubles( $str ) {
-			$regex = apply_filters(
+$regex = apply_filters(
 				'germanix_remove_doubles_regex', array(
 					'pattern'     => '~([=+.-])\\1+~',
 					'replacement' => "\\1",
 				)
-			);
+);
 
 			return preg_replace( $regex['pattern'], $regex['replacement'], $str );
 		}

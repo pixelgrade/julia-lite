@@ -162,9 +162,9 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 	 */
 	public function addCustomifyMainContentOptions( $options ) {
 		// Body
-		$recommended_body_fonts = apply_filters(
-			'customify_theme_recommended_body_fonts',
-			array(
+$recommended_body_fonts = apply_filters(
+    'customify_theme_recommended_body_fonts',
+    array(
 				'Roboto',
 				'Playfair Display',
 				'Oswald',
@@ -185,8 +185,8 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 				'Handlee',
 				'Satify',
 				'Pompiere',
-			)
-		);
+    )
+);
 
 		$main_content_section = array(
 			// Main Content
@@ -1101,9 +1101,9 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 	 */
 	public function addCustomifyBlogGridOptions( $options ) {
 		// Body
-		$recommended_body_fonts = apply_filters(
-			'customify_theme_recommended_body_fonts',
-			array(
+$recommended_body_fonts = apply_filters(
+    'customify_theme_recommended_body_fonts',
+    array(
 				'Roboto',
 				'Playfair Display',
 				'Oswald',
@@ -1124,8 +1124,8 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 				'Handlee',
 				'Satify',
 				'Pompiere',
-			)
-		);
+    )
+);
 
 		$blog_grid_section = array(
 			// Blog Grid

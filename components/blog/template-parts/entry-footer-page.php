@@ -28,15 +28,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( get_edit_post_link() ) : ?>
 	<footer class="entry-footer  u-content-width">
 		<?php
-		edit_post_link(
-			sprintf(
-				/* translators: %s: Name of current post */
-				esc_html__( 'Edit %s', 'julia-lite' ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			),
-			'<div class="edit-link">',
-			'</div>'
-		);
+edit_post_link(
+    sprintf(
+        /* translators: %s: Name of current post */
+        esc_html__( 'Edit %s', 'julia-lite' ),
+        the_title( '<span class="screen-reader-text">"', '"</span>', false )
+    ),
+    '<div class="edit-link">',
+    '</div>'
+);
 		?>
 	</footer><!-- .entry-footer -->
 <?php endif; ?>

@@ -107,20 +107,20 @@ class Pixelgrade_Header extends Pixelgrade_Component {
 		 * Second, the 2 classes we want to use for the "Display Header Text" Customizer logic
 		 */
 		if ( apply_filters( 'pixelgrade_header_use_custom_logo', true ) ) {
-			add_theme_support(
+add_theme_support(
 				'custom-logo', apply_filters(
-					'pixelgrade_header_site_logo', array(
-						'height'      => 600,
-						'width'       => 1360,
-						'flex-height' => true,
-						'flex-width'  => true,
-						'header-text' => array(
-							'site-title',
-							'site-description-text',
-						),
-					)
+        'pixelgrade_header_site_logo', array(
+        'height'      => 600,
+        'width'       => 1360,
+        'flex-height' => true,
+        'flex-width'  => true,
+        'header-text' => array(
+        'site-title',
+        'site-description-text',
+        ),
+        )
 				)
-			);
+);
 		}
 	}
 
