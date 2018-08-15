@@ -2,7 +2,7 @@ Theme Name: Julia Lite
 Author: Pixelgrade
 Author URI: https://pixelgrade.com
 Description: Julia Lite is a free food blogging theme for community builders who want to share their passion for cooking.
-Version: 1.0.2
+Version: 1.0.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: 4.9.6
@@ -36,6 +36,9 @@ Julia Lite is a free food blogging theme for community builders who want to shar
 * Removed the Promo Box widget and edit the Selected Posts widget
 * Removed the unused local fonts
 * Added phpcs config file
+
+= 1.0.3 =
+* Fixed the code sniffer errors and checked a couple warnings too
 
 == Credits ==
 
