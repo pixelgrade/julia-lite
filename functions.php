@@ -203,3 +203,39 @@ pixelgrade_autoload_dir( 'inc' );
  * Theme About page.
  */
 require get_template_directory() . '/inc/admin/about-page.php';
+
+// Create a helper function for easy SDK access.
+function jl_fs() {
+	global $jl_fs;
+
+	if ( ! isset( $jl_fs ) ) {
+		// Include Freemius SDK.
+		require_once dirname(__FILE__) . '/freemius/start.php';
+
+		$jl_fs = fs_dynamic_init( array(
+			'id'                  => '2447',
+			'slug'                => 'julia-lite',
+			'type'                => 'theme',
+			'public_key'          => 'pk_765ea26687104fdb298c04d612c8d',
+			'is_premium'          => false,
+			'has_addons'          => false,
+			'has_paid_plans'      => false,
+			'menu'                => array(
+				'slug'           => 'julia-lite-welcome',
+				'account'        => false,
+				'contact'        => false,
+				'support'        => false,
+				'parent'         => array(
+					'slug' => 'themes.php',
+				),
+			),
+		) );
+	}
+
+	return $jl_fs;
+}
+
+// Init Freemius.
+jl_fs();
+// Signal that SDK was initiated.
+do_action( 'jl_fs_loaded' );
