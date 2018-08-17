@@ -26,7 +26,7 @@ add_action( 'after_setup_theme', 'julia_remove_header_component_filters' );
 
 function julia_customize_header_config( $config ) {
 	// Don't output empty markup
-	$config['zones']['left']['display_blank'] = false;
+	$config['zones']['left']['display_blank'] = true;
 	$config['zones']['right']['display_blank'] = false;
 
 	// Customize the nav menu locations
@@ -39,6 +39,7 @@ function julia_customize_header_config( $config ) {
 	$config['menu_locations']['primary-right']['nav_menu_args']['menu_id'] = 'menu-1';
 	// Set the nav menu location CSS class
 	$config['menu_locations']['primary-right']['nav_menu_args']['menu_class'] = 'menu  menu--primary';
+	$config['menu_locations']['primary-right']['nav_menu_args']['fallback_cb'] = 'wp_page_menu';
 
 	return $config;
 }
