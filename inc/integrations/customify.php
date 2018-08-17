@@ -36,33 +36,53 @@ function julia_lite_remove_customify_options( $options ) {
 }
 
 function julia_lite_prevent_register_admin_customizer_styles() {
-	$customify = PixCustomifyPlugin::instance();
+	if ( class_exists( 'PixCustomifyPlugin' ) ) {
+		$customify = PixCustomifyPlugin::instance();
 
-	remove_action('customize_controls_init', array( $customify, 'register_admin_customizer_styles' ), 10 );
-	remove_action('customize_controls_init', array( $customify, 'register_admin_customizer_scripts' ), 15 );
+		remove_action( 'customize_controls_init', array( $customify, 'register_admin_customizer_styles' ), 10 );
+		remove_action( 'customize_controls_init', array( $customify, 'register_admin_customizer_scripts' ), 15 );
+	}
 }
 add_action( 'customize_controls_init', 'julia_lite_prevent_register_admin_customizer_styles', 1 );
 
 function julia_lite_prevent_customize_controls_enqueue_scripts() {
-	$customify = PixCustomifyPlugin::instance();
+	if ( class_exists( 'PixCustomifyPlugin' ) ) {
+		$customify = PixCustomifyPlugin::instance();
 
-	remove_action('customize_controls_enqueue_scripts', array( $customify, 'enqueue_admin_customizer_styles' ), 10 );
-	remove_action('customize_controls_enqueue_scripts', array( $customify, 'enqueue_admin_customizer_scripts' ), 15 );
+		remove_action( 'customize_controls_enqueue_scripts', array(
+			$customify,
+			'enqueue_admin_customizer_styles'
+		), 10 );
+		remove_action( 'customize_controls_enqueue_scripts', array(
+			$customify,
+			'enqueue_admin_customizer_scripts'
+		), 15 );
+	}
 }
 add_action( 'customize_controls_enqueue_scripts', 'julia_lite_prevent_customize_controls_enqueue_scripts', 1 );
 
 function julia_lite_prevent_customize_preview_init_scripts() {
-	$customify = PixCustomifyPlugin::instance();
+	if ( class_exists( 'PixCustomifyPlugin' ) ) {
+		$customify = PixCustomifyPlugin::instance();
 
-	remove_action('customize_preview_init', array( $customify, 'customizer_live_preview_register_scripts' ), 10 );
-	remove_action('customize_preview_init', array( $customify, 'customizer_live_preview_enqueue_scripts' ), 99999 );
+		remove_action( 'customize_preview_init', array( $customify, 'customizer_live_preview_register_scripts' ), 10 );
+		remove_action( 'customize_preview_init', array(
+			$customify,
+			'customizer_live_preview_enqueue_scripts'
+		), 99999 );
+	}
 }
 add_action( 'customize_preview_init', 'julia_lite_prevent_customize_preview_init_scripts', 1 );
 
 function julia_lite_prevent_customize_controls_print_footer_scripts() {
-	$customify = PixCustomifyPlugin::instance();
+	if ( class_exists( 'PixCustomifyPlugin' ) ) {
+		$customify = PixCustomifyPlugin::instance();
 
-	remove_action('customize_controls_print_footer_scripts', array( $customify, 'customize_pane_settings_additional_data' ), 10000 );
+		remove_action( 'customize_controls_print_footer_scripts', array(
+			$customify,
+			'customize_pane_settings_additional_data'
+		), 10000 );
+	}
 }
 add_action( 'customize_controls_print_footer_scripts', 'julia_lite_prevent_customize_controls_print_footer_scripts', 1 );
 
