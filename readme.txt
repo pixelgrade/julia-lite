@@ -47,6 +47,10 @@ Julia Lite is a free food blogging theme for community builders who want to shar
 = 1.0.5 =
 * Fixed a header styling issue
 
+= 1.0.6 =
+* Fixed the footer copyright link
+* Added WPForms recommended plugin
+
 == Credits ==
 
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License.

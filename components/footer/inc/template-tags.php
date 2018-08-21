@@ -207,7 +207,7 @@ function pixelgrade_footer_get_back_to_top_link() {
  * @return bool|string
  */
 function pixelgrade_footer_get_copyright_content() {
-	return '<span class="c-footer__credits"><a href="' . esc_url( 'http://wordpress.org' ) . '">' . esc_html__( 'Proudly powered by WordPress', 'julia-lite' ) . '</a> | Theme: Julia Lite by <a href="' . esc_url( 'https://pixelgrade.com/' ) .' target="_blank">Pixelgrade</a>' . '</span>' . PHP_EOL;
+	return '<span class="c-footer__credits"><a href="' . esc_url( 'http://wordpress.org' ) . '">' . esc_html__( 'Proudly powered by WordPress', 'julia-lite' ) . '</a> | Theme: Julia Lite by <a href="' . esc_url( 'https://pixelgrade.com/?utm_source=julia-lite-clients&utm_medium=footer&utm_campaign=julia-lite' ) .'" target="_blank">Pixelgrade</a>' . '</span>' . PHP_EOL;
 }
 
 /**
