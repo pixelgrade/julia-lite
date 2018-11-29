@@ -172,7 +172,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
         $this->menu_name, $title, 'activate_plugins', $this->theme_slug . '-welcome', array(
         $this,
         'ti_about_page_render',
-        ) 
+        )
     );
 			}
 		}
@@ -309,7 +309,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
         'downloadlink'      => false,
         'icons'             => true
         )
-        ) 
+        )
     );
 				set_transient( 'ti_about_page_plugin_information_transient_' . $slug, $call_api, 30 * MINUTE_IN_SECONDS );
 			}
@@ -398,7 +398,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
         'plugin_status' => 'all',
         'paged'         => '1',
         '_wpnonce'      => wp_create_nonce( 'deactivate-plugin_' . $slug . '/' . $plugin_root_file . '.php' ),
-        ), network_admin_url( 'plugins.php' ) 
+        ), network_admin_url( 'plugins.php' )
     );
 					break;
 				case 'activate':
@@ -409,7 +409,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
         'plugin_status' => 'all',
         'paged'         => '1',
         '_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $slug . '/' . $plugin_root_file . '.php' ),
-        ), network_admin_url( 'plugins.php' ) 
+        ), network_admin_url( 'plugins.php' )
     );
 					break;
 			}
@@ -862,6 +862,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
 						echo '</tr>';
 
 					}
+					echo '<tr><td style="border-top:0;"></td><td style="border-top:0;"></td><td style="border-top:0;" class="only-pro"><a href="https://pixelgrade.com/themes/julia-lite/?utm_source=julia-lite-clients&utm_medium=about-page&utm_campaign=julia-lite#pro-features-video" target="_blank" >View demo video with all features</a></td></tr>';
 					if ( ! empty( $free_pro['pro_theme_link'] ) && ! empty( $free_pro['get_pro_theme_label'] ) ) {
 						echo '<tr class="ti-about-page-text-center">';
 						echo '<td></td>';
@@ -901,7 +902,7 @@ if ( ! class_exists( 'Julia_Lite_About_Page' ) ) {
         'ajaxurl'                  => esc_url( admin_url( 'admin-ajax.php' ) ),
         'template_directory'       => get_template_directory_uri(),
         'activating_string'        => __( 'Activating', 'julia-lite' )
-        ) 
+        )
     );
 
 			}

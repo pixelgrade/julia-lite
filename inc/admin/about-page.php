@@ -96,7 +96,7 @@ function julia_lite_admin_setup() {
 			'pro_theme_name'      => 'Julia PRO',
 			'pro_theme_link'      => 'https://pixelgrade.com/themes/julia-lite/?utm_source=julia-lite-clients&utm_medium=about-page&utm_campaign=julia-lite#pro',
 			/* translators: View link */
-			'get_pro_theme_label' => sprintf( __( 'View %s', 'julia-lite' ), 'Julia Pro' ),
+			'get_pro_theme_label' => sprintf( __( 'Get %s', 'julia-lite' ), 'Julia Pro' ),
 			'features'            => array(
 				array(
 					'title'       => esc_html__( 'Daring Design for Devoted Readers', 'julia-lite' ),

@@ -89,32 +89,32 @@ function julia_customize_register( $wp_customize ) {
 			/* translators: The upsell link. */
 				__(
 					'<div class="upsell-container">
-					<h2>Need More? Go PRO</h2>
-					<p>Take it to the next level and stand out. See the hotspots of Julia PRO:</p>
-					<ul class="upsell-features">
-                            <li>
-                            	<h4>Personalize to Match Your Style</h4>
-                            	<div class="description">Having different tastes and preferences might be tricky for users, but not with Julia onboard. It has an intuitive and catchy interface which allows you to change <strong>fonts, colors or layout sizes</strong> in a blink of an eye.</div>
-                            </li>
+				<h2>Need More? Go PRO</h2>
+				<p>Take it to the next level and stand out. See the hotspots of Julia PRO:</p>
+				<ul class="upsell-features">
+                        <li>
+                            <h4>Personalize to Match Your Style</h4>
+                            <div class="description">Having different tastes and preferences might be tricky for users, but not with Julia onboard. It has an intuitive and catchy interface which allows you to change <strong>fonts, colors or layout sizes</strong> in a blink of an eye.</div>
+                        </li>
 
-                            <li>
-                            	<h4>New Widgets for More Flexiblity</h4>
-                            	<div class="description">Besides the Featured and Grid Posts widgets, the PRO version comes with extra goodies: Slideshow Posts, Carousel, Promo Box, and Categories Images. You also get more font options and widget areas to play with.</div>
-                            </li>
+                        <li>
+                            <h4>New Widgets for More Flexiblity</h4>
+                            <div class="description">Besides the Featured and Grid Posts widgets, the PRO version comes with extra goodies: Slideshow Posts, Carousel, Promo Box, and Categories Images. You also get more font options and widget areas to play with.</div>
+                        </li>
 
-                            <li>
-                            	<h4>Intuitive Recipe Index</h4>
-                            	<div class="description">You keep track of your recipes with our cus­tom made recipe index­ing sys­tem. Fil­ter by Cat­e­go­ry, Course, Sea­son and much more to easily discover your culinary gems and food stories.</div>
-                            </li>
+                        <li>
+                            <h4>Intuitive Recipe Index</h4>
+                            <div class="description">You keep track of your recipes with our cus­tom made recipe index­ing sys­tem. Fil­ter by Cat­e­go­ry, Course, Sea­son and much more to easily discover your culinary gems and food stories.</div>
+                        </li>
 
-                            <li>
-                            	<h4>Premium Customer Support</h4>
-                            	<div class="description">You will benefit by priority support from a caring and devoted team, eager to help and to spread happiness. We work hard to provide a flawless experience for those who vote us with trust and choose to be our special clients.</div>
-                            </li>
-                            
-                    </ul> %s </div>', 'julia-lite'
+                        <li>
+                            <h4>Premium Customer Support</h4>
+                            <div class="description">You will benefit by priority support from a caring and devoted team, eager to help and to spread happiness. We work hard to provide a flawless experience for those who vote us with trust and choose to be our special clients.</div>
+                        </li>
+                        
+                </ul> %s </div>', 'julia-lite'
 				),
-				sprintf( '<a href="%1$s" target="_blank" class="button button-primary">%2$s</a>', esc_url( julia_lite_get_pro_link() ), esc_html__( 'View Julia PRO', 'julia-lite' ) )
+				sprintf( '<a href="%1$s" target="_blank" style="text-align:center; display:inline-block; height:28px; width:100%%;">%2$s</a><a href="%3$s" target="_blank" class="button button-primary">%4$s</a>', esc_url( 'https://pixelgrade.com/themes/blogging/julia-pro/?utm_source=julia-lite-clients&utm_medium=customizer&utm_campaign=julia-lite#pro-features-video' ), esc_html__( 'View demo video with all features', 'julia-lite' ), esc_url( julia_lite_get_pro_link() ), esc_html__( 'Get Julia Pro', 'julia-lite' ) )
 			),
 		)
 	);
