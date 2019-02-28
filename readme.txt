@@ -3,7 +3,7 @@ Contributors: pixelgrade
 Tags: blog, custom-menu, editor-style, featured-images, one-column, rtl-language-support, sticky-post, threaded-comments, three-columns, translation-ready, two-columns
 Requires at least: 4.0
 Tested up to: 4.9.8
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,9 @@ Julia Lite is a food blogging theme made for creators who want to showcase their
 = 1.0.7 =
 * Changed the structure of the readme file
 * Changed the copyright in the About page
+
+= 1.0.8 =
+* Fixed a security issue
 
 == Credits ==
 
