@@ -13,6 +13,9 @@ Julia Lite is a free food blogging theme for community builders who want to shar
 
 ## Changelog
 
+= 1.0.8 =
+* Fixed a security issue
+
 = 1.0.7 =
 * Changed the structure of the readme file
 * Changed the copyright in the About page
