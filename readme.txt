@@ -2,7 +2,7 @@
 Contributors: pixelgrade
 Tags: blog, custom-menu, editor-style, featured-images, one-column, rtl-language-support, sticky-post, threaded-comments, three-columns, translation-ready, two-columns
 Requires at least: 4.0
-Tested up to: 4.9.8
+Tested up to: 5.1
 Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
