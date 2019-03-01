@@ -14,11 +14,26 @@ Julia Lite is a food blogging theme made for creators who want to showcase their
 
 == Changelog ==
 
-= 1.0.0 =
-* Initial release
+= 1.0.8 =
+* Fixed a security issue
 
-= 1.0.1 =
-* Added new widgets and sidebar areas
+= 1.0.7 =
+* Changed the structure of the readme file
+* Changed the copyright in the About page
+
+= 1.0.6 =
+* Fixed the footer copyright link
+* Added WPForms recommended plugin
+
+= 1.0.5 =
+* Fixed a header styling issue
+
+= 1.0.4 =
+* Changed the theme description
+* Added Freemius
+
+= 1.0.3 =
+* Fixed the code sniffer errors and checked a couple warnings too
 
 = 1.0.2 =
 * Removed theme URI
@@ -29,26 +44,11 @@ Julia Lite is a food blogging theme made for creators who want to showcase their
 * Removed the unused local fonts
 * Added phpcs config file
 
-= 1.0.3 =
-* Fixed the code sniffer errors and checked a couple warnings too
+= 1.0.1 =
+* Added new widgets and sidebar areas
 
-= 1.0.4 =
-* Changed the theme description
-* Added Freemius
-
-= 1.0.5 =
-* Fixed a header styling issue
-
-= 1.0.6 =
-* Fixed the footer copyright link
-* Added WPForms recommended plugin
-
-= 1.0.7 =
-* Changed the structure of the readme file
-* Changed the copyright in the About page
-
-= 1.0.8 =
-* Fixed a security issue
+= 1.0.0 =
+* Initial release
 
 == Credits ==
 
