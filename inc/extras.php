@@ -277,7 +277,7 @@ $fonts_url = add_query_arg(
     array(
 				'family' => urlencode( implode( '|', $fonts ) ),
 				'subset' => urlencode( $subsets ),
-    ), '//fonts.googleapis.com/css' 
+    ), '//fonts.googleapis.com/css'
 );
 		}
 
@@ -317,7 +317,7 @@ $fields =  array_merge(
 				'<p class="comment-form-url"><label for="url">' . esc_html__( 'Website', 'julia-lite' ) . '</label>' .
 				'<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
 				'" size="30" /></p>',
-    ) 
+    )
 );
 
 		return $fields;
@@ -433,3 +433,24 @@ function julia_header_classes( $classes = array() ) {
 	return $classes;
 }
 add_filter( 'pixelgrade_header_class', 'julia_header_classes', 10, 1 );
+
+/**
+ * Handle the WUpdates theme identification.
+ *
+ * @param array $ids
+ *
+ * @return array
+ */
+function julia_wupdates_add_id_wporg( $ids = array() ) {
+
+	// First get the theme directory name (unique)
+	$slug = basename( get_template_directory() );
+
+	// Now add the predefined details about this product
+	// Do not tamper with these please!!!
+	$ids[ $slug ] = array( 'name' => 'Julia Lite', 'slug' => 'julia-lite', 'id' => 'JDbdQ', 'type' => 'theme_wporg', 'digest' => '1764a9c47401d7a8234b8b33e288d64b', );
+
+	return $ids;
+}
+// The 5 priority is intentional to allow for pro to overwrite.
+add_filter( 'wupdates_gather_ids', 'julia_wupdates_add_id_wporg', 5, 1 );
