@@ -3,7 +3,7 @@
  * The Featured Posts - Slideshow Widget
  *
  * @package Julia
- * @since 2.0.0
+ * @since   2.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -33,7 +33,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_SlideshowWidget' ) ) :
 
 			// This is the way we can alter the base widget's behaviour
 			$config = array(
-				'fields' => array(
+				'fields'                 => array(
 					'columns'           => array(
 						'disabled' => true,
 					),
@@ -49,16 +49,16 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_SlideshowWidget' ) ) :
 						'section'  => 'layout',
 						'priority' => 30,
 					),
-					'show_readmore' => array(
+					'show_readmore'     => array(
 						'disabled' => true,
 					),
-					'show_view_more' => array(
+					'show_view_more'    => array(
 						'disabled' => true,
 					),
 					'view_more_label'   => array(
 						'disabled' => true,
 					),
-					'show_pagination' => array(
+					'show_pagination'   => array(
 						'type'     => 'checkbox',
 						'label'    => esc_html__( 'Show Pagination', 'julia-lite' ),
 						'default'  => true,
@@ -66,7 +66,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_SlideshowWidget' ) ) :
 						'priority' => 10,
 					),
 				),
-				'posts'  => array(
+				'posts'                  => array(
 					'classes'   => array( 'featured-posts-slideshow' ),
 					// You can have multiple templates here (array of arrays) and we will use the first one that passes processing and is found
 					// @see Pixelgrade_Config::evaluateTemplateParts()
@@ -77,27 +77,27 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_SlideshowWidget' ) ) :
 						'lookup_parts_root' => true,
 					),
 				),
-                'sidebars_not_supported' => array(
-	                'sidebar-1',
-	                'sidebar-2',
-	                'front-page-1',
-	                'front-page-2',
-	                'front-page-3',
-	                'front-page-4',
-	                'front-page-5',
-	                'front-page-6',
-	                'front-page-7',
-	                'archive-1',
-	                'footer-featured',
-                ),
+				'sidebars_not_supported' => array(
+					'sidebar-1',
+					'sidebar-2',
+					'archive-1',
+					'front-page-1',
+					'front-page-2',
+					'front-page-3',
+					'front-page-4',
+					'front-page-5',
+					'front-page-6',
+					'front-page-7',
+					'footer-featured',
+				),
 			);
 
-parent::__construct(
-    'pixelgrade-featured-posts-slideshow',
+			parent::__construct(
+				'pixelgrade-featured-posts-slideshow',
 				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#09; Pixelgrade: Slideshow Posts', 'julia-lite' ) ),
 				$widget_ops,
-    $config 
-);
+				$config
+			);
 
 			$this->alt_option_name = 'widget_featured_entries_slideshow';
 
@@ -109,18 +109,33 @@ parent::__construct(
 			if ( 'pixelgrade-featured-posts-slideshow' == $instance->id_base ) {
 
 				// Add some classes to the widget wrapper
-				add_filter( 'pixelgrade_featured_posts_widget_classes' . $instance->id, array( $this, 'add_custom_classes' ), 10, 2 );
+				add_filter( 'pixelgrade_featured_posts_widget_classes' . $instance->id, array(
+					$this,
+					'add_custom_classes',
+				), 10, 2 );
 
 				// Add some attributes to the widget wrapper
-				add_filter( 'pixelgrade_featured_posts_widget_attributes' . $instance->id, array( $this, 'add_custom_attributes' ), 10, 2 );
+				add_filter( 'pixelgrade_featured_posts_widget_attributes' . $instance->id, array(
+					$this,
+					'add_custom_attributes',
+				), 10, 2 );
 
 				// Add the necessary varaibles to the widget template part scope
-				add_filter( 'pixelgrade_featured_posts_widget_loop_extra_vars' . $instance->id, array( $this, 'add_extra_variables' ), 10, 4 );
+				add_filter( 'pixelgrade_featured_posts_widget_loop_extra_vars' . $instance->id, array(
+					$this,
+					'add_extra_variables',
+				), 10, 4 );
 
 				// Handle the post's group wrappers
-				add_action( 'pixelgrade_featured_posts_before_loop' . $instance->id, array( $this, 'add_before_widget_wrapper' ), 10, 2 );
+				add_action( 'pixelgrade_featured_posts_before_loop' . $instance->id, array(
+					$this,
+					'add_before_widget_wrapper',
+				), 10, 2 );
 
-				add_action( 'pixelgrade_featured_posts_after_loop' . $instance->id, array( $this, 'add_after_widget_wrapper' ), 10, 2 );
+				add_action( 'pixelgrade_featured_posts_after_loop' . $instance->id, array(
+					$this,
+					'add_after_widget_wrapper',
+				), 10, 2 );
 			}
 
 			return $instance_settings;
@@ -167,10 +182,10 @@ parent::__construct(
 				return $extra_vars;
 			}
 
-			$extra_vars['post_ID'] = $current_post_id;
-			$extra_vars['slide'] = array(
-				'type' => 'featured-post',
-				'post_id' => $current_post_id,
+			$extra_vars['post_ID']     = $current_post_id;
+			$extra_vars['slide']       = array(
+				'type'        => 'featured-post',
+				'post_id'     => $current_post_id,
 				'source_meta' => '_thumbnail_id',
 			);
 			$extra_vars['slide_index'] = $current_query->current_post;

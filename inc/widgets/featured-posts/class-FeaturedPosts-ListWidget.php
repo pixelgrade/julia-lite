@@ -3,7 +3,7 @@
  * The Featured Posts - List Widget
  *
  * @package Julia
- * @since 1.0.0
+ * @since   1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -33,19 +33,19 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_ListWidget' ) ) :
 
 			// This is the way we can alter the base widget's behaviour
 			$config = array(
-				'fields'   => array(
-					'columns' => array(
+				'fields'                 => array(
+					'columns'      => array(
 						'disabled' => true,
 					),
-                    'image_ratio'  => array(
-                        'default' => 'landscape',
-                    ),
-                    'show_excerpt' => array(
-                        'default' => true,
-                    ),
+					'image_ratio'  => array(
+						'default' => 'landscape',
+					),
+					'show_excerpt' => array(
+						'default' => true,
+					),
 				),
-				'posts'    => array(
-					'classes'       => array( 'featured-posts-list' ),
+				'posts'                  => array(
+					'classes' => array( 'featured-posts-list' ),
 				),
 				'sidebars_not_supported' => array(
 					'sidebar-1',
@@ -62,12 +62,12 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_ListWidget' ) ) :
 				),
 			);
 
-parent::__construct(
-    'featured-posts-list',
+			parent::__construct(
+				'featured-posts-list',
 				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: List Posts', 'julia-lite' ) ),
 				$widget_ops,
-    $config 
-);
+				$config
+			);
 
 			$this->alt_option_name = 'widget_featured_entries_list';
 		}

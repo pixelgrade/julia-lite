@@ -82,7 +82,7 @@ function julia_customize_register( $wp_customize ) {
 
 	// View Pro
 	$wp_customize->add_section(
-		'julia_lite_style_view_pro', array(
+		'pro__section', array(
 			'title'       => '' . esc_html__( 'View PRO Version', 'julia-lite' ),
 			'priority'    => 2,
 			'description' => sprintf(
@@ -122,13 +122,13 @@ function julia_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'julia_lite_style_view_pro_desc', array(
 			'default'           => '',
-			'sanitize_callback' => 'julia_lite_sanitize_checkbox',
+			'sanitize_callback' => '__return_true',
 		)
 	);
 
 	$wp_customize->add_control(
 		'julia_lite_style_view_pro_desc', array(
-			'section' => 'julia_lite_style_view_pro',
+			'section' => 'pro__section',
 			'type'    => 'hidden',
 		)
 	);
@@ -145,23 +145,8 @@ function julia_lite_get_pro_link() {
 	return 'https://pixelgrade.com/themes/blogging/julia-pro?utm_source=julia-lite-clients&utm_medium=customizer&utm_campaign=julia-lite';
 }
 
-/**
- * Sanitize the checkbox.
- *
- * @param boolean $input .
- *
- * @return boolean true if is 1 or '1', false if anything else
- */
-function julia_lite_sanitize_checkbox( $input ) {
-	if ( 1 == $input ) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
 /* =========================
- * SANITIZATION FOR SETTINGS - EXAMPLES
+ * SANITIZATION FOR SETTINGS
  * ========================= */
 
 /**
@@ -178,20 +163,6 @@ function julia_sanitize_header_position( $input ) {
 	}
 
 	return '';
-}
-
-/**
- * Sanitize the checkbox.
- *
- * @param boolean $input.
- * @return boolean true if is 1 or '1', false if anything else
- */
-function julia_sanitize_checkbox( $input ) {
-	if ( 1 == $input ) {
-		return true;
-	} else {
-		return false;
-	}
 }
 
 /* ============================
@@ -241,7 +212,7 @@ function julia_customizer_partial_transparent_logo() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function julia_customize_preview_js() {
-	wp_enqueue_script( 'julia_customizer', pixelgrade_get_theme_file_uri( '/assets/js/customizer.js' ), array( 'customize-preview' ), '20171201', true );
+	wp_enqueue_script( 'julia_customizer', pixelgrade_get_theme_file_uri( '/assets/js/customizer.js' ), array( 'customize-preview' ), '20190410', true );
 }
 add_action( 'customize_preview_init', 'julia_customize_preview_js' );
 
@@ -249,7 +220,6 @@ add_action( 'customize_preview_init', 'julia_customize_preview_js' );
  * Assets that will be loaded for the customizer sidebar
  */
 function julia_lite_customizer_assets() {
-	wp_enqueue_style( 'julia_lite_customizer_style', get_template_directory_uri() . '/assets/css/admin/customizer.css', null, '1.0.0', false );
+	wp_enqueue_style( 'julia_lite_customizer_style', get_template_directory_uri() . '/inc/admin/css/customizer.css', array(), '1.1.0', false );
 }
-
 add_action( 'customize_controls_enqueue_scripts', 'julia_lite_customizer_assets' );

@@ -3,7 +3,7 @@
  * The Featured Posts - 6 Cards Layout Widget
  *
  * @package Julia
- * @since 1.0.0
+ * @since   1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -33,30 +33,30 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_6CardsWidget' ) ) :
 
 			// This is the way we can alter the base widget's behaviour
 			$config = array(
-				'fields'   => array(
-					'number'         => array(
+				'fields'                 => array(
+					'number'          => array(
 						'disabled' => true,
-                        'default'  => 6,
+						'default'  => 6,
 					),
-					'columns'        => array(
+					'columns'         => array(
 						'disabled' => true,
 					),
-                    'show_excerpt' => array(
-                        'default' => true,
-                    ),
-                    'show_readmore' => array(
-                        'default' => true,
-                    ),
-					'show_view_more' => array(
-						'disabled' => true,
-                        'default' => false,
+					'show_excerpt'    => array(
+						'default' => true,
 					),
-                    'view_more_label' => array(
-                        'disabled' => true,
-                    ),
+					'show_readmore'   => array(
+						'default' => true,
+					),
+					'show_view_more'  => array(
+						'disabled' => true,
+						'default'  => false,
+					),
+					'view_more_label' => array(
+						'disabled' => true,
+					),
 				),
-				'posts'    => array(
-					'classes'       => array( 'featured-posts-6cards' ),
+				'posts'                  => array(
+					'classes' => array( 'featured-posts-6cards' ),
 				),
 				'sidebars_not_supported' => array(
 					'sidebar-1',
@@ -73,12 +73,12 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_6CardsWidget' ) ) :
 				),
 			);
 
-parent::__construct(
-    'featured-posts-6cards',
+			parent::__construct(
+				'featured-posts-6cards',
 				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: Featured Posts Alt', 'julia-lite' ) ),
 				$widget_ops,
-    $config 
-);
+				$config
+			);
 
 			$this->alt_option_name = 'widget_featured_entries_5cards';
 
@@ -91,8 +91,14 @@ parent::__construct(
 				//These are all dynamic hooks specific to each widget instance.
 
 				// Handle the post's groups wrappers
-				add_action( 'pixelgrade_featured_posts_widget_before_post' . $instance->id, array( $this, 'before_widget_post' ), 10, 2 );
-				add_action( 'pixelgrade_featured_posts_widget_after_post' . $instance->id, array( $this, 'after_widget_post' ), 10, 2 );
+				add_action( 'pixelgrade_featured_posts_widget_before_post' . $instance->id, array(
+					$this,
+					'before_widget_post',
+				), 10, 2 );
+				add_action( 'pixelgrade_featured_posts_widget_after_post' . $instance->id, array(
+					$this,
+					'after_widget_post',
+				), 10, 2 );
 			}
 
 			return $instance_settings;
@@ -101,8 +107,8 @@ parent::__construct(
 		/**
 		 * Outputs the needed wrappers before the post.
 		 *
-		 * @param int $post_index The current post index in the overall widget loop. It starts from 1.
-		 * @param WP_Query $query The widget posts query.
+		 * @param int      $post_index The current post index in the overall widget loop. It starts from 1.
+		 * @param WP_Query $query      The widget posts query.
 		 */
 		public function before_widget_post( $post_index, $query ) {
 			switch ( $post_index ) {
@@ -132,8 +138,8 @@ parent::__construct(
 		/**
 		 * Outputs the needed wrappers after the post.
 		 *
-		 * @param int $post_index The current post index in the overall widget loop. It starts from 1.
-		 * @param WP_Query $query The widget posts query.
+		 * @param int      $post_index The current post index in the overall widget loop. It starts from 1.
+		 * @param WP_Query $query      The widget posts query.
 		 */
 		public function after_widget_post( $post_index, $query ) {
 			switch ( $post_index ) {

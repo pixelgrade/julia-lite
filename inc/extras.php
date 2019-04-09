@@ -5,13 +5,14 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Julia
- * @since 1.0.0
+ * @since   1.0.0
  */
 
 /**
  * Adds custom classes to the array of body classes.
  *
  * @param array $classes Classes for the body element.
+ *
  * @return array
  */
 function julia_body_classes( $classes ) {
@@ -38,7 +39,7 @@ function julia_body_classes( $classes ) {
 	}
 
 	if ( is_singular() && ! is_attachment() ) {
-		$classes[] =  'singular';
+		$classes[] = 'singular';
 	}
 
 	if ( is_singular() && is_active_sidebar( 'sidebar-1' ) ) {
@@ -87,11 +88,12 @@ function julia_body_classes( $classes ) {
 	}
 
 	if ( 'sideways' === pixelgrade_option( 'widgets_title_position' ) ) {
-	    $classes[] = 'u-widget-title-sideways';
-    }
+		$classes[] = 'u-widget-title-sideways';
+	}
 
 	return $classes;
 }
+
 add_filter( 'body_class', 'julia_body_classes' );
 
 function julia_body_attributes( $attributes ) {
@@ -103,12 +105,13 @@ function julia_body_attributes( $attributes ) {
 
 	return $attributes;
 }
+
 add_filter( 'pixelgrade_body_attributes', 'julia_body_attributes', 10, 1 );
 
 /**
  * Display the classes for the blog wrapper.
  *
- * @param string|array $class Optional. One or more classes to add to the class list.
+ * @param string|array $class    Optional. One or more classes to add to the class list.
  * @param string|array $location Optional. The place (template) where the classes are displayed. This is a hint for filters.
  */
 function julia_blog_class( $class = '', $location = '' ) {
@@ -119,12 +122,12 @@ function julia_blog_class( $class = '', $location = '' ) {
 /**
  * Retrieve the classes for the portfolio wrapper as an array.
  *
- * @since Julia 1.0
- *
- * @param string|array $class Optional. One or more classes to add to the class list.
+ * @param string|array $class    Optional. One or more classes to add to the class list.
  * @param string|array $location Optional. The place (template) where the classes are displayed. This is a hint for filters.
  *
  * @return array Array of classes.
+ * @since Julia 1.0
+ *
  */
 function julia_get_blog_class( $class = '', $location = '' ) {
 
@@ -132,22 +135,22 @@ function julia_get_blog_class( $class = '', $location = '' ) {
 
 	$classes[] = 'c-gallery c-gallery--blog';
 	// layout
-	$grid_layout = pixelgrade_option( 'blog_grid_layout', 'regular' );
+	$grid_layout       = pixelgrade_option( 'blog_grid_layout', 'regular' );
 	$grid_layout_class = "c-gallery--" . $grid_layout;
-	$classes[] = $grid_layout_class;
+	$classes[]         = $grid_layout_class;
 
 	if ( $grid_layout == 'masonry' ) {
 		$classes[] = 'js-masonry';
 	}
 
 	// items per row
-	$items_per_row = intval( pixelgrade_option( 'blog_items_per_row', 3 ) );
-	$items_per_row_at_desk = $items_per_row;
-	$items_per_row_at_lap = $items_per_row == 1 ? 1 : $items_per_row > 4 ? $items_per_row - 1 : $items_per_row;
+	$items_per_row          = intval( pixelgrade_option( 'blog_items_per_row', 3 ) );
+	$items_per_row_at_desk  = $items_per_row;
+	$items_per_row_at_lap   = $items_per_row == 1 ? 1 : $items_per_row > 4 ? $items_per_row - 1 : $items_per_row;
 	$items_per_row_at_small = $items_per_row_at_lap > 1 ? $items_per_row_at_lap - 1 : $items_per_row_at_lap;
-	$items_per_row_class = 'o-grid--' . $items_per_row_at_desk . 'col-@desk o-grid--' . $items_per_row_at_lap . 'col-@lap o-grid--' . $items_per_row_at_small . 'col-@xsmall';
+	$items_per_row_class    = 'o-grid--' . $items_per_row_at_desk . 'col-@desk o-grid--' . $items_per_row_at_lap . 'col-@lap o-grid--' . $items_per_row_at_small . 'col-@xsmall';
 	// title position
-	$title_position = pixelgrade_option( 'blog_items_title_position', 'regular' );
+	$title_position       = pixelgrade_option( 'blog_items_title_position', 'regular' );
 	$title_position_class = 'c-gallery--title-' . $title_position;
 
 	if ( $title_position == 'overlay' ) {
@@ -175,9 +178,9 @@ function julia_get_blog_class( $class = '', $location = '' ) {
 	/**
 	 * Filters the list of CSS classes for the blog wrapper.
 	 *
-	 * @param array $classes An array of header classes.
-	 * @param array $class   An array of additional classes added to the blog wrapper.
-	 * @param string|array $location   The place (template) where the classes are displayed.
+	 * @param array        $classes  An array of header classes.
+	 * @param array        $class    An array of additional classes added to the blog wrapper.
+	 * @param string|array $location The place (template) where the classes are displayed.
 	 */
 	$classes = apply_filters( 'julia_blog_class', $classes, $class, $location );
 
@@ -187,7 +190,7 @@ function julia_get_blog_class( $class = '', $location = '' ) {
 /**
  * Force the template tag that checks whether to display the post thumbnail or not (including checking if it exists) to not show it on pages.
  *
- * @param bool $show Whether to show the post thumbnail or not.
+ * @param bool        $show    Whether to show the post thumbnail or not.
  * @param int|WP_Post $post_id Post ID or post object. Defaults to the current post.
  *
  * @return bool
@@ -201,6 +204,7 @@ function julia_do_not_show_thumbnail_on_pages( $show, $post_id ) {
 
 	return $show;
 }
+
 add_filter( 'pixelgrade_show_thumbnail', 'julia_do_not_show_thumbnail_on_pages', 10, 2 );
 
 /**
@@ -211,15 +215,16 @@ function julia_pingback_header() {
 		echo '<link rel="pingback" href="' . esc_url( get_bloginfo( 'pingback_url', 'display' ) ) . '">';
 	}
 }
+
 add_action( 'wp_head', 'julia_pingback_header' );
 
 if ( ! function_exists( 'julia_google_fonts_url' ) ) :
 	/**
 	 * Register Google fonts for Julia.
 	 *
+	 * @return string Google fonts URL for the theme.
 	 * @since Julia 1.0
 	 *
-	 * @return string Google fonts URL for the theme.
 	 */
 	function julia_google_fonts_url() {
 		$fonts_url = '';
@@ -273,12 +278,12 @@ if ( ! function_exists( 'julia_google_fonts_url' ) ) :
 		}
 
 		if ( $fonts ) {
-$fonts_url = add_query_arg(
-    array(
-				'family' => urlencode( implode( '|', $fonts ) ),
-				'subset' => urlencode( $subsets ),
-    ), '//fonts.googleapis.com/css'
-);
+			$fonts_url = add_query_arg(
+				array(
+					'family' => urlencode( implode( '|', $fonts ) ),
+					'subset' => urlencode( $subsets ),
+				), '//fonts.googleapis.com/css'
+			);
 		}
 
 		return $fonts_url;
@@ -289,36 +294,36 @@ if ( ! function_exists( 'julia_comment_form_custom_fields' ) ) :
 	/**
 	 * Custom comment form fields
 	 *
-	 * @since Julia 1.0
-	 *
 	 * @param array $fields
 	 *
 	 * @return array
+	 * @since Julia 1.0
+	 *
 	 */
 	function julia_comment_form_custom_fields( $fields ) {
 
 		$commenter = wp_get_current_commenter();
-		$req = get_option( 'require_name_email' );
-		$aria_req = ( $req ? ' aria-required="true"' : '' );
+		$req       = get_option( 'require_name_email' );
+		$aria_req  = ( $req ? ' aria-required="true"' : '' );
 
-$fields =  array_merge(
-    $fields, array(
-    'author' =>
-				'<p class="comment-form-author"><label for="author">' . esc_html__( 'Name', 'julia-lite' ) . ( $req ? '*' : '' ) . '</label> ' .
-				'<input id="author" name="author" type="text" placeholder="'. esc_attr__( 'Your name', 'julia-lite' ) .'" value="' . esc_attr( $commenter['comment_author'] ) .
-				'"' . $aria_req . ' /></p>',
+		$fields = array_merge(
+			$fields, array(
+				'author' =>
+					'<p class="comment-form-author"><label for="author">' . esc_html__( 'Name', 'julia-lite' ) . ( $req ? '*' : '' ) . '</label> ' .
+					'<input id="author" name="author" type="text" placeholder="' . esc_attr__( 'Your name', 'julia-lite' ) . '" value="' . esc_attr( $commenter['comment_author'] ) .
+					'"' . $aria_req . ' /></p>',
 
-    'email' =>
-				'<p class="comment-form-email"><label for="email">' . esc_html__( 'Email', 'julia-lite' ) . ( $req ? '*' : '' ) . '</label> ' .
-				'<input id="email" name="email" type="text" placeholder="'. esc_attr__( 'your@email.com', 'julia-lite' ) .'" value="' . esc_attr( $commenter['comment_author_email'] ) .
-				'"' . $aria_req . ' /></p>',
+				'email' =>
+					'<p class="comment-form-email"><label for="email">' . esc_html__( 'Email', 'julia-lite' ) . ( $req ? '*' : '' ) . '</label> ' .
+					'<input id="email" name="email" type="text" placeholder="' . esc_attr__( 'your@email.com', 'julia-lite' ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) .
+					'"' . $aria_req . ' /></p>',
 
-    'url' =>
-				'<p class="comment-form-url"><label for="url">' . esc_html__( 'Website', 'julia-lite' ) . '</label>' .
-				'<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
-				'" size="30" /></p>',
-    )
-);
+				'url' =>
+					'<p class="comment-form-url"><label for="url">' . esc_html__( 'Website', 'julia-lite' ) . '</label>' .
+					'<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
+					'" size="30" /></p>',
+			)
+		);
 
 		return $fields;
 	}
@@ -332,26 +337,28 @@ add_filter( 'comment_form_default_fields', 'julia_comment_form_custom_fields' );
  */
 function julia_mce_editor_buttons( $buttons ) {
 	array_unshift( $buttons, 'styleselect' );
+
 	return $buttons;
 }
+
 add_filter( 'mce_buttons_2', 'julia_mce_editor_buttons' );
 
 /**
  * Add styles/classes to the "Styles" drop-down.
  *
- * @since Julia 1.0
- *
- * @see https://codex.wordpress.org/TinyMCE_Custom_Styles
- *
  * @param array $settings
  *
  * @return array
+ * @since Julia 1.0
+ *
+ * @see   https://codex.wordpress.org/TinyMCE_Custom_Styles
+ *
  */
 function julia_mce_before_init( $settings ) {
 
-	$style_formats =array(
-		array( 'title' => esc_html__( 'Display', 'julia-lite' ), 'block' => 'h1', 'classes' => 'h0'),
-		array( 'title' => esc_html__( 'Intro Text', 'julia-lite' ), 'selector' => 'p', 'classes' => 'intro'),
+	$style_formats = array(
+		array( 'title' => esc_html__( 'Display', 'julia-lite' ), 'block' => 'h1', 'classes' => 'h0' ),
+		array( 'title' => esc_html__( 'Intro Text', 'julia-lite' ), 'selector' => 'p', 'classes' => 'intro' ),
 		array( 'title' => esc_html__( 'Dropcap', 'julia-lite' ), 'inline' => 'span', 'classes' => 'dropcap' ),
 		array( 'title' => esc_html__( 'Button Arrow', 'julia-lite' ), 'selector' => 'a', 'classes' => 'button arrow' ),
 	);
@@ -368,12 +375,12 @@ add_filter( 'the_category_list', 'pixelgrade_remove_main_category_from_list', 10
 /**
  * Return false to prevent the title markup to be displayed
  *
- * @since Julia 1.0
- *
- * @param bool $display
+ * @param bool         $display
  * @param string|array $location
  *
  * @return bool
+ * @since Julia 1.0
+ *
  */
 function julia_prevent_entry_title( $show, $location ) {
 	//we don't want an header if we are using the Full Width (No Title) or Default (No Title) page template
@@ -415,11 +422,11 @@ function julia_featured_posts_widget_classes( $classes = array() ) {
 	$widget_classes = array();
 
 	$widget_classes[] = 'c-gallery';
-	$widget_classes = array_merge( $widget_classes, pixelgrade_get_blog_grid_layout_class() );
-	$widget_classes = array_merge( $widget_classes, pixelgrade_get_blog_grid_alignment_class() );
+	$widget_classes   = array_merge( $widget_classes, pixelgrade_get_blog_grid_layout_class() );
+	$widget_classes   = array_merge( $widget_classes, pixelgrade_get_blog_grid_alignment_class() );
 
-	$classes = array_merge( $classes, $widget_classes );
-	$classes = str_replace( 'c-gallery--packed', 'c-gallery--regular', $classes );
+	$classes   = array_merge( $classes, $widget_classes );
+	$classes   = str_replace( 'c-gallery--packed', 'c-gallery--regular', $classes );
 	$classes[] = 'c-gallery--widget';
 
 	return $classes;
@@ -442,13 +449,12 @@ add_filter( 'pixelgrade_header_class', 'julia_header_classes', 10, 1 );
  * @return array
  */
 function julia_wupdates_add_id_wporg( $ids = array() ) {
-
 	// First get the theme directory name (unique)
 	$slug = basename( get_template_directory() );
 
 	// Now add the predefined details about this product
 	// Do not tamper with these please!!!
-	$ids[ $slug ] = array( 'name' => 'Julia Lite', 'slug' => 'julia-lite', 'id' => 'JDbdQ', 'type' => 'theme_wporg', 'digest' => '1764a9c47401d7a8234b8b33e288d64b', );
+	$ids[ $slug ] = array( 'name' => 'Julia', 'slug' => 'julia', 'id' => 'JDbdQ', 'type' => 'theme_wporg', 'digest' => '18e8c006656fee2f6de9b8c2eefb037f', );
 
 	return $ids;
 }

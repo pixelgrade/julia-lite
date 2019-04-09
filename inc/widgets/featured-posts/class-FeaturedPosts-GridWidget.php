@@ -3,7 +3,7 @@
  * The Featured Posts - Grid Widget
  *
  * @package Julia
- * @since 1.0.0
+ * @since   1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -33,35 +33,35 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_GridWidget' ) ) :
 
 			// This is the way we can alter the base widget's behaviour
 			$config = array(
-                'fields'   => array(
-	                'show_excerpt' => array(
-		                'disabled' => true,
-	                ),
-	                'show_readmore' => array(
-		                'disabled' => true,
-	                ),
-	                'show_view_more' => array(
-		                'disabled' => true,
-		                'default' => false,
-	                ),
-                ),
-				'posts' => array(
-					'classes'       => array( 'featured-posts-grid' ),
+				'fields'                 => array(
+					'show_excerpt'   => array(
+						'disabled' => true,
+					),
+					'show_readmore'  => array(
+						'disabled' => true,
+					),
+					'show_view_more' => array(
+						'disabled' => true,
+						'default'  => false,
+					),
 				),
-                'sidebars_not_supported' => array(
-	                'front-page-4',
-	                'front-page-5',
-	                'front-page-6',
-	                'footer-featured',
-                ),
+				'posts'                  => array(
+					'classes' => array( 'featured-posts-grid' ),
+				),
+				'sidebars_not_supported' => array(
+					'front-page-4',
+					'front-page-5',
+					'front-page-6',
+					'footer-featured',
+				),
 			);
 
-parent::__construct(
-    'featured-posts-grid',
+			parent::__construct(
+				'featured-posts-grid',
 				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: Grid Posts', 'julia-lite' ) ),
 				$widget_ops,
-    $config 
-);
+				$config
+			);
 
 			$this->alt_option_name = 'widget_featured_entries_grid';
 		}

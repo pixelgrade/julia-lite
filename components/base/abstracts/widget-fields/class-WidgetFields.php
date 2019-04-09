@@ -1456,7 +1456,7 @@ wp_localize_script(
 				<div class="c-alert__body">
 					<p><?php
 						/* translators: %s: The widget name */
-						printf( esc_html__( 'No way, Huston! The %s is available only if you have the Pro version of Julia Lite. But hey, don\'t let us stay in your way.', 'julia-lite' ), '<em>' . esc_html( $args['widget_name'] ) . '</em>' ); ?></p>
+						printf( esc_html__( 'No way, Huston! The %s is available only if you have the Pro version of Julia. But hey, don\'t let us stay in your way.', 'julia-lite' ), '<em>' . esc_html( $args['widget_name'] ) . '</em>' ); ?></p>
 				</div>
 			</div>
 

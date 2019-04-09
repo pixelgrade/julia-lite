@@ -100,7 +100,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					'source'                  => array(
 						'type'     => 'radio_group',
 						'label'    => esc_html__( 'Posts Source:', 'julia-lite' ),
-						'desc'     => esc_html__( '👉 More Posts Source options (e.g. Category, Tag, Selected Posts) are available in the Pro version of Julia Lite. C\'mon, aim for more, mate!', 'julia-lite' ),
+						'desc'     => esc_html__( '👉 More Posts Source options (e.g. Category, Tag, Selected Posts) are available in the Pro version of Julia. C\'mon, aim for more, mate!', 'julia-lite' ),
 						'options'  => array(
 							'recent'   => esc_html__( 'Recent Posts', 'julia-lite' ),
 						),

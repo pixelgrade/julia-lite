@@ -2,10 +2,10 @@
 /**
  * Jetpack Compatibility File.
  *
- * @link https://jetpack.com/
+ * @link    https://jetpack.com/
  *
  * @package Julia
- * @since 1.0.0
+ * @since   1.0.0
  */
 
 /**
@@ -20,25 +20,33 @@ function julia_jetpack_setup() {
 	add_theme_support( 'jetpack-responsive-videos' );
 
 	// Add support for content options, where it's appropriate
-add_theme_support(
-    'jetpack-content-options', array(
-    'blog-display'       => false, // we only show the excerpt, not full post content on archives
-    'author-bio'         => true, // display or not the author bio by default: true or false.
-    'masonry'            => '.c-gallery--masonry', // a CSS selector matching the elements that triggers a masonry refresh if the theme is using a masonry layout.
-    'post-details'       => array(
-    'stylesheet'      => 'julia-style', // name of the theme's stylesheet.
-    'date'            => '.single-post .posted-on', // a CSS selector matching the elements that display the post date.
-    'categories'      => '.single-post .cats', // a CSS selector matching the elements that display the post categories.
-    'tags'            => '.single-post .tags', // a CSS selector matching the elements that display the post tags.
-    'author'          => '.single-post .byline', // a CSS selector matching the elements that display the post author.
-    ),
-    'featured-images'    => array(
-    'archive'         => true, // enable or not the featured image check for archive pages: true or false.
-    'post'            => true, // we do not display the featured image on single posts
-    'page'            => false, // enable or not the featured image check for single pages: true or false.
-    ),
-    ) 
-);
+	add_theme_support(
+		'jetpack-content-options', array(
+			'blog-display'    => false,
+			// we only show the excerpt, not full post content on archives
+			'author-bio'      => true,
+			// display or not the author bio by default: true or false.
+			'masonry'         => '.c-gallery--masonry',
+			// a CSS selector matching the elements that triggers a masonry refresh if the theme is using a masonry layout.
+			'post-details'    => array(
+				'stylesheet' => 'julia-style',
+				// name of the theme's stylesheet.
+				'date'       => '.single-post .posted-on',
+				// a CSS selector matching the elements that display the post date.
+				'categories' => '.single-post .cats',
+				// a CSS selector matching the elements that display the post categories.
+				'tags'       => '.single-post .tags',
+				// a CSS selector matching the elements that display the post tags.
+				'author'     => '.single-post .byline',
+				// a CSS selector matching the elements that display the post author.
+			),
+			'featured-images' => array(
+				'archive' => true, // enable or not the featured image check for archive pages: true or false.
+				'post'    => true, // we do not display the featured image on single posts
+				'page'    => false, // enable or not the featured image check for single pages: true or false.
+			),
+		)
+	);
 
 	/**
 	 * Set our own default activated modules
@@ -58,6 +66,7 @@ add_theme_support(
 	);
 	set_theme_mod( 'pixelgrade_jetpack_default_active_modules', $default_modules );
 }
+
 add_action( 'after_setup_theme', 'julia_jetpack_setup' );
 
 /**
@@ -91,10 +100,10 @@ function julia_default_jetpack_sharing_services( $enabled ) {
 			'twitter',
 			'pinterest',
 		),
-		'hidden' => array(
-		)
+		'hidden'  => array(),
 	);
 }
+
 add_filter( 'sharing_default_services', 'julia_default_jetpack_sharing_services', 10, 1 );
 
 /**
@@ -107,19 +116,19 @@ add_filter( 'sharing_default_services', 'julia_default_jetpack_sharing_services'
 function julia_default_jetpack_sharing_options( $default ) {
 	$default = array(
 		'global' => array(
-			'button_style' => 'text',
+			'button_style'  => 'text',
 			'sharing_label' => false,
-			'open_links' => 'same',
-			'show' => array (
+			'open_links'    => 'same',
+			'show'          => array(
 				'post',
 			),
-			'custom' => array (
-			),
+			'custom'        => array(),
 		),
 	);
 
 	return $default;
 }
+
 add_filter( 'pixelgrade_filter_jetpack_sharing_default_options', 'julia_default_jetpack_sharing_options', 10, 1 );
 
 /**
@@ -134,6 +143,7 @@ function julia_remove_jetpack_sharing() {
 		remove_filter( 'the_excerpt', 'sharing_display', 19 );
 	}
 }
+
 add_action( 'pixelgrade_featured_posts_widget_start', 'julia_remove_jetpack_sharing', 10 );
 
 /**
@@ -145,6 +155,7 @@ function julia_add_jetpack_sharing() {
 		add_filter( 'the_excerpt', 'sharing_display', 19 );
 	}
 }
+
 add_action( 'pixelgrade_featured_posts_widget_end', 'julia_add_jetpack_sharing', 10 );
 
 /* ===================
@@ -156,11 +167,12 @@ add_action( 'pixelgrade_featured_posts_widget_end', 'julia_add_jetpack_sharing',
  */
 function julia_jetpackme_remove_rp() {
 	if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
-		$jprp = Jetpack_RelatedPosts::init();
+		$jprp     = Jetpack_RelatedPosts::init();
 		$callback = array( $jprp, 'filter_add_target_to_dom' );
 		remove_filter( 'the_content', $callback, 40 );
 	}
 }
+
 add_filter( 'wp', 'julia_jetpackme_remove_rp', 20 );
 
 function julia_jetpack_more_related_posts( $options ) {
@@ -168,12 +180,13 @@ function julia_jetpack_more_related_posts( $options ) {
 
 	return $options;
 }
+
 add_filter( 'jetpack_relatedposts_filter_options', 'julia_jetpack_more_related_posts', 10, 1 );
 
 /**
  * Get the related posts using Jetpack's WordPress.com Elastic Search.
  *
- * @param int|WP_Post $post    Optional. Post ID or WP_Post object. Defaults to current post.
+ * @param int|WP_Post $post Optional. Post ID or WP_Post object. Defaults to current post.
  *
  * @return array|bool
  */
@@ -193,19 +206,19 @@ function julia_get_jetpack_related_posts_ids( $post = null ) {
 		$related_posts_options = julia_get_jetpack_related_posts_options();
 
 		$related = Jetpack_RelatedPosts::init_raw()
-		                               ->set_query_name( 'julia-jetpack-related-posts' ) // Optional, name can be anything
-                                ->get_for_post_id(
-                                    $post->ID,
-                                    array(
-                                    'exclude_post_ids' => array( $post->ID ),
-                                    'size' => (int)$related_posts_options['size'],
-                                    )
-                                );
+		                               ->set_query_name( 'julia-jetpack-related-posts' )// Optional, name can be anything
+		                               ->get_for_post_id(
+				$post->ID,
+				array(
+					'exclude_post_ids' => array( $post->ID ),
+					'size'             => (int) $related_posts_options['size'],
+				)
+			);
 
 		if ( $related ) {
 			foreach ( $related as $result ) {
 				// Get the related post IDs
-				$related_posts[] = $result[ 'id' ];
+				$related_posts[] = $result['id'];
 			}
 		}
 	}
@@ -288,6 +301,7 @@ function julia_jetpack_related_posts_customize_options( $options ) {
 
 	return $options;
 }
+
 add_filter( 'jetpack_related_posts_customize_options', 'julia_jetpack_related_posts_customize_options', 10, 1 );
 
 /**
@@ -298,9 +312,10 @@ add_filter( 'jetpack_related_posts_customize_options', 'julia_jetpack_related_po
  * @return array
  */
 function julia_jetpack_top_posts_custom_thumb_size( $get_image_options ) {
-	$get_image_options['width'] = 405;
+	$get_image_options['width']  = 405;
 	$get_image_options['height'] = 304;
 
 	return $get_image_options;
 }
+
 add_filter( 'jetpack_top_posts_widget_image_options', 'julia_jetpack_top_posts_custom_thumb_size' );

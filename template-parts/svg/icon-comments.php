@@ -2,8 +2,7 @@
 /**
  * The comments icon SVG.
  */
-?>
-<svg width="25px" height="20px" viewBox="0 0 25 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+?><svg width="25px" height="20px" viewBox="0 0 25 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g transform="translate(-514.000000, -4727.000000)" fill="currentColor">
             <g transform="translate(0.000000, -3.000000)">

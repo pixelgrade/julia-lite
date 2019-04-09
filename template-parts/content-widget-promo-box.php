@@ -14,9 +14,7 @@
  * @since 2.0.0
  */
 
-?>
-
-<?php if ( ! empty( $headline ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
+if ( ! empty( $headline ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
 
 	<div class="c-promo__content">
 
@@ -40,10 +38,10 @@
 
 	</div>
 
-<?php } ?>
+<?php }
 
-<?php if ( ! empty( $featured_image ) ) { ?>
+if ( ! empty( $featured_image ) ) { ?>
 	<div class="c-promo__media">
 		<?php echo wp_get_attachment_image( $featured_image, 'pixelgrade_single_portrait' ); ?>
 	</div>
-<?php } ?>
+<?php }

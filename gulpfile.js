@@ -4,7 +4,7 @@
  *
  * @version 1.0.0
  */
-var gulp = require( 'gulp-help' )( require( 'gulp' ) ),
+var gulp = require( 'gulp' ),
 	plugins = require( 'gulp-load-plugins' )(),
 	fs = require( 'fs' );
 
@@ -26,10 +26,11 @@ if ( fs.existsSync( './gulpconfig.json' ) ) {
 // Do a clean compilation of all the styles and scripts files
 // with the latest configurations
 // -----------------------------------------------------------------------------
-
-gulp.task( 'compile', 'Runs all compilation tasks in sequence', function( cb ) {
-	plugins.sequence( 'styles', 'scripts', cb );
-});
+function compileAll( cb ) {
+	return gulp.parallel( 'styles', 'scripts' )(cb);
+}
+compileAll.description = 'Runs all compilation tasks in sequence';
+gulp.task( 'compile', compileAll );
 
 
 
@@ -42,4 +43,8 @@ gulp.task( 'compile', 'Runs all compilation tasks in sequence', function( cb ) {
 // a full build, open BrowserSync, and start listening for changes.
 // -----------------------------------------------------------------------------
 
-gulp.task( 'bs', 'Main development task:', ['compile', 'browser-sync', 'watch'] );
+function devSequence( cb ) {
+	return gulp.series( 'compile', 'watch', 'browser-sync' )(cb);
+}
+compileAll.description = 'Main development task:';
+gulp.task( 'bs', devSequence );

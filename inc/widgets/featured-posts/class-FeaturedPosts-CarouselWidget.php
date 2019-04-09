@@ -3,7 +3,7 @@
  * The Featured Posts - Carousel Widget
  *
  * @package Julia
- * @since 2.0.0
+ * @since   2.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -33,11 +33,11 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_CarouselWidget' ) ) :
 
 			// This is the way we can alter the base widget's behaviour
 			$config = array(
-				'fields'   => array(
-					'columns'      => array(
+				'fields'                 => array(
+					'columns'         => array(
 						'disabled' => true,
 					),
-					'items_layout' => array(
+					'items_layout'    => array(
 						'type'     => 'select',
 						'label'    => esc_html__( 'Items Layout:', 'julia-lite' ),
 						'options'  => array(
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_CarouselWidget' ) ) :
 						'section'  => 'layout',
 						'priority' => 14,
 					),
-					'items_per_row' => array(
+					'items_per_row'   => array(
 						'type'       => 'range',
 						'label'      => esc_html__( 'Number of Items per Row:', 'julia-lite' ),
 						'desc'       => esc_html__( 'Set how many items should be visible at a time.', 'julia-lite' ),
@@ -66,7 +66,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_CarouselWidget' ) ) :
 						'section'    => 'layout',
 						'priority'   => 16,
 					),
-					'image_size'    => array(
+					'image_size'      => array(
 						'type'       => 'select',
 						'label'      => esc_html__( 'Image Size:', 'julia-lite' ),
 						'options'    => array(
@@ -84,14 +84,14 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_CarouselWidget' ) ) :
 						'section'    => 'layout',
 						'priority'   => 18,
 					),
-					'image_ratio'  => array(
-						'options' => array(
+					'image_ratio'     => array(
+						'options'    => array(
 							'original'  => esc_html__( 'Original', 'julia-lite' ),
 							'portrait'  => esc_html__( 'Portrait', 'julia-lite' ),
 							'square'    => esc_html__( 'Square', 'julia-lite' ),
 							'landscape' => esc_html__( 'Landscape', 'julia-lite' ),
 						),
-						'default' => 'original',
+						'default'    => 'original',
 						'display_on' => array(
 							'display' => true,
 							'on'      => array(
@@ -100,23 +100,23 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_CarouselWidget' ) ) :
 							),
 						),
 					),
-					'show_view_more' => array(
+					'show_view_more'  => array(
 						'disabled' => true,
 					),
 					'view_more_label' => array(
 						'disabled' => true,
 					),
 
-					'show_pagination'         => array(
+					'show_pagination' => array(
 						'type'     => 'checkbox',
 						'label'    => esc_html__( 'Show Pagination', 'julia-lite' ),
 						'default'  => true,
-						'section' => 'others',
+						'section'  => 'others',
 						'priority' => 10,
 					),
 				),
-				'posts' => array(
-					'classes'       => array( 'featured-posts-carousel' ),
+				'posts'                  => array(
+					'classes' => array( 'featured-posts-carousel' ),
 				),
 				'sidebars_not_supported' => array(
 					'sidebar-1',
@@ -133,12 +133,12 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_CarouselWidget' ) ) :
 				),
 			);
 
-parent::__construct(
-    'pixelgrade-featured-posts-carousel',
+			parent::__construct(
+				'pixelgrade-featured-posts-carousel',
 				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: Carousel Posts', 'julia-lite' ) ),
 				$widget_ops,
-    $config 
-);
+				$config
+			);
 
 			$this->alt_option_name = 'widget_featured_entries_carousel';
 
@@ -150,10 +150,16 @@ parent::__construct(
 			if ( 'pixelgrade-featured-posts-carousel' == $instance->id_base ) {
 
 				// Add some classes to the widget wrapper
-				add_filter( 'pixelgrade_featured_posts_widget_classes' . $instance->id, array( $this, 'add_custom_classes' ), 10, 2 );
+				add_filter( 'pixelgrade_featured_posts_widget_classes' . $instance->id, array(
+					$this,
+					'add_custom_classes',
+				), 10, 2 );
 
 				// Add some attributes to the widget wrapper
-				add_filter( 'pixelgrade_featured_posts_widget_attributes' . $instance->id, array( $this, 'add_custom_attributes' ), 10, 2 );
+				add_filter( 'pixelgrade_featured_posts_widget_attributes' . $instance->id, array(
+					$this,
+					'add_custom_attributes',
+				), 10, 2 );
 			}
 
 			return $instance_settings;

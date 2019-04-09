@@ -3,7 +3,7 @@
  * The Categories Image Grid
  *
  * @package Julia
- * @since 1.0.0
+ * @since   1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -25,43 +25,43 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 		 * @access public
 		 */
 		public function __construct() {
-			
+
 			// Set up the widget config
 			$config = array(
-			    'fields_sections' => array(
-			        'default' => array(
-			            'title' => '',
-			            'priority' => 1, // This section should really be the first as it is not part of the accordion
-                    ),
-                ),
-			    'fields' => array(
+				'fields_sections'        => array(
+					'default' => array(
+						'title'    => '',
+						'priority' => 1, // This section should really be the first as it is not part of the accordion
+					),
+				),
+				'fields'                 => array(
 
-				    // Title Section
-				    'title'                => array(
-					    'type'     => 'text',
-					    'label'    => esc_html__( 'Title:', 'julia-lite' ),
-					    'default'  => esc_html__( 'Categories', 'julia-lite' ),
-					    'section'  => 'default',
-					    'priority' => 10,
-				    ),
+					// Title Section
+					'title' => array(
+						'type'     => 'text',
+						'label'    => esc_html__( 'Title:', 'julia-lite' ),
+						'default'  => esc_html__( 'Categories', 'julia-lite' ),
+						'section'  => 'default',
+						'priority' => 10,
+					),
 
-				    'source'                  => array(
+					'source'              => array(
 						'type'     => 'radio_group',
 						'label'    => esc_html__( 'Display:', 'julia-lite' ),
 						'options'  => array(
-							'all'   => esc_html__( 'All Categories', 'julia-lite' ),
+							'all'                 => esc_html__( 'All Categories', 'julia-lite' ),
 							'selected_categories' => esc_html__( 'Selected Categories', 'julia-lite' ),
 						),
 						'default'  => 'all',
-						'section' => 'default',
+						'section'  => 'default',
 						'priority' => 10,
 					),
-					'orderby' => array(
+					'orderby'             => array(
 						'type'       => 'select',
 						'label'      => esc_html__( 'Order by:', 'julia-lite' ),
 						'options'    => array(
 							'count' => esc_html__( 'Posts Count', 'julia-lite' ),
-							'name'    => esc_html__( 'Name', 'julia-lite' ),
+							'name'  => esc_html__( 'Name', 'julia-lite' ),
 						),
 						'default'    => 'posts',
 						'display_on' => array(
@@ -74,12 +74,12 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 						'section'    => 'default',
 						'priority'   => 50,
 					),
-					'number'  => array(
+					'number'              => array(
 						'type'              => 'number',
 						'label'             => esc_html__( 'Number of items:', 'julia-lite' ),
 						'sanitize_callback' => array( $this, 'sanitize_positive_int' ),
-						'min'        => 1,
-						'step'       => 1,
+						'min'               => 1,
+						'step'              => 1,
 						'default'           => 5,
 						'display_on'        => array(
 							'display' => true,
@@ -91,22 +91,22 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 						'section'           => 'default',
 						'priority'          => 60,
 					),
-					'show_subcategories' => array(
-						'type'     => 'checkbox',
-						'label'    => esc_html__( 'Show Sub-categories', 'julia-lite' ),
-						'desc'     => '',
-						'default'  => true,
-						'display_on'        => array(
+					'show_subcategories'  => array(
+						'type'       => 'checkbox',
+						'label'      => esc_html__( 'Show Sub-categories', 'julia-lite' ),
+						'desc'       => '',
+						'default'    => true,
+						'display_on' => array(
 							'display' => true,
 							'on'      => array(
 								'field' => 'source',
 								'value' => 'all',
 							),
 						),
-						'section' => 'default',
-						'priority' => 70,
+						'section'    => 'default',
+						'priority'   => 70,
 					),
-					'selected_categories'                => array(
+					'selected_categories' => array(
 						'type'       => 'select2',
 						'label'      => esc_html__( 'Categories:', 'julia-lite' ),
 						'desc'       => esc_html__( 'Choose what categories should be shown and in what order.', 'julia-lite' ),
@@ -120,22 +120,22 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 								'value' => 'selected_categories',
 							),
 						),
-						'section' => 'default',
+						'section'    => 'default',
 						'priority'   => 40,
 					),
-			    ),
-			    'sidebars_not_supported' => array(
-				    'sidebar-1',
-				    'sidebar-2',
-				    'front-page-1',
-				    'front-page-2',
-				    'front-page-3',
-				    'front-page-4',
-				    'front-page-5',
-				    'front-page-6',
-				    'archive-1',
-				    'footer-featured',
-			    ),
+				),
+				'sidebars_not_supported' => array(
+					'sidebar-1',
+					'sidebar-2',
+					'front-page-1',
+					'front-page-2',
+					'front-page-3',
+					'front-page-4',
+					'front-page-5',
+					'front-page-6',
+					'archive-1',
+					'footer-featured',
+				),
 			);
 
 			$widget_ops = array(
@@ -144,12 +144,12 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 				'customize_selective_refresh' => true,
 			);
 
-parent::__construct(
-    'categories-image-grid',
+			parent::__construct(
+				'categories-image-grid',
 				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#32; Pixelgrade: Categories Images', 'julia-lite' ) ),
 				$widget_ops,
-    $config 
-);
+				$config
+			);
 
 			$this->alt_option_name = 'widget_categories_thumbnail_grid';
 		}
@@ -159,7 +159,7 @@ parent::__construct(
 		 *
 		 * @access public
 		 *
-		 * @param array $args Display arguments including 'before_title', 'after_title',
+		 * @param array $args     Display arguments including 'before_title', 'after_title',
 		 *                        'before_widget', and 'after_widget'.
 		 * @param array $instance Settings for the current Categories widget instance.
 		 */
@@ -167,6 +167,7 @@ parent::__construct(
 			// First, process the sidebars that are not supported by the current widget instance, if any.
 			if ( false === $this->showInSidebar( $args, $instance ) ) {
 				$this->sidebarNotSupportedMessage( $args, $instance );
+
 				return;
 			}
 
@@ -184,8 +185,8 @@ parent::__construct(
 				echo $args['before_title'] . esc_html( $title ) . $args['after_title']; // phpcs:ignore
 			}
 
-			$query_args   = array(
-				'taxonomy' => 'category',
+			$query_args = array(
+				'taxonomy'     => 'category',
 				'orderby'      => 'name',
 				'show_count'   => 0,
 				'hierarchical' => true,
@@ -233,11 +234,11 @@ parent::__construct(
 					/** @var WP_Term $category */
 					foreach ( $categories as $category ) {
 						/** This filter is documented in wp-includes/category-template.php */
-    $cat_name = apply_filters(
-        'list_cats',
-        esc_attr( $category->name ),
-        $category
-    );
+						$cat_name = apply_filters(
+							'list_cats',
+							esc_attr( $category->name ),
+							$category
+						);
 
 						$classes = 'cat-item cat-item-' . $category->term_id;
 
@@ -303,12 +304,12 @@ parent::__construct(
 		}
 
 		public function categoriesForOptions( $field_name, $field_config, $instance ) {
-			$query_args   = array(
-				'taxonomy' => 'category',
+			$query_args = array(
+				'taxonomy'     => 'category',
 				'orderby'      => 'name',
 				'show_count'   => false,
 				'hierarchical' => false,
-				'fields' => 'id=>name',
+				'fields'       => 'id=>name',
 			);
 
 			$categories = array();
@@ -337,7 +338,7 @@ parent::__construct(
 					// Now we need to add the selected categories at the end, in the order they were saved
 					// This way the order is maintained
 					foreach ( $category_ids as $category_id ) {
-						$category = get_term( $category_id, 'category' );
+						$category   = get_term( $category_id, 'category' );
 						$categories = $categories + array( $category->term_id => $category->name );
 					}
 				}

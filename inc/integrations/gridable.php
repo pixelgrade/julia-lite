@@ -4,8 +4,8 @@
  *
  * @link https://wordpress.org/plugins/gridable/
  *
- * @package fargo
- * @since fargo 1.0
+ * @package Julia
+ * @since Julia 1.0
  */
 
 /**
@@ -15,7 +15,7 @@
  *
  * @return array
  */
-function fargo_gridable_row_options( $options ) {
+function julia_gridable_row_options( $options ) {
 	$options['row_style'] = array(
 		'label'   => esc_html__( 'Row Style', 'julia-lite' ),
 		'type'    => 'select',
@@ -34,7 +34,7 @@ function fargo_gridable_row_options( $options ) {
 
 	return $options;
 }
-add_filter( 'gridable_row_options', 'fargo_gridable_row_options', 10, 1 );
+add_filter( 'gridable_row_options', 'julia_gridable_row_options', 10, 1 );
 
 
 /**
@@ -47,7 +47,7 @@ add_filter( 'gridable_row_options', 'fargo_gridable_row_options', 10, 1 );
  *
  * @return array
  */
-function fargo_gridable_row_class( $classes, $cols_nr, $atts, $content ) {
+function julia_gridable_row_class( $classes, $cols_nr, $atts, $content ) {
 	$classes = array( 'row__wrapper' );
 
 	if ( ! empty( $atts['row_style'] ) ) {
@@ -72,18 +72,18 @@ function fargo_gridable_row_class( $classes, $cols_nr, $atts, $content ) {
 
 	return $classes;
 }
-add_filter( 'gridable_row_class',  'fargo_gridable_row_class', 10, 4 );
+add_filter( 'gridable_row_class',  'julia_gridable_row_class', 10, 4 );
 
 // Not needed anymore as we use calc(50% - 28px) for gutter
-function fargo_before_row_render() {
+function julia_before_row_render() {
 	echo '<div class="row">';
 }
-add_action( 'gridable_before_row_content_render', 'fargo_before_row_render' );
+add_action( 'gridable_before_row_content_render', 'julia_before_row_render' );
 
-function fargo_after_row_render() {
+function julia_after_row_render() {
 	echo '</div><!-- .row -->';
 }
-add_action( 'gridable_after_row_content_render', 'fargo_after_row_render' );
+add_action( 'gridable_after_row_content_render', 'julia_after_row_render' );
 
 /**
  * Gridable Row Attributes (background color)
@@ -94,14 +94,14 @@ add_action( 'gridable_after_row_content_render', 'fargo_after_row_render' );
  *
  * @return string
  */
-function fargo_gridable_row_attributes( $output, $atts, $content ) {
+function julia_gridable_row_attributes( $output, $atts, $content ) {
 	if ( ! empty( $atts['bg_color'] ) ) {
 		$output .= ' style="background-color: ' . $atts['bg_color'] . ';" ';
 	}
 
 	return $output;
 }
-add_filter( 'gridable_row_attributes',  'fargo_gridable_row_attributes', 10, 3 );
+add_filter( 'gridable_row_attributes',  'julia_gridable_row_attributes', 10, 3 );
 
 
 /**
@@ -111,7 +111,7 @@ add_filter( 'gridable_row_attributes',  'fargo_gridable_row_attributes', 10, 3 )
  *
  * @return array
  */
-function fargo_gridable_column_options( $options ) {
+function julia_gridable_column_options( $options ) {
 	$options['column_style'] = array(
 		'label'   => esc_html__( 'Column Style', 'julia-lite' ),
 		'type'    => 'select',
@@ -125,7 +125,7 @@ function fargo_gridable_column_options( $options ) {
 
 	return $options;
 }
-add_filter( 'gridable_column_options', 'fargo_gridable_column_options', 10, 1 );
+add_filter( 'gridable_column_options', 'julia_gridable_column_options', 10, 1 );
 
 /**
  * Gridable Column Classes
@@ -137,20 +137,20 @@ add_filter( 'gridable_column_options', 'fargo_gridable_column_options', 10, 1 );
  *
  * @return array
  */
-function fargo_gridable_column_class( $classes, $size, $atts, $content ) {
+function julia_gridable_column_class( $classes, $size, $atts, $content ) {
 	$classes[] = 'column__wrapper';
 	$classes[] = 'column-' . $size;
 
 	return $classes;
 }
-add_filter( 'gridable_column_class',  'fargo_gridable_column_class', 10, 4 );
+add_filter( 'gridable_column_class',  'julia_gridable_column_class', 10, 4 );
 
 /**
  * Gridable Column Wrapper Start
  *
  * @param array $atts
  */
-function fargo_gridable_column_wrapper_start( $atts ) {
+function julia_gridable_column_wrapper_start( $atts ) {
 	$classes = array();
 	$attributes = array();
 
@@ -174,12 +174,12 @@ function fargo_gridable_column_wrapper_start( $atts ) {
 	} ?>
 	<div <?php pixelgrade_css_class( $classes, array( 'gridable_column_wrapper_start' ) ); ?> <?php pixelgrade_element_attributes( $attributes, array( 'gridable_column_wrapper_start' ) ); ?>>
 <?php }
-add_action( 'gridable_before_column_content_render', 'fargo_gridable_column_wrapper_start', 10, 1 );
+add_action( 'gridable_before_column_content_render', 'julia_gridable_column_wrapper_start', 10, 1 );
 
 /**
  * Gridable Column Wrapper End
  */
-function fargo_gridable_column_wrapper_end() { ?>
+function julia_gridable_column_wrapper_end() { ?>
 	</div><!-- .c-island -->
 <?php }
-add_action( 'gridable_after_column_content_render', 'fargo_gridable_column_wrapper_end', 10, 1 );
+add_action( 'gridable_after_column_content_render', 'julia_gridable_column_wrapper_end', 10, 1 );

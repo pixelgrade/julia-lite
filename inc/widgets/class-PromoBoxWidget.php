@@ -3,7 +3,7 @@
  * The Promo Box Widget class
  *
  * @package Julia
- * @since 2.0.0
+ * @since   2.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -25,7 +25,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 			'before_title'  => '<h4 class="widgettitle">',
 			'after_title'   => '</h4>',
 			'before_widget' => '<div class="widget-wrap">',
-			'after_widget'  => '</div></div>'
+			'after_widget'  => '</div></div>',
 		);
 
 		/**
@@ -36,140 +36,140 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 		public function __construct() {
 			// Set up the widget config
 			$config = array(
-			    'fields_sections' => array(
-			        'default' => array(
-			            'title' => '',
-			            'priority' => 1, // This section should really be the first as it is not part of the accordion
-                    ),
-                    'content' => array(
-                        'title' => esc_html__( 'Content', 'julia-lite' ),
-                        'default_state' => 'open',
-                        'priority' => 10,
-                    ),
-                    'layout' => array(
-                        'title' => esc_html__( 'Layout', 'julia-lite' ),
-                        'priority' => 20,
-                    ),
-                    'display' => array(
-                        'title' => esc_html__( 'Display', 'julia-lite' ),
-                        'priority' => 30,
-                    ),
-                    'others' => array(
-                        'title' => esc_html__( 'Others', 'julia-lite' ),
-                        'priority' => 40,
-                    ),
-                ),
-			    'fields' => array(
+				'fields_sections'        => array(
+					'default' => array(
+						'title'    => '',
+						'priority' => 1, // This section should really be the first as it is not part of the accordion
+					),
+					'content' => array(
+						'title'         => esc_html__( 'Content', 'julia-lite' ),
+						'default_state' => 'open',
+						'priority'      => 10,
+					),
+					'layout'  => array(
+						'title'    => esc_html__( 'Layout', 'julia-lite' ),
+						'priority' => 20,
+					),
+					'display' => array(
+						'title'    => esc_html__( 'Display', 'julia-lite' ),
+						'priority' => 30,
+					),
+					'others'  => array(
+						'title'    => esc_html__( 'Others', 'julia-lite' ),
+						'priority' => 40,
+					),
+				),
+				'fields'                 => array(
 
-				    // Title Section
-				    'title'                => array(
-					    'type'     => 'text',
-					    'label'    => esc_html__( 'Section Title:', 'julia-lite' ),
-					    'default'  => esc_html__( 'My Promo Box', 'julia-lite' ),
-					    'section'  => 'default',
-					    'priority' => 10,
-				    ),
+					// Title Section
+					'title'                => array(
+						'type'     => 'text',
+						'label'    => esc_html__( 'Section Title:', 'julia-lite' ),
+						'default'  => esc_html__( 'My Promo Box', 'julia-lite' ),
+						'section'  => 'default',
+						'priority' => 10,
+					),
 
-				    // Content Section
-				    'featured_image'       => array(
-					    'type'     => 'image',
-					    'label'    => esc_html__( 'Featured Image:', 'julia-lite' ),
-					    'default'  => 0, // This is the attachment ID
-					    'section'  => 'content',
-					    'priority' => 10,
-				    ),
-				    'headline'             => array(
-					    'type'     => 'textarea',
-					    'label'    => esc_html__( 'Headline:', 'julia-lite' ),
-					    'default'  => 'What is a high converting headline worth to you?',
-					    'section'  => 'content',
-					    'priority' => 20,
-				    ),
-				    'description'          => array(
-					    'type'     => 'textarea',
-					    'label'    => esc_html__( 'Description:', 'julia-lite' ),
-					    'default'  => 'This is a Promo Box Widget where you can personalize your own advertisment area, with your content, images and call to actions. You can promote your product or link to another website of yours.',
-					    'section'  => 'content',
-					    'priority' => 30,
-				    ),
-				    'button_text'          => array(
-					    'type'     => 'text',
-					    'label'    => esc_html__( 'Button Text:', 'julia-lite' ),
-					    'default'  => esc_html__( 'Get started now', 'julia-lite' ),
-					    'section'  => 'content',
-					    'priority' => 40,
-				    ),
-				    'button_url'           => array(
-					    'type'     => 'text',
-					    'label'    => esc_html__( 'Button Link URL:', 'julia-lite' ),
-					    'default'  => esc_html__( '#', 'julia-lite' ),
-					    'section'  => 'content',
-					    'priority' => 50,
-				    ),
+					// Content Section
+					'featured_image'       => array(
+						'type'     => 'image',
+						'label'    => esc_html__( 'Featured Image:', 'julia-lite' ),
+						'default'  => 0, // This is the attachment ID
+						'section'  => 'content',
+						'priority' => 10,
+					),
+					'headline'             => array(
+						'type'     => 'textarea',
+						'label'    => esc_html__( 'Headline:', 'julia-lite' ),
+						'default'  => 'What is a high converting headline worth to you?',
+						'section'  => 'content',
+						'priority' => 20,
+					),
+					'description'          => array(
+						'type'     => 'textarea',
+						'label'    => esc_html__( 'Description:', 'julia-lite' ),
+						'default'  => 'This is a Promo Box Widget where you can personalize your own advertisment area, with your content, images and call to actions. You can promote your product or link to another website of yours.',
+						'section'  => 'content',
+						'priority' => 30,
+					),
+					'button_text'          => array(
+						'type'     => 'text',
+						'label'    => esc_html__( 'Button Text:', 'julia-lite' ),
+						'default'  => esc_html__( 'Get started now', 'julia-lite' ),
+						'section'  => 'content',
+						'priority' => 40,
+					),
+					'button_url'           => array(
+						'type'     => 'text',
+						'label'    => esc_html__( 'Button Link URL:', 'julia-lite' ),
+						'default'  => esc_html__( '#', 'julia-lite' ),
+						'section'  => 'content',
+						'priority' => 50,
+					),
 
 
-				    // Display Section
-				    'box_style'            => array(
-					    'type'     => 'radio_group',
-					    'label'    => esc_html__( 'Box Style:', 'julia-lite' ),
-					    'options'  => array(
-						    'light' => esc_html__( 'Light', 'julia-lite' ),
-						    'dark'  => esc_html__( 'Dark', 'julia-lite' ),
-					    ),
-					    'default'  => 'dark',
-					    'section'  => 'display',
-					    'priority' => 10,
-				    ),
-				    'switch_content_order' => array(
-					    'type'     => 'checkbox',
-					    'label'    => esc_html__( 'Switch Content Order', 'julia-lite' ),
-					    'default'  => false,
-					    'section'  => 'display',
-					    'priority' => 20,
-				    ),
+					// Display Section
+					'box_style'            => array(
+						'type'     => 'radio_group',
+						'label'    => esc_html__( 'Box Style:', 'julia-lite' ),
+						'options'  => array(
+							'light' => esc_html__( 'Light', 'julia-lite' ),
+							'dark'  => esc_html__( 'Dark', 'julia-lite' ),
+						),
+						'default'  => 'dark',
+						'section'  => 'display',
+						'priority' => 10,
+					),
+					'switch_content_order' => array(
+						'type'     => 'checkbox',
+						'label'    => esc_html__( 'Switch Content Order', 'julia-lite' ),
+						'default'  => false,
+						'section'  => 'display',
+						'priority' => 20,
+					),
 
-				    // Others Section
-			    ),
-			    'posts'    => array(
-				    'classes'   => array( 'c-promo' ),
-				    // You can have multiple templates here (array of arrays) and we will use the first one that passes processing and is found
-				    // @see Pixelgrade_Config::evaluateTemplateParts()
-				    'templates' => array(
-					    'component_slug'    => Pixelgrade_Blog::COMPONENT_SLUG,
-					    'slug'              => 'content-widget',
-					    'name'              => 'promo-box',
-					    'lookup_parts_root' => true,
-				    ),
-			    ),
-			    'sidebars_not_supported' => array(
-				    'sidebar-1',
-				    'sidebar-2',
-				    'front-page-1',
-				    'front-page-2',
-				    'front-page-3',
-				    'front-page-4',
-				    'front-page-5',
-				    'front-page-6',
-				    'front-page-7',
-				    'archive-1',
-				    'footer-featured',
-			    ),
+					// Others Section
+				),
+				'posts'                  => array(
+					'classes'   => array( 'c-promo' ),
+					// You can have multiple templates here (array of arrays) and we will use the first one that passes processing and is found
+					// @see Pixelgrade_Config::evaluateTemplateParts()
+					'templates' => array(
+						'component_slug'    => Pixelgrade_Blog::COMPONENT_SLUG,
+						'slug'              => 'content-widget',
+						'name'              => 'promo-box',
+						'lookup_parts_root' => true,
+					),
+				),
+				'sidebars_not_supported' => array(
+					'sidebar-1',
+					'sidebar-2',
+					'front-page-1',
+					'front-page-2',
+					'front-page-3',
+					'front-page-4',
+					'front-page-5',
+					'front-page-6',
+					'front-page-7',
+					'archive-1',
+					'footer-featured',
+				),
 			);
 
-            // Set up the widget options
-            $widget_ops = array(
-                'classname'                   => 'widget_promo_box',
-                'description'                 => esc_html__( 'Use this area to reinforce a particular call to action that you consider important.', 'julia-lite' ),
-                'customize_selective_refresh' => true,
-            );
+			// Set up the widget options
+			$widget_ops = array(
+				'classname'                   => 'widget_promo_box',
+				'description'                 => esc_html__( 'Use this area to reinforce a particular call to action that you consider important.', 'julia-lite' ),
+				'customize_selective_refresh' => true,
+			);
 
 			// Initialize the widget
-parent::__construct(
-    'pixelgrade-promo-box',
+			parent::__construct(
+				'pixelgrade-promo-box',
 				apply_filters( 'pixelgrade_promo_box_widget_name', esc_html__( '&#32; Pixelgrade: Promo Box', 'julia-lite' ) ),
 				$widget_ops,
-    $config 
-);
+				$config
+			);
 
 			// Set up an alternate widget options name
 			$this->alt_option_name = 'widget_pixelgrade_promo_box';
@@ -180,7 +180,7 @@ parent::__construct(
 		 *
 		 * @access public
 		 *
-		 * @param array $args Display arguments including 'before_title', 'after_title',
+		 * @param array $args     Display arguments including 'before_title', 'after_title',
 		 *                        'before_widget', and 'after_widget'.
 		 * @param array $instance Settings for the current Featured Posts widget instance.
 		 */
@@ -188,6 +188,7 @@ parent::__construct(
 			// First, process the sidebars that are not supported by the current widget instance, if any.
 			if ( false === $this->showInSidebar( $args, $instance ) ) {
 				$this->sidebarNotSupportedMessage( $args, $instance );
+
 				return;
 			}
 
@@ -215,11 +216,12 @@ parent::__construct(
 				/**
 				 * Filters the widget title.
 				 *
-				 * @var string $title
+				 * @param string $title    The widget title. Default 'Pages'.
+				 * @param array  $instance An array of the widget's settings.
+				 * @param mixed  $id_base  The widget ID.
 				 *
-				 * @param string $title The widget title. Default 'Pages'.
-				 * @param array $instance An array of the widget's settings.
-				 * @param mixed $id_base The widget ID.
+				 * @var string   $title
+				 *
 				 */
 				$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
@@ -281,9 +283,9 @@ parent::__construct(
 		/**
 		 * Handle various export logic specific to this widget's fields.
 		 *
-		 * @param array $widget_data The widget instance values.
-		 * @param string $widget_type The widget type.
-		 * @param array $matching_data The matching import/export data like old-new post IDs, old-new attachment IDs, etc.
+		 * @param array  $widget_data   The widget instance values.
+		 * @param string $widget_type   The widget type.
+		 * @param array  $matching_data The matching import/export data like old-new post IDs, old-new attachment IDs, etc.
 		 *
 		 * @return array The modified widget data.
 		 */
@@ -291,7 +293,7 @@ parent::__construct(
 			// We need to replace the image attachment ID with the new one
 			if ( ! empty( $widget_data['featured_image'] ) && ( ! empty( $matching_data['placeholders'] ) || ! empty( $matching_data['ignored_images'] ) ) ) {
 				$current_id = absint( $widget_data['featured_image'] );
-				$new_id = false;
+				$new_id     = false;
 
 				// Search through the placeholder attachments
 				foreach ( $matching_data['placeholders'] as $old_id => $new_attachment_details ) {

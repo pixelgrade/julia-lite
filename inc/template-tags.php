@@ -5,7 +5,7 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Julia
- * @since 1.0.0
+ * @since   1.0.0
  */
 
 if ( ! function_exists( 'julia_posted_on' ) ) {
@@ -18,26 +18,26 @@ if ( ! function_exists( 'julia_posted_on' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
 
-$time_string = sprintf(
-    $time_string,
-    esc_attr( get_the_date( 'c' ) ),
-    esc_html( get_the_date() ),
-    esc_attr( get_the_modified_date( 'c' ) ),
-    esc_html( get_the_modified_date() )
-);
+		$time_string = sprintf(
+			$time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() ),
+			esc_attr( get_the_modified_date( 'c' ) ),
+			esc_html( get_the_modified_date() )
+		);
 
-$posted_on = sprintf(
-    /* translators: %s: The current post's posted date, in the post header */
-    esc_html_x( '%s', 'post date', 'julia-lite' ), // phpcs:ignore
-    '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-);
+		$posted_on = sprintf(
+		/* translators: %s: The current post's posted date, in the post header */
+			esc_html_x( '%s', 'post date', 'julia-lite' ), // phpcs:ignore
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		);
 
-        $byline = sprintf(
-            '<span class="by">' . esc_html_x( 'by', 'post author', 'julia-lite' ) . '</span> %s',
-            '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-        );
+		$byline = sprintf(
+			'<span class="by">' . esc_html_x( 'by', 'post author', 'julia-lite' ) . '</span> %s',
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		);
 
-        echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
 	}
 }
@@ -69,7 +69,7 @@ function julia_display_featured_images() {
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Julia
- * @since 1.0.0
+ * @since   1.0.0
  */
 
 if ( ! function_exists( 'julia_the_posts_pagination' ) ) {
@@ -98,14 +98,14 @@ if ( ! function_exists( 'julia_get_the_posts_pagination' ) ) {
 
 		// Put our own defaults in place
 		$args = wp_parse_args(
-		    $args, array(
-		    'end_size'           => 1,
-		    'mid_size'           => 2,
-		    'type'               => 'list',
-		    'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', 'julia-lite' ),
-		    'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', 'julia-lite' ),
-		    'screen_reader_text' => esc_html__( 'Posts navigation', 'julia-lite' ),
-		    )
+			$args, array(
+				'end_size'           => 1,
+				'mid_size'           => 2,
+				'type'               => 'list',
+				'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', 'julia-lite' ),
+				'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', 'julia-lite' ),
+				'screen_reader_text' => esc_html__( 'Posts navigation', 'julia-lite' ),
+			)
 		);
 		// phpcs:enable PEAR.Functions.FunctionCallSignature.OpeningIndent
 		// phpcs:enable PEAR.Functions.FunctionCallSignature.Indent

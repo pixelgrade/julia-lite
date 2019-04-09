@@ -23,8 +23,6 @@
  * Also there you will find the example code for making changes.
  * ============= */
 
-add_filter( 'customify_filter_fields', 'julia_lite_remove_customify_options', 9999, 1 );
-
 function julia_lite_remove_customify_options( $options ) {
 	$options['opt-name'] = 'julia_options';
 
@@ -34,6 +32,7 @@ function julia_lite_remove_customify_options( $options ) {
 
 	return $options;
 }
+add_filter( 'customify_filter_fields', 'julia_lite_remove_customify_options', 9999, 1 );
 
 function julia_lite_prevent_register_admin_customizer_styles() {
 	if ( class_exists( 'PixCustomifyPlugin' ) ) {

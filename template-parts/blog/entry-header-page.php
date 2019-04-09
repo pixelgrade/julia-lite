@@ -23,6 +23,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-?>
-
-<?php the_title( '<h1 class="entry-title">', '</h1>' ); 
+the_title( '<h1 class="entry-title">', '</h1>' );

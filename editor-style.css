@@ -412,8 +412,8 @@ template {
           box-sizing: border-box; }
 
 * {
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip: ink; }
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto; }
 
 body,
 h1, h2, h3, h4, h5, h6,
@@ -1046,7 +1046,8 @@ small {
       -webkit-column-gap: 13.65854px;
               column-gap: 13.65854px; } }
 
-/*------------------------------------*    #BUTTONS
+/*------------------------------------*\
+    #BUTTONS
 \*------------------------------------*/
 /**
  * A simple button object.
