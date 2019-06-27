@@ -246,8 +246,11 @@ function makeZip() {
 	versionString = versionLine[0].replace( /^[Vv]ersion:/, '' ).trim();
 	versionString = '-' + versionString.replace( /\./g, '-' );
 
-	return gulp.src( './' )
-		.pipe( plugins.exec( 'cd ./../; rm -rf ' + variation[0].toUpperCase() + variation.slice( 1 ) + '*.zip; cd ./build/; zip -r -X ./../' + variation[0].toUpperCase() + variation.slice( 1 ) + '-Installer' + versionString + '.zip ./; cd ./../; rm -rf build' ) );
+	// Right now we create a zip without the version information in the name.
+	return gulp.src('./')
+		.pipe(plugins.exec('cd ./../; rm -rf ' + variation + '*.zip; cd ./build/; zip -r -X ./../' + variation + '.zip ./; cd ./../; rm -rf build'));
+	// return gulp.src( './' )
+	// 	.pipe( plugins.exec( 'cd ./../; rm -rf ' + variation[0].toUpperCase() + variation.slice( 1 ) + '*.zip; cd ./build/; zip -r -X ./../' + variation[0].toUpperCase() + variation.slice( 1 ) + '-Installer' + versionString + '.zip ./; cd ./../; rm -rf build' ) );
 }
 makeZip.description = 'Create the theme installer archive and delete the build folder';
 gulp.task( 'make-zip', makeZip );
