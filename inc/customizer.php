@@ -114,7 +114,7 @@ function julia_customize_register( $wp_customize ) {
                         
                 </ul> %s </div>', 'julia-lite'
 				),
-				sprintf( '<a href="%1$s" target="_blank" style="text-align:center; display:inline-block; height:28px; width:100%%;">%2$s</a><a href="%3$s" target="_blank" class="button button-primary">%4$s</a>', esc_url( 'https://pixelgrade.com/themes/blogging/julia-pro/?utm_source=julia-lite-clients&utm_medium=customizer&utm_campaign=julia-lite#pro-features-video' ), esc_html__( 'View demo video with all features', 'julia-lite' ), esc_url( julia_lite_get_pro_link() ), esc_html__( 'Get Julia Pro', 'julia-lite' ) )
+				sprintf( '<a href="%1$s" target="_blank" class="button button-primary">%2$s</a>', esc_url( julia_lite_get_pro_link() ), esc_html__( 'Get Julia Pro', 'julia-lite' ) )
 			),
 		)
 	);
