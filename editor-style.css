@@ -1026,24 +1026,30 @@ small {
 @media only screen and (min-width: 42.5em) {
   .twocolumn {
     -webkit-column-gap: 28px;
+       -moz-column-gap: 28px;
             column-gap: 28px;
     -webkit-column-count: 2;
+       -moz-column-count: 2;
             column-count: 2; } }
   @media only screen and (min-width: 42.5em) and (max-width: 862px) {
     .twocolumn {
       -webkit-column-gap: 22.17822px;
+         -moz-column-gap: 22.17822px;
               column-gap: 22.17822px; } }
   @media only screen and (min-width: 42.5em) and (max-width: 770px) {
     .twocolumn {
       -webkit-column-gap: 18.36066px;
+         -moz-column-gap: 18.36066px;
               column-gap: 18.36066px; } }
   @media only screen and (min-width: 42.5em) and (max-width: 460px) {
     .twocolumn {
       -webkit-column-gap: 15.66434px;
+         -moz-column-gap: 15.66434px;
               column-gap: 15.66434px; } }
   @media only screen and (min-width: 42.5em) and (max-width: 320px) {
     .twocolumn {
       -webkit-column-gap: 13.65854px;
+         -moz-column-gap: 13.65854px;
               column-gap: 13.65854px; } }
 
 /*------------------------------------*\

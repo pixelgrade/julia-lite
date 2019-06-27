@@ -15,7 +15,7 @@
   text-transform: capitalize; }
 
 /* Styling for buttons */
-#sub-accordion-section-pro__section .upsell-container .button-primary {
+#customize-theme-controls .upsell-container .button.button-primary {
   width: 100%;
   cursor: pointer;
   -webkit-transition-duration: .2s;
@@ -36,7 +36,7 @@
   padding: 10px 16px 10px;
   height: auto;
   text-shadow: none; }
-  #sub-accordion-section-pro__section .upsell-container .button-primary:hover, #sub-accordion-section-pro__section .upsell-container .button-primary:focus {
+  #customize-theme-controls .upsell-container .button.button-primary:hover, #customize-theme-controls .upsell-container .button.button-primary:focus {
     -webkit-box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.7);
             box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.7);
     -webkit-transform: scale(1.05) translateY(-3px);

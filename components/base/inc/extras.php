@@ -639,10 +639,10 @@ function pixelgrade_attachment_url_to_postid( $url ) {
 	// Remove the resizing details off the end of the file name
 	$path = preg_replace( '/-[0-9]{1,4}x[0-9]{1,4}\.(jpg|jpeg|png|gif|bmp)$/i', '.$1', $path );
 
-$query     = $wpdb->prepare(
-    "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = '_wp_attached_file' AND meta_value = %s",
-    $path
-);
+	$query     = $wpdb->prepare(
+	    "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = '_wp_attached_file' AND meta_value = %s",
+	    $path
+	);
 	$post_id = $wpdb->get_var( $query ); // phpcs:ignore
 
 	if ( empty( $post_id ) ) {

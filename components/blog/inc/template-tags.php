@@ -296,34 +296,34 @@ if ( ! function_exists( 'pixelgrade_get_the_post_navigation' ) ) {
 	 * @return string Markup for post links.
 	 */
 	function pixelgrade_get_the_post_navigation( $args = array() ) {
-$args = wp_parse_args(
-    $args, array(
-				'prev_text'          => '%title',
-				'next_text'          => '%title',
-				'in_same_term'       => false,
-				'excluded_terms'     => '',
-				'taxonomy'           => 'category',
-				'screen_reader_text' => esc_html__( 'Post navigation', 'julia-lite' ),
-    )
-);
+		$args = wp_parse_args(
+		    $args, array(
+						'prev_text'          => '%title',
+						'next_text'          => '%title',
+						'in_same_term'       => false,
+						'excluded_terms'     => '',
+						'taxonomy'           => 'category',
+						'screen_reader_text' => esc_html__( 'Post navigation', 'julia-lite' ),
+		    )
+		);
 
 		$navigation = '';
 
-$previous = get_previous_post_link(
-    '<div class="nav-previous"><span class="nav-links__label  nav-links__label--previous">' . esc_html__( 'Previous article', 'julia-lite' ) . '</span><span class="nav-title  nav-title--previous">%link</span></div>',
-    $args['prev_text'],
-    $args['in_same_term'],
-    $args['excluded_terms'],
-    $args['taxonomy']
-);
+		$previous = get_previous_post_link(
+		    '<div class="nav-previous"><span class="nav-links__label  nav-links__label--previous">' . esc_html__( 'Previous article', 'julia-lite' ) . '</span><span class="nav-title  nav-title--previous">%link</span></div>',
+		    $args['prev_text'],
+		    $args['in_same_term'],
+		    $args['excluded_terms'],
+		    $args['taxonomy']
+		);
 
-$next = get_next_post_link(
-    '<div class="nav-next"><span class="nav-links__label  nav-links__label--next">' . esc_html__( 'Next article', 'julia-lite' ) . '</span><span class="nav-title  nav-title--next">%link</span></div>',
-    $args['next_text'],
-    $args['in_same_term'],
-    $args['excluded_terms'],
-    $args['taxonomy']
-);
+		$next = get_next_post_link(
+		    '<div class="nav-next"><span class="nav-links__label  nav-links__label--next">' . esc_html__( 'Next article', 'julia-lite' ) . '</span><span class="nav-title  nav-title--next">%link</span></div>',
+		    $args['next_text'],
+		    $args['in_same_term'],
+		    $args['excluded_terms'],
+		    $args['taxonomy']
+		);
 
 		// Only add markup if there's somewhere to navigate to.
 		if ( $previous || $next ) {
@@ -388,14 +388,14 @@ if ( ! function_exists( 'pixelgrade_get_author_bio_links' ) ) {
 function pixelgrade_categorized_blog() {
 	if ( false === ( $all_the_cool_cats = get_transient( 'pixelgrade_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
-$all_the_cool_cats = get_categories(
-    array(
-				'fields'     => 'ids',
-				'hide_empty' => 1,
-				// We only need to know if there is more than one category.
-				'number'     => 2,
-    )
-);
+		$all_the_cool_cats = get_categories(
+		    array(
+						'fields'     => 'ids',
+						'hide_empty' => 1,
+						// We only need to know if there is more than one category.
+						'number'     => 2,
+		    )
+		);
 
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
@@ -547,16 +547,16 @@ if ( ! function_exists( 'pixelgrade_entry_footer' ) ) {
 			echo '</span>';
 		}
 
-edit_post_link(
-    sprintf(
-        /* translators: %s: Name of current post */
-        esc_html__( 'Edit %s', 'julia-lite' ),
-        the_title( '<span class="screen-reader-text">"', '"</span>', false )
-    ),
-    '<div class="edit-link">',
-    '</div>',
-    $post_id
-);
+		edit_post_link(
+		    sprintf(
+		        /* translators: %s: Name of current post */
+		        esc_html__( 'Edit %s', 'julia-lite' ),
+		        the_title( '<span class="screen-reader-text">"', '"</span>', false )
+		    ),
+		    '<div class="edit-link">',
+		    '</div>',
+		    $post_id
+		);
 	} // function
 }
 
@@ -571,7 +571,6 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 	 * @param int        $depth
 	 */
 	function pixelgrade_shape_comment( $comment, $args, $depth ) {
-		$GLOBALS['comment'] = $comment; // phpcs:ignore
 		switch ( $comment->comment_type ) :
 			case 'pingback':
 			case 'trackback':
@@ -592,10 +591,10 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 							<div class="comment__author vcard">
 								<?php
 								printf(
-            /* translators: %s: comment author link */
-            wp_kses_post( __( '%s <span class="says">says:</span>', 'julia-lite' ) ),
-            /* translators: %s: comment author link */
-            sprintf( '<b class="fn">%s</b>', get_comment_author_link( $comment ) )
+						            /* translators: %s: comment author link */
+						            wp_kses_post( __( '%s <span class="says">says:</span>', 'julia-lite' ) ),
+						            /* translators: %s: comment author link */
+						            sprintf( '<b class="fn">%s</b>', get_comment_author_link( $comment ) )
 								);
 								?>
 							</div><!-- .comment-author -->
@@ -622,17 +621,17 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 						</div><!-- .comment-content -->
 
 						<?php
-    comment_reply_link(
-        array_merge(
-            $args, array(
-            'add_below' => 'div-comment',
-            'depth'     => $depth,
-            'max_depth' => $args['max_depth'],
-            'before'    => '<div class="reply">',
-            'after'     => '</div>',
-            )
-        )
-    );
+						    comment_reply_link(
+						        array_merge(
+						            $args, array(
+						            'add_below' => 'div-comment',
+						            'depth'     => $depth,
+						            'max_depth' => $args['max_depth'],
+						            'before'    => '<div class="reply">',
+						            'after'     => '</div>',
+						            )
+						        )
+						    );
 						?>
 					</div>
 				</article><!-- .comment-body -->
@@ -727,16 +726,16 @@ if ( ! function_exists( 'pixelgrade_get_the_posts_pagination' ) ) {
 	 */
 	function pixelgrade_get_the_posts_pagination( $args = array() ) {
 		// Put our own defaults in place
-$args = wp_parse_args(
-    $args, array(
-				'end_size'           => 1,
-				'mid_size'           => 2,
-				'type'               => 'list',
-				'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', 'julia-lite' ),
-				'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', 'julia-lite' ),
-				'screen_reader_text' => esc_html__( 'Posts navigation', 'julia-lite' ),
-    )
-);
+		$args = wp_parse_args(
+		    $args, array(
+						'end_size'           => 1,
+						'mid_size'           => 2,
+						'type'               => 'list',
+						'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', 'julia-lite' ),
+						'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', 'julia-lite' ),
+						'screen_reader_text' => esc_html__( 'Posts navigation', 'julia-lite' ),
+		    )
+		);
 
 		return get_the_posts_pagination( $args );
 	}
@@ -753,24 +752,20 @@ if ( ! function_exists( 'pixelgrade_posted_on' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
 
-$time_string = sprintf(
-    $time_string,
-    esc_attr( get_the_date( 'c' ) ),
-    esc_html( get_the_date() ),
-    esc_attr( get_the_modified_date( 'c' ) ),
-    esc_html( get_the_modified_date() )
-);
+		$time_string = sprintf(
+		    $time_string,
+		    esc_attr( get_the_date( 'c' ) ),
+		    esc_html( get_the_date() ),
+		    esc_attr( get_the_modified_date( 'c' ) ),
+		    esc_html( get_the_modified_date() )
+		);
 
-$posted_on = sprintf(
-    /* translators: %s: The current post's posted date, in the post header */
-    esc_html_x( '%s', 'post date', 'julia-lite' ), // phpcs:ignore
-    '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-);
+		$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
-$byline = sprintf(
-    '<span class="by">' . esc_html_x( 'by', 'post author', 'julia-lite' ) . '</span> %s',
-    '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-);
+		$byline = sprintf(
+		    '<span class="by">' . esc_html_x( 'by', 'post author', 'julia-lite' ) . '</span> %s',
+		    '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		);
 
 		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 

@@ -26,11 +26,7 @@ if ( ! function_exists( 'julia_posted_on' ) ) {
 			esc_html( get_the_modified_date() )
 		);
 
-		$posted_on = sprintf(
-		/* translators: %s: The current post's posted date, in the post header */
-			esc_html_x( '%s', 'post date', 'julia-lite' ), // phpcs:ignore
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-		);
+		$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
 		$byline = sprintf(
 			'<span class="by">' . esc_html_x( 'by', 'post author', 'julia-lite' ) . '</span> %s',

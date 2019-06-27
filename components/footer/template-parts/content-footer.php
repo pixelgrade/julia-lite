@@ -63,41 +63,41 @@ $zones = pixelgrade_footer_get_zones();
 		$is_empty = true;
 
 		// Check the menu locations for emptiness.
-		foreach ( $menu_locations as $id => $settings ) {
+		foreach ( $menu_locations as $menu_location_id => $settings ) {
 			if ( ! empty( $settings['bogus'] ) ) {
 				// We have something special to show - bogus things.
 				// Better check if they output anything.
 				$output = '';
-				if ( 'footer-back-to-top-link' === $id ) {
+				if ( 'footer-back-to-top-link' === $menu_location_id ) {
 					$output = pixelgrade_footer_get_back_to_top_link();
-				} elseif ( 'footer-copyright' === $id ) {
+				} elseif ( 'footer-copyright' === $menu_location_id ) {
 					$output = pixelgrade_footer_get_copyright_content();
 				}
 
 				if ( ! empty( $output ) ) {
 					$is_empty = false;
 				}
-			} elseif ( has_nav_menu( $id ) ) {
+			} elseif ( has_nav_menu( $menu_location_id ) ) {
 				$is_empty = false;
 			}
 		}
 
 		// Check the sidebars for emptiness.
-		foreach ( $sidebars as $id => $settings ) {
+		foreach ( $sidebars as $sidebar_id => $settings ) {
 			if ( ! empty( $settings['bogus'] ) ) {
 				// We have something special to show - bogus things.
 				// Better check if they output anything.
 				$output = '';
-				if ( 'footer-back-to-top-link' === $id ) {
+				if ( 'footer-back-to-top-link' === $sidebar_id ) {
 					$output = pixelgrade_footer_get_back_to_top_link();
-				} elseif ( 'footer-copyright' === $id ) {
+				} elseif ( 'footer-copyright' === $sidebar_id ) {
 					$output = pixelgrade_footer_get_copyright_content();
 				}
 
 				if ( ! empty( $output ) ) {
 					$is_empty = false;
 				}
-			} elseif ( is_active_sidebar( $id ) ) {
+			} elseif ( is_active_sidebar( $sidebar_id ) ) {
 				$is_empty = false;
 			}
 		}
