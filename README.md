@@ -13,6 +13,13 @@ Julia Lite is a free food blogging theme for community builders who want to shar
 
 ## Changelog
 
+= 1.1.1 =
+* Cleanup and security enhancements.
+
+= 1.1.0 =
+* Improved the overall onboarding experience with the theme and introduced a dedicated help tool.
+* Improved the overall performance of the theme.
+
 = 1.0.8 =
 * Fixed a security issue
 
@@ -54,3 +61,10 @@ Julia Lite is a free food blogging theme for community builders who want to shar
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License.
 
 * Images: images by PublicCo (https://pixabay.com/ro/users/PublicCo-5009832/) — [Source](https://pixabay.com/ro/alimente-fite-food-styling-blog-ul-2203732/), Karriezhu (https://pixabay.com/ro/users/karriezhu-801232/) — [Source](https://pixabay.com/ro/tabel-desert-cafea-tort-alimente-1589012/), Daria Yakovleva (https://pixabay.com/ro/users/Daria-Yakovleva-3938704/) — [Source](https://pixabay.com/ro/mic-dejun-branza-farfurie-2151201/), Daria Yakovleva (https://pixabay.com/ro/users/Daria-Yakovleva-3938704/) — [Source](https://pixabay.com/ro/ceai-mic-dejun-cupa-bea-1894045/), Daria Yakovleva (https://pixabay.com/ro/users/Daria-Yakovleva-3938704/) — [Source](https://pixabay.com/ro/magnolie-floare-prim%C4%83var%C4%83-flori-2179229/).
+
+The Julia Lite Theme bundles the following third-party resources:
+
+* normalize.css https://necolas.github.io/normalize.css/, (c) 2012-2016 Nicolas Gallagher and Jonathan Neal, licensed under [MIT](https://opensource.org/licenses/MIT)
+* rxjs by [ReactiveX](https://github.com/ReactiveX), licensed under [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+* select2 by [Kevin Brown](https://kevin-brown.com/), licensed under [MIT](https://opensource.org/licenses/MIT)
+* slick http://kenwheeler.github.io/slick/, Copyright (c) 2017 [Ken Wheeler](https://github.com/kenwheeler), licensed under [MIT](https://opensource.org/licenses/MIT)

@@ -11,7 +11,8 @@ var gulp = require( 'gulp' ),
     plugins = require( 'gulp-load-plugins' )(),
     rsync = require('gulp-rsync'),
     debug = require('gulp-debug'),
-    argv = require('yargs').argv;
+    argv = require('yargs').argv,
+	cp = require('child_process');
 
 
 // -----------------------------------------------------------------------------
@@ -150,17 +151,32 @@ function removeUnneededFiles() {
 removeUnneededFiles.description = 'Remove unneeded files and folders from the build folder';
 gulp.task( 'remove-unneeded-files', removeUnneededFiles );
 
-/**
- * Copy theme folder outside in a build folder, recreate styles before that
- */
-function maybeFixBuildPermissions() {
-	var dir = process.cwd();
-	return gulp.src( './*' )
-	// Make sure that file and directory permissions are right
-		.pipe(plugins.exec('find ./../build -type d -exec chmod 755 {} \\;'))
-		.pipe(plugins.exec(' find ./../build -type f -exec chmod 644 {} \\;'));
+function maybeFixBuildDirPermissions(done) {
+
+	cp.execSync('find ./../build -type d -exec chmod 755 {} \\;');
+
+	return done();
 }
-gulp.task( 'fix-build-permissions', maybeFixBuildPermissions );
+maybeFixBuildDirPermissions.description = 'Make sure that all directories in the build directory have 755 permissions.';
+gulp.task( 'fix-build-dir-permissions', maybeFixBuildDirPermissions );
+
+function maybeFixBuildFilePermissions(done) {
+
+	cp.execSync('find ./../build -type f -exec chmod 644 {} \\;');
+
+	return done();
+}
+maybeFixBuildFilePermissions.description = 'Make sure that all files in the build directory have 644 permissions.';
+gulp.task( 'fix-build-file-permissions', maybeFixBuildFilePermissions );
+
+function maybeFixIncorrectLineEndings(done) {
+
+	cp.execSync('find ./../build -type f -print0 | xargs -0 -n 1 -P 4 dos2unix');
+
+	return done();
+}
+maybeFixIncorrectLineEndings.description = 'Make sure that all line endings in the files in the build directory are UNIX line endings.';
+gulp.task( 'fix-line-endings', maybeFixIncorrectLineEndings );
 
 // -----------------------------------------------------------------------------
 // Replace the components' text domain with the theme text domain
@@ -195,7 +211,7 @@ function themeTextdomainReplace() {
 gulp.task( 'txtdomain-replace', themeTextdomainReplace );
 
 function buildSequence(cb) {
-	return gulp.series( 'move-variation-specific-files', 'copy-folder', 'remove-unneeded-files', 'fix-build-permissions', 'components-txtdomain-replace', 'txtdomain-replace' )(cb);
+	return gulp.series( 'move-variation-specific-files', 'copy-folder', 'remove-unneeded-files', 'fix-build-dir-permissions', 'fix-build-file-permissions', 'fix-line-endings', 'components-txtdomain-replace', 'txtdomain-replace' )(cb);
 }
 buildSequence.description = 'Sets up the build folder';
 gulp.task( 'build', buildSequence );

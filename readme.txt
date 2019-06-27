@@ -17,6 +17,9 @@ Julia Lite is a food blogging theme made for creators who want to showcase their
 
 == Changelog ==
 
+= 1.1.1 =
+* Cleanup and security enhancements.
+
 = 1.1.0 =
 * Improved the overall onboarding experience with the theme and introduced a dedicated help tool.
 * Improved the overall performance of the theme.

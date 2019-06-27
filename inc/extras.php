@@ -440,23 +440,3 @@ function julia_header_classes( $classes = array() ) {
 	return $classes;
 }
 add_filter( 'pixelgrade_header_class', 'julia_header_classes', 10, 1 );
-
-/**
- * Handle the WUpdates theme identification.
- *
- * @param array $ids
- *
- * @return array
- */
-function julia_wupdates_add_id_wporg( $ids = array() ) {
-	// First get the theme directory name (unique)
-	$slug = basename( get_template_directory() );
-
-	// Now add the predefined details about this product
-	// Do not tamper with these please!!!
-	$ids[ $slug ] = array( 'name' => 'Julia', 'slug' => 'julia', 'id' => 'JDbdQ', 'type' => 'theme_wporg', 'digest' => '18e8c006656fee2f6de9b8c2eefb037f', );
-
-	return $ids;
-}
-// The 5 priority is intentional to allow for pro to overwrite.
-add_filter( 'wupdates_gather_ids', 'julia_wupdates_add_id_wporg', 5, 1 );

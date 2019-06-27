@@ -189,7 +189,7 @@ function julia_scripts() {
 add_action( 'wp_enqueue_scripts', 'julia_scripts' );
 
 function julia_load_wp_admin_style() {
-	wp_register_style( 'julia_wp_admin_css', get_template_directory_uri() . '/admin.css', false, '1.0.0' );
+	wp_register_style( 'julia_wp_admin_css', get_template_directory_uri() . '/admin.css', false, '1.1.1' );
 	wp_enqueue_style( 'julia_wp_admin_css' );
 }
 add_action( 'admin_enqueue_scripts', 'julia_load_wp_admin_style' );

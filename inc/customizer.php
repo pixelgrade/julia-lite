@@ -104,7 +104,7 @@ function julia_customize_register( $wp_customize ) {
 
                         <li>
                             <h4>Intuitive Recipe Index</h4>
-                            <div class="description">You keep track of your recipes with our cus­tom made recipe index­ing sys­tem. Fil­ter by Cat­e­go­ry, Course, Sea­son and much more to easily discover your culinary gems and food stories.</div>
+                            <div class="description">You keep track of your recipes with our custom made recipe indexing system. Filter by Category, Course, Season and much more to easily discover your culinary gems and food stories.</div>
                         </li>
 
                         <li>
@@ -220,6 +220,6 @@ add_action( 'customize_preview_init', 'julia_customize_preview_js' );
  * Assets that will be loaded for the customizer sidebar
  */
 function julia_lite_customizer_assets() {
-	wp_enqueue_style( 'julia_lite_customizer_style', get_template_directory_uri() . '/inc/admin/css/customizer.css', array(), '1.1.0', false );
+	wp_enqueue_style( 'julia_lite_customizer_style', get_template_directory_uri() . '/inc/admin/css/customizer.css', array(), '1.1.1', false );
 }
 add_action( 'customize_controls_enqueue_scripts', 'julia_lite_customizer_assets' );

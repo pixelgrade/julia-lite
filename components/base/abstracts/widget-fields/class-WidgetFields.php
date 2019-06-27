@@ -7,7 +7,6 @@
  * @see         https://pixelgrade.com
  * @author      Pixelgrade
  * @package     Components/Base
- * @version     1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -58,8 +57,8 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 		 *
 		 * @param string $id The widget id.
 		 * @param string $name The widget name.
-		 * @param array  $widget_ops The widget options.
-		 * @param array  $config The widget config.
+		 * @param array $widget_ops The widget options.
+		 * @param array $config The widget config.
 		 */
 		public function __construct( $id, $name = '', $widget_ops = array(), $config = array() ) {
 			if ( ! empty( $config ) ) {
@@ -95,17 +94,19 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 			}
 
 			// Initialize the widget.
-parent::__construct(
+			parent::__construct(
 				$id,
 				apply_filters( 'pixelgrade_widget_name', $name ),
 				$widget_ops
-);
+			);
 
 			// Enqueue the frontend styles and scripts, if that is the case.
 			if ( is_active_widget( false, false, $this->id_base ) || is_customize_preview() ) {
 				add_action( 'wp_enqueue_scripts', array( $this, 'enqueueScripts' ) );
 			}
 
+			// Add custom export logic.
+			add_filter( "pixcare_sce_widget_data_export_{$id}", array( $this, 'custom_export_logic' ), 10, 3 );
 		}
 
 		/**
@@ -121,21 +122,28 @@ parent::__construct(
 
 			if ( $this->isFieldTypeUsed( 'select2' ) ) {
 				wp_enqueue_script( 'select2', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( Pixelgrade_Base::COMPONENT_SLUG ) . 'abstracts/widget-fields/vendor/select2/js/select2.min.js' ), array( 'jquery' ), '4.0.5' );
-				wp_enqueue_script( 'select2-sortable', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( Pixelgrade_Base::COMPONENT_SLUG ) . 'abstracts/widget-fields/vendor/select2v4-sortable/select2-sortable.js' ), array( 'jquery', 'select2' ), '4.0.5' );
+				wp_enqueue_script( 'select2-sortable', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( Pixelgrade_Base::COMPONENT_SLUG ) . 'abstracts/widget-fields/vendor/select2v4-sortable/select2-sortable.js' ), array(
+					'jquery',
+					'select2'
+				), '4.0.5' );
 				wp_enqueue_style( 'select2', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( Pixelgrade_Base::COMPONENT_SLUG ) . 'abstracts/widget-fields/vendor/select2/css/select2.min.css' ), array(), 20171111 );
 			}
 
 			// Enqueue the needed admin scripts.
-			wp_enqueue_script( 'pixelgrade-widget-fields-js', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( Pixelgrade_Base::COMPONENT_SLUG ) . 'abstracts/widget-fields/widget-fields.js' ), array( 'jquery', 'media-upload', 'media-views' ), 20171111 );
+			wp_enqueue_script( 'pixelgrade-widget-fields-js', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( Pixelgrade_Base::COMPONENT_SLUG ) . 'abstracts/widget-fields/widget-fields.js' ), array(
+				'jquery',
+				'media-upload',
+				'media-views'
+			), 20171111 );
 
-wp_localize_script(
+			wp_localize_script(
 				'pixelgrade-widget-fields-js', 'pixelgradeWidgetFields', array(
 					'image' => array(
-						'frame_title'  => esc_html__( 'Select an Image', 'julia-lite' ),
-						'button_title' => esc_html__( 'Insert Into Widget', 'julia-lite' ),
+						'frame_title'  => esc_html__( 'Select an Image', '__components_txtd' ),
+						'button_title' => esc_html__( 'Insert Into Widget', '__components_txtd' ),
 					),
 				)
-);
+			);
 
 			// Enqueue the needed admin styles.
 			wp_enqueue_style( 'pixelgrade-widget-fields', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( Pixelgrade_Base::COMPONENT_SLUG ) . 'abstracts/widget-fields/widget-fields.css' ), array(), 20171111 );
@@ -204,8 +212,8 @@ wp_localize_script(
 
 				if ( $do_accordion ) {
 					// The accordion wrappers.
-					echo '<div class="accordion-container">' . PHP_EOL;
-					echo '<ul>' . PHP_EOL;
+					echo "<div class=\"accordion-container\">\n";
+					echo "<ul>\n";
 				}
 
 				foreach ( $sections as $section_id => $section ) {
@@ -218,19 +226,22 @@ wp_localize_script(
 							$state_field_name = "widget-section-state[{$section_id}]";
 							$state_value      = $this->getSectionDefaultState( $section_id );
 							// In case this is a AJAX request (like when saving the widget) - keep the current state so we don't confuse the user.
-							if ( wp_doing_ajax() && isset( $_REQUEST['widget-section-state'][ $section_id ] ) && in_array( $_REQUEST['widget-section-state'][ $section_id ], array( 'open', 'closed' ) ) ) {
-								$state_value = $_REQUEST['widget-section-state'][ $section_id ];
+							if ( wp_doing_ajax() && isset( $_REQUEST['widget-section-state'][ $section_id ] ) && in_array( sanitize_key( $_REQUEST['widget-section-state'][ $section_id ] ), array(
+									'open',
+									'closed'
+								) ) ) {
+								$state_value = sanitize_key( $_REQUEST['widget-section-state'][ $section_id ] );
 							}
 
 							// We will use the state value as a class also!!!
-							echo '<li class="control-section accordion-section ' . esc_attr( $state_value ) . '">' . PHP_EOL;
+							echo '<li class="control-section accordion-section ' . esc_attr( $state_value ) . "\">\n";
 
 							// We add a hidden input field so we can keep the open/closed state of the section on save/update.
-							echo '<input class="_section-state" type="hidden" name="' . esc_attr( $state_field_name ) . '" value="' . esc_attr( $state_value ) . '"/>' . PHP_EOL;
+							echo '<input class="_section-state" type="hidden" name="' . esc_attr( $state_field_name ) . '" value="' . esc_attr( $state_value ) . "\"/>\n";
 
 							// Handle the section title and wrappers.
 							/* translators: Used for screen readers on widget sections. */
-							echo '<h3 class="accordion-section-title hndle">' . ( ! empty( $section['title'] ) ? esc_html( $section['title'] ) : '' ) . '<span class="screen-reader-text">' . esc_html__( 'Press return or enter to open this section.', 'julia-lite' ) . '</span></h3>' . PHP_EOL;
+							echo '<h3 class="accordion-section-title hndle">' . esc_html( ! empty( $section['title'] ) ? $section['title'] : '' ) . '<span class="screen-reader-text">' . esc_html__( 'Press return or enter to open this section.', '__components_txtd' ) . "</span></h3>\n";
 
 							// The section fields wrapper.
 							echo '<div class="accordion-section-content">';
@@ -239,8 +250,8 @@ wp_localize_script(
 						$this->displayFields( $section_fields, $instance );
 
 						if ( $do_accordion ) {
-							echo '</div><!-- .accordion-section-content -->' . PHP_EOL;
-							echo '</li>' . PHP_EOL;
+							echo "</div><!-- .accordion-section-content -->\n";
+							echo "</li>\n";
 						}
 					}
 				}
@@ -248,8 +259,8 @@ wp_localize_script(
 				// There is no point in making an accordion when there is only one section.
 				if ( $do_accordion ) {
 					// End the accordion wrappers.
-					echo '</ul>' . PHP_EOL;
-					echo '</div><!-- .accordion-container -->' . PHP_EOL;
+					echo "</ul>\n";
+					echo "</div><!-- .accordion-container -->\n";
 				}
 			} else {
 				// We have not sections so just display all the fields.
@@ -279,14 +290,15 @@ wp_localize_script(
 
 				$method = "displayField_{$field_config['type']}";
 				if ( method_exists( $this, $method ) ) {
-					// phpcs:ignore
-    echo call_user_func_array(
-        array( $this, $method ), array(
-        $field_name,
-        $field_config,
-        $instance,
-        )
-    );
+					// @codingStandardsIgnoreStart
+					echo call_user_func_array(
+						array( $this, $method ), array(
+							$field_name,
+							$field_config,
+							$instance,
+						)
+					);
+					// @codingStandardsIgnoreEnd
 				}
 			}
 		}
@@ -331,8 +343,8 @@ wp_localize_script(
 		 * Generate the text field markup.
 		 *
 		 * @param string $field_name The name if the field.
-		 * @param array  $field_config The field config.
-		 * @param array  $instance The current widget instance details.
+		 * @param array $field_config The field config.
+		 * @param array $instance The current widget instance details.
 		 *
 		 * @return string The field HTML markup.
 		 */
@@ -355,21 +367,21 @@ wp_localize_script(
 			}
 
 			// Lets generate the markup.
-			$output  = '';
-			$output .= '<p class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . '>' . PHP_EOL;
+			$output = '';
+			$output .= '<p class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . ">\n";
 
 			if ( ! empty( $label ) ) {
-				$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . $label . '</label>' . PHP_EOL;
+				$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . wp_kses_post( $label ) . "</label>\n";
 			}
 
-			$output .= '<input class="widefat" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" type="text" value="' . esc_attr( $value ) . '" />' . PHP_EOL;
+			$output .= '<input class="widefat" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" type="text" value="' . esc_attr( $value ) . "\" />\n";
 
 			if ( ! empty( $desc ) ) {
-				$output .= '<br />' . PHP_EOL;
-				$output .= '<small>' . $desc . '</small>' . PHP_EOL;
+				$output .= "<br />\n";
+				$output .= '<small>' . wp_kses_post( $desc ) . "</small>\n";
 			}
 
-			$output .= '</p>' . PHP_EOL;
+			$output .= "</p>\n";
 
 			return apply_filters( 'pixelgrade_widget_form_text_field_markup', $output, $field_name, $field_config, $instance );
 		}
@@ -378,8 +390,8 @@ wp_localize_script(
 		 * Generate the textarea field markup.
 		 *
 		 * @param string $field_name The name if the field.
-		 * @param array  $field_config The field config.
-		 * @param array  $instance The current widget instance details.
+		 * @param array $field_config The field config.
+		 * @param array $instance The current widget instance details.
 		 *
 		 * @return string The field HTML markup.
 		 */
@@ -407,21 +419,21 @@ wp_localize_script(
 			}
 
 			// Lets generate the markup.
-			$output  = '';
-			$output .= '<p class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . '>' . PHP_EOL;
+			$output = '';
+			$output .= '<p class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . ">\n";
 
 			if ( ! empty( $label ) ) {
-				$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . $label . '</label>' . PHP_EOL;
+				$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . wp_kses_post( $label ) . "</label>\n";
 			}
 
-			$output .= '<textarea class="widefat" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" rows="' . esc_attr( $rows ) . '" >' . $this->sanitize_textarea( $value, $field_name, $field_config ) . '</textarea>' . PHP_EOL;
+			$output .= '<textarea class="widefat" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" rows="' . esc_attr( $rows ) . '" >' . $this->sanitize_textarea( $value, $field_name, $field_config ) . "</textarea>\n";
 
 			if ( ! empty( $desc ) ) {
-				$output .= '<br />' . PHP_EOL;
-				$output .= '<small>' . $desc . '</small>' . PHP_EOL;
+				$output .= "<br />\n";
+				$output .= '<small>' . wp_kses_post( $desc ) . "</small>\n";
 			}
 
-			$output .= '</p>' . PHP_EOL;
+			$output .= "</p>\n";
 
 			return apply_filters( 'pixelgrade_widget_form_textarea_field_markup', $output, $field_name, $field_config, $instance );
 		}
@@ -431,8 +443,8 @@ wp_localize_script(
 		 * Generate the number field markup.
 		 *
 		 * @param string $field_name The name if the field.
-		 * @param array  $field_config The field config.
-		 * @param array  $instance The current widget instance details.
+		 * @param array $field_config The field config.
+		 * @param array $instance The current widget instance details.
 		 *
 		 * @return string The field HTML markup.
 		 */
@@ -470,21 +482,21 @@ wp_localize_script(
 			}
 
 			// Lets generate the markup.
-			$output  = '';
-			$output .= '<p class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . '>' . PHP_EOL;
+			$output = '';
+			$output .= '<p class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . ">\n";
 
 			if ( ! empty( $label ) ) {
-				$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . $label . '</label>' . PHP_EOL;
+				$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . wp_kses_post( $label ) . "</label>\n";
 			}
 
-			$output .= '<input class="widefat" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" type="number" step="' . esc_attr( $step ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" value="' . esc_attr( $value ) . '" />' . PHP_EOL;
+			$output .= '<input class="widefat" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" type="number" step="' . esc_attr( $step ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" value="' . esc_attr( $value ) . "\" />\n";
 
 			if ( ! empty( $desc ) ) {
-				$output .= '<br />' . PHP_EOL;
-				$output .= '<small>' . $desc . '</small>' . PHP_EOL;
+				$output .= "<br />\n";
+				$output .= '<small>' . wp_kses_post( $desc ) . "</small>\n";
 			}
 
-			$output .= '</p>' . PHP_EOL;
+			$output .= "</p>\n";
 
 			return apply_filters( 'pixelgrade_widget_form_number_field_markup', $output, $field_name, $field_config, $instance );
 		}
@@ -493,8 +505,8 @@ wp_localize_script(
 		 * Generate the range field markup.
 		 *
 		 * @param string $field_name The name if the field.
-		 * @param array  $field_config The field config.
-		 * @param array  $instance The current widget instance details.
+		 * @param array $field_config The field config.
+		 * @param array $instance The current widget instance details.
 		 *
 		 * @return string The field HTML markup.
 		 */
@@ -532,22 +544,22 @@ wp_localize_script(
 			}
 
 			// Lets generate the markup.
-			$output  = '';
-			$output .= '<p class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . '>' . PHP_EOL;
+			$output = '';
+			$output .= '<p class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . ">\n";
 
 			if ( ! empty( $label ) ) {
-				$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . $label . '</label>' . PHP_EOL;
+				$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . wp_kses_post( $label ) . "</label>\n";
 			}
 
-			$output .= '<input class="widget-range" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" type="range" step="' . esc_attr( $step ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" value="' . esc_attr( $value ) . '" />' . PHP_EOL;
-			$output .= '<input class="range-value" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" type="number" step="' . esc_attr( $step ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" value="' . esc_attr( $value ) . '" />' . PHP_EOL;
+			$output .= '<input class="widget-range" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" type="range" step="' . esc_attr( $step ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" value="' . esc_attr( $value ) . "\" />\n";
+			$output .= '<input class="range-value" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" type="number" step="' . esc_attr( $step ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" value="' . esc_attr( $value ) . "\" />\n";
 
 			if ( ! empty( $desc ) ) {
-				$output .= '<br />' . PHP_EOL;
-				$output .= '<small>' . $desc . '</small>' . PHP_EOL;
+				$output .= "<br />\n";
+				$output .= '<small>' . wp_kses_post( $desc ) . "</small>\n";
 			}
 
-			$output .= '</p>' . PHP_EOL;
+			$output .= "</p>\n";
 
 			return apply_filters( 'pixelgrade_widget_form_range_field_markup', $output, $field_name, $field_config, $instance );
 		}
@@ -556,8 +568,8 @@ wp_localize_script(
 		 * Generate the checkbox field markup.
 		 *
 		 * @param string $field_name The name if the field.
-		 * @param array  $field_config The field config.
-		 * @param array  $instance The current widget instance details.
+		 * @param array $field_config The field config.
+		 * @param array $instance The current widget instance details.
 		 *
 		 * @return string The field HTML markup.
 		 */
@@ -580,21 +592,21 @@ wp_localize_script(
 			}
 
 			// Lets generate the markup.
-			$output  = '';
-			$output .= '<p class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . '>' . PHP_EOL;
+			$output = '';
+			$output .= '<p class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . ">\n";
 
-			$output .= '<input class="checkbox" type="checkbox" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" value="1" ' . checked( $value, 1, false ) . '" />' . PHP_EOL;
+			$output .= '<input class="checkbox" type="checkbox" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" value="1" ' . checked( $value, 1, false ) . "\" />\n";
 
 			if ( ! empty( $label ) ) {
-				$output .= '<label for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . $label . '</label>' . PHP_EOL;
+				$output .= '<label for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . wp_kses_post( $label ) . "</label>\n";
 			}
 
 			if ( ! empty( $desc ) ) {
-				$output .= '<br />' . PHP_EOL;
-				$output .= '<small>' . $desc . '</small>' . PHP_EOL;
+				$output .= "<br />\n";
+				$output .= '<small>' . wp_kses_post( $desc ) . "</small>\n";
 			}
 
-			$output .= '</p>' . PHP_EOL;
+			$output .= "</p>\n";
 
 			return apply_filters( 'pixelgrade_widget_form_checkbox_field_markup', $output, $field_name, $field_config, $instance );
 		}
@@ -603,8 +615,8 @@ wp_localize_script(
 		 * Generate the select field markup.
 		 *
 		 * @param string $field_name The name if the field.
-		 * @param array  $field_config The field config.
-		 * @param array  $instance The current widget instance details.
+		 * @param array $field_config The field config.
+		 * @param array $instance The current widget instance details.
 		 *
 		 * @return string The field HTML markup.
 		 */
@@ -619,7 +631,11 @@ wp_localize_script(
 
 			// If we have been given a callback we will rely on it to generate the markup.
 			if ( ! empty( $field_config['callback'] ) && is_callable( $field_config['callback'] ) ) {
-				$output = call_user_func_array( $field_config['callback'], array( $value, $field_name, $field_config ) );
+				$output = call_user_func_array( $field_config['callback'], array(
+					$value,
+					$field_name,
+					$field_config
+				) );
 			} else {
 
 				// Now for attributes.
@@ -634,10 +650,10 @@ wp_localize_script(
 				}
 
 				// Lets generate the markup.
-				$output .= '<p class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . '>' . PHP_EOL;
+				$output .= '<p class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . ">\n";
 
 				if ( ! empty( $label ) ) {
-					$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . $label . '</label>' . PHP_EOL;
+					$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . wp_kses_post( $label ) . "</label>\n";
 				}
 
 				if ( ! empty( $field_config['options'] ) ) {
@@ -658,19 +674,19 @@ wp_localize_script(
 						$multiple = '[]';
 					}
 
-					$output .= '<select name="' . esc_attr( $this->get_field_name( $field_name . $multiple ) ) . '" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" class="widefat">' . PHP_EOL;
+					$output .= '<select name="' . esc_attr( $this->get_field_name( $field_name . $multiple ) ) . '" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" class="widefat">' . "\n";
 					foreach ( $options as $option_value => $option_name ) {
-						$output .= '<option value="' . esc_attr( $option_value ) . '" ' . $this->selected( $value, $option_value, false ) . '>' . $option_name . '</option>' . PHP_EOL;
+						$output .= '<option value="' . esc_attr( $option_value ) . '" ' . $this->selected( $value, $option_value, false ) . '>' . esc_html( $option_name ) . "</option>\n";
 					}
-					$output .= '</select>' . PHP_EOL;
+					$output .= "</select>\n";
 				}
 
 				if ( ! empty( $desc ) ) {
-					$output .= '<br />' . PHP_EOL;
-					$output .= '<small>' . $desc . '</small>' . PHP_EOL;
+					$output .= "<br />\n";
+					$output .= '<small>' . wp_kses_post( $desc ) . "</small>\n";
 				}
 
-				$output .= '</p>' . PHP_EOL;
+				$output .= "</p>\n";
 			}
 
 			return apply_filters( 'pixelgrade_widget_form_select_field_markup', $output, $field_name, $field_config, $instance );
@@ -680,8 +696,8 @@ wp_localize_script(
 		 * Generate the select2 field markup.
 		 *
 		 * @param string $field_name The name if the field.
-		 * @param array  $field_config The field config.
-		 * @param array  $instance The current widget instance details.
+		 * @param array $field_config The field config.
+		 * @param array $instance The current widget instance details.
 		 *
 		 * @return string The field HTML markup.
 		 */
@@ -696,7 +712,11 @@ wp_localize_script(
 
 			// If we have been given a callback we will rely on it to generate the markup.
 			if ( ! empty( $field_config['callback'] ) && is_callable( $field_config['callback'] ) ) {
-				$output = call_user_func_array( $field_config['callback'], array( $value, $field_name, $field_config ) );
+				$output = call_user_func_array( $field_config['callback'], array(
+					$value,
+					$field_name,
+					$field_config
+				) );
 			} else {
 
 				// Now for attributes.
@@ -711,10 +731,10 @@ wp_localize_script(
 				}
 
 				// Lets generate the markup.
-				$output .= '<p class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . '>' . PHP_EOL;
+				$output .= '<p class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . ">\n";
 
 				if ( ! empty( $label ) ) {
-					$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . $label . '</label>' . PHP_EOL;
+					$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . wp_kses_post( $label ) . "</label>\n";
 				}
 
 				if ( ! empty( $field_config['options'] ) ) {
@@ -735,19 +755,19 @@ wp_localize_script(
 						$multiple = '[]';
 					}
 
-					$output .= '<select name="' . esc_attr( $this->get_field_name( $field_name . $multiple ) ) . '" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" class="widefat js-select2" ' . ( $multiple === '' ? '' : 'multiple="multiple"' ) . ' style="width:100%;">' . PHP_EOL;
+					$output .= '<select name="' . esc_attr( $this->get_field_name( $field_name . $multiple ) ) . '" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" class="widefat js-select2" ' . ( $multiple === '' ? '' : 'multiple="multiple"' ) . ' style="width:100%;">' . "\n";
 					foreach ( $options as $option_value => $option_name ) {
-						$output .= '<option value="' . esc_attr( $option_value ) . '" ' . $this->selected( $value, $option_value, false ) . '>' . $option_name . '</option>' . PHP_EOL;
+						$output .= '<option value="' . esc_attr( $option_value ) . '" ' . $this->selected( $value, $option_value, false ) . '>' . esc_html( $option_name ) . "</option>\n";
 					}
-					$output .= '</select>' . PHP_EOL;
+					$output .= "</select>\n";
 				}
 
 				if ( ! empty( $desc ) ) {
-					$output .= '<br />' . PHP_EOL;
-					$output .= '<small>' . $desc . '</small>' . PHP_EOL;
+					$output .= "<br />\n";
+					$output .= '<small>' . wp_kses_post( $desc ) . "</small>\n";
 				}
 
-				$output .= '</p>' . PHP_EOL;
+				$output .= "</p>\n";
 			}
 
 			return apply_filters( 'pixelgrade_widget_form_select_field_markup', $output, $field_name, $field_config, $instance );
@@ -757,8 +777,8 @@ wp_localize_script(
 		 * Generate the radio group field markup.
 		 *
 		 * @param string $field_name The name if the field.
-		 * @param array  $field_config The field config.
-		 * @param array  $instance The current widget instance details.
+		 * @param array $field_config The field config.
+		 * @param array $instance The current widget instance details.
 		 *
 		 * @return string The field HTML markup.
 		 */
@@ -773,7 +793,11 @@ wp_localize_script(
 
 			// If we have been given a callback we will rely on it to generate the markup.
 			if ( ! empty( $field_config['callback'] ) && is_callable( $field_config['callback'] ) ) {
-				$output = call_user_func_array( $field_config['callback'], array( $value, $field_name, $field_config ) );
+				$output = call_user_func_array( $field_config['callback'], array(
+					$value,
+					$field_name,
+					$field_config
+				) );
 			} else {
 
 				// Now for attributes.
@@ -788,26 +812,26 @@ wp_localize_script(
 				}
 
 				// Lets generate the markup.
-				$output .= '<div class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . '>' . PHP_EOL;
+				$output .= '<div class="pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . ">\n";
 
 				if ( ! empty( $label ) ) {
-					$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . $label . '</label>' . PHP_EOL;
+					$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . wp_kses_post( $label ) . "</label>\n";
 				}
 
 				if ( ! empty( $field_config['options'] ) ) {
-					$output .= '<ul>' . PHP_EOL;
+					$output .= "<ul>\n";
 					foreach ( $field_config['options'] as $option_value => $option_name ) {
-						$output .= '<li><label><input id="' . esc_attr( $this->get_field_id( $field_name ) ) . '-' . esc_attr( $option_value ) . '" name="' . $this->get_field_name( $field_name ) . '" type="radio" value="' . esc_attr( $option_value ) . '" ' . checked( $option_value, $value, false ) . ' /> ' . $option_name . '</label></li>' . PHP_EOL;
+						$output .= '<li><label><input id="' . esc_attr( $this->get_field_id( $field_name ) ) . '-' . esc_attr( $option_value ) . '" name="' . $this->get_field_name( $field_name ) . '" type="radio" value="' . esc_attr( $option_value ) . '" ' . checked( $option_value, $value, false ) . ' /> ' . esc_html( $option_name ) . "</label></li>\n";
 					}
-					$output .= '</ul>' . PHP_EOL;
+					$output .= "</ul>\n";
 				}
 
 				if ( ! empty( $desc ) ) {
-					$output .= '<br />' . PHP_EOL;
-					$output .= '<small>' . $desc . '</small>' . PHP_EOL;
+					$output .= "<br />\n";
+					$output .= '<small>' . wp_kses_post( $desc ) . "</small>\n";
 				}
 
-				$output .= '</div>' . PHP_EOL;
+				$output .= "</div>\n";
 			}
 
 			return apply_filters( 'pixelgrade_widget_form_select_field_markup', $output, $field_name, $field_config, $instance );
@@ -817,8 +841,8 @@ wp_localize_script(
 		 * Generate the image field markup.
 		 *
 		 * @param string $field_name The name if the field.
-		 * @param array  $field_config The field config.
-		 * @param array  $instance The current widget instance details.
+		 * @param array $field_config The field config.
+		 * @param array $instance The current widget instance details.
 		 *
 		 * @return string The field HTML markup.
 		 */
@@ -840,12 +864,12 @@ wp_localize_script(
 				$desc = $field_config['desc'];
 			}
 
-			$button_label = esc_html__( 'Select Image', 'julia-lite' );
+			$button_label = esc_html__( 'Select Image', '__components_txtd' );
 			if ( ! empty( $field_config['button_label'] ) ) {
 				$button_label = $field_config['button_label'];
 			}
 
-			$clear_label = esc_html__( 'Clear', 'julia-lite' );
+			$clear_label = esc_html__( 'Clear', '__components_txtd' );
 			if ( ! empty( $field_config['clear_label'] ) ) {
 				$clear_label = $field_config['clear_label'];
 			}
@@ -853,17 +877,17 @@ wp_localize_script(
 			$id_prefix = $this->get_field_id( $field_name );
 
 			// Lets generate the markup.
-			$output  = '';
-			$output .= '<div class="pixelgrade_image_field pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . '>' . PHP_EOL;
+			$output = '';
+			$output .= '<div class="pixelgrade_image_field pixelgrade-widget-' . esc_attr( $field_name ) . $this->displayOnClass( $field_name, $field_config ) . '" style="' . ( empty( $field_config['hidden'] ) ? '' : 'display: none;' ) . '" ' . $this->displayOnAttributes( $field_name, $field_config ) . ">\n";
 
 			if ( ! empty( $label ) ) {
-				$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . $label . '</label>' . PHP_EOL;
+				$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . wp_kses_post( $label ) . "</label>\n";
 			}
 
 			// Output the image preview.
-			$output .= '<div class="pixelgrade_image_preview" id="' . $this->get_field_id( $field_name . '-preview' ) . '">' . PHP_EOL;
+			$output .= '<div class="pixelgrade_image_preview" id="' . $this->get_field_id( $field_name . '-preview' ) . "\">\n";
 			// The clear button.
-			$output .= '<span class="clear-image" onclick="widgetImageFields.clear( \'' . $this->id . '\', \'' . $id_prefix . '\' ); return false;" >' . $clear_label . '</span>' . PHP_EOL;
+			$output .= '<span class="clear-image" onclick="widgetImageFields.clear( \'' . $this->id . '\', \'' . $id_prefix . '\' ); return false;" >' . esc_html( $clear_label ) . "</span>\n";
 
 			$imageurl = '';
 			if ( ! empty( $value ) ) {
@@ -884,24 +908,24 @@ wp_localize_script(
 			}
 
 			if ( $value > 0 ) {
-				$output .= wp_get_attachment_image( $value, 'large' ) . PHP_EOL;
+				$output .= wp_get_attachment_image( $value, 'large' ) . "\n";
 			}
 
-			$output .= '</div>' . PHP_EOL;
+			$output .= "</div>\n";
 			// End of image preview.
-			$output .= '<input type="submit" class="button" name="' . $this->get_field_name( $field_name . '-button' ) . '" id="' . esc_attr( $this->get_field_id( $field_name . '-button' ) ) . '" value="' . $button_label . '" onclick="widgetImageFields.uploader( \'' . $this->id . '\', \'' . $id_prefix . '\' ); return false;" />' . PHP_EOL;
+			$output .= '<input type="submit" class="button" name="' . esc_attr( $this->get_field_name( $field_name . '-button' ) ) . '" id="' . esc_attr( $this->get_field_id( $field_name . '-button' ) ) . '" value="' . esc_attr( $button_label ) . '" onclick="widgetImageFields.uploader( \'' . esc_attr( $this->id ) . '\', \'' . esc_attr( $id_prefix ) . '\' ); return false;" />' . "\n";
 
 			// This hidden field holds our field value (the attachment ID).
-			$output .= '<input type="hidden" id="' . $this->get_field_id( $field_name ) . '" name="' . $this->get_field_name( $field_name ) . '" value="' . $value . '" />' . PHP_EOL;
+			$output .= '<input type="hidden" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" value="' . esc_attr( $value ) . "\" />\n";
 
-			$output .= '<input type="hidden" id="' . $this->get_field_id( $field_name . '-imageurl' ) . '" name="' . $this->get_field_name( $field_name . '-imageurl' ) . '" value="' . $imageurl . '" />' . PHP_EOL;
+			$output .= '<input type="hidden" id="' . esc_attr( $this->get_field_id( $field_name . '-imageurl' ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name . '-imageurl' ) ) . '" value="' . esc_attr( $imageurl ) . "\" />\n";
 
 			if ( ! empty( $desc ) ) {
-				$output .= '<br />' . PHP_EOL;
-				$output .= '<small>' . $desc . '</small>' . PHP_EOL;
+				$output .= "<br />\n";
+				$output .= '<small>' . wp_kses_post( $desc ) . "</small>\n";
 			}
 
-			$output .= '</div>' . PHP_EOL;
+			$output .= "</div>\n";
 
 			return apply_filters( 'pixelgrade_widget_form_image_field_markup', $output, $field_name, $field_config, $instance );
 		}
@@ -910,7 +934,7 @@ wp_localize_script(
 		 * Get the field class when a field uses the display_on logic.
 		 *
 		 * @param string $field_name
-		 * @param array  $field_config
+		 * @param array $field_config
 		 *
 		 * @return string
 		 */
@@ -927,7 +951,7 @@ wp_localize_script(
 		 * Get the field attributes when a field uses the display_on logic.
 		 *
 		 * @param string $field_name
-		 * @param array  $field_config
+		 * @param array $field_config
 		 *
 		 * @return string
 		 */
@@ -948,12 +972,12 @@ wp_localize_script(
 
 					$on = $display_on['on'];
 
-					$requires .= ' data-when_key="' . $this->get_field_name( $on['field'] ) . '"';
+					$requires .= ' data-when_key="' . esc_attr( $this->get_field_name( $on['field'] ) ) . '"';
 
 					if ( is_array( $on['value'] ) ) {
-						$requires .= ' data-has_value=\'' . json_encode( $on['value'] ) . '\'';
+						$requires .= ' data-has_value=\'' . esc_attr( json_encode( $on['value'] ) ) . '\'';
 					} else {
-						$requires .= ' data-has_value="' . $on['value'] . '"';
+						$requires .= ' data-has_value="' . esc_attr( $on['value'] ) . '"';
 					}
 				}
 			}
@@ -969,6 +993,7 @@ wp_localize_script(
 		 * @param array $new_instance New settings for this instance as input by the user via
 		 *                            WP_Widget::form().
 		 * @param array $old_instance Old settings for this instance.
+		 *
 		 * @return array Updated settings to save.
 		 */
 		public function update( $new_instance, $old_instance ) {
@@ -1095,21 +1120,21 @@ wp_localize_script(
 				}
 
 				if ( isset( $field_config['sanitize_callback'] ) && is_callable( $field_config['sanitize_callback'] ) ) {
-    $instance[ $field_name ] = call_user_func_array(
-        $field_config['sanitize_callback'], array(
-        $instance[ $field_name ],
-        $field_name,
-        $field_config,
-        )
-    );
+					$instance[ $field_name ] = call_user_func_array(
+						$field_config['sanitize_callback'], array(
+							$instance[ $field_name ],
+							$field_name,
+							$field_config,
+						)
+					);
 				} elseif ( method_exists( $this, "sanitize_{$field_config['type']}" ) ) {
 					// Default to the field type sanitization, if available.
-    $instance[ $field_name ] = call_user_func_array(
-        array(
-        $this,
-        "sanitize_{$field_config['type']}",
-        ), array( $instance[ $field_name ], $field_name, $field_config )
-    );
+					$instance[ $field_name ] = call_user_func_array(
+						array(
+							$this,
+							"sanitize_{$field_config['type']}",
+						), array( $instance[ $field_name ], $field_name, $field_config )
+					);
 				}
 			}
 
@@ -1119,9 +1144,9 @@ wp_localize_script(
 		/**
 		 * Sanitize a checkbox field value.
 		 *
-		 * @param mixed  $value
+		 * @param mixed $value
 		 * @param string $field_name
-		 * @param array  $field_config
+		 * @param array $field_config
 		 *
 		 * @return bool
 		 */
@@ -1132,9 +1157,9 @@ wp_localize_script(
 		/**
 		 * Sanitize a positive int.
 		 *
-		 * @param mixed  $value
+		 * @param mixed $value
 		 * @param string $field_name
-		 * @param array  $field_config
+		 * @param array $field_config
 		 *
 		 * @return int
 		 */
@@ -1145,9 +1170,9 @@ wp_localize_script(
 		/**
 		 * Sanitize a text field.
 		 *
-		 * @param mixed  $value
+		 * @param mixed $value
 		 * @param string $field_name
-		 * @param array  $field_config
+		 * @param array $field_config
 		 *
 		 * @return string
 		 */
@@ -1158,9 +1183,9 @@ wp_localize_script(
 		/**
 		 * Sanitize a textarea field.
 		 *
-		 * @param mixed  $value
+		 * @param mixed $value
 		 * @param string $field_name
-		 * @param array  $field_config
+		 * @param array $field_config
 		 *
 		 * @return string
 		 */
@@ -1171,24 +1196,24 @@ wp_localize_script(
 			if ( strpos( $filtered, '<' ) !== false ) {
 				// Allow others to filter the allowed tags.
 				$allowed_tags = apply_filters(
-        'pixelgrade_widget_allowed_textarea_html_tags',
-        array(
-        'a'      => array(
-        'href'  => array(),
-        'title' => array(),
-        ),
-        'strong' => array(),
-        'b'      => array(),
-        'div'    => array(
-        'class' => array(),
-        ),
-        'em'     => array(),
-        'i'      => array(),
-        'u'      => array(),
-        'span'   => array(
-        'class' => array(),
-        ),
-        ), $field_name, $field_config
+					'pixelgrade_widget_allowed_textarea_html_tags',
+					array(
+						'a'      => array(
+							'href'  => array(),
+							'title' => array(),
+						),
+						'strong' => array(),
+						'b'      => array(),
+						'div'    => array(
+							'class' => array(),
+						),
+						'em'     => array(),
+						'i'      => array(),
+						'u'      => array(),
+						'span'   => array(
+							'class' => array(),
+						),
+					), $field_name, $field_config
 				);
 
 				$filtered = wp_kses( $filtered, $allowed_tags );
@@ -1208,9 +1233,9 @@ wp_localize_script(
 		/**
 		 * Sanitize a select field.
 		 *
-		 * @param mixed  $value
+		 * @param mixed $value
 		 * @param string $field_name
-		 * @param array  $field_config
+		 * @param array $field_config
 		 *
 		 * @return mixed
 		 */
@@ -1259,8 +1284,9 @@ wp_localize_script(
 		 * like in the case for multiple selects or select2 with multiple.
 		 *
 		 * @param mixed $selected One or more of the values to compare
-		 * @param mixed $current  (true) The other value to compare if not just true
-		 * @param bool  $echo     Whether to echo or just return the string
+		 * @param mixed $current (true) The other value to compare if not just true
+		 * @param bool $echo Whether to echo or just return the string
+		 *
 		 * @return string html attribute or empty string
 		 */
 		public function selected( $selected, $current = true, $echo = true ) {
@@ -1318,7 +1344,7 @@ wp_localize_script(
 		 * We check the $config and determine if this field type is used by any active field.
 		 *
 		 * @param string $field_type
-		 * @param array  $fields
+		 * @param array $fields
 		 *
 		 * @return bool
 		 */
@@ -1448,20 +1474,21 @@ wp_localize_script(
 		 * @param array $instance The widget instance data.
 		 */
 		public function sidebarNotSupportedMessage( $args, $instance ) {
-			echo $args['before_widget']; // phpcs:ignore
-			?>
 
-			<div class="c-alert  c-alert--danger">
-				<h4 class="c-alert__title"><?php esc_html_e( '🤦 Widget Not Available', 'julia-lite' ); ?></h4>
-				<div class="c-alert__body">
-					<p><?php
-						/* translators: %s: The widget name */
-						printf( esc_html__( 'No way, Huston! The %s is available only if you have the Pro version of Julia. But hey, don\'t let us stay in your way.', 'julia-lite' ), '<em>' . esc_html( $args['widget_name'] ) . '</em>' ); ?></p>
-				</div>
-			</div>
+			$html_message = '<div class="c-alert  c-alert--danger">
+                    <h4 class="c-alert__title">'. esc_html__( '🤦 Widget Type Not Supported Here', '__components_txtd' ) . '</h4>
+                    <div class="c-alert__body">
+                        <p>' .
+			                /* translators: %s: the widget name */
+			                sprintf( esc_html__( 'Oops! The %s is not supported in this area, but don\'t panic . You can try to move it to another section or just replace it . ', '__components_txtd' ), '<em>' . esc_html( $args['widget_name'] ) . '</em>' ) .'</p>
+                    </div>
+                </div>';
 
-			<?php
-			echo $args['after_widget']; // phpcs:ignore
+			// Let others change this message depending on widget args and instance.
+			$html_message = apply_filters( 'pixelgrade_sidebar_not_supported_message', $html_message, $args, $instance );
+
+			echo $args['before_widget'] . $html_message . $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
 		}
 
 		/**
