@@ -3,11 +3,8 @@
 	"main": "webpack.config.js",
 	"scripts": {
 		"julia:prod": "webpack --env.variation=julia && npm run rtl  && gulp zip --variation julia",
-		"felt:prod": "webpack --env.variation=felt && npm run rtl && gulp zip --variation felt",
 		"julia:dev": "concurrently --kill-others \"npm run julia\" \"npm run watch\" \"gulp watch-variation --variation julia\"",
-		"felt:dev": "concurrently --kill-others \"npm run felt\" \"npm run watch\" \"gulp watch-variation --variation felt\"",
 		"julia": "webpack --watch --env.variation=julia",
-		"felt": "webpack --watch --env.variation=felt",
 		"rtl": "./node_modules/.bin/rtlcss style.css rtl.css",
 		"watch": "npm-watch"
 	},

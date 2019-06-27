@@ -4,9 +4,8 @@
 ; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
 ;
 [subrepo]
-	remote = https://github.com/pixelgrade/components-gallery.git
+	remote = https://github.com/pixelgrade/components-hero.git
 	branch = master
-	commit = bedd849e0afc1f85318beec01c05df2e6398dd47
-	parent = c10f7f668bdf2c3fcef23886567ef3f6a12c4a6a
-	cmdver = 0.4.0
-	method = merge
+	commit = d23e589c382c31b84781849ac31136812a9f198b
+	parent = a051a4aa31ee08df711dea784f3f01aaf0176d9b
+	cmdver = 0.3.1

@@ -1,0 +1,147 @@
+/*
+
+    HERO
+    ====
+
+
+    description:
+    ------------
+
+
+    expected markup:
+    ----------------
+
+    <div class="c-hero c-hero--two-thirds">
+
+        <div class="c-hero__slider">
+
+
+            <div class="c-hero__slide">
+
+                <div class="c-hero__background">
+                    <img class="c-hero__image | c-hero__video">
+                </div><!-- .c-hero__background -->
+
+                <div class="c-hero__wrapper c-hero__wrapper--[ top | right | bottom | left ]">
+                    <div class="c-hero__content">
+                        ...
+                    </div><!-- .c-hero__content -->
+                </div><!-- .c-hero__wrapper -->
+
+            </div><!-- .c-hero__slide -->
+
+        </div><!-- .c-hero__slider -->
+
+    </div><!-- .c-hero -->
+
+ */
+
+.c-hero {
+	position: relative;
+	min-height: 100vh;
+	color: #FFFFFF;
+	transform: none !important;
+
+	&--half {
+		min-height: 50vh;
+	}
+
+	&--one-third {
+		min-height: 33.333333vh;
+	}
+
+	&--two-thirds {
+		min-height: 66.666666vh;
+	}
+
+	* {
+		color: inherit;
+	}
+}
+
+.c-hero__slider {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
+	display: flex;
+}
+
+.c-hero__slide {
+	position: relative;
+
+	width: 100%;
+	flex-shrink: 0;
+}
+
+.c-hero__layer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.c-hero__wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+
+	&--left {
+		justify-content: flex-start;
+		text-align: left;
+	}
+
+	&--right {
+		justify-content: flex-end;
+		text-align: right;
+	}
+
+	&--top > * {
+		align-self: flex-start;
+	}
+
+	&--bottom > * {
+		align-self: flex-end;
+	}
+}
+
+.c-hero__scroll-arrow {
+	cursor: pointer;
+}
+
+.c-hero__background-mask {
+	overflow: hidden;
+}
+
+.c-hero__background-mask,
+.c-hero__background {
+	will-change: transform;
+	backface-visibility: hidden;
+}
+
+.c-hero__image,
+.c-hero__video {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	min-width: 100%;
+	min-height: 100%;
+	max-width: none;
+	width: auto;
+	height: auto;
+}
+
+@supports (object-fit: cover) {
+	.c-hero__image,
+	.c-hero__video {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}

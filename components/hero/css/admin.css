@@ -1,12 +1,3 @@
-.piximage_field.thumbnail-hover {
-  background-color: #f9f8f8; }
-
-.piximage_field.thumbnail-hover, .piximage_field.thumbnail-hover.no-items > ul {
-  min-height: 60px; }
-
-.piximage_field.thumbnail-hover .open_piximage i.icon {
-  display: none; }
-
 #postbox-container-2 .cmb_metabox_description.hero-visibility {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
@@ -120,9 +111,3 @@
 
 #postbox-container-2 li._hero_featured_projects_title {
   margin-top: 30px; }
-
-#menu-appearance a[href='pixelgrade_care-install'] {
-  padding: 0 !important;
-  line-height: 0 !important; }
-
-/*# sourceMappingURL=admin.css.map */
