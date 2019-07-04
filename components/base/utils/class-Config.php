@@ -469,7 +469,7 @@ if ( ! class_exists( 'Pixelgrade_Config' ) ) :
 
 			// On invalid operators, return the data to compare, but give an notice to developers.
 			if ( empty( $operator ) || ! in_array( $operator, $operators, true ) ) {
-				_doing_it_wrong( __METHOD__, sprintf( 'The %s compare operator you\'ve used is invalid! Please check your comparison!', esc_html( $operator ) ), null );
+				_doing_it_wrong( __METHOD__, sprintf( esc_html__('The %s compare operator you\'ve used is invalid! Please check your comparison!', 'julia-lite' ), esc_html( $operator ) ), null );
 				return $data;
 			}
 
@@ -482,7 +482,7 @@ if ( ! class_exists( 'Pixelgrade_Config' ) ) :
 
 			// We are now dealing with binary operators so we need to have a value.
 			if ( ! isset( $args['value'] ) ) {
-				_doing_it_wrong( __METHOD__, sprintf( 'The %s compare operator you\'ve used is a binary one, but no \'value\' provided! Please check your comparison!', esc_html( $operator ) ), null );
+				_doing_it_wrong( __METHOD__, sprintf( esc_html__('The %s compare operator you\'ve used is a binary one, but no \'value\' provided! Please check your comparison!', 'julia-lite' ), esc_html( $operator ) ), null );
 				return $data;
 			}
 
@@ -514,7 +514,7 @@ if ( ! class_exists( 'Pixelgrade_Config' ) ) :
 					}
 
 					if ( ! is_array( $value ) ) {
-						_doing_it_wrong( __METHOD__, sprintf( 'You\'ve used the %s compare operator, but invalid list \'value\' provided! Please check your comparison!', esc_html( $operator ) ), null );
+						_doing_it_wrong( __METHOD__, sprintf( esc_html__('You\'ve used the %s compare operator, but invalid list \'value\' provided! Please check your comparison!' , 'julia-lite' ), esc_html( $operator ) ), null );
 
 						return $data;
 					}
@@ -528,7 +528,7 @@ if ( ! class_exists( 'Pixelgrade_Config' ) ) :
 					}
 
 					if ( ! is_array( $value ) ) {
-						_doing_it_wrong( __METHOD__, sprintf( 'You\'ve used the %s compare operator, but invalid list \'value\' provided! Please check your comparison!', esc_html( $operator ) ), null );
+						_doing_it_wrong( __METHOD__, sprintf( esc_html__('You\'ve used the %s compare operator, but invalid list \'value\' provided! Please check your comparison!', 'julia-lite' ), esc_html( $operator ) ), null );
 
 						return $data;
 					}
@@ -567,8 +567,8 @@ if ( ! class_exists( 'Pixelgrade_Config' ) ) :
 							if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
 								_doing_it_wrong(
             __METHOD__,
-            sprintf( 'There is something wrong with the following Customizer option: %s > %s > %s.', esc_html( $section_key ), 'options', esc_html( $option_key ) ) .
-            ' The option has no TYPE defined! Maybe it doesn\'t even exist.', null
+            sprintf( esc_html__('There is something wrong with the following Customizer option: %s > %s > %s.', 'julia-lite'), esc_html( $section_key ), 'options', esc_html( $option_key ) ) .
+            esc_html__(' The option has no TYPE defined! Maybe it doesn\'t even exist.', 'julia-lite' ), null
 								);
 							}
 
@@ -606,8 +606,8 @@ if ( ! class_exists( 'Pixelgrade_Config' ) ) :
 								if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
         _doing_it_wrong(
             __METHOD__,
-            sprintf( 'You need to define a default value for the following Customizer option: %s > %s > %s.', $section_key, 'options', $option_key ) .
-            ( ! empty( $filter_to_use ) ? ' ' . sprintf( 'Use this filter: %s', esc_html( $filter_to_use ) ) : '' ), null
+            sprintf( esc_html__( 'You need to define a default value for the following Customizer option: %s > %s > %s.', 'julia-lite' ), $section_key, 'options', $option_key ) .
+            ( ! empty( $filter_to_use ) ? ' ' . sprintf( esc_html__( 'Use this filter: %s', 'julia-lite' ), esc_html( $filter_to_use ) ) : '' ), null
         );
 								}
 
