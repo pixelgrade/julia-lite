@@ -3,7 +3,7 @@ Theme URI: https://github.com/pixelgrade/julia-lite
 Author: Pixelgrade
 Author URI: https://pixelgrade.com
 Description: Julia Lite is a food blogging theme made for creators who want to showcase their recipes and culinary stories easily. With a strong focus on shaping a pleasant experience for your readers, this WordPress gem makes room for you to fulfill your passion in a smart and appealing way. It's time to embrace a more bold approach for your gourmet content in order to keep momentum with your audience.
-Version: 1.1.1
+Version: 1.1.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.9.9
@@ -16,6 +16,10 @@ Julia Lite is a free food blogging theme for community builders who want to shar
 Julia Lite is a food blogging theme made for creators who want to showcase their recipes and culinary stories easily. With a strong focus on shaping a pleasant experience for your readers, this WordPress gem makes room for you to fulfill your passion in a smart and appealing way. It's time to embrace a more bold approach for your gourmet content in order to keep momentum with your audience.
 
 == Changelog ==
+
+= 1.1.2 =
+* Minor PHP fixes.
+* Removed restricted PRO only features.
 
 = 1.1.1 =
 * Cleanup and security enhancements.
