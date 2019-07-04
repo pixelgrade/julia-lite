@@ -185,12 +185,6 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 		 * @param array $instance Settings for the current Featured Posts widget instance.
 		 */
 		public function widget( $args, $instance ) {
-			// First, process the sidebars that are not supported by the current widget instance, if any.
-			if ( false === $this->showInSidebar( $args, $instance ) ) {
-				$this->sidebarNotSupportedMessage( $args, $instance );
-
-				return;
-			}
 
 			// There is no point in doing anything of we don't have a template part to display with.
 			// So first try and find a template part to use

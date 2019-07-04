@@ -700,17 +700,6 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 					'after_title'   => '</span></h2>',
 				),
 			),
-			'sidebar-2' => array(
-				'sidebar_args' => array(
-					'name'          => esc_html__( 'Below Post', 'julia-lite' ),
-					'id'            => 'sidebar-2',
-					'description'   => esc_html__( 'Ooops! This entire widget area is available only if you have the Pro version of Julia. You want to stand out from the crowd, right?', 'julia-lite' ),
-					'before_widget' => '<section id="%1$s" class="widget widget--side %2$s">',
-					'after_widget'  => '</section>',
-					'before_title'  => '<h2 class="widget__title h3"><span>',
-					'after_title'   => '</span></h2>',
-				),
-			),
 		);
 
 		// Configure the image sizes that the blog component uses
