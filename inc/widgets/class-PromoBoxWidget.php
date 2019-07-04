@@ -81,14 +81,14 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 					'headline'             => array(
 						'type'     => 'textarea',
 						'label'    => esc_html__( 'Headline:', 'julia-lite' ),
-						'default'  => 'What is a high converting headline worth to you?',
+						'default'  => esc_html__( 'What is a high converting headline worth to you?', 'julia-lite' ),
 						'section'  => 'content',
 						'priority' => 20,
 					),
 					'description'          => array(
 						'type'     => 'textarea',
 						'label'    => esc_html__( 'Description:', 'julia-lite' ),
-						'default'  => 'This is a Promo Box Widget where you can personalize your own advertisment area, with your content, images and call to actions. You can promote your product or link to another website of yours.',
+						'default'  => esc_html__( 'This is a Promo Box Widget where you can personalize your own advertisment area, with your content, images and call to actions. You can promote your product or link to another website of yours.', 'julia-lite' ),
 						'section'  => 'content',
 						'priority' => 30,
 					),
