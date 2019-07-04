@@ -173,9 +173,9 @@ function julia_scripts() {
 	wp_style_add_data( 'julia-style', 'rtl', 'replace' );
 
 	/* Scripts */
-	wp_register_script( 'tweenmax','//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js', array(), '2.0.2', true );
-	wp_register_script( 'select2',get_theme_file_uri( '/assets/js/select2' . $suffix . '.js' ), array(), '4.0.5', true );
-	wp_register_script( 'slick',get_theme_file_uri( '/assets/js/slick' . $suffix . '.js' ), array(), '1.9.0', true );
+	wp_register_script( 'tweenmax', get_theme_file_uri( '/assets/js/TweenMax.min.js' ), array(), '2.0.2', true );
+	wp_register_script( 'select2', get_theme_file_uri( '/assets/js/select2' . $suffix . '.js' ), array(), '4.0.5', true );
+	wp_register_script( 'slick', get_theme_file_uri( '/assets/js/slick' . $suffix . '.js' ), array(), '1.9.0', true );
 
 	//The main script
 	wp_enqueue_script( 'julia-scripts', get_theme_file_uri( '/assets/js/scripts' . $suffix . '.js' ), array( 'jquery', 'masonry', 'imagesloaded', 'hoverIntent', 'tweenmax', 'select2', 'slick' ), $theme->get( 'Version' ), true );
