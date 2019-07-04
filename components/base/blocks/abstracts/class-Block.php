@@ -446,7 +446,7 @@ abstract class Pixelgrade_Block {
 			$content = $wrapper->maybeWrapContent( $content );
 		}
 
-		echo $content; // WPCS: XSS ok.
+		echo $content; // phpcs:ignore Standard.Category.SniffName.ErrorCode
 	}
 
 	/**

@@ -33,7 +33,7 @@ function pixelgrade_add_cats_list( $content ) {
 		$categories_list = get_the_category_list( ' ' );
 
 		if ( ! empty( $categories_list ) && 'Uncategorized' !== $categories_list ) {
-			$cats_content .= '<div class="cats"><span class="cats__title">' . esc_html__( 'Categories', 'julia-lite' ) . sprintf( '</span>%1$s', $categories_list ) . '</div>'; // WPCS: XSS OK.
+			$cats_content .= '<div class="cats"><span class="cats__title">' . esc_html__( 'Categories', 'julia-lite' ) . sprintf( '</span>%1$s', $categories_list ) . '</div>'; // phpcs:ignore Standard.Category.SniffName.ErrorCode
 		}
 	}
 
@@ -60,7 +60,7 @@ function pixelgrade_add_tags_list( $content ) {
 		$tags_list = get_the_tag_list();
 
 		if ( ! empty( $tags_list ) ) {
-			$tags_content .= '<div class="tags"><div class="tags__title">' . esc_html__( 'Tags', 'julia-lite' ) . sprintf( '</div>%1$s</div>', $tags_list ); // WPCS: XSS OK.
+			$tags_content .= '<div class="tags"><div class="tags__title">' . esc_html__( 'Tags', 'julia-lite' ) . sprintf( '</div>%1$s</div>', $tags_list ); // phpcs:ignore Standard.Category.SniffName.ErrorCode
 		}
 	}
 
@@ -123,7 +123,7 @@ if ( ! function_exists( 'pixelgrade_search_form' ) ) :
 	 * @return string
 	 */
 	function pixelgrade_search_form( $form ) {
-		$form = '<form role="search" method="get" class="search-form" action="' . esc_attr( home_url( '/' ) ) . '" >
+		$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '" >
 		<label class="screen-reader-text">' . esc_html__( 'Search for:', 'julia-lite' ) . '</label>
 		<input type="text" placeholder="' . esc_attr__( 'Search here', 'julia-lite' ) . '" value="' . esc_attr( get_search_query() ) . '" name="s" class="search-field" />
 		<button type="submit" class="search-submit"><span>' . esc_html__( 'Search', 'julia-lite' ) . '</span></button>

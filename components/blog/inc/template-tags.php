@@ -276,7 +276,7 @@ if ( ! function_exists( 'pixelgrade_get_post_meta' ) ) {
  *                    Default empty array.
  */
 function pixelgrade_the_post_navigation( $args = array() ) {
-	echo pixelgrade_get_the_post_navigation( $args ); // WPCS: XSS ok.
+	echo pixelgrade_get_the_post_navigation( $args ); // phpcs:ignore Standard.Category.SniffName.ErrorCode
 }
 
 if ( ! function_exists( 'pixelgrade_get_the_post_navigation' ) ) {
@@ -468,7 +468,7 @@ function pixelgrade_get_main_category( $post_ID = null ) {
  * @param string $category_class Optional. A CSS class that the category will receive.
  */
 function pixelgrade_the_main_category_link( $before = '', $after = '', $category_class = '' ) {
-	echo pixelgrade_get_main_category_link( $before, $after, $category_class ); // WPCS: XSS ok.
+	echo pixelgrade_get_main_category_link( $before, $after, $category_class ); // phpcs:ignore Standard.Category.SniffName.ErrorCode
 
 } // function
 
@@ -658,7 +658,7 @@ if ( ! function_exists( 'pixelgrade_the_post_custom_css' ) ) {
 			}
 
 			// Allow others to modify this
-			echo apply_filters( 'pixelgrade_the_post_custom_css', $output, get_the_ID(), $location ); // WPCS: XSS ok.
+			echo apply_filters( 'pixelgrade_the_post_custom_css', $output, get_the_ID(), $location ); // phpcs:ignore Standard.Category.SniffName.ErrorCode
 		}
 	}
 }
@@ -712,7 +712,7 @@ if ( ! function_exists( 'pixelgrade_the_posts_pagination' ) ) {
 	 *                    Default empty array.
 	 */
 	function pixelgrade_the_posts_pagination( $args = array() ) {
-		echo pixelgrade_get_the_posts_pagination( $args ); // WPCS: XSS ok.
+		echo pixelgrade_get_the_posts_pagination( $args ); // phpcs:ignore Standard.Category.SniffName.ErrorCode
 	}
 }
 
@@ -767,7 +767,7 @@ if ( ! function_exists( 'pixelgrade_posted_on' ) ) {
 		    '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
-		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore Standard.Category.SniffName.ErrorCode
 
 	}
 }

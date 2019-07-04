@@ -45,7 +45,7 @@ if ( post_password_required() ) {
 			<span class="c-comments-toggle__icon"><?php pixelgrade_get_component_template_part( Pixelgrade_Blog::COMPONENT_SLUG, 'svg/comments-toggle-icon' ); ?></span>
 			<span class="c-comments-toggle__text">
 			<?php
-				printf( // WPCS: XSS OK.
+				printf( // phpcs:ignore Standard.Category.SniffName.ErrorCode
 					/* translators: The comments number. */
 			        esc_html( _nx( '%1$s comment', '%1$s comments', get_comments_number(), 'comments title', 'julia-lite' ) ),
 			        esc_html( number_format_i18n( get_comments_number() ) )

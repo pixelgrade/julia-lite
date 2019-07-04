@@ -33,7 +33,7 @@ if ( ! function_exists( 'julia_posted_on' ) ) {
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
-		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore Standard.Category.SniffName.ErrorCode
 
 	}
 }
@@ -76,7 +76,7 @@ if ( ! function_exists( 'julia_the_posts_pagination' ) ) {
 	 *                    Default empty array.
 	 */
 	function julia_the_posts_pagination( $args = array() ) {
-		echo julia_get_the_posts_pagination( $args ); // WPCS: XSS ok.
+		echo julia_get_the_posts_pagination( $args ); // phpcs:ignore Standard.Category.SniffName.ErrorCode
 	}
 }
 

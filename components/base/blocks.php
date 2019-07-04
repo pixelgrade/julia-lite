@@ -58,7 +58,7 @@ function pixelgrade_render_block( $block ) {
 		echo PHP_EOL . '<!-- ################################################## -->' . PHP_EOL;
 	}
 
-	echo pixelgrade_get_rendered_block( $block );  // WPCS: XSS ok.
+	echo pixelgrade_get_rendered_block( $block );  // phpcs:ignore Standard.Category.SniffName.ErrorCode
 
 	if ( pixelgrade_is_block_debug() ) {
 		echo PHP_EOL . '<!-- ################################################## -->';

@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php endif; ?>
 		</a>
 
-		<p class="site-description site-description-text"><?php bloginfo( 'description' ); /* WPCS: xss ok. */ ?></p>
+		<p class="site-description site-description-text"><?php bloginfo( 'description' ); /* phpcs:ignore Standard.Category.SniffName.ErrorCode */ ?></p>
 
 	</div><!-- .c-branding -->
 

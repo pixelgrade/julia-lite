@@ -381,7 +381,7 @@ if ( ! function_exists( 'pixelgrade_display_featured_images' ) ) {
 }
 
 function pixelgrade_the_taxonomy_dropdown( $taxonomy, $current_term = null ) {
-	echo pixelgrade_get_the_taxonomy_dropdown( $taxonomy, $current_term ); // WPCS: XSS ok.
+	echo pixelgrade_get_the_taxonomy_dropdown( $taxonomy, $current_term ); // phpcs:ignore Standard.Category.SniffName.ErrorCode
 }
 
 if ( ! function_exists( 'pixelgrade_get_the_taxonomy_dropdown' ) ) {

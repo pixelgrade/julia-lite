@@ -361,5 +361,5 @@ $html = sprintf(
  * @param int $blog_id Optional. ID of the blog in question. Default is the ID of the current blog.
  */
 function pixelgrade_the_custom_logo_transparent( $blog_id = 0 ) {
-	echo pixelgrade_get_custom_logo_transparent( $blog_id ); // WPCS: XSS ok.
+	echo pixelgrade_get_custom_logo_transparent( $blog_id ); // phpcs:ignore Standard.Category.SniffName.ErrorCode
 }
