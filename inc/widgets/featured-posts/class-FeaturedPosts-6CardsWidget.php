@@ -68,7 +68,6 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_6CardsWidget' ) ) :
 					'front-page-5',
 					'front-page-6',
 					'front-page-7',
-					'archive-1',
 					'footer-featured',
 				),
 			);

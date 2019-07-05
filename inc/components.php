@@ -52,7 +52,6 @@ function julia_customize_header_config( $config ) {
 	$config['menu_locations']['primary-right']['nav_menu_args']['menu_id'] = 'menu-1';
 	// Set the nav menu location CSS class
 	$config['menu_locations']['primary-right']['nav_menu_args']['menu_class'] = 'menu  menu--primary';
-	$config['menu_locations']['primary-right']['nav_menu_args']['fallback_cb'] = 'wp_page_menu';
 
 	return $config;
 }

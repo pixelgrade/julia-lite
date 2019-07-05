@@ -133,7 +133,6 @@ if ( ! class_exists( 'Pixelgrade_CategoriesImageGridWidget' ) ) :
 					'front-page-4',
 					'front-page-5',
 					'front-page-6',
-					'archive-1',
 					'footer-featured',
 				),
 			);

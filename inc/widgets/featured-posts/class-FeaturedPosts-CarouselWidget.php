@@ -128,7 +128,6 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_CarouselWidget' ) ) :
 					'front-page-5',
 					'front-page-6',
 					'front-page-7',
-					'archive-1',
 					'footer-featured',
 				),
 			);

@@ -201,7 +201,3 @@ add_action( 'admin_enqueue_scripts', 'julia_load_wp_admin_style' );
  */
 pixelgrade_autoload_dir( 'inc' );
 
-/**
- * Admin dashboard logic.
- */
-require get_template_directory() . '/inc/admin/admin.php';

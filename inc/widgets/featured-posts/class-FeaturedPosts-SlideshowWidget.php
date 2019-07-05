@@ -80,7 +80,6 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_SlideshowWidget' ) ) :
 				'sidebars_not_supported' => array(
 					'sidebar-1',
 					'sidebar-2',
-					'archive-1',
 					'front-page-1',
 					'front-page-2',
 					'front-page-3',

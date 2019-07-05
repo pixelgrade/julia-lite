@@ -98,18 +98,6 @@ do_action( 'pixelgrade_before_main_content', $location );
                                 ?>
 
                                 <?php
-                                // The Full Width Area #2
-                                pixelgrade_get_sidebar( 'front-page-fullwidth-2' );
-                                ?>
-
-                                <?php
-                                // The Content Area #2
-                                pixelgrade_get_sidebar( 'front-page-content-2' );
-                                // The Sidebar Area #2
-                                pixelgrade_get_sidebar( 'front-page-sidebar-2' );
-                                ?>
-
-                                <?php
                                 // The Full Width Area #3
                                 pixelgrade_get_sidebar( 'front-page-fullwidth-3' );
                                 ?>

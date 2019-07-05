@@ -26,23 +26,6 @@ function julia_widget_areas_init() {
 			'after_title'   => '</span></h2>',
 		)
 	);
-
-	/**
-	 * The Archive Index Widget Areas
-	 */
-
-	// The Content Area
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Archive Index', 'julia-lite' ),
-			'id'            => 'archive-1',
-			'description'   => esc_html__( 'Add widgets here.', 'julia-lite' ),
-			'before_widget' => '<section id="%1$s" class="widget widget--content %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget__title h3"><span>',
-			'after_title'   => '</span></h2>',
-		)
-	);
 }
 
 add_action( 'widgets_init', 'julia_widget_areas_init', 10 );

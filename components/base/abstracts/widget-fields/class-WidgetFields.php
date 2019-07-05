@@ -1440,34 +1440,6 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 		}
 
 		/**
-		 * Determine if the widget should be shown in the current sidebar.
-		 *
-		 * @param array $args The widget arguments.
-		 * @param array $instance The widget instance data.
-		 *
-		 * @return bool
-		 */
-		public function showInSidebar( $args, $instance ) {
-			// If there is no config, show it.
-			if ( empty( $this->config['sidebars_not_supported'] ) ) {
-				return true;
-			}
-
-			// Standardize it to an array.
-			if ( is_string( $this->config['sidebars_not_supported'] ) ) {
-				$this->config['sidebars_not_supported'] = array( $this->config['sidebars_not_supported'] );
-			}
-
-			// The current sidebar is in the $args 'id'; we need to search it among our not supported sidebars.
-			if ( false !== array_search( $args['id'], $this->config['sidebars_not_supported'] ) ) {
-				return false;
-			}
-
-			// If we've gotten thus far, display the widget.
-			return true;
-		}
-
-		/**
 		 * Handle various export logic specific to this widget's fields.
 		 *
 		 * @param array $widget_data The widget instance values.
