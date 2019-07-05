@@ -1,3 +1,25 @@
+.widget_archive,
+.widget_categories,
+.widget_meta,
+.widget_nav_menu,
+.widget_pages,
+.widget_recent_comments,
+.widget_recent_entries,
+.widget_rss,
+.widget_text,
+.widget_tag_cloud,
+.widget_search,
+.widget_calendar {
+  @extend .wordpress-default-widgets;
+}
+
+@mixin widget_lists_spacing {
+  ul > li + li,
+  ul ul {
+    @include spacing(margin-top, 1rem);
+  }
+}
+
 .widget {
 
   ul:not(:last-child) {
@@ -243,6 +265,8 @@
   display: flex;
   flex-direction: column;
 
+  @include widget_lists_spacing;
+
   .widget_categories,
   .widget_pages {
     @include widget-side-list;
@@ -273,4 +297,19 @@
 
 .widget-area .widget__title {
     margin-bottom: 1.5rem;
+}
+
+.wordpress-default-widgets {
+  ul ul {
+    counter-reset: submenu;
+    > li > a:before {
+      content: "- " counters(submenu, "- ", none);
+      counter-increment: submenu;
+    }
+  }
+
+  ul, ol {
+    list-style: none;
+    padding-left: 0;
+  }
 }

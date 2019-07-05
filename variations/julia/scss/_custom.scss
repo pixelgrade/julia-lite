@@ -134,6 +134,11 @@
   &:before {
     @include spacing(width, 40px);
   }
+
+  &:hover {
+    color: $theme-background-color;
+    background-color: $theme-text-color;
+  }
 }
 
 /* stylelint-disable */

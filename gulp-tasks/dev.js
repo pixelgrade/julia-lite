@@ -117,7 +117,7 @@ var jsFiles = [
 ]
 
 function scripts() {
-	return gulp.src(jsFiles)
+	return gulp.src(jsFiles, { allowEmpty: true })
 		.pipe(plugins.concat('main.js'))
 		.pipe(gulp.dest('./assets/js/'))
 }
@@ -165,19 +165,19 @@ function watchStart() {
 	gulp.watch([
 		'inc/integrations/typeline-config.json',
 		'inc/integrations/typeline-config-editor.json'
-	], ['typeline-config', 'typeline-phpconfig'])
+	], gulp.series('typeline-config', 'typeline-phpconfig'))
 
 	// watch for theme related CSS changes
-	gulp.watch(['variations/' + variation + '/**/*.scss', 'assets/scss/**/*.scss'], ['styles-main'])
+	gulp.watch(['variations/' + variation + '/**/*.scss', 'assets/scss/**/*.scss'], gulp.series('styles-main'))
 
-	gulp.watch('assets/scss/admin/*.scss', ['styles-admin'])
+	gulp.watch('assets/scss/admin/*.scss', gulp.series('styles-admin'))
 
 	// watch for components related CSS changes
 	// exclude the docs directory since that is not a true component; also exclude . directories
-	gulp.watch(['components/**/*.scss', '!components/docs/**/*', '!components/.*/**/*'], ['styles-components', 'styles-main'])
+	gulp.watch(['components/**/*.scss', '!components/docs/**/*', '!components/.*/**/*'], gulp.series('styles-components', 'styles-main'))
 
 	// watch for JavaScript changes
-	gulp.watch('assets/js/**/*.js', ['scripts'])
+	gulp.watch('assets/js/**/*.js', gulp.series('scripts'))
 }
 watchStart.description = 'Watch for changes to various files and process them';
 gulp.task('watch-start', watchStart )
