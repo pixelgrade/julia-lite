@@ -471,30 +471,30 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
             ),
 
             'single' => array(
-                'extend' => 'blog/default',
-                'type' => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
-                'blocks' => array(
-	                'container' => array(
-		                'extend' => 'blog/container',
-		                'blocks' => array(
-			                'blog/entry-header-single',
-			                'blog/entry-thumbnail',
-			                'blog/entry-content',
-			                'sidebar-below-post' => array(
-			                	'blocks' => array(
-			                		'blog/sidebar-below-post',
-				                ),
-				                'wrappers' => array(
-				                	array(
-				                		'classes' => 'entry-aside u-content-width'
-					                ),
-				                ),
-			                ),
-			                'blog/entry-footer',
-		                ),
-	                ),
-	                'blog/related-posts',
-                ),
+	            'extend' => 'blog/default',
+	            'type' => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
+	            'blocks' => array(
+		            'container' => array(
+			            'extend' => 'blog/container',
+			            'blocks' => array(
+					            'blog/entry-header-single',
+					            'blog/entry-thumbnail',
+					            'blog/entry-content',
+					            'sidebar-below-post' => array(
+						            'blocks' => array(
+							            'blog/sidebar-below-post',
+						            ),
+						            'wrappers' => array(
+							            array(
+								            'classes' => 'entry-aside u-content-width'
+							            ),
+						            ),
+					            ),
+					            'blog/entry-footer',
+				            ),
+			            ),
+		            'blog/related-posts',
+	            ),
             ),
 
             'page' => array(

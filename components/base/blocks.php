@@ -73,6 +73,7 @@ function pixelgrade_get_rendered_block( $block ) {
 	} elseif ( is_string( $block ) && Pixelgrade_BlocksManager()->isRegisteredBlock( $block ) ) {
 		return Pixelgrade_BlocksManager()->getRegisteredBlock( $block )->getRendered();
 	} else {
+		/* translators: %s: block name */
 		_doing_it_wrong( __FUNCTION__, sprintf( 'Tried to render an unknown block (%s)!', esc_html( $block ) ), null );
 	}
 
