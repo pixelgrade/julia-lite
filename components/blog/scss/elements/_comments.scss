@@ -26,10 +26,16 @@
 
 .comment-list {
 
-  &, ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  .children {
     list-style: none;
-    padding: 0;
-    margin: 0;
+  }
+
+  > li + li {
+    @include spacing(margin-top, 2rem);
   }
 
 }
@@ -103,6 +109,12 @@
 
 .pingback,
 .trackback {
+  @include spacing(margin-top, 1.5rem);
+  @include spacing(margin-bottom, 1.5rem);
+  font-weight: 400;
+  a {
+    @include spacing(margin-left, .5rem);
+  }
 }
 
 .comment__author {

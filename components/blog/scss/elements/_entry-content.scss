@@ -41,6 +41,8 @@ $meta-tags-items-font: () !default;
   .cats {
     align-items: center;
 
+    clear: both;
+
     &__title {
       @extend .meta__title;
       margin-top: 5px;
@@ -59,6 +61,8 @@ $meta-tags-items-font: () !default;
   }
 
   .tags {
+
+    clear: both;
 
     @include spacing(margin-top, 3rem);
 
