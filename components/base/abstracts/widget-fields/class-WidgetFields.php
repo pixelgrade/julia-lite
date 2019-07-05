@@ -1440,6 +1440,51 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 		}
 
 		/**
+		 * Determine if the widget should be shown in the current sidebar.
+		 *
+		 * @param array $args The widget arguments.
+		 * @param array $instance The widget instance data.
+		 *
+		 * @return bool
+		 */
+		public function showInSidebar( $args, $instance ) {
+			// If there is no config, show it.
+			if ( empty( $this->config['sidebars_not_supported'] ) ) {
+				return true;
+			}
+			// Standardize it to an array.
+			if ( is_string( $this->config['sidebars_not_supported'] ) ) {
+				$this->config['sidebars_not_supported'] = array( $this->config['sidebars_not_supported'] );
+			}
+			// The current sidebar is in the $args 'id'; we need to search it among our not supported sidebars.
+			if ( false !== array_search( $args['id'], $this->config['sidebars_not_supported'] ) ) {
+				return false;
+			}
+			// If we've gotten thus far, display the widget.
+			return true;
+		}
+
+		/**
+		 * Display the message regarding the widget being displayed in a not supported sidebar.
+		 *
+		 * @param array $args The widget arguments.
+		 * @param array $instance The widget instance data.
+		 */
+		public function sidebarNotSupportedMessage( $args, $instance ) {
+			$html_message = '<div class="c-alert  c-alert--danger">
+                    <h4 class="c-alert__title">'. esc_html__( '🤦 Widget Type Not Supported Here', '__components_txtd' ) . '</h4>
+                    <div class="c-alert__body">
+                        <p>' .
+			                /* translators: %s: the widget name */
+			                sprintf( esc_html__( 'Oops! The %s is not supported in this area, but don\'t panic . You can try to move it to another section or just replace it . ', '__components_txtd' ), '<em>' . esc_html( $args['widget_name'] ) . '</em>' ) .'</p>
+                    </div>
+                </div>';
+			// Let others change this message depending on widget args and instance.
+			$html_message = apply_filters( 'pixelgrade_sidebar_not_supported_message', $html_message, $args, $instance );
+			echo $args['before_widget'] . $html_message . $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+
+		/**
 		 * Handle various export logic specific to this widget's fields.
 		 *
 		 * @param array $widget_data The widget instance values.
