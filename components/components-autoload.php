@@ -114,7 +114,8 @@ class Pixelgrade_Components_Autoloader {
 						 */
 						do_action( "pixelgrade_after_{$slug}_instantiation" );
 					} else {
-						_doing_it_wrong( __METHOD__, sprintf( 'Trying to autoload the %s component, but couldn\'t find the %s instantiation function in %s.', esc_html( $slug ), esc_html( $function ), esc_html( $file ) ), null );
+						/* translators: 1: Component slug, 2: Function name, 3: Filename */
+						_doing_it_wrong( __METHOD__, sprintf( 'Trying to autoload the %1$ component, but couldn\'t find the %2$ instantiation function in %3$.', esc_html( $slug ), esc_html( $function ), esc_html( $file ) ), null );
 						return false;
 					}
 				} else {

@@ -113,13 +113,13 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 
 						<div class="entry-content  u-content-width">
 							<?php
-    the_content(
+							the_content(
 								sprintf(
-            /* translators: %s: Name of current post. */
-            wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'julia-lite' ), array( 'span' => array( 'class' => array() ) ) ),
-            the_title( '<span class="screen-reader-text">"', '"</span>', false )
+									/* translators: %s: Name of current post. */
+									wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'julia-lite' ), array( 'span' => array( 'class' => array() ) ) ),
+									the_title( '<span class="screen-reader-text">"', '"</span>', false )
 								)
-    );
+							);
 
 							/**
 							 * IMPORTANT NOTICE:

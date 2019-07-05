@@ -528,6 +528,7 @@ if ( ! class_exists( 'Pixelgrade_Config' ) ) :
 					}
 
 					if ( ! is_array( $value ) ) {
+
 						_doing_it_wrong( __METHOD__, sprintf( esc_html__('You\'ve used the %s compare operator, but invalid list \'value\' provided! Please check your comparison!', 'julia-lite' ), esc_html( $operator ) ), null );
 
 						return $data;
@@ -566,8 +567,8 @@ if ( ! class_exists( 'Pixelgrade_Config' ) ) :
 						if ( is_array( $option ) && ! array_key_exists( 'type', $option ) ) {
 							if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
 								_doing_it_wrong(
-            __METHOD__,
-            sprintf( esc_html__('There is something wrong with the following Customizer option: %s > %s > %s.', 'julia-lite'), esc_html( $section_key ), 'options', esc_html( $option_key ) ) .
+            __METHOD__, 					/* translators: 1: Section name, 2: Options, 3: Option name */
+									sprintf( esc_html__('There is something wrong with the following Customizer option: %1$ > %2$ > %3$.', 'julia-lite'), esc_html( $section_key ), 'options', esc_html( $option_key ) ) .
             esc_html__(' The option has no TYPE defined! Maybe it doesn\'t even exist.', 'julia-lite' ), null
 								);
 							}
@@ -605,8 +606,8 @@ if ( ! class_exists( 'Pixelgrade_Config' ) ) :
 							if ( ! isset( $modified_config[ $section_key ]['options'][ $option_key ]['default'] ) ) {
 								if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
         _doing_it_wrong(
-            __METHOD__,
-            sprintf( esc_html__( 'You need to define a default value for the following Customizer option: %s > %s > %s.', 'julia-lite' ), $section_key, 'options', $option_key ) .
+            __METHOD__, 	/* translators: 1: Section name, 2: Options, 3: Option name */
+	        sprintf( esc_html__( 'You need to define a default value for the following Customizer option: %1$ > %2$ > %3$.', 'julia-lite' ), $section_key, 'options', $option_key ) .
             ( ! empty( $filter_to_use ) ? ' ' . sprintf( esc_html__( 'Use this filter: %s', 'julia-lite' ), esc_html( $filter_to_use ) ) : '' ), null
         );
 								}

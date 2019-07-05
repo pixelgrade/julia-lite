@@ -568,7 +568,8 @@ abstract class Pixelgrade_Component extends Pixelgrade_Singleton {
 			if ( is_array( $template_config ) ) {
 				// First some sanity check.
 				if ( empty( $template_config['type'] ) || empty( $template_config['templates'] ) ) {
-					_doing_it_wrong( __FUNCTION__, sprintf( 'The custom template configuration is wrong! Please check the %s component config, at the %s template.', esc_html( $component_slug ), esc_html( $key ) ), null );
+					/* translators: '%1$s: component name, %2$s: template name */
+					_doing_it_wrong( __FUNCTION__, sprintf( 'The custom template configuration is wrong! Please check the %1$s component config, at the %2$s template.', esc_html( $component_slug ), esc_html( $key ) ), null );
 					continue;
 				}
 

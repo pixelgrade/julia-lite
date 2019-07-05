@@ -269,6 +269,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				echo $args['after_widget']; // phpcs:ignore
 			} else {
 				// Let the developers know that something is amiss
+				/* translators: s%: widget name */
 				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t find a template part to use for displaying widget posts in the %s widget!', esc_html( $this->name ) ), null );
 			}
 		}
