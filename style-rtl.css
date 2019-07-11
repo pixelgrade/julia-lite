@@ -4,7 +4,7 @@ Theme URI: https://github.com/pixelgrade/julia-lite
 Author: Pixelgrade
 Author URI: https://pixelgrade.com
 Description: Julia Lite is a food blogging theme made for creators who want to showcase their recipes and culinary stories easily. With a strong focus on shaping a pleasant experience for your readers, this WordPress gem makes room for you to fulfill your passion in a smart and appealing way. It's time to embrace a more bold approach for your gourmet content in order to keep momentum with your audience.
-Version: 1.1.2
+Version: 1.1.3
 Tested up to: 5.2.2
 Requires at least: WordPress 4.9.9
 License: GNU General Public License v2 or later
@@ -4485,10 +4485,26 @@ fieldset {
       .comment .children {
         margin-right: 0; } }
 
-.comment-list, .comment-list ul, .comment-list ol {
+.comment-list {
   list-style: none;
   padding: 0;
   margin: 0; }
+  .comment-list .children {
+    list-style: none; }
+  .comment-list > li + li {
+    margin-top: 28px; }
+    @media only screen and (max-width: 1360px) {
+      .comment-list > li + li {
+        margin-top: 22.17822px; } }
+    @media only screen and (max-width: 1024px) {
+      .comment-list > li + li {
+        margin-top: 18.36066px; } }
+    @media only screen and (max-width: 768px) {
+      .comment-list > li + li {
+        margin-top: 15.66434px; } }
+    @media only screen and (max-width: 320px) {
+      .comment-list > li + li {
+        margin-top: 13.65854px; } }
 
 .comment-list,
 .comment-respond {
@@ -4593,6 +4609,63 @@ fieldset {
   .comment__metadata a:hover,
   .reply.reply a:hover {
     opacity: 0.8; }
+
+.pingback,
+.trackback {
+  margin-top: 21px;
+  margin-bottom: 21px;
+  font-weight: 400; }
+  @media only screen and (max-width: 1360px) {
+    .pingback,
+    .trackback {
+      margin-top: 16.77903px; } }
+  @media only screen and (max-width: 1024px) {
+    .pingback,
+    .trackback {
+      margin-top: 13.97089px; } }
+  @media only screen and (max-width: 768px) {
+    .pingback,
+    .trackback {
+      margin-top: 11.96794px; } }
+  @media only screen and (max-width: 320px) {
+    .pingback,
+    .trackback {
+      margin-top: 10.46729px; } }
+  @media only screen and (max-width: 1360px) {
+    .pingback,
+    .trackback {
+      margin-bottom: 16.77903px; } }
+  @media only screen and (max-width: 1024px) {
+    .pingback,
+    .trackback {
+      margin-bottom: 13.97089px; } }
+  @media only screen and (max-width: 768px) {
+    .pingback,
+    .trackback {
+      margin-bottom: 11.96794px; } }
+  @media only screen and (max-width: 320px) {
+    .pingback,
+    .trackback {
+      margin-bottom: 10.46729px; } }
+  .pingback a,
+  .trackback a {
+    margin-right: 7px; }
+    @media only screen and (max-width: 1360px) {
+      .pingback a,
+      .trackback a {
+        margin-right: 6.92576px; } }
+    @media only screen and (max-width: 1024px) {
+      .pingback a,
+      .trackback a {
+        margin-right: 6.85309px; } }
+    @media only screen and (max-width: 768px) {
+      .pingback a,
+      .trackback a {
+        margin-right: 6.78192px; } }
+    @media only screen and (max-width: 320px) {
+      .pingback a,
+      .trackback a {
+        margin-right: 6.71221px; } }
 
 .bypostauthor {
   color: inherit; }
@@ -5220,6 +5293,7 @@ ul.page-numbers.page-numbers a:before, ul.page-numbers.page-numbers a:after {
             box-shadow: none; }
 
 .entry-content .tags {
+  clear: both;
   margin-top: 42px; }
   @media only screen and (max-width: 1360px) {
     .entry-content .tags {
@@ -7138,6 +7212,25 @@ ul.page-numbers.page-numbers a:before, ul.page-numbers.page-numbers a:after {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column; }
+  .widget-area--side ul > li + li,
+  .widget-area--side ul ul {
+    margin-top: 14px; }
+    @media only screen and (max-width: 1360px) {
+      .widget-area--side ul > li + li,
+      .widget-area--side ul ul {
+        margin-top: 12.89431px; } }
+    @media only screen and (max-width: 1024px) {
+      .widget-area--side ul > li + li,
+      .widget-area--side ul ul {
+        margin-top: 11.95049px; } }
+    @media only screen and (max-width: 768px) {
+      .widget-area--side ul > li + li,
+      .widget-area--side ul ul {
+        margin-top: 11.13541px; } }
+    @media only screen and (max-width: 320px) {
+      .widget-area--side ul > li + li,
+      .widget-area--side ul ul {
+        margin-top: 10.42442px; } }
   .widget-area--side .widget_categories ul,
   .widget-area--side .widget_pages ul {
     list-style: none;
@@ -7178,6 +7271,16 @@ ul.page-numbers.page-numbers a:before, ul.page-numbers.page-numbers a:after {
 
 .widget-area .widget__title {
   margin-bottom: 1.5rem; }
+
+.wordpress-default-widgets ul ul, .widget_archive ul ul, .widget_categories ul ul, .widget_meta ul ul, .widget_nav_menu ul ul, .widget_pages ul ul, .widget_recent_comments ul ul, .widget_recent_entries ul ul, .widget_rss ul ul, .widget_text ul ul, .widget_tag_cloud ul ul, .widget_search ul ul, .widget_calendar ul ul {
+  counter-reset: submenu; }
+  .wordpress-default-widgets ul ul > li > a:before, .widget_archive ul ul > li > a:before, .widget_categories ul ul > li > a:before, .widget_meta ul ul > li > a:before, .widget_nav_menu ul ul > li > a:before, .widget_pages ul ul > li > a:before, .widget_recent_comments ul ul > li > a:before, .widget_recent_entries ul ul > li > a:before, .widget_rss ul ul > li > a:before, .widget_text ul ul > li > a:before, .widget_tag_cloud ul ul > li > a:before, .widget_search ul ul > li > a:before, .widget_calendar ul ul > li > a:before {
+    content: "- " counters(submenu, "- ", none);
+    counter-increment: submenu; }
+
+.wordpress-default-widgets ul, .widget_archive ul, .widget_categories ul, .widget_meta ul, .widget_nav_menu ul, .widget_pages ul, .widget_recent_comments ul, .widget_recent_entries ul, .widget_rss ul, .widget_text ul, .widget_tag_cloud ul, .widget_search ul, .widget_calendar ul, .wordpress-default-widgets ol, .widget_archive ol, .widget_categories ol, .widget_meta ol, .widget_nav_menu ol, .widget_pages ol, .widget_recent_comments ol, .widget_recent_entries ol, .widget_rss ol, .widget_text ol, .widget_tag_cloud ol, .widget_search ol, .widget_calendar ol {
+  list-style: none;
+  padding-right: 0; }
 
 .widget-area--post {
   float: left;
@@ -16105,6 +16208,9 @@ body {
     @media only screen and (max-width: 320px) {
       .c-card__action:before {
         width: 18.82353px; } }
+  .c-card__action:hover {
+    color: #F7F6F5;
+    background-color: #383C50; }
 
 /* stylelint-disable */
 .o-grid--4col-\@desk .c-card__action {
