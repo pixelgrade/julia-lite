@@ -8,7 +8,6 @@
  * @see         https://pixelgrade.com
  * @author      Pixelgrade
  * @package     Components
- * @version     2.0.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -147,7 +146,7 @@ if ( ! function_exists( 'pixelgrade_locate_component_file' ) ) {
 			$template_names = array();
 
 			if ( true === $lookup_theme_root ) {
-				// We need to look first in the theme root
+				// We need to look first in the theme root.
 				// But we have a problem with the way locate_template() works:
 				// it looks in the /wp-includes/theme-compat/ directory as a last resort!
 				// This prevents using the rest of the template candidates when there actually is a file there (like header.php).
@@ -181,6 +180,7 @@ if ( ! function_exists( 'pixelgrade_locate_component_file' ) ) {
 
 		// Make sure we have no double slashing.
 		if ( ! empty( $template ) ) {
+			$template = wp_normalize_path( $template );
 			$template = str_replace( '//', '/', $template );
 		}
 
@@ -330,6 +330,7 @@ if ( ! function_exists( 'pixelgrade_locate_component_template' ) ) {
 
 		// Make sure we have no double slashing.
 		if ( ! empty( $template ) ) {
+			$template = wp_normalize_path( $template );
 			$template = str_replace( '//', '/', $template );
 		}
 
@@ -419,6 +420,7 @@ if ( ! function_exists( 'pixelgrade_locate_component_page_template' ) ) {
 
 		// Make sure we have no double slashing.
 		if ( ! empty( $page_template ) ) {
+			$page_template = wp_normalize_path( $page_template );
 			$page_template = str_replace( '//', '/', $page_template );
 		}
 
@@ -541,6 +543,7 @@ if ( ! function_exists( 'pixelgrade_locate_component_template_part' ) ) {
 
 		// Make sure we have no double slashing.
 		if ( ! empty( $template ) ) {
+			$template = wp_normalize_path( $template );
 			$template = str_replace( '//', '/', $template );
 		}
 
@@ -569,8 +572,8 @@ if ( ! function_exists( 'pixelgrade_get_template_part' ) ) {
 		$located = pixelgrade_locate_template_part( $template_slug, $template_path, $template_name, $default_path );
 
 		if ( ! file_exists( $located ) ) {
-			/* translators: The template part path. */
-			_doing_it_wrong( __FUNCTION__, sprintf( esc_html__( '%s does not exist.', 'julia-lite' ), '<code>' . esc_html( $located ) . '</code>' ), null );
+			/* translators: %s: the template part located path */
+			_doing_it_wrong( __FUNCTION__, sprintf( esc_html__( '%s does not exist.', '__components_txtd' ), '<code>' . esc_html( $located ) . '</code>' ), null );
 
 			return;
 		}
@@ -578,8 +581,9 @@ if ( ! function_exists( 'pixelgrade_get_template_part' ) ) {
 		// Allow 3rd party plugins or themes to filter template file.
 		$located = apply_filters( 'pixelgrade_get_template_part', $located, $template_slug, $template_path, $args, $template_name, $default_path );
 
-		// phpcs:ignore
-		include( $located );
+		$located = wp_normalize_path( $located );
+
+		include( $located ); // phpcs:ignore
 	}
 }
 
@@ -719,6 +723,7 @@ if ( ! function_exists( 'pixelgrade_locate_template_part' ) ) {
 
 		// Make sure we have no double slashing.
 		if ( ! empty( $template ) ) {
+			$template = wp_normalize_path( $template );
 			$template = str_replace( '//', '/', $template );
 		}
 
@@ -743,6 +748,8 @@ function pixelgrade_make_relative_path( $path ) {
 		return '';
 	}
 
+	$path = wp_normalize_path( $path );
+
 	$stylesheet_path = trailingslashit( get_stylesheet_directory_uri() );
 	$template_path   = trailingslashit( get_template_directory() );
 
@@ -760,11 +767,11 @@ if ( ! function_exists( 'get_called_class' ) ) {
 	function get_called_class() {
 		$bt    = debug_backtrace();
 		$lines = file( $bt[1]['file'] );
-preg_match(
-    '/([a-zA-Z0-9\_]+)::' . $bt[1]['function'] . '/',
-    $lines[ $bt[1]['line'] - 1 ],
-    $matches
-);
+		preg_match(
+			'/([a-zA-Z0-9\_]+)::' . $bt[1]['function'] . '/',
+			$lines[ $bt[1]['line'] - 1 ],
+			$matches
+		);
 		return $matches[1];
 	}
 }
