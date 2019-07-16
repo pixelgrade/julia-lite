@@ -1,70 +1,29 @@
-# Julia Lite
-Julia Lite is a food blogging theme made for creators who want to showcase their recipes and culinary stories easily. With a strong focus on shaping a pleasant experience for your readers, this WordPress gem makes room for you to fulfill your passion in a smart and appealing way. It's time to embrace a more bold approach for your gourmet content in order to keep momentum with your audience.
+# Julia Lite: A Free WordPress Food Blogging Theme
+### Julia Lite is a food blogging theme made for creators who want to showcase their recipes and culinary stories easily. With a strong focus on shaping a pleasant experience for your readers, this WordPress gem makes room for you to fulfill your passion in a smart and appealing way. It's time to embrace a more bold approach for your gourmet content in order to keep momentum with your audience.
 
-## Description
+[Download for Free](https://downloads.wordpress.org/theme/julia-lite.latest-stable.zip) &nbsp;·&nbsp; [Demo Preview](https://demos.pixelgrade.com/julia-lite/) &nbsp;·&nbsp; [ Julia Pro](https://pixelgrade.com/themes/julia-pro/)
 
-Julia Lite is a free food blogging theme for community builders who want to share their passion for cooking.
+[![](https://img.shields.io/github/issues-closed/pixelgrade/julia-lite.svg?color=6cc644&label=Issues)](https://github.com/pixelgrade/julia-lite/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aclosed+) [![](https://img.shields.io/github/issues/pixelgrade/julia-lite.svg?color=4078c0&label=%20)](https://github.com/pixelgrade/julia-lite/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen)
 
-## Installation
+[![](https://user-images.githubusercontent.com/46342490/61282144-7979d680-a7c3-11e9-8b32-77c075c4c9f7.jpg)](https://pixelgrade.com/themes/julia-lite/)
 
-1. In your admin panel, go to Appearance -> Themes and click the Add New button.
-2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
+## Contributing
+The essence of **open source** is that by freely sharing the code, you have the freedom to use it for any purpose, study how it works and adapt it to your needs, improve the program and **share your improvements** with the community so that we all benefit. 🙏
 
-## Changelog
+It's great if you're willing to use your skills, knowledge, and experience to help further refine this project with your own improvements. We really appreciate it and you're 💯 welcome to submit an issue or pull request on any topic.
 
-= 1.1.1 =
-* Cleanup and security enhancements.
+### How can you help?
+-  🕵️‍♀️ **Discovered an issue?** Please report it [here](https://github.com/pixelgrade/julia-lite/issues/new "here") and help us fix it.
+- 🛠 **Fixed a bug?** That’s fantastic! Send a [pull request](https://github.com/pixelgrade/julia-lite/pulls "pull request") and we will look over it.
+- 🔮 **Need a feature?** Please take a moment to find out whether your idea fit the wider scope of this theme and provide as much detail and context as possible. Then propose it [here](https://github.com/pixelgrade/julia-lite/issues/new).
+- 💎 **Have you made something great?** [Share](https://github.com/pixelgrade/julia-lite/issues/new "Share") it with us.
 
-= 1.1.0 =
-* Improved the overall onboarding experience with the theme and introduced a dedicated help tool.
-* Improved the overall performance of the theme.
+### Contributors
+A manually curated list that include all the valuable people that have contributed to this project with code, user testing, feedback, or mockups. Thank you!
 
-= 1.0.8 =
-* Fixed a security issue
+[![](https://github.com/raduconst.png?size=64)](https://github.com/raduconst) [![](https://github.com/georgeolaru.png?size=64)](https://github.com/georgeolaru) [![](https://github.com/vladolaru.png?size=64)](https://github.com/vladolaru) [![](https://github.com/razwan.png?size=64)](https://github.com/razwan)  [![](https://github.com/alinclamba.png?size=64)](https://github.com/alinclamba) [![](https://github.com/oanafilip.png?size=64)](https://github.com/oanafilip)  [![](https://github.com/andreilupu.png?size=64)](https://github.com/andreilupu)  [![](https://github.com/cristian-frumusanu.png?size=64)](https://github.com/cristian-frumusanu) [![](https://github.com/BurloiuCosmin.png?size=64)](https://github.com/BurloiuCosmin) [![](https://github.com/madalingorbanescu.png?size=64)](https://github.com/madalingorbanescu)  [![](https://github.com/ilincaroman.png?size=64)](https://github.com/ilincaroman) [![](https://github.com/srzvan.png?size=64)](https://github.com/srzvan) [![](https://github.com/alexandra-budeanu.png?size=64)](https://github.com/alexandra-budeanu)
 
-= 1.0.7 =
-* Changed the structure of the readme file
-* Changed the copyright in the About page
+## License
+Julia Lite source code is released under the [GNU GPL v3 license](https://www.gnu.org/licenses/gpl-3.0.html).
 
-= 1.0.6 =
-* Fixed the footer copyright link
-* Added WPForms recommended plugin
-
-= 1.0.5 =
-* Fixed a header styling issue
-
-= 1.0.4 =
-* Changed the theme description
-* Added Freemius
-
-= 1.0.3 =
-* Fixed the code sniffer errors and checked a couple warnings too
-
-= 1.0.2 =
-* Removed theme URI
-* Escaped admin_url
-* Fixed the notice about customizer options
-* Changed screenshot images
-* Removed the Promo Box widget and edit the Selected Posts widget
-* Removed the unused local fonts
-* Added phpcs config file
-
-= 1.0.1 =
-* Added new widgets and sidebar areas
-
-= 1.0.0 =
-* Initial release
-
-## Credits
-
-Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License.
-
-* Images: images by PublicCo (https://pixabay.com/ro/users/PublicCo-5009832/) — [Source](https://pixabay.com/ro/alimente-fite-food-styling-blog-ul-2203732/), Karriezhu (https://pixabay.com/ro/users/karriezhu-801232/) — [Source](https://pixabay.com/ro/tabel-desert-cafea-tort-alimente-1589012/), Daria Yakovleva (https://pixabay.com/ro/users/Daria-Yakovleva-3938704/) — [Source](https://pixabay.com/ro/mic-dejun-branza-farfurie-2151201/), Daria Yakovleva (https://pixabay.com/ro/users/Daria-Yakovleva-3938704/) — [Source](https://pixabay.com/ro/ceai-mic-dejun-cupa-bea-1894045/), Daria Yakovleva (https://pixabay.com/ro/users/Daria-Yakovleva-3938704/) — [Source](https://pixabay.com/ro/magnolie-floare-prim%C4%83var%C4%83-flori-2179229/).
-
-The Julia Lite Theme bundles the following third-party resources:
-
-* normalize.css https://necolas.github.io/normalize.css/, (c) 2012-2016 Nicolas Gallagher and Jonathan Neal, licensed under [MIT](https://opensource.org/licenses/MIT)
-* rxjs by [ReactiveX](https://github.com/ReactiveX), licensed under [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0)
-* select2 by [Kevin Brown](https://kevin-brown.com/), licensed under [MIT](https://opensource.org/licenses/MIT)
-* slick http://kenwheeler.github.io/slick/, Copyright (c) 2017 [Ken Wheeler](https://github.com/kenwheeler), licensed under [MIT](https://opensource.org/licenses/MIT)
+2019 © Pixelgrade.
