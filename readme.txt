@@ -3,7 +3,7 @@ Theme URI: https://github.com/pixelgrade/julia-lite
 Author: Pixelgrade
 Author URI: https://pixelgrade.com
 Description: Julia Lite is a food blogging theme made for creators who want to showcase their recipes and culinary stories easily. With a strong focus on shaping a pleasant experience for your readers, this WordPress gem makes room for you to fulfill your passion in a smart and appealing way. It's time to embrace a more bold approach for your gourmet content in order to keep momentum with your audience.
-Version: 1.1.2
+Version: 1.1.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.9.9
@@ -13,9 +13,19 @@ Tags: blog, entertainment, translation-ready, theme-options, featured-images, cu
 Julia Lite is a free food blogging theme for community builders who want to share their passion for cooking.
 
 == Description ==
+
 Julia Lite is a food blogging theme made for creators who want to showcase their recipes and culinary stories easily. With a strong focus on shaping a pleasant experience for your readers, this WordPress gem makes room for you to fulfill your passion in a smart and appealing way. It's time to embrace a more bold approach for your gourmet content in order to keep momentum with your audience.
 
+== Installation ==
+
+1. In your admin panel, go to Appearance -> Themes and click the Add New button.
+2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
+3. Click Activate to use your new theme right away.
+
 == Changelog ==
+
+= 1.1.4 =
+* Minor PHP fixes in Windows environments.
 
 = 1.1.2 =
 * Minor PHP fixes.
@@ -75,5 +85,5 @@ The Julia Lite Theme bundles the following third-party resources:
 * select2 by [Kevin Brown](https://kevin-brown.com/), licensed under [MIT](https://opensource.org/licenses/MIT)
 * slick http://kenwheeler.github.io/slick/, Copyright (c) 2017 [Ken Wheeler](https://github.com/kenwheeler), licensed under [MIT](https://opensource.org/licenses/MIT)
 
-* Images: images by PublicCo — 
+* Images: images by PublicCo —
 [Source](https://pxhere.com/en/photo/1396929), PublicCo — [Source](https://pxhere.com/en/photo/1079016), Daria Yakovleva — [Source](https://www.maxpixel.net/Breakfast-Delicious-Cheesecakes-Confectionery-Plate-2151201), Daria Yakovleva — [Source](https://pxhere.com/en/photo/1265266), Daria Yakovleva — [Source](https://pxhere.com/en/photo/1382584), licensed under CC0 Public Domain.
