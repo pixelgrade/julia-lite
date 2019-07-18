@@ -2,10 +2,9 @@
 	"name": "julia-lite",
 	"main": "webpack.config.js",
 	"scripts": {
-		"julia:prod": "webpack --env.variation=julia && npm run rtl  && gulp zip --variation julia",
+		"julia:prod": "webpack --env.variation=julia  && gulp zip",
 		"julia:dev": "concurrently --kill-others \"npm run julia\" \"npm run watch\" \"gulp watch-variation --variation julia\"",
 		"julia": "webpack --watch --env.variation=julia",
-		"rtl": "./node_modules/.bin/rtlcss style.css rtl.css",
 		"watch": "npm-watch"
 	},
 	"watch": {
