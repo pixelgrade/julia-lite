@@ -83,11 +83,11 @@ if ( ! function_exists( 'pixelgrade_locate_component_file' ) ) {
 
 		$component_slug_path = '';
 		if ( ! empty( $component_slug ) ) {
-			$component_slug_path = trailingslashit( $component_slug );
+			$component_slug_path = trailingslashit( wp_normalize_path( $component_slug ) );
 		}
 
 		// Make sure that the slug doesn't have slashes at the beginning or end
-		$slug = trim( $slug, '/\\' );
+		$slug = trim( wp_normalize_path( $slug ), '/\\' );
 
 		// In case the slug has the component slug in front, remove it
 		if ( ! empty( $component_slug_path ) && 0 === strpos( $slug, $component_slug_path ) ) {
@@ -241,11 +241,11 @@ if ( ! function_exists( 'pixelgrade_locate_component_template' ) ) {
 
 		$component_slug_path = '';
 		if ( ! empty( $component_slug ) ) {
-			$component_slug_path = trailingslashit( $component_slug );
+			$component_slug_path = trailingslashit( wp_normalize_path( $component_slug ) );
 		}
 
 		// Make sure that the slug doesn't have slashes at the beginning or end
-		$slug = trim( $slug, '/\\' );
+		$slug = trim( wp_normalize_path( $slug ), '/\\' );
 
 		// In case the slug has the component slug in front, remove it
 		if ( ! empty( $component_slug_path ) && 0 === strpos( $slug, $component_slug_path ) ) {
@@ -375,11 +375,11 @@ if ( ! function_exists( 'pixelgrade_locate_component_page_template' ) ) {
 
 		$component_slug_path = '';
 		if ( ! empty( $component_slug ) ) {
-			$component_slug_path = trailingslashit( $component_slug );
+			$component_slug_path = trailingslashit( wp_normalize_path( $component_slug ) );
 		}
 
 		// Make sure that the slug doesn't have slashes at the beginning or end
-		$slug = trim( $slug, '/\\' );
+		$slug = trim( wp_normalize_path( $slug ), '/\\' );
 
 		// In case the slug has the component slug in front, remove it
 		if ( ! empty( $component_slug_path ) && 0 === strpos( $slug, $component_slug_path ) ) {
@@ -487,11 +487,11 @@ if ( ! function_exists( 'pixelgrade_locate_component_template_part' ) ) {
 
 		$component_slug_path = '';
 		if ( ! empty( $component_slug ) ) {
-			$component_slug_path = trailingslashit( $component_slug );
+			$component_slug_path = trailingslashit( wp_normalize_path( $component_slug ) );
 		}
 
 		// Make sure that the slug doesn't have slashes at the beginning or end
-		$slug = trim( $slug, '/\\' );
+		$slug = trim( wp_normalize_path( $slug ), '/\\' );
 
 		// In case the slug has the component slug in front, remove it
 		if ( ! empty( $component_slug_path ) && 0 === strpos( $slug, $component_slug_path ) ) {
@@ -659,11 +659,11 @@ if ( ! function_exists( 'pixelgrade_locate_template_part' ) ) {
 
 		$template_path_temp = '';
 		if ( ! empty( $template_path ) ) {
-			$template_path_temp = trailingslashit( $template_path );
+			$template_path_temp = trailingslashit( wp_normalize_path( $template_path ) );
 		}
 
 		// Make sure that the slug doesn't have slashes at the beginning or end
-		$slug = trim( $slug, '/\\' );
+		$slug = trim( wp_normalize_path( $slug ), '/\\' );
 
 		// First try it with the name also, if it's not empty.
 		if ( ! empty( $name ) ) {
@@ -750,8 +750,8 @@ function pixelgrade_make_relative_path( $path ) {
 
 	$path = wp_normalize_path( $path );
 
-	$stylesheet_path = trailingslashit( get_stylesheet_directory_uri() );
-	$template_path   = trailingslashit( get_template_directory() );
+	$stylesheet_path = wp_normalize_path( trailingslashit( get_stylesheet_directory_uri() ) );
+	$template_path   = wp_normalize_path( trailingslashit( get_template_directory() ) );
 
 	if ( 0 === strpos( $path, $stylesheet_path ) ) {
 		$path = substr( $path, strlen( $stylesheet_path ) );
