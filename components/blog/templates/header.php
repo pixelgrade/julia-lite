@@ -37,6 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </head>
 
 <body <?php body_class(); ?> <?php pixelgrade_body_attributes(); ?>>
+<?php wp_body_open(); ?>
 
 <?php
 /**

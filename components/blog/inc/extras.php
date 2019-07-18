@@ -242,3 +242,9 @@ if ( ! function_exists( 'pixelgrade_wrap_archive_pre_title' ) ) {
 	}
 }
 add_filter( 'get_the_archive_title', 'pixelgrade_wrap_archive_pre_title', 10, 1 );
+
+if ( ! function_exists( 'wp_body_open' ) ) {
+	function wp_body_open() {
+		do_action( 'wp_body_open' );
+	}
+}
