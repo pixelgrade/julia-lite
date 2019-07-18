@@ -1,5 +1,6 @@
 Theme Name: Julia Lite
 Theme URI: https://github.com/pixelgrade/julia-lite
+Contributors: pixelgrade, babbardel, vlad.olaru, razvanonofrei
 Author: Pixelgrade
 Author URI: https://pixelgrade.com
 Description: Julia Lite is a food blogging theme made for creators who want to showcase their recipes and culinary stories easily. With a strong focus on shaping a pleasant experience for your readers, this WordPress gem makes room for you to fulfill your passion in a smart and appealing way. It's time to embrace a more bold approach for your gourmet content in order to keep momentum with your audience.
