@@ -1,7 +1,7 @@
 # Julia Lite: A Free WordPress Food Blogging Theme
 ### Julia Lite is a food blogging theme made for creators who want to showcase their recipes and culinary stories easily. With a strong focus on shaping a pleasant experience for your readers, this WordPress gem makes room for you to fulfill your passion in a smart and appealing way. It's time to embrace a more bold approach for your gourmet content in order to keep momentum with your audience.
 
-[Download for Free](https://downloads.wordpress.org/theme/julia-lite.latest-stable.zip) &nbsp;·&nbsp; [Demo Preview](https://demos.pixelgrade.com/julia-lite/) &nbsp;·&nbsp; [ Julia Pro](https://pixelgrade.com/themes/julia-pro/)
+[View Demo](https://demos.pixelgrade.com/julia-lite/) &nbsp;·&nbsp; [Documentation](https://pixelgrade.com/julia-lite-documentation/) &nbsp;·&nbsp; [Download for Free](https://downloads.wordpress.org/theme/julia-lite.latest-stable.zip) &nbsp;·&nbsp; [View Pro Version](https://pixelgrade.com/themes/julia-pro/)
 
 [![](https://img.shields.io/github/issues-closed/pixelgrade/julia-lite.svg?color=6cc644&label=Issues)](https://github.com/pixelgrade/julia-lite/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aclosed+) [![](https://img.shields.io/github/issues/pixelgrade/julia-lite.svg?color=4078c0&label=%20)](https://github.com/pixelgrade/julia-lite/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen)
 
