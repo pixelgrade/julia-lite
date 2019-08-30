@@ -182,25 +182,6 @@ function pixelgrade_footer_get_nav_menu( $args, $menu_location = '' ) {
 }
 
 /**
- * Display the footer back to top link
- */
-function pixelgrade_footer_the_back_to_top_link() {
-	echo wp_kses_post( pixelgrade_footer_get_back_to_top_link() );
-}
-
-/**
- * Get the footer back to top link
- */
-function pixelgrade_footer_get_back_to_top_link() {
-	$option = pixelgrade_option( 'footer_hide_back_to_top_link', false );
-	if ( empty( $option ) ) {
-		return '<a class="back-to-top" href="#">' . esc_html__( 'Back to Top', 'julia-lite' ) . '</a>';
-	}
-
-	return '';
-}
-
-/**
  * Get the footer copyright content (HTML or simple text).
  * It already has do_shortcode applied.
  *

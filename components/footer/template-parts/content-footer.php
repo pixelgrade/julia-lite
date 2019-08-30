@@ -68,9 +68,7 @@ $zones = pixelgrade_footer_get_zones();
 				// We have something special to show - bogus things.
 				// Better check if they output anything.
 				$output = '';
-				if ( 'footer-back-to-top-link' === $menu_location_id ) {
-					$output = pixelgrade_footer_get_back_to_top_link();
-				} elseif ( 'footer-copyright' === $menu_location_id ) {
+				if ( 'footer-copyright' === $menu_location_id ) {
 					$output = pixelgrade_footer_get_copyright_content();
 				}
 
@@ -88,9 +86,7 @@ $zones = pixelgrade_footer_get_zones();
 				// We have something special to show - bogus things.
 				// Better check if they output anything.
 				$output = '';
-				if ( 'footer-back-to-top-link' === $sidebar_id ) {
-					$output = pixelgrade_footer_get_back_to_top_link();
-				} elseif ( 'footer-copyright' === $sidebar_id ) {
+				if ( 'footer-copyright' === $sidebar_id ) {
 					$output = pixelgrade_footer_get_copyright_content();
 				}
 
@@ -125,9 +121,7 @@ $zones = pixelgrade_footer_get_zones();
 				if ( empty( $current_menu_location['order'] ) || ( ! empty( $current_sidebar['order'] ) && $current_sidebar['order'] >= $current_menu_location['order'] ) ) {
 					if ( ! empty( $current_sidebar['bogus'] ) ) {
 						// We have something special to show.
-						if ( 'footer-back-to-top-link' === $current_sidebar_id ) {
-							pixelgrade_footer_the_back_to_top_link();
-						} elseif ( 'footer-copyright' === $current_sidebar_id ) {
+						if ( 'footer-copyright' === $current_sidebar_id ) {
 							echo pixelgrade_footer_get_copyright_content(); // phpcs:ignore
 						}
 					} else {
@@ -140,9 +134,7 @@ $zones = pixelgrade_footer_get_zones();
 				} else {
 					if ( ! empty( $current_menu_location['bogus'] ) ) {
 						// We have something special to show
-						if ( 'footer-back-to-top-link' === $current_menu_location_id ) {
-							pixelgrade_footer_the_back_to_top_link();
-						} elseif ( 'footer-copyright' === $current_menu_location_id ) {
+						if ( 'footer-copyright' === $current_menu_location_id ) {
 							echo pixelgrade_footer_get_copyright_content(); // phpcs:ignore
 						}
 					} else {

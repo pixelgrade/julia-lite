@@ -2,7 +2,7 @@
 /**
  * Require files that deal with various plugins integrations.
  *
- * @package Julia
+ * @package Julia Lite
  * @since 1.0.0
  */
 
