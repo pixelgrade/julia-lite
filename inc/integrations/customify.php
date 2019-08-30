@@ -3,7 +3,7 @@
  * Julia Lite Customizer Options Config
  *
  * @package Julia Lite
- * @since 1.1.7
+ * @since 1.2.0
  */
 
 /**
