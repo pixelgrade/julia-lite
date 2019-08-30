@@ -147,7 +147,12 @@ function julia_lite_add_customify_style_manager_section( $options ) {
 		),
 	);
 
-	$options['sections']['style_manager_section'] = Customify_Array::array_merge_recursive_distinct( $options['sections']['style_manager_section'], $new_config );
+	// The section might be already defined, thus we merge, not replace the entire section config.
+	if ( class_exists( 'Customify_Array' ) && method_exists( 'Customify_Array', 'array_merge_recursive_distinct' ) ) {
+		$options['sections']['style_manager_section'] = Customify_Array::array_merge_recursive_distinct( $options['sections']['style_manager_section'], $new_config );
+	} else {
+		$options['sections']['style_manager_section'] = array_merge_recursive( $options['sections']['style_manager_section'], $new_config );
+	}
 
 	return $options;
 }
@@ -481,7 +486,7 @@ function julia_lite_fill_customify_options( $options ) {
 							'selector'        => '
 								.entry-content a:not([class]), 
 								.comment__content a',
-							'callback_filter' => 'links_box_shadow_cb'
+							'callback_filter' => 'julia_links_box_shadow_cb'
 						),
 						array(
 							'property'        => 'box-shadow',
@@ -489,7 +494,7 @@ function julia_lite_fill_customify_options( $options ) {
 								.comment__content a:hover, 
 								.widget a:hover,
 								.c-footer .widget a:hover',
-							'callback_filter' => 'links_hover_box_shadow_cb'
+							'callback_filter' => 'julia_links_hover_box_shadow_cb'
 						),
 					),
 				),
@@ -622,7 +627,11 @@ function julia_lite_fill_customify_options( $options ) {
 		)
 	);
 
-	$options['sections'] = Customify_Array::array_merge_recursive_distinct( $options['sections'], $new_config );
+	if ( class_exists( 'Customify_Array' ) && method_exists( 'Customify_Array', 'array_merge_recursive_distinct' ) ) {
+		$options['sections'] = Customify_Array::array_merge_recursive_distinct( $options['sections'], $new_config );
+	} else {
+		$options['sections'] = array_merge_recursive( $options['sections'], $new_config );
+	}
 
 	return $options;
 }
@@ -661,7 +670,7 @@ function julia_card_letter_color( $value, $selector, $property, $unit ) {
 }
 
 // @todo check this out
-function links_box_shadow_cb( $value, $selector, $property, $unit ) {
+function julia_links_box_shadow_cb( $value, $selector, $property, $unit ) {
 	$output = '';
 
 	$output .= $selector . ' {' . PHP_EOL .
@@ -671,10 +680,10 @@ function links_box_shadow_cb( $value, $selector, $property, $unit ) {
 	return $output;
 }
 
-function links_box_shadow_cb_customizer_preview() {
+function julia_links_box_shadow_cb_customizer_preview() {
 
 	$js = "
-function links_box_shadow_cb( value, selector, property, unit ) {
+function julia_links_box_shadow_cb( value, selector, property, unit ) {
 
     var css = '',
         style = document.getElementById('julia_links_box_shadow_cb_style_tag'),
@@ -704,9 +713,9 @@ function links_box_shadow_cb( value, selector, property, unit ) {
 	wp_add_inline_script( 'customify-previewer-scripts', $js );
 }
 
-add_action( 'customize_preview_init', 'links_box_shadow_cb_customizer_preview', 20 );
+add_action( 'customize_preview_init', 'julia_links_box_shadow_cb_customizer_preview', 20 );
 
-function links_hover_box_shadow_cb( $value, $selector, $property, $unit ) {
+function julia_links_hover_box_shadow_cb( $value, $selector, $property, $unit ) {
 	$output = '';
 
 	$output .= $selector . ' {' . PHP_EOL .
@@ -716,10 +725,10 @@ function links_hover_box_shadow_cb( $value, $selector, $property, $unit ) {
 	return $output;
 }
 
-function links_hover_box_shadow_cb_customizer_preview() {
+function julia_links_hover_box_shadow_cb_customizer_preview() {
 
 	$js = "
-function links_hover_box_shadow_cb( value, selector, property, unit ) {
+function julia_links_hover_box_shadow_cb( value, selector, property, unit ) {
 
     var css = '',
         style = document.getElementById('julia_aspect_ratio_cb_style_tag'),
@@ -749,7 +758,7 @@ function links_hover_box_shadow_cb( value, selector, property, unit ) {
 	wp_add_inline_script( 'customify-previewer-scripts', $js );
 }
 
-add_action( 'customize_preview_init', 'links_hover_box_shadow_cb_customizer_preview', 20 );
+add_action( 'customize_preview_init', 'julia_links_hover_box_shadow_cb_customizer_preview', 20 );
 
 function julia_inverted_site_header_height( $value, $selector, $property, $unit ) {
 
