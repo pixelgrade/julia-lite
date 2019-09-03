@@ -338,7 +338,8 @@ function julia_lite_fill_customify_options( $options ) {
 								.u-buttons-outline .comment-form .form-submit .submit,
 								.u-buttons-outline .c-comments-toggle__label,
 								.c-search-overlay__close-button,
-								.select2-container[class] .select2-results__option[aria-selected=true]',
+								.select2-container[class] .select2-results__option[aria-selected=true],
+								ul.page-numbers .next, ul.page-numbers .prev',
 						),
 						array(
 							'property' => 'background-color',
@@ -378,13 +379,6 @@ function julia_lite_fill_customify_options( $options ) {
 						array(
 							'property' => 'color',
 							'selector' => 'h1, .h1',
-						),
-						// Buttons Hover
-						array(
-							'property' => 'background-color',
-							'selector' => '.button, .entry-content .button, .c-btn, .c-comments-toggle__label, .c-card__action, button[type=button], button[type=reset], button[type=submit], input[type=button], input[type=submit], div.jetpack-recipe .jetpack-recipe-print[class] a, .entry-header .cats a, .entry-content .cats[class] > a, .meta__item--button, [id="subscribe-submit"], .u-buttons-solid .button:hover, .u-buttons-solid .entry-content .button:hover, .u-buttons-solid .c-btn:hover, .u-buttons-solid .c-comments-toggle__label:hover, .u-buttons-solid .c-card__action:hover, .u-buttons-solid button[type=button]:hover, .u-buttons-solid button[type=reset]:hover, .u-buttons-solid button[type=submit]:hover, .u-buttons-solid input[type=button]:hover, .u-buttons-solid input[type=submit]:hover, .u-buttons-solid div.jetpack-recipe .jetpack-recipe-print[class] a:hover, .u-buttons-solid .entry-header .cats a:hover, .u-buttons-solid .entry-content .cats[class] > a:hover, .u-buttons-solid .meta__item--button:hover, .u-buttons-solid [id="subscribe-submit"]:hover, .u-buttons-solid .button:active, .u-buttons-solid .entry-content .button:active, .u-buttons-solid .c-btn:active, .u-buttons-solid .c-comments-toggle__label:active, .u-buttons-solid .c-card__action:active, .u-buttons-solid button[type=button]:active, .u-buttons-solid button[type=reset]:active, .u-buttons-solid button[type=submit]:active, .u-buttons-solid input[type=button]:active, .u-buttons-solid input[type=submit]:active, .u-buttons-solid div.jetpack-recipe .jetpack-recipe-print[class] a:active, .u-buttons-solid .entry-header .cats a:active, .u-buttons-solid .entry-content .cats[class] > a:active, .u-buttons-solid .meta__item--button:active, .u-buttons-solid [id="subscribe-submit"]:active, .u-buttons-solid .button:focus, .u-buttons-solid .entry-content .button:focus, .u-buttons-solid .c-btn:focus, .u-buttons-solid .c-comments-toggle__label:focus, .u-buttons-solid .c-card__action:focus, .u-buttons-solid button[type=button]:focus, .u-buttons-solid button[type=reset]:focus, .u-buttons-solid button[type=submit]:focus, .u-buttons-solid input[type=button]:focus, .u-buttons-solid input[type=submit]:focus, .u-buttons-solid div.jetpack-recipe .jetpack-recipe-print[class] a:focus, .u-buttons-solid .entry-header .cats a:focus, .u-buttons-solid .entry-content .cats[class] > a:focus, .u-buttons-solid .meta__item--button:focus, .u-buttons-solid [id="subscribe-submit"]:focus,
-
-								#content .sharedaddy[class] .sd-social-icon .sd-content.sd-content ul li[class*=share-] a.sd-button:hover',
 						),
 					),
 				),
@@ -543,6 +537,14 @@ function julia_lite_fill_customify_options( $options ) {
 			'title' => '',
 			'type'  => 'hidden',
 			'options'   => array(
+				'buttons_style' => array(
+					'type'      => 'hidden_control',
+					'default'   => 'solid'
+				),
+				'buttons_shape' => array(
+					'type'      => 'hidden_control',
+					'default'   => 'square'
+				),
 				'buttons_color'      => array(
 					'default' => JULIALITE_SM_DARK_PRIMARY,
 					'type' => 'hidden_control',
@@ -653,7 +655,7 @@ function julia_card_letter_color( $value, $selector, $property, $unit ) {
 	$image_background = pixelgrade_option( 'blog_item_thumbnail_background' );
 
 	$dark_color = pixelgrade_option( 'blog_item_title_color' );
-	$light_color = pixelgrade_option( 'main_content_content_background_color' );
+	$light_color = pixelgrade_option( 'main_content_body_text_color' );
 
 	$no_image_color = julia_colorislight( $no_image_background ) ? $dark_color : $light_color;
 	$image_color = julia_colorislight( $image_background ) ? $dark_color : $light_color;

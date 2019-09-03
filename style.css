@@ -6405,6 +6405,25 @@ ul.page-numbers .prev, h3 {
     .c-author__footer a:hover {
       text-decoration: underline; }
 
+.c-card:focus-within .c-card__frame {
+  opacity: 1; }
+
+.c-card:focus-within img {
+  opacity: .6; }
+
+.c-card:focus-within .c-card__letter {
+  -webkit-transform: translateY(-50%) translateX(-50%);
+          transform: translateY(-50%) translateX(-50%);
+  opacity: .7; }
+
+.c-card__action:focus-within:before {
+  -webkit-transform: translate3d(5px, 0, 0);
+          transform: translate3d(5px, 0, 0); }
+
+.c-card__action:focus-within:after {
+  -webkit-transform: translate3d(5px, calc(0.5px - 50%), 0);
+          transform: translate3d(5px, calc(0.5px - 50%), 0); }
+
 .c-card__meta[class][class] a {
   text-decoration: none;
   background: none;
@@ -15860,8 +15879,8 @@ body {
 .widget-area--side {
   z-index: 100; }
 
-.menu--primary > li[class*='children'] > a:after {
-  opacity: 0; }
+.menu--primary li[class*='children'] > a:after {
+  content: none; }
 
 .single .post-categories[class] a {
   font-family: "Montserrat", sans-serif;

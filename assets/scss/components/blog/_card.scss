@@ -1,3 +1,28 @@
+.c-card:focus-within {
+  .c-card__frame {
+    opacity: 1;
+  }
+
+  img {
+    opacity: .6;
+  }
+
+  .c-card__letter {
+    transform: translateY(-50%) translateX(-50%);
+    opacity: .7;
+  }
+}
+
+.c-card__action:focus-within {
+  &:before {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  &:after {
+    transform: translate3d(5px, calc(0.5px - 50%), 0);
+  }
+}
+
 .c-card__meta[class][class] {
 
   a {
