@@ -750,7 +750,7 @@ function pixelgrade_make_relative_path( $path ) {
 
 	$path = wp_normalize_path( $path );
 
-	$stylesheet_path = wp_normalize_path( trailingslashit( get_stylesheet_directory_uri() ) );
+	$stylesheet_path = wp_normalize_path( trailingslashit( get_stylesheet_directory() ) );
 	$template_path   = wp_normalize_path( trailingslashit( get_template_directory() ) );
 
 	if ( 0 === strpos( $path, $stylesheet_path ) ) {
