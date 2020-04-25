@@ -4,8 +4,8 @@ Theme URI: https://github.com/pixelgrade/julia-lite
 Author: Pixelgrade
 Author URI: https://pixelgrade.com
 Description: Julia Lite is a food blogging theme made for creators who want to showcase their recipes and culinary stories easily. With a strong focus on shaping a pleasant experience for your readers, this WordPress gem makes room for you to fulfill your passion in a smart and appealing way. It's time to embrace a more bold approach for your gourmet content in order to keep momentum with your audience.
-Version: 1.2.0.1
-Tested up to: 5.2.2
+Version: 1.2.1
+Tested up to: 5.4
 Requires at least: WordPress 4.9.9
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -6405,6 +6405,25 @@ ul.page-numbers .prev, h3 {
     .c-author__footer a:hover {
       text-decoration: underline; }
 
+.c-card:focus-within .c-card__frame {
+  opacity: 1; }
+
+.c-card:focus-within img {
+  opacity: .6; }
+
+.c-card:focus-within .c-card__letter {
+  -webkit-transform: translateY(-50%) translateX(50%);
+          transform: translateY(-50%) translateX(50%);
+  opacity: .7; }
+
+.c-card__action:focus-within:before {
+  -webkit-transform: translate3d(-5px, 0, 0);
+          transform: translate3d(-5px, 0, 0); }
+
+.c-card__action:focus-within:after {
+  -webkit-transform: translate3d(-5px, calc(0.5px - 50%), 0);
+          transform: translate3d(-5px, calc(0.5px - 50%), 0); }
+
 .c-card__meta[class][class] a {
   text-decoration: none;
   background: none;
@@ -10973,6 +10992,13 @@ a[rel='home'] {
     position: static; }
     .menu--primary li[class*='children']:after {
       content: none; }
+    .menu--primary li[class*='children'] > a:after {
+      content: '+';
+      padding-right: 5px;
+      border: 0; }
+  .menu--primary > li[class*='children'] > a:after {
+    position: absolute;
+    right: 100%; }
   .menu--primary > li[class*='children'] {
     position: static; }
     .menu--primary > li[class*='children']:after {
@@ -11154,7 +11180,7 @@ a[rel='home'] {
       background-color: transparent;
       font-family: "Montserrat", sans-serif;
       font-weight: 600; }
-    .menu--primary li[class*="children"] > a:after {
+    .menu--primary li[class*='children'] > a:after {
       content: none; }
   .menu--primary .sub-menu .sub-menu {
     padding-bottom: 0; }
@@ -15852,6 +15878,9 @@ body {
 
 .widget-area--side {
   z-index: 100; }
+
+.menu--primary li[class*='children'] > a:after {
+  content: none; }
 
 .single .post-categories[class] a {
   font-family: "Montserrat", sans-serif;
