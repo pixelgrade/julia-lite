@@ -146,7 +146,7 @@ function julia_get_blog_class( $class = '', $location = '' ) {
 	// items per row
 	$items_per_row          = intval( pixelgrade_option( 'blog_items_per_row', 3 ) );
 	$items_per_row_at_desk  = $items_per_row;
-	$items_per_row_at_lap   = $items_per_row == 1 ? 1 : $items_per_row > 4 ? $items_per_row - 1 : $items_per_row;
+	$items_per_row_at_lap   = $items_per_row == 1 ? 1 : ( $items_per_row > 4 ? $items_per_row - 1 : $items_per_row );
 	$items_per_row_at_small = $items_per_row_at_lap > 1 ? $items_per_row_at_lap - 1 : $items_per_row_at_lap;
 	$items_per_row_class    = 'o-grid--' . $items_per_row_at_desk . 'col-@desk o-grid--' . $items_per_row_at_lap . 'col-@lap o-grid--' . $items_per_row_at_small . 'col-@xsmall';
 	// title position
