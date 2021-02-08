@@ -67,7 +67,7 @@ if ( ! class_exists( 'Pixelgrade_Helper' ) ) :
 			$data     = null;
 
 			ob_start();
-			$response = call_user_func_array( $function, $args );
+			$response = call_user_func_array( $function, array_values( $args ) );
 			$data     = ob_get_contents();
 			ob_end_clean();
 

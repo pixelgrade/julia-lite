@@ -113,7 +113,7 @@ class Pixelgrade_CallbackBlock extends Pixelgrade_Block {
 		// @todo is not safe to send the blocks trail - need to find another way
 		// $args['blocks_trail'] = $blocks_trail;
 		// phpcs:ignore
-		echo call_user_func_array( $this->callback, $args );
+		echo call_user_func_array( $this->callback, array_values( $args ) );
 
 		/**
 		 * Fires after a specific callback block's content has been rendered.

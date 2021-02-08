@@ -332,7 +332,7 @@ if ( ! class_exists( 'Pixelgrade_Config' ) ) :
 				if ( empty( $check['args'] ) ) {
 					$check['args'] = array();
 				}
-				$response = self::maybeEvaluateComparison( call_user_func_array( $check['callback'], $check['args'] ), $check );
+				$response = self::maybeEvaluateComparison( call_user_func_array( $check['callback'], array_values( $check['args'] ) ), $check );
 				// Standardize the response.
 				if ( ! $response ) {
 					return false;
