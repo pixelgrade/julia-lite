@@ -91,7 +91,7 @@
             }, 1000);
 	});
 
-	$(window).load(function () {
+	$(window).on('load', function () {
 
 		setTimeout(hero_toggleSlidesOptionsDisplay, 300 );
 		setTimeout(hero_featuredProjectsHelperIds, 300 );
